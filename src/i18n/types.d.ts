@@ -1,10 +1,13 @@
 import 'i18next';
+import type auth from '../locales/es/auth.json';
 import type common from '../locales/es/common.json';
+import type errors from '../locales/es/errors.json';
+import type settings from '../locales/es/settings.json';
 
 // El español es la fuente de verdad: una clave inexistente es error de TypeScript.
 declare module 'i18next' {
   interface CustomTypeOptions {
     defaultNS: 'common';
-    resources: { common: typeof common };
+    resources: { common: typeof common; auth: typeof auth; errors: typeof errors; settings: typeof settings };
   }
 }

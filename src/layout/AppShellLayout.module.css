@@ -1,0 +1,64 @@
+.banner {
+  border-radius: 0;
+}
+
+.supportBanner {
+  border-radius: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    height: 48px;
+  }
+}
+
+.userButton {
+  border-radius: 999px;
+  padding: 2px;
+}
+
+.navLink {
+  border-radius: var(--mantine-radius-md);
+  min-height: 44px;
+}
+
+.footer {
+  padding-bottom: env(safe-area-inset-bottom);
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    display: none;
+  }
+}
+
+.bottomNav {
+  display: flex;
+  height: 64px;
+}
+
+.bottomItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 44px;
+  font-size: 11px;
+  color: var(--mantine-color-dimmed);
+  text-decoration: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+
+  &[data-active] {
+    color: var(--mantine-primary-color-filled);
+    font-weight: 600;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--mantine-primary-color-filled);
+    outline-offset: -2px;
+  }
+}

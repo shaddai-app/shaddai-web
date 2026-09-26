@@ -1,10 +1,12 @@
 import { ActionIcon, Menu, Tooltip } from '@mantine/core';
 import { IconCheck, IconLanguage } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
+import { usePersistPreference } from '../auth/use-preferences';
 import { LANGUAGES } from '../i18n';
 
 export function LanguageMenu() {
   const { t, i18n } = useTranslation();
+  const persist = usePersistPreference();
   const current = i18n.resolvedLanguage;
 
   return (
@@ -20,7 +22,10 @@ export function LanguageMenu() {
         {LANGUAGES.map((lng) => (
           <Menu.Item
             key={lng}
-            onClick={() => void i18n.changeLanguage(lng)}
+            onClick={() => {
+              void i18n.changeLanguage(lng);
+              void persist({ locale: lng });
+            }}
             rightSection={lng === current ? <IconCheck size={16} /> : null}
           >
             {t(`language.${lng}`)}

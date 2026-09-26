@@ -1,0 +1,27 @@
+{
+  "profile": {
+    "title": "My profile",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "emailHint": "To change your email, ask your church administrator.",
+    "language": "Language",
+    "languageDefault": "Church default ({{language}})",
+    "theme": "Theme"
+  },
+  "security": {
+    "title": "Security",
+    "password": "Password",
+    "passwordDescription": "We recommend a long phrase that you don't use on other sites.",
+    "changePassword": "Change password",
+    "sessions": "Active sessions",
+    "sessionsDescription": "Devices where your account is signed in. Sign out the ones you don't recognize.",
+    "current": "This device",
+    "support": "Shaddai support",
+    "lastUsed": "Last activity: {{date}}",
+    "unknownDevice": "Unknown device",
+    "revoke": "Sign out",
+    "revoked": "Session closed",
+    "logoutAllConfirm": "You will be signed out on all your devices, including this one. Continue?"
+  }
+}

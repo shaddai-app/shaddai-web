@@ -1,21 +1,60 @@
-import { Center, Stack, Text, Title } from '@mantine/core';
-import type { QueryClient } from '@tanstack/react-query';
-import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
+import { Center, Loader, Stack, Text, Title } from '@mantine/core';
+import { useQueryClient, type QueryClient } from '@tanstack/react-query';
+import { createRootRouteWithContext, Outlet, useRouter } from '@tanstack/react-router';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLayout } from '../layout/AppLayout';
+import { sessionEvents } from '../api/http';
 
 export interface RouterContext {
   queryClient: QueryClient;
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
-  component: () => (
-    <AppLayout>
-      <Outlet />
-    </AppLayout>
-  ),
+  component: Root,
   notFoundComponent: NotFound,
+  pendingComponent: PageLoader,
 });
+
+/** Reacciona a la sesión que se pierde (refresh vencido) o a la sesión de soporte que termina. */
+function SessionEvents() {
+  const router = useRouter();
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    const onLoggedOut = () => {
+      queryClient.clear();
+      void router.navigate({ to: '/login', search: { redirect: router.state.location.href } });
+    };
+    const onSupportEnded = () => {
+      void queryClient.invalidateQueries({ queryKey: ['me'] });
+      void router.navigate({ to: '/plataforma' });
+    };
+    sessionEvents.addEventListener('logged-out', onLoggedOut);
+    sessionEvents.addEventListener('support-ended', onSupportEnded);
+    return () => {
+      sessionEvents.removeEventListener('logged-out', onLoggedOut);
+      sessionEvents.removeEventListener('support-ended', onSupportEnded);
+    };
+  }, [router, queryClient]);
+  return null;
+}
+
+function Root() {
+  return (
+    <>
+      <SessionEvents />
+      <Outlet />
+    </>
+  );
+}
+
+export function PageLoader() {
+  const { t } = useTranslation();
+  return (
+    <Center mih="60vh">
+      <Loader aria-label={t('loading')} />
+    </Center>
+  );
+}
 
 function NotFound() {
   const { t } = useTranslation();
