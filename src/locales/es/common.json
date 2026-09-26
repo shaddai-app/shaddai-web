@@ -1,0 +1,25 @@
+{
+  "appName": "Shaddai",
+  "tagline": "Administración para tu iglesia",
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "auto": "Según el sistema"
+  },
+  "language": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "pt": "Português"
+  },
+  "status": {
+    "title": "Estado del sistema",
+    "api": "API",
+    "database": "Base de datos",
+    "ok": "Operativa",
+    "down": "Sin conexión",
+    "checking": "Verificando…"
+  },
+  "notFound": "La página que buscás no existe."
+}

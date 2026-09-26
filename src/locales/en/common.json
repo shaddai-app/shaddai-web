@@ -1,0 +1,25 @@
+{
+  "appName": "Shaddai",
+  "tagline": "Management for your church",
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "auto": "System"
+  },
+  "language": {
+    "label": "Language",
+    "es": "Español",
+    "en": "English",
+    "pt": "Português"
+  },
+  "status": {
+    "title": "System status",
+    "api": "API",
+    "database": "Database",
+    "ok": "Operational",
+    "down": "Unavailable",
+    "checking": "Checking…"
+  },
+  "notFound": "The page you are looking for does not exist."
+}

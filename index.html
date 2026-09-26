@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#3b5f94" />
+    <title>Shaddai</title>
+    <script>
+      // Aplica el esquema de color antes del primer render para evitar parpadeo (misma clave que Mantine).
+      (function () {
+        try {
+          var stored = localStorage.getItem('shaddai-color-scheme');
+          var scheme = stored === 'light' || stored === 'dark' ? stored : 'auto';
+          var resolved =
+            scheme === 'auto'
+              ? window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+              : scheme;
+          document.documentElement.setAttribute('data-mantine-color-scheme', resolved);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

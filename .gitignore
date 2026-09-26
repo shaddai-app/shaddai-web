@@ -1,0 +1,29 @@
+node_modules/
+dist/
+dist-ssr/
+coverage/
+
+# Generados
+src/routeTree.gen.ts
+src/api/generated/
+
+# Entorno
+.env
+.env.*
+!.env.example
+
+# Playwright
+test-results/
+playwright-report/
+
+# Config local de herramientas
+.claude/
+
+# Logs / SO / editores
+*.log
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
