@@ -22,10 +22,14 @@ function SessionEvents() {
   useEffect(() => {
     const onLoggedOut = () => {
       queryClient.clear();
-      void router.navigate({ to: '/login', search: { redirect: router.state.location.href } });
+      const { pathname, href } = router.state.location;
+      // Desde pantallas públicas (login, recuperación) no tiene sentido volver a ellas después.
+      const isPublic = ['/login', '/olvide-contrasena', '/restablecer'].includes(pathname);
+      void router.navigate({ to: '/login', search: isPublic ? {} : { redirect: href } });
     };
     const onSupportEnded = () => {
-      void queryClient.invalidateQueries({ queryKey: ['me'] });
+      // El token de soporte ya se descartó en el cliente HTTP; se limpian los datos de la iglesia.
+      queryClient.clear();
       void router.navigate({ to: '/plataforma' });
     };
     sessionEvents.addEventListener('logged-out', onLoggedOut);
