@@ -4,6 +4,7 @@ import { createRootRouteWithContext, Outlet, useRouter } from '@tanstack/react-r
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sessionEvents } from '../api/http';
+import { PwaUpdater } from '../pwa/PwaUpdater';
 
 export interface RouterContext {
   queryClient: QueryClient;
@@ -46,6 +47,7 @@ function Root() {
   return (
     <>
       <SessionEvents />
+      <PwaUpdater />
       <Outlet />
     </>
   );

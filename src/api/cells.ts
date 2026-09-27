@@ -183,3 +183,70 @@ export const geocodeApi = {
   status: () => api.get<{ enabled: boolean }>('/geocode/status'),
   search: (q: string) => api.post<{ items: GeocodeResult[] }>('/geocode', { q }),
 };
+
+// ── Reportes semanales ─────────────────────────────────────────────────────
+export interface NewVisitor {
+  firstName: string;
+  lastName: string;
+  phone: string | null;
+}
+
+export interface ReportInput {
+  /** "YYYY-MM-DD" */
+  meetingDate: string;
+  held: boolean;
+  notHeldReason: string | null;
+  topic: string | null;
+  anonymousVisitors: number;
+  childrenCount: number;
+  offeringAmount: number | null;
+  notes: string | null;
+  /** Integrantes presentes. */
+  attendance: number[];
+  /** Visitas que ya tienen ficha. */
+  visitors: number[];
+  /** Visitas nuevas (se crean como personas y entran a consolidación). */
+  newVisitors: NewVisitor[];
+}
+
+export interface ReportTotals {
+  members: number;
+  visitors: number;
+  children: number;
+  total: number;
+}
+
+export interface CellReportListItem {
+  id: number;
+  cellId: number;
+  meetingDate: string;
+  held: boolean;
+  notHeldReason: string | null;
+  topic: string | null;
+  anonymousVisitors: number;
+  childrenCount: number;
+  offeringAmount: number | null;
+  notes: string | null;
+  submittedById: number;
+  submittedAt: string;
+  updatedAt: string;
+  cell: { id: number; name: string; zone: { id: number; name: string } };
+  totals: ReportTotals;
+}
+
+type ReportPerson = { id: number; firstName: string; lastName: string; photoFileId: number | null };
+
+export interface CellReport extends CellReportListItem {
+  attendance: ReportPerson[];
+  visitors: ReportPerson[];
+  access: { edit: boolean };
+}
+
+export const reportsApi = {
+  listForCell: (cellId: number, q: { page?: number; pageSize?: number } = {}) =>
+    api.get<Paged<CellReportListItem>>(`/cells/${cellId}/reports`, { ...q }),
+  get: (id: number) => api.get<CellReport>(`/cell-reports/${id}`),
+  create: (cellId: number, body: ReportInput) => api.post<CellReport>(`/cells/${cellId}/reports`, body),
+  update: (id: number, body: Partial<ReportInput>) => api.patch<CellReport>(`/cell-reports/${id}`, body),
+  remove: (id: number) => api.delete(`/cell-reports/${id}`),
+};

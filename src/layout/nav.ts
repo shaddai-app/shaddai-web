@@ -2,6 +2,7 @@ import {
   IconBuildingChurch,
   IconBuildingCommunity,
   IconCategory,
+  IconClipboardText,
   IconHierarchy2,
   IconHistory,
   IconHome,
@@ -28,6 +29,7 @@ export interface NavItem {
     | 'people'
     | 'newcomers'
     | 'cells'
+    | 'myCell'
     | 'structure'
     | 'catalogs'
     | 'campuses'
@@ -71,6 +73,13 @@ const churchNav: NavSection[] = [
   {
     items: [
       { to: '/', label: 'home', icon: IconHome, mobile: true, exact: true },
+      {
+        to: '/mi-celula',
+        label: 'myCell',
+        icon: IconClipboardText,
+        mobile: true,
+        permissions: ['celulas.reportar'],
+      },
       {
         to: '/personas',
         label: 'people',

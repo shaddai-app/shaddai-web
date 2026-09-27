@@ -46,6 +46,10 @@ async function parseError(res: Response): Promise<ApiError> {
 // ── Refresh single-flight ─────────────────────────────────────────────────────
 // Si varias requests reciben 401 a la vez, una sola renueva y las demás esperan ese resultado.
 let refreshing: Promise<boolean> | null = null;
+let refreshOffline = false;
+
+/** ¿El último refresh falló por falta de conexión (y no porque la sesión venció)? */
+export const lastRefreshWasOffline = () => refreshOffline;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -56,6 +60,7 @@ async function doRefresh(): Promise<boolean> {
       credentials: 'include',
       headers: CSRF_HEADER,
     }).catch(() => null);
+    refreshOffline = !res;
     if (!res) return false;
     if (res.ok) {
       const { accessToken } = (await res.json()) as { accessToken: string };

@@ -96,7 +96,15 @@
     "NETWORK_NOT_FOUND": "The network doesn’t exist.",
     "NETWORK_HAS_ZONES": "The network has zones: move or delete them first.",
     "GEOCODING_DISABLED": "Address search isn’t set up. Mark the location on the map.",
-    "GEOCODING_FAILED": "The address search didn’t respond. Try again or mark the location on the map."
+    "GEOCODING_FAILED": "The address search didn’t respond. Try again or mark the location on the map.",
+    "REPORT_EXISTS": "There is already a report for this group on that date.",
+    "REPORT_WINDOW_CLOSED": "Reports can only be submitted or corrected for the last {{days}} days.",
+    "NOT_HELD_REASON_REQUIRED": "Tell us why there was no meeting.",
+    "REPORT_NOT_HELD_WITH_ATTENDANCE": "If there was no meeting, attendance isn't recorded.",
+    "ATTENDANCE_INVALID": "Attendance includes people who are no longer members. Reload the page.",
+    "REPORT_NOT_FOUND": "The report doesn't exist or you don't have access.",
+    "REPORT_FORBIDDEN": "You can't submit or correct reports for this group.",
+    "DATE_IN_FUTURE": "The date can't be in the future."
   },
   "validation": {
     "required": "This field is required.",

@@ -1,4 +1,11 @@
-import { Anchor, UnstyledButton, type AnchorProps, type UnstyledButtonProps } from '@mantine/core';
+import {
+  Anchor,
+  Button,
+  UnstyledButton,
+  type AnchorProps,
+  type ButtonProps,
+  type UnstyledButtonProps,
+} from '@mantine/core';
 import { createLink } from '@tanstack/react-router';
 import type { ComponentPropsWithRef } from 'react';
 
@@ -12,5 +19,11 @@ function MantineUnstyledAnchor(props: UnstyledButtonProps & ComponentPropsWithRe
   return <UnstyledButton component="a" {...props} />;
 }
 
+function MantineButtonAnchor(props: ButtonProps & ComponentPropsWithRef<'a'>) {
+  return <Button component="a" {...props} />;
+}
+
 export const AnchorLink = createLink(MantineAnchor);
 export const UnstyledLink = createLink(MantineUnstyledAnchor);
+/** Botón que navega (ej. una acción principal que abre otra pantalla). */
+export const ButtonLink = createLink(MantineButtonAnchor);
