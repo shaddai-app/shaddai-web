@@ -1,0 +1,184 @@
+{
+  "users": {
+    "title": "Usuários",
+    "description": "Quem pode entrar no Shaddai na sua igreja e o que pode fazer.",
+    "usage": "{{active}} de {{limit}} usuários ativos",
+    "limitReached": "Você atingiu o limite de usuários do seu plano. Desative alguém ou peça para ampliar o plano.",
+    "search": "Buscar por nome ou e-mail",
+    "status": { "all": "Todos", "active": "Ativos", "inactive": "Inativos" },
+    "role": "Função",
+    "allRoles": "Todas as funções",
+    "add": "Novo usuário",
+    "empty": "Nenhum usuário com esses filtros.",
+    "columns": { "name": "Nome", "roles": "Funções", "status": "Status", "lastLogin": "Último acesso" },
+    "badges": {
+      "owner": "Dono",
+      "admin": "Administrador",
+      "inactive": "Inativo",
+      "locked": "Bloqueado",
+      "pendingPassword": "Senha temporária",
+      "active": "Ativo"
+    },
+    "never": "Nunca",
+    "actions": {
+      "label": "Ações",
+      "edit": "Editar",
+      "deactivate": "Desativar",
+      "activate": "Reativar",
+      "unlock": "Desbloquear",
+      "resetPassword": "Nova senha temporária"
+    },
+    "form": {
+      "createTitle": "Novo usuário",
+      "editTitle": "Editar usuário",
+      "email": "E-mail",
+      "firstName": "Nome",
+      "lastName": "Sobrenome",
+      "language": "Idioma",
+      "languageDefault": "O da igreja",
+      "roles": "Funções",
+      "rolesHint": "Se tiver várias funções, as permissões se somam.",
+      "sendAccessEmail": "Enviar o acesso por e-mail"
+    },
+    "access": {
+      "title": "Acesso criado",
+      "resetTitle": "Nova senha temporária",
+      "body": "Compartilhe estes dados com {{name}}. A senha aparece uma única vez e, ao entrar, será pedido que crie a própria.",
+      "email": "E-mail",
+      "password": "Senha temporária",
+      "done": "Pronto, já copiei"
+    },
+    "confirm": {
+      "deactivateTitle": "Desativar {{name}}?",
+      "deactivateBody": "Não poderá entrar e suas sessões serão encerradas. Você pode reativá-lo quando quiser.",
+      "resetTitle": "Gerar uma senha temporária para {{name}}?",
+      "resetBody": "A senha atual deixa de funcionar e as sessões são encerradas."
+    },
+    "saved": "Usuário salvo",
+    "deactivated": "Usuário desativado",
+    "activated": "Usuário reativado",
+    "unlocked": "Usuário desbloqueado"
+  },
+  "roles": {
+    "title": "Funções",
+    "description": "Cada função agrupa permissões. Um usuário pode ter várias funções.",
+    "add": "Nova função",
+    "matrix": "Matriz de permissões",
+    "userCount_one": "{{count}} usuário",
+    "userCount_other": "{{count}} usuários",
+    "permissionCount_one": "{{count}} permissão",
+    "permissionCount_other": "{{count}} permissões",
+    "locked": "Tem todas as permissões e não pode ser modificada.",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "deleteTitle": "Excluir a função “{{name}}”?",
+    "deleteBody": "Esta ação não pode ser desfeita.",
+    "deleted": "Função excluída",
+    "saved": "Função salva",
+    "form": {
+      "createTitle": "Nova função",
+      "editTitle": "Editar função",
+      "name": "Nome",
+      "description": "Descrição",
+      "copyFrom": "Copiar permissões de",
+      "copyNone": "Começar sem permissões",
+      "permissionsHint": "As permissões são ajustadas na matriz."
+    }
+  },
+  "matrix": {
+    "title": "Matriz de permissões",
+    "description": "Toque em cada célula para alternar entre sem acesso, tudo e próprio.",
+    "permission": "Permissão",
+    "save": "Salvar alterações",
+    "discard": "Descartar",
+    "unsaved_one": "{{count}} alteração não salva",
+    "unsaved_other": "{{count}} alterações não salvas",
+    "saved": "Permissões salvas",
+    "readOnly": "Você pode ver a matriz, mas não alterá-la.",
+    "lockedColumn": "O Administrador sempre tem todas as permissões.",
+    "leaveWarning": "Você tem alterações não salvas."
+  },
+  "account": {
+    "title": "Configurações da igreja",
+    "sections": {
+      "general": "Dados gerais",
+      "logo": "Logo",
+      "appearance": "Aparência",
+      "regional": "Idioma e região",
+      "structure": "Estrutura e células",
+      "legal": "Dados fiscais",
+      "usage": "Seu plano"
+    },
+    "fields": {
+      "name": "Nome da igreja",
+      "email": "E-mail de contato",
+      "phone": "Telefone",
+      "address": "Endereço",
+      "ccliLicense": "Licença CCLI",
+      "defaultLocale": "Idioma padrão",
+      "defaultLocaleHint": "Usado pelos usuários que não escolheram um idioma próprio.",
+      "timezone": "Fuso horário",
+      "currency": "Moeda",
+      "weekStartsOn": "A semana começa na",
+      "monday": "Segunda-feira",
+      "sunday": "Domingo",
+      "primaryColor": "Cor principal",
+      "networkLabel": "Nome do primeiro nível",
+      "zoneLabel": "Nome do segundo nível",
+      "labelsHint": "Como sua igreja chama os níveis que agrupam células (por exemplo, Rede e Zona).",
+      "cellMultiplyTarget": "Presença para multiplicar",
+      "cellMultiplyTargetHint": "Avisamos o líder quando a célula atingir esse número.",
+      "cellReportEditDays": "Dias para editar um relatório",
+      "legalName": "Razão social",
+      "taxId": "CUIT",
+      "taxCondition": "Condição de IVA"
+    },
+    "colors": {
+      "slate": "Azul ardósia",
+      "indigo": "Índigo",
+      "teal": "Verde-azulado",
+      "burgundy": "Bordô",
+      "graphite": "Grafite",
+      "violet": "Violeta"
+    },
+    "logo": {
+      "upload": "Enviar logo",
+      "replace": "Trocar logo",
+      "remove": "Remover",
+      "hint": "PNG, JPG ou WebP de até 5 MB. Ajustamos para 512 px.",
+      "none": "Sem logo",
+      "uploaded": "Logo atualizado",
+      "removed": "Logo removido"
+    },
+    "usage": {
+      "plan": "Plano",
+      "users": "Usuários ativos",
+      "storage": "Armazenamento",
+      "trialEnds": "O teste gratuito termina em {{date}}"
+    },
+    "saved": "Configurações salvas"
+  },
+  "audit": {
+    "title": "Auditoria",
+    "description": "Registro das ações importantes feitas na conta.",
+    "filters": { "action": "Tipo de ação", "allActions": "Todas", "from": "De", "to": "Até" },
+    "columns": { "date": "Data", "user": "Quem", "action": "Ação", "detail": "Detalhe" },
+    "support": "Suporte do Shaddai",
+    "system": "Sistema",
+    "empty": "Nenhum registro com esses filtros.",
+    "showDetail": "Ver detalhe",
+    "before": "Antes",
+    "after": "Depois",
+    "groups": {
+      "auth": "Acessos e sessões",
+      "users": "Usuários",
+      "roles": "Funções e permissões",
+      "account": "Configurações da conta",
+      "structure": "Estrutura",
+      "platform": "Suporte e plataforma"
+    }
+  },
+  "pagination": {
+    "summary": "{{from}}–{{to}} de {{total}}"
+  }
+}

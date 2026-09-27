@@ -1,0 +1,87 @@
+{
+  "modules": {
+    "dashboard": "Dashboard",
+    "personas": "People",
+    "consolidacion": "Follow-up",
+    "celulas": "Cell groups",
+    "estructura": "Structure",
+    "catalogos": "Catalogs",
+    "ministerios": "Ministries",
+    "alabanza": "Worship",
+    "eventos": "Events",
+    "asistencia": "Attendance",
+    "finanzas": "Finances",
+    "inventario": "Inventory",
+    "usuarios": "Users",
+    "roles": "Roles",
+    "cuenta": "Account",
+    "auditoria": "Audit"
+  },
+  "actions": {
+    "dashboard": { "ver": "View statistics" },
+    "personas": {
+      "ver": "View people",
+      "crear": "Add people",
+      "editar": "Edit",
+      "eliminar": "Delete",
+      "ver_sensibles": "View sensitive data",
+      "fusionar": "Merge duplicates",
+      "importar": "Import",
+      "exportar": "Export",
+      "nuevos_revisar": "Review newcomer form"
+    },
+    "consolidacion": {
+      "ver": "View follow-up",
+      "gestionar": "Record follow-up",
+      "asignar": "Assign follow-up workers"
+    },
+    "celulas": {
+      "ver": "View cell groups",
+      "crear": "Create cell groups",
+      "editar": "Edit cell groups",
+      "eliminar": "Delete cell groups",
+      "reportar": "Submit reports",
+      "ver_direccion": "View exact address",
+      "multiplicar": "Multiply",
+      "ver_reportes": "View reports"
+    },
+    "estructura": { "gestionar": "Campuses, networks and zones" },
+    "catalogos": { "gestionar": "Statuses, milestones, positions and tags" },
+    "ministerios": {
+      "ver": "View ministries",
+      "gestionar": "Manage ministries",
+      "turnos": "Assign schedules"
+    },
+    "alabanza": { "ver": "View songs and setlists", "canciones": "Edit songs", "listas": "Build setlists" },
+    "eventos": {
+      "ver": "View calendar",
+      "gestionar": "Manage events",
+      "inscripciones": "Manage registrations"
+    },
+    "asistencia": { "ver": "View attendance", "registrar": "Record attendance" },
+    "finanzas": {
+      "ver": "View finances",
+      "registrar": "Record transactions",
+      "anular": "Void transactions",
+      "diezmos_nominales": "View tithes per person",
+      "arqueo": "Offering counts",
+      "confirmar_pendientes": "Confirm pending",
+      "cierre": "Monthly close",
+      "reabrir_cierre": "Reopen closes",
+      "cajas": "Manage cash accounts",
+      "categorias": "Manage categories",
+      "reportes": "Reports"
+    },
+    "inventario": { "ver": "View inventory", "gestionar": "Manage equipment", "prestamos": "Loans" },
+    "usuarios": { "ver": "View users", "gestionar": "Manage users", "resetear": "Reset passwords" },
+    "roles": { "ver": "View roles", "gestionar": "Manage roles and permissions" },
+    "cuenta": { "configurar": "Configure the church" },
+    "auditoria": { "ver": "View audit log" }
+  },
+  "scope": {
+    "none": "No access",
+    "all": "All",
+    "own": "Own"
+  },
+  "scopeHelp": "“Own” limits the permission to what the person leads or is assigned to (their cell groups, networks, ministries)."
+}

@@ -1,4 +1,14 @@
-import { IconBuildingChurch, IconHome, IconShieldLock, IconUserCircle, type Icon } from '@tabler/icons-react';
+import {
+  IconBuildingChurch,
+  IconHistory,
+  IconHome,
+  IconSettings,
+  IconShieldCheck,
+  IconShieldLock,
+  IconUserCircle,
+  IconUsers,
+  type Icon,
+} from '@tabler/icons-react';
 import type { Me } from '../api/types';
 import { isPlatformSession } from '../auth/guards';
 import { can, type PermissionKey } from '../auth/permissions';
@@ -6,7 +16,7 @@ import { can, type PermissionKey } from '../auth/permissions';
 export interface NavItem {
   to: string;
   /** Clave en common:nav.* */
-  label: 'home' | 'profile' | 'security' | 'accounts';
+  label: 'home' | 'profile' | 'security' | 'accounts' | 'users' | 'roles' | 'churchSettings' | 'audit';
   icon: Icon;
   /** Basta uno (OR). Sin permisos = visible para cualquier usuario de la sección. */
   permissions?: PermissionKey[];
@@ -32,6 +42,20 @@ const settingsSection: NavSection = {
 // Cada módulo nuevo agrega acá sus entradas con el permiso que las muestra.
 const churchNav: NavSection[] = [
   { items: [{ to: '/', label: 'home', icon: IconHome, mobile: true, exact: true }] },
+  {
+    title: 'admin',
+    items: [
+      { to: '/admin/usuarios', label: 'users', icon: IconUsers, permissions: ['usuarios.ver'] },
+      { to: '/admin/roles', label: 'roles', icon: IconShieldCheck, permissions: ['roles.ver'] },
+      {
+        to: '/admin/cuenta',
+        label: 'churchSettings',
+        icon: IconSettings,
+        permissions: ['cuenta.configurar'],
+      },
+      { to: '/admin/auditoria', label: 'audit', icon: IconHistory, permissions: ['auditoria.ver'] },
+    ],
+  },
   settingsSection,
 ];
 

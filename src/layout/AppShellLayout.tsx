@@ -15,12 +15,14 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconAlertTriangle, IconCross, IconDots, IconHeadset, IconLogout } from '@tabler/icons-react';
-import { useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link, useNavigate, useRouterState } from '@tanstack/react-router';
 import dayjs from 'dayjs';
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { accountApi } from '../api/admin';
 import { authApi } from '../api/auth';
+import { useFileUrl } from '../components/use-file-url';
 import type { Me } from '../api/types';
 import { logout } from '../auth/session';
 import { useSession } from '../auth/session-store';
@@ -146,6 +148,18 @@ function UserMenu({ me }: { me: Me }) {
   );
 }
 
+/** Logo de la iglesia (si subió uno) o el ícono de Shaddai. */
+function BrandMark({ me }: { me: Me }) {
+  const account = useQuery({ queryKey: ['account'], queryFn: accountApi.get, enabled: Boolean(me.account) });
+  const url = useFileUrl(account.data?.logoFileId);
+  if (url) return <Avatar src={url} radius="md" size={34} alt="" />;
+  return (
+    <ThemeIcon radius="md" size="lg" aria-hidden>
+      <IconCross size={18} />
+    </ThemeIcon>
+  );
+}
+
 /** Shell de la app: sidebar en escritorio, drawer + barra inferior en el celular. */
 export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }) {
   const { t } = useTranslation();
@@ -179,9 +193,7 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
               size="sm"
               aria-label={opened ? t('nav.closeMenu') : t('nav.openMenu')}
             />
-            <ThemeIcon radius="md" size="lg" aria-hidden>
-              <IconCross size={18} />
-            </ThemeIcon>
+            <BrandMark me={me} />
             <Text fw={600} truncate>
               {title}
             </Text>

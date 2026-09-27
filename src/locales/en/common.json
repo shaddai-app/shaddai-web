@@ -32,7 +32,11 @@
     "accounts": "Churches",
     "more": "More",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "users": "Users",
+    "roles": "Roles",
+    "churchSettings": "Church settings",
+    "audit": "Audit log"
   },
   "userMenu": {
     "label": "User menu",
@@ -68,5 +72,6 @@
     "title": "No access",
     "body": "You don't have permission to see this section. If you think this is a mistake, talk to your church administrator."
   },
-  "loading": "Loading…"
+  "loading": "Loading…",
+  "unsavedChanges": "You have unsaved changes. Leave anyway?"
 }
