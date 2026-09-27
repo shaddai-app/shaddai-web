@@ -96,7 +96,15 @@
     "NETWORK_NOT_FOUND": "La red no existe.",
     "NETWORK_HAS_ZONES": "La red tiene zonas: movelas o eliminalas antes.",
     "GEOCODING_DISABLED": "La búsqueda de direcciones no está configurada. Marcá la ubicación en el mapa.",
-    "GEOCODING_FAILED": "El buscador de direcciones no respondió. Probá de nuevo o marcá la ubicación en el mapa."
+    "GEOCODING_FAILED": "El buscador de direcciones no respondió. Probá de nuevo o marcá la ubicación en el mapa.",
+    "REPORT_EXISTS": "Ya hay un reporte de esta célula para esa fecha.",
+    "REPORT_WINDOW_CLOSED": "Solo se pueden cargar o corregir reportes de los últimos {{days}} días.",
+    "NOT_HELD_REASON_REQUIRED": "Contá por qué no hubo reunión.",
+    "REPORT_NOT_HELD_WITH_ATTENDANCE": "Si no hubo reunión no se carga asistencia.",
+    "ATTENDANCE_INVALID": "La asistencia incluye personas que ya no son integrantes. Recargá la página.",
+    "REPORT_NOT_FOUND": "El reporte no existe o no tenés acceso.",
+    "REPORT_FORBIDDEN": "No podés cargar ni corregir reportes de esta célula.",
+    "DATE_IN_FUTURE": "La fecha no puede ser futura."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

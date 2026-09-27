@@ -25,34 +25,36 @@ import {
   IconUserPlus,
   IconX,
 } from '@tabler/icons-react';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Marker } from 'react-leaflet';
-import { ApiError } from '../../../../api/http';
-import { cellsApi, type CellCore, type CellDetail, type CellPersonRef } from '../../../../api/cells';
-import type { PersonListItem } from '../../../../api/people';
-import { requirePermission } from '../../../../auth/guards';
-import { FormError } from '../../../../components/FormError';
-import { AnchorLink } from '../../../../components/links';
-import { CellStatusBadge, ZoneLabel } from '../../../../features/cells/CellBits';
-import { CellFormModal } from '../../../../features/cells/CellFormModal';
-import { BaseMap } from '../../../../features/cells/Map';
-import { usePinIcon } from '../../../../features/cells/map-utils';
-import { meetingLabel, useStructureLabels } from '../../../../features/cells/structure';
-import { formatDate, fullName } from '../../../../features/people/format';
-import { PersonAvatar, StatusBadge } from '../../../../features/people/PersonBits';
-import { PersonPicker } from '../../../../features/people/PersonPicker';
-import { errorMessage } from '../../../../i18n/errors';
-import { PageHeader } from '../../../../layout/PageHeader';
+import { ApiError } from '../../../../../api/http';
+import { cellsApi, type CellCore, type CellDetail, type CellPersonRef } from '../../../../../api/cells';
+import type { PersonListItem } from '../../../../../api/people';
+import { requirePermission } from '../../../../../auth/guards';
+import { can } from '../../../../../auth/permissions';
+import { meQuery } from '../../../../../auth/session';
+import { cellDetailQuery, cellKey, cellReportsQuery } from '../../../../../features/cells/queries';
+import { FormError } from '../../../../../components/FormError';
+import { AnchorLink, ButtonLink, UnstyledLink } from '../../../../../components/links';
+import { CellStatusBadge, ZoneLabel } from '../../../../../features/cells/CellBits';
+import { CellFormModal } from '../../../../../features/cells/CellFormModal';
+import { BaseMap } from '../../../../../features/cells/Map';
+import { useBreakdown } from '../../../../../features/cells/use-breakdown';
+import { usePinIcon } from '../../../../../features/cells/map-utils';
+import { meetingLabel, useStructureLabels } from '../../../../../features/cells/structure';
+import { formatDate, fullName } from '../../../../../features/people/format';
+import { PersonAvatar, StatusBadge } from '../../../../../features/people/PersonBits';
+import { PersonPicker } from '../../../../../features/people/PersonPicker';
+import { errorMessage } from '../../../../../i18n/errors';
+import { PageHeader } from '../../../../../layout/PageHeader';
 
-export const Route = createFileRoute('/_shell/_church/celulas/$id')({
+export const Route = createFileRoute('/_shell/_church/celulas/$id/')({
   beforeLoad: ({ context }) => requirePermission(context.me, 'celulas.ver'),
   component: CellPage,
 });
-
-const cellKey = (id: number) => ['cells', 'detail', id];
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -139,7 +141,7 @@ function InfoCard({ cell }: { cell: CellDetail }) {
   );
 }
 
-function GrowthCard({ cell }: { cell: CellDetail }) {
+function GrowthCard({ cell, showLastReport }: { cell: CellDetail; showLastReport: boolean }) {
   const { t } = useTranslation('cells');
   const m = cell.multiplication;
   return (
@@ -165,12 +167,14 @@ function GrowthCard({ cell }: { cell: CellDetail }) {
         <Text size="sm" c="dimmed">
           {t('detail.progress', { members: m.members, target: m.target })}
         </Text>
-        <Text size="sm">
-          {t('detail.lastReport')}:{' '}
-          {cell.lastReport
-            ? `${formatDate(cell.lastReport.meetingDate)}${cell.lastReport.held ? '' : ` (${t('detail.notHeld')})`}`
-            : t('detail.noReports')}
-        </Text>
+        {showLastReport && (
+          <Text size="sm">
+            {t('detail.lastReport')}:{' '}
+            {cell.lastReport
+              ? `${formatDate(cell.lastReport.meetingDate)}${cell.lastReport.held ? '' : ` (${t('detail.notHeld')})`}`
+              : t('detail.noReports')}
+          </Text>
+        )}
         {cell.children.length > 0 && (
           <div>
             <Text size="xs" c="dimmed">
@@ -334,11 +338,68 @@ function MembersCard({ cell, onChange }: { cell: CellDetail; onChange: (c: CellC
   );
 }
 
+function ReportsCard({ cell }: { cell: CellDetail }) {
+  const { t } = useTranslation('cells');
+  const reports = useQuery(cellReportsQuery(cell.id));
+  const breakdown = useBreakdown();
+  const open = cell.status === 'active' || cell.status === 'paused';
+  return (
+    <Card withBorder radius="lg" p={0}>
+      <Group justify="space-between" p="md" pb="sm">
+        <Title order={3} size="h5">
+          {t('report.listTitle')}
+        </Title>
+        {cell.access.report && open && (
+          <ButtonLink to="/celulas/$id/reportes/nuevo" params={{ id: String(cell.id) }} size="compact-sm">
+            {t('myCell.loadReport')}
+          </ButtonLink>
+        )}
+      </Group>
+      {reports.isPending ? (
+        <Loader size="sm" m="md" />
+      ) : reports.isError ? (
+        <Text size="sm" c="dimmed" px="md" pb="md">
+          {errorMessage(reports.error)}
+        </Text>
+      ) : reports.data.items.length === 0 ? (
+        <Text size="sm" c="dimmed" px="md" pb="md">
+          {t('detail.noReports')}
+        </Text>
+      ) : (
+        reports.data.items.map((r) => (
+          <UnstyledLink
+            key={r.id}
+            to="/celulas/$id/reportes/$reportId"
+            params={{ id: String(cell.id), reportId: String(r.id) }}
+            px="md"
+            py="sm"
+            style={{ display: 'block', borderTop: '1px solid var(--mantine-color-default-border)' }}
+          >
+            <Group justify="space-between" wrap="nowrap">
+              <Text size="sm">{formatDate(r.meetingDate)}</Text>
+              {r.held ? (
+                <Text size="sm" c="dimmed">
+                  {breakdown(r.totals)}
+                </Text>
+              ) : (
+                <Badge variant="light" color="gray" size="sm">
+                  {t('report.notHeld')}
+                </Badge>
+              )}
+            </Group>
+          </UnstyledLink>
+        ))
+      )}
+    </Card>
+  );
+}
+
 function CellPage() {
   const { t } = useTranslation(['cells', 'common']);
   const id = Number(Route.useParams().id);
   const queryClient = useQueryClient();
-  const query = useQuery({ queryKey: cellKey(id), queryFn: () => cellsApi.get(id) });
+  const { data: me } = useSuspenseQuery(meQuery());
+  const query = useQuery(cellDetailQuery(id, me.user.id));
   const [editing, setEditing] = useState(false);
 
   // Las mutaciones devuelven la célula sin progreso ni último reporte: se muestra al instante lo
@@ -384,6 +445,7 @@ function CellPage() {
   const cell = query.data;
   const open = cell.status === 'active' || cell.status === 'paused';
   const statusActions = open && (cell.access.edit || cell.access.close);
+  const canSeeReports = can(me, 'celulas.ver_reportes');
 
   return (
     <>
@@ -435,9 +497,12 @@ function CellPage() {
       <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
         <Stack gap="md">
           <InfoCard cell={cell} />
-          <GrowthCard cell={cell} />
+          <GrowthCard cell={cell} showLastReport={!canSeeReports} />
         </Stack>
-        <MembersCard cell={cell} onChange={update} />
+        <Stack gap="md">
+          <MembersCard cell={cell} onChange={update} />
+          {canSeeReports && <ReportsCard cell={cell} />}
+        </Stack>
       </SimpleGrid>
       <CellFormModal
         opened={editing}

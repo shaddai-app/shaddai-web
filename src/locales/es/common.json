@@ -44,7 +44,8 @@
     "catalogs": "Catálogos",
     "campuses": "Sedes",
     "cells": "Células",
-    "structure": "Estructura"
+    "structure": "Estructura",
+    "myCell": "Mi célula"
   },
   "userMenu": {
     "label": "Menú de usuario",
@@ -82,5 +83,11 @@
     "body": "No tenés permiso para ver esta sección. Si creés que es un error, hablá con el administrador de tu iglesia."
   },
   "loading": "Cargando…",
-  "unsavedChanges": "Tenés cambios sin guardar. ¿Salir igual?"
+  "unsavedChanges": "Tenés cambios sin guardar. ¿Salir igual?",
+  "pwa": {
+    "updateTitle": "Hay una versión nueva",
+    "updateBody": "Actualizá cuando termines lo que estás haciendo.",
+    "update": "Actualizar",
+    "later": "Después"
+  }
 }

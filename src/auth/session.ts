@@ -1,7 +1,8 @@
 import { queryOptions, type QueryClient } from '@tanstack/react-query';
 import { authApi, meApi } from '../api/auth';
-import { refreshSession } from '../api/http';
+import { lastRefreshWasOffline, refreshSession } from '../api/http';
 import type { Me } from '../api/types';
+import { clearOfflineData, isNetworkError, readMeSnapshot, saveMeSnapshot } from '../pwa/snapshots';
 import { sessionStore } from './session-store';
 
 export const meQuery = () =>
@@ -19,12 +20,24 @@ export async function ensureSession(): Promise<boolean> {
   return refreshSession();
 }
 
+/**
+ * Usuario de la sesión. Sin conexión (y solo por eso: una sesión vencida va al login) se arranca con
+ * la última instantánea, para que el líder pueda abrir la app y cargar el reporte sin señal.
+ */
 export async function loadMe(queryClient: QueryClient): Promise<Me | null> {
-  if (!(await ensureSession())) return null;
+  const fromSnapshot = async () => {
+    const snap = await readMeSnapshot();
+    if (snap) queryClient.setQueryData(meQuery().queryKey, snap);
+    return snap;
+  };
+  if (!(await ensureSession())) return lastRefreshWasOffline() ? fromSnapshot() : null;
   try {
-    return await queryClient.ensureQueryData(meQuery());
-  } catch {
-    return null;
+    const me = await queryClient.ensureQueryData(meQuery());
+    // La sesión de soporte (superadmin impersonando) no deja rastros offline.
+    if (!sessionStore.getState().support) void saveMeSnapshot(me);
+    return me;
+  } catch (err) {
+    return isNetworkError(err) ? fromSnapshot() : null;
   }
 }
 
@@ -41,5 +54,6 @@ export async function logout(queryClient: QueryClient): Promise<void> {
   } finally {
     sessionStore.getState().clear();
     queryClient.clear();
+    await clearOfflineData();
   }
 }

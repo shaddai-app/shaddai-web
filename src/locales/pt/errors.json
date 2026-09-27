@@ -96,7 +96,15 @@
     "NETWORK_NOT_FOUND": "A rede não existe.",
     "NETWORK_HAS_ZONES": "A rede tem zonas: mova-as ou exclua-as antes.",
     "GEOCODING_DISABLED": "A busca de endereços não está configurada. Marque a localização no mapa.",
-    "GEOCODING_FAILED": "A busca de endereços não respondeu. Tente de novo ou marque a localização no mapa."
+    "GEOCODING_FAILED": "A busca de endereços não respondeu. Tente de novo ou marque a localização no mapa.",
+    "REPORT_EXISTS": "Já existe um relatório desta célula para essa data.",
+    "REPORT_WINDOW_CLOSED": "Só é possível enviar ou corrigir relatórios dos últimos {{days}} dias.",
+    "NOT_HELD_REASON_REQUIRED": "Conte por que não houve reunião.",
+    "REPORT_NOT_HELD_WITH_ATTENDANCE": "Se não houve reunião, não se registra presença.",
+    "ATTENDANCE_INVALID": "A presença inclui pessoas que não são mais membros. Recarregue a página.",
+    "REPORT_NOT_FOUND": "O relatório não existe ou você não tem acesso.",
+    "REPORT_FORBIDDEN": "Você não pode enviar nem corrigir relatórios desta célula.",
+    "DATE_IN_FUTURE": "A data não pode ser futura."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

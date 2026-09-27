@@ -44,7 +44,8 @@
     "catalogs": "Catálogos",
     "campuses": "Sedes",
     "cells": "Células",
-    "structure": "Estrutura"
+    "structure": "Estrutura",
+    "myCell": "Minha célula"
   },
   "userMenu": {
     "label": "Menu do usuário",
@@ -82,5 +83,11 @@
     "body": "Você não tem permissão para ver esta seção. Se acha que é um erro, fale com o administrador da sua igreja."
   },
   "loading": "Carregando…",
-  "unsavedChanges": "Você tem alterações não salvas. Sair mesmo assim?"
+  "unsavedChanges": "Você tem alterações não salvas. Sair mesmo assim?",
+  "pwa": {
+    "updateTitle": "Há uma versão nova",
+    "updateBody": "Atualize quando terminar o que está fazendo.",
+    "update": "Atualizar",
+    "later": "Depois"
+  }
 }

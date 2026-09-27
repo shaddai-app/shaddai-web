@@ -17,6 +17,23 @@ npm run dev               # http://localhost:5173
 
 En desarrollo, Vite hace proxy de `/api` → `http://localhost:3000`, así front y API comparten origen (necesario para la cookie httpOnly `SameSite=Strict` del refresh token).
 
+## PWA y modo sin señal
+
+La app se instala en el celular y abre sin conexión (`vite-plugin-pwa`). El service worker solo existe en el build, así que para probarlo:
+
+```powershell
+npm run build
+npm run preview           # http://localhost:4173 (proxy de /api igual que en dev)
+```
+
+La API rechaza el refresh desde orígenes que no están en `CORS_ORIGINS` (defensa CSRF): para probar el preview, agregá `http://localhost:4173` en el `.env` de la API.
+
+- **Caché**: la app (HTML/JS/CSS) queda precacheada y los tiles del mapa ya vistos se guardan; la API **nunca** se sirve desde la caché.
+- **Instantáneas** (IndexedDB, `src/pwa/`): el último `/me` y las células del líder. Sin conexión (y solo por falta de red: una sesión vencida va al login) la app arranca con ellas.
+- **Reporte semanal**: el borrador se guarda mientras se escribe; si al enviar no hay señal queda en cola y `OutboxSync` lo manda al volver la conexión.
+- **Cerrar sesión** borra todo lo guardado en el dispositivo.
+- Una versión nueva no se aplica sola: se muestra un aviso y el usuario elige cuándo actualizar.
+
 ## Scripts
 
 | Script                                | Descripción                                        |

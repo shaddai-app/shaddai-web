@@ -44,7 +44,8 @@
     "catalogs": "Catalogs",
     "campuses": "Campuses",
     "cells": "Small groups",
-    "structure": "Structure"
+    "structure": "Structure",
+    "myCell": "My group"
   },
   "userMenu": {
     "label": "User menu",
@@ -82,5 +83,11 @@
     "body": "You don't have permission to see this section. If you think this is a mistake, talk to your church administrator."
   },
   "loading": "Loading…",
-  "unsavedChanges": "You have unsaved changes. Leave anyway?"
+  "unsavedChanges": "You have unsaved changes. Leave anyway?",
+  "pwa": {
+    "updateTitle": "A new version is available",
+    "updateBody": "Update when you finish what you are doing.",
+    "update": "Update",
+    "later": "Later"
+  }
 }
