@@ -250,3 +250,85 @@ export const reportsApi = {
   update: (id: number, body: Partial<ReportInput>) => api.patch<CellReport>(`/cell-reports/${id}`, body),
   remove: (id: number) => api.delete(`/cell-reports/${id}`),
 };
+
+// ── Semáforo de reportes ───────────────────────────────────────────────────
+export const COMPLIANCE_STATUSES = ['reported', 'not_held', 'pending', 'missing', 'upcoming'] as const;
+export type ComplianceStatus = (typeof COMPLIANCE_STATUSES)[number];
+
+export interface ComplianceItem {
+  cell: { id: number; name: string; meetingDay: number; meetingTime: string };
+  zone: { id: number; name: string; network: { id: number; name: string; color: string | null } };
+  leader: { id: number; firstName: string; lastName: string; phone: string | null };
+  /** Fecha en que debía reunirse esa semana. */
+  expectedDate: string;
+  status: ComplianceStatus;
+  /** Se envió pasados los días de tolerancia. */
+  late: boolean;
+  report: { id: number; meetingDate: string; totals: ReportTotals } | null;
+}
+
+export interface Compliance {
+  week: { start: string; end: string };
+  summary: {
+    cells: number;
+    reported: number;
+    notHeld: number;
+    pending: number;
+    missing: number;
+    upcoming: number;
+    /** % de reportes enviados entre las células que ya debían reportar (null si ninguna). */
+    rate: number | null;
+    attendance: number;
+    visitors: number;
+  };
+  items: ComplianceItem[];
+}
+
+export const complianceApi = {
+  get: (q: { week?: string; zoneId?: number; networkId?: number }) =>
+    api.get<Compliance>('/cell-reports/compliance', { ...q }),
+};
+
+// ── Multiplicación y genealogía ────────────────────────────────────────────
+export interface MultiplyInput {
+  name: string;
+  zoneId?: number;
+  meetingDay: number;
+  meetingTime: string;
+  address: string;
+  city: string | null;
+  neighborhood: string | null;
+  lat: number | null;
+  lng: number | null;
+  leaderPersonId: number;
+  coLeaderPersonId: number | null;
+  hostPersonId: number | null;
+  /** Integrantes de la madre que pasan a la nueva (líder, colíder y anfitrión pasan siempre). */
+  memberIds: number[];
+  date?: string;
+  notes: string | null;
+}
+
+export interface GenealogyNode {
+  id: number;
+  name: string;
+  status: CellStatus;
+  /** null si es raíz (o si la madre está fuera del alcance del usuario). */
+  parentCellId: number | null;
+  startedAt: string | null;
+  closedAt: string | null;
+  multipliedAt: string | null;
+  memberCount: number;
+  childCount: number;
+  leader: { id: number; firstName: string; lastName: string };
+  zone: { id: number; name: string; network: { id: number; name: string; color: string | null } };
+}
+
+export const multiplicationApi = {
+  multiply: (motherId: number, body: MultiplyInput) =>
+    api.post<{ id: number; name: string; parentCellId: number; visible: boolean }>(
+      `/cells/${motherId}/multiply`,
+      body,
+    ),
+  genealogy: () => api.get<{ items: GenealogyNode[] }>('/cells/genealogy'),
+};

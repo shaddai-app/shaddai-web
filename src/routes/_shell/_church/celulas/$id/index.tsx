@@ -24,9 +24,10 @@ import {
   IconUserMinus,
   IconUserPlus,
   IconX,
+  IconArrowsSplit,
 } from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Marker } from 'react-leaflet';
@@ -157,6 +158,17 @@ function GrowthCard({ cell, showLastReport }: { cell: CellDetail; showLastReport
             </Badge>
           )}
         </Group>
+        {m.ready && cell.access.multiply && cell.status === 'active' && (
+          <ButtonLink
+            to="/celulas/$id/multiplicar"
+            params={{ id: String(cell.id) }}
+            color="grape"
+            variant="light"
+            leftSection={<IconArrowsSplit size={16} />}
+          >
+            {t('multiply.open')}
+          </ButtonLink>
+        )}
         <Progress
           value={m.progress}
           color={m.ready ? 'grape' : 'teal'}
@@ -401,6 +413,7 @@ function CellPage() {
   const { data: me } = useSuspenseQuery(meQuery());
   const query = useQuery(cellDetailQuery(id, me.user.id));
   const [editing, setEditing] = useState(false);
+  const navigate = useNavigate();
 
   // Las mutaciones devuelven la célula sin progreso ni último reporte: se muestra al instante lo
   // nuevo sobre lo que había y se vuelve a pedir la ficha completa.
@@ -444,7 +457,8 @@ function CellPage() {
   if (query.isError) return <FormError error={query.error} />;
   const cell = query.data;
   const open = cell.status === 'active' || cell.status === 'paused';
-  const statusActions = open && (cell.access.edit || cell.access.close);
+  const canMultiply = cell.access.multiply && cell.status === 'active';
+  const statusActions = open && (cell.access.edit || cell.access.close || canMultiply);
   const canSeeReports = can(me, 'celulas.ver_reportes');
 
   return (
@@ -467,6 +481,16 @@ function CellPage() {
                   </ActionIcon>
                 </Menu.Target>
                 <Menu.Dropdown>
+                  {canMultiply && (
+                    <Menu.Item
+                      leftSection={<IconArrowsSplit size={16} />}
+                      onClick={() =>
+                        void navigate({ to: '/celulas/$id/multiplicar', params: { id: String(cell.id) } })
+                      }
+                    >
+                      {t('multiply.open')}
+                    </Menu.Item>
+                  )}
                   {cell.access.edit &&
                     (cell.status === 'active' ? (
                       <Menu.Item

@@ -45,7 +45,8 @@
     "campuses": "Campuses",
     "cells": "Small groups",
     "structure": "Structure",
-    "myCell": "My group"
+    "myCell": "My group",
+    "cellReports": "Report tracker"
   },
   "userMenu": {
     "label": "User menu",

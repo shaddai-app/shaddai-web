@@ -11,6 +11,7 @@ import {
   IconSettings,
   IconShieldCheck,
   IconShieldLock,
+  IconTrafficLights,
   IconUserCircle,
   IconUserPlus,
   IconUsers,
@@ -30,6 +31,7 @@ export interface NavItem {
     | 'newcomers'
     | 'cells'
     | 'myCell'
+    | 'cellReports'
     | 'structure'
     | 'catalogs'
     | 'campuses'
@@ -94,7 +96,20 @@ const churchNav: NavSection[] = [
         icon: IconUserPlus,
         permissions: ['personas.nuevos_revisar'],
       },
-      { to: '/celulas', label: 'cells', icon: IconHomeHeart, mobile: true, permissions: ['celulas.ver'] },
+      {
+        to: '/celulas',
+        label: 'cells',
+        icon: IconHomeHeart,
+        mobile: true,
+        permissions: ['celulas.ver'],
+        excludeActive: ['/celulas/reportes'],
+      },
+      {
+        to: '/celulas/reportes',
+        label: 'cellReports',
+        icon: IconTrafficLights,
+        permissions: ['celulas.ver_reportes'],
+      },
     ],
   },
   {
