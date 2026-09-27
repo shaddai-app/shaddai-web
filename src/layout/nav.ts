@@ -2,8 +2,10 @@ import {
   IconBuildingChurch,
   IconBuildingCommunity,
   IconCategory,
+  IconHierarchy2,
   IconHistory,
   IconHome,
+  IconHomeHeart,
   IconPackage,
   IconSettings,
   IconShieldCheck,
@@ -25,6 +27,8 @@ export interface NavItem {
     | 'home'
     | 'people'
     | 'newcomers'
+    | 'cells'
+    | 'structure'
     | 'catalogs'
     | 'campuses'
     | 'profile'
@@ -38,6 +42,8 @@ export interface NavItem {
     | 'platformAudit';
   /** Rutas que no deben marcar este ítem como activo aunque empiecen igual (ej. /plataforma vs /plataforma/planes). */
   excludeActive?: string[];
+  /** Otras rutas que también lo marcan activo (ej. /estructura/zonas para /estructura/redes). */
+  alsoActive?: string[];
   icon: Icon;
   /** Basta uno (OR). Sin permisos = visible para cualquier usuario de la sección. */
   permissions?: PermissionKey[];
@@ -79,6 +85,7 @@ const churchNav: NavSection[] = [
         icon: IconUserPlus,
         permissions: ['personas.nuevos_revisar'],
       },
+      { to: '/celulas', label: 'cells', icon: IconHomeHeart, mobile: true, permissions: ['celulas.ver'] },
     ],
   },
   {
@@ -91,6 +98,13 @@ const churchNav: NavSection[] = [
         label: 'catalogs',
         icon: IconCategory,
         permissions: ['catalogos.gestionar'],
+      },
+      {
+        to: '/estructura/redes',
+        label: 'structure',
+        icon: IconHierarchy2,
+        permissions: ['estructura.gestionar'],
+        alsoActive: ['/estructura'],
       },
       {
         to: '/admin/sedes',

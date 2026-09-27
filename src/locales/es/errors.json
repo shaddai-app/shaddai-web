@@ -81,7 +81,22 @@
     "NEWCOMER_NOT_FOUND": "No encontramos ese formulario.",
     "NEWCOMER_ALREADY_REVIEWED": "Ese formulario ya fue revisado.",
     "CAPTCHA_FAILED": "Completá la verificación anti-spam y volvé a enviar.",
-    "PUBLIC_FORM_NOT_FOUND": "Este formulario no está disponible."
+    "PUBLIC_FORM_NOT_FOUND": "Este formulario no está disponible.",
+    "CELL_NOT_FOUND": "La célula no existe o no tenés acceso.",
+    "CELL_EDIT_FORBIDDEN": "No tenés permiso para editar esta célula.",
+    "CELL_ADDRESS_FORBIDDEN": "No tenés permiso para cambiar la dirección de esta célula.",
+    "CELL_CLOSED": "La célula está cerrada. Reactivala primero.",
+    "CELL_LEADER_REQUIRED": "No se puede quitar al líder. Asigná otro líder primero.",
+    "MEMBER_NOT_FOUND": "Esa persona ya no es integrante de la célula.",
+    "PERSON_IN_OTHER_CELL": "La persona ya participa en otra célula.",
+    "ZONE_INVALID": "Elegí una zona válida.",
+    "ZONE_NOT_FOUND": "La zona no existe.",
+    "ZONE_HAS_CELLS": "La zona tiene células: movelas antes de eliminarla.",
+    "NETWORK_INVALID": "Elegí una red válida.",
+    "NETWORK_NOT_FOUND": "La red no existe.",
+    "NETWORK_HAS_ZONES": "La red tiene zonas: movelas o eliminalas antes.",
+    "GEOCODING_DISABLED": "La búsqueda de direcciones no está configurada. Marcá la ubicación en el mapa.",
+    "GEOCODING_FAILED": "El buscador de direcciones no respondió. Probá de nuevo o marcá la ubicación en el mapa."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

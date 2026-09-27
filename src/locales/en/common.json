@@ -42,7 +42,9 @@
     "people": "People",
     "newcomers": "Newcomers",
     "catalogs": "Catalogs",
-    "campuses": "Campuses"
+    "campuses": "Campuses",
+    "cells": "Small groups",
+    "structure": "Structure"
   },
   "userMenu": {
     "label": "User menu",
@@ -70,7 +72,8 @@
     "continue": "Continue",
     "copy": "Copy",
     "copied": "Copied",
-    "retry": "Retry"
+    "retry": "Retry",
+    "more": "More actions"
   },
   "saved": "Changes saved",
   "notFound": "The page you are looking for does not exist.",

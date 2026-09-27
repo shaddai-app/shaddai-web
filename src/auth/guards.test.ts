@@ -68,4 +68,14 @@ describe('permisos y menú', () => {
     expect(platform).toContain('/plataforma');
     expect(platform).not.toContain('/');
   });
+
+  it('células y estructura aparecen solo con su permiso', () => {
+    const paths = (m: Me) => navFor(m).flatMap((s) => s.items.map((i) => i.to));
+    expect(paths(me())).not.toContain('/celulas');
+    expect(paths(me())).not.toContain('/estructura/redes');
+    const leader = paths(me({ permissions: { 'celulas.ver': 'own' } }));
+    expect(leader).toContain('/celulas');
+    expect(leader).not.toContain('/estructura/redes');
+    expect(paths(me({ permissions: { 'estructura.gestionar': 'all' } }))).toContain('/estructura/redes');
+  });
 });
