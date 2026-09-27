@@ -31,6 +31,8 @@ export function PersonPicker({ value, onChange, exclude = [], ...props }: Props)
     <Select
       searchable
       clearable
+      // Tocar de nuevo la opción elegida no la quita (para eso está la X).
+      allowDeselect={false}
       leftSection={<IconSearch size={16} />}
       filter={({ options: o }) => o} // el filtrado lo hace el servidor
       data={all.map((p) => ({ value: String(p.id), label: fullName(p) }))}

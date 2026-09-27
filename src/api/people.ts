@@ -1,5 +1,5 @@
 import type { Paged } from './admin';
-import { api } from './http';
+import { api, apiRequest } from './http';
 
 // ── Catálogos, etiquetas y sedes ───────────────────────────────────────────
 export const CATALOG_TYPES = [
@@ -268,4 +268,179 @@ export const householdsApi = {
   addMember: (id: number, body: { personId: number; role: HouseholdRole | null }) =>
     api.post<Household>(`/households/${id}/members`, body),
   removeMember: (id: number, personId: number) => api.delete(`/households/${id}/members/${personId}`),
+};
+
+// ── Importación / exportación ───────────────────────────────────────────────
+export type ImportField =
+  | 'firstName'
+  | 'lastName'
+  | 'preferredName'
+  | 'gender'
+  | 'birthDate'
+  | 'email'
+  | 'phone'
+  | 'documentNumber'
+  | 'maritalStatus'
+  | 'address'
+  | 'city'
+  | 'province'
+  | 'status'
+  | 'campus'
+  | 'tags'
+  | 'firstVisitAt'
+  | 'notes';
+
+export interface ImportIssue {
+  field: ImportField;
+  code: string;
+  value?: string;
+}
+
+export interface ImportRow {
+  row: number;
+  data: {
+    firstName: string;
+    lastName: string;
+    phone: string | null;
+    email: string | null;
+    birthDate: string | null;
+    tags: string[];
+  } & Record<string, unknown>;
+  errors: ImportIssue[];
+  warnings: ImportIssue[];
+  duplicate: { id: number; firstName: string; lastName: string; reasons: string[] } | null;
+}
+
+export interface ImportSummary {
+  total: number;
+  valid: number;
+  withErrors: number;
+  duplicates: number;
+  newTags: string[];
+  ignoredColumns: string[];
+  unknownColumns: string[];
+  created?: number;
+  skipped?: number;
+}
+
+export interface ImportJob {
+  id: number;
+  fileName: string;
+  status: 'preview' | 'committed';
+  createdAt: string;
+  expiresAt: string;
+  summary: ImportSummary;
+  rows: ImportRow[];
+}
+
+export type SheetFormat = 'xlsx' | 'csv';
+
+export const importApi = {
+  template: (locale: string, format: SheetFormat) =>
+    apiRequest<Blob>('/people/import/template', { query: { locale, format }, blob: true }),
+  preview: (file: File) => {
+    const form = new FormData();
+    form.append('file', file);
+    return api.post<ImportJob>('/people/import', form);
+  },
+  commit: (id: number, duplicates: 'skip' | 'create') =>
+    api.post<{ id: number; status: 'committed'; summary: ImportSummary }>(`/people/import/${id}/commit`, {
+      duplicates,
+    }),
+  export: (query: Omit<PeopleQuery, 'page' | 'pageSize'> & { format: SheetFormat; locale: string }) =>
+    apiRequest<Blob>('/people/export', { query: { ...query }, blob: true }),
+};
+
+/** Descarga un Blob con el nombre indicado. */
+export function saveBlob(blob: Blob, fileName: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = fileName;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// ── Formulario «Soy nuevo» ─────────────────────────────────────────────────
+export interface NewcomerSubmission {
+  id: number;
+  firstName: string;
+  lastName: string;
+  phone: string | null;
+  email: string | null;
+  address: string | null;
+  city: string | null;
+  birthDate: string | null;
+  howHeard: string | null;
+  prayer: string | null;
+  wantsVisit: boolean;
+  consentVersion: string;
+  locale: string | null;
+  status: 'pending' | 'accepted' | 'rejected';
+  personId: number | null;
+  reviewedById: number | null;
+  reviewedAt: string | null;
+  createdAt: string;
+}
+
+export const newcomersApi = {
+  list: (q: { status: NewcomerSubmission['status']; page?: number; pageSize?: number }) =>
+    api.get<Paged<NewcomerSubmission> & { pendingCount: number }>('/newcomers', q),
+  get: (id: number) =>
+    api.get<NewcomerSubmission & { duplicates: DuplicateResult | null }>(`/newcomers/${id}`),
+  accept: (
+    id: number,
+    body: { personId?: number; statusId?: number; campusId?: number | null; allowDuplicate?: boolean },
+  ) => api.post<NewcomerSubmission>(`/newcomers/${id}/accept`, body),
+  reject: (id: number) => api.post<NewcomerSubmission>(`/newcomers/${id}/reject`, {}),
+};
+
+export interface PublicFormConfig {
+  church: { name: string; slug: string; logoUrl: string | null; defaultLocale: string; primaryColor: string };
+  consentVersion: string;
+  turnstileSiteKey: string | null;
+}
+
+export interface NewcomerInput {
+  firstName: string;
+  lastName: string;
+  phone: string | null;
+  email: string | null;
+  address: string | null;
+  city: string | null;
+  birthDate: string | null;
+  howHeard: string | null;
+  prayer: string | null;
+  wantsVisit: boolean;
+  consent: true;
+  locale: string;
+  turnstileToken?: string;
+  website?: string;
+}
+
+export const publicApi = {
+  form: (slug: string) =>
+    api.get<PublicFormConfig>(`/public/${slug}/newcomer-form`, undefined, { auth: false }),
+  submit: (slug: string, body: NewcomerInput) =>
+    api.post<{ ok: true }>(`/public/${slug}/newcomer`, body, { auth: false }),
+};
+
+// ── Búsqueda global ────────────────────────────────────────────────────────
+export interface SearchResults {
+  people: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    preferredName: string | null;
+    photoFileId: number | null;
+    status: CatalogRef;
+  }[];
+  households: { id: number; name: string; city: string | null }[];
+  users: { id: number; firstName: string; lastName: string; email: string; isActive: boolean }[];
+}
+
+export const searchApi = {
+  search: (q: string, signal?: AbortSignal) => api.get<SearchResults>('/search', { q }, { signal }),
 };

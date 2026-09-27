@@ -24,6 +24,7 @@ import { accountApi } from '../api/admin';
 import { authApi } from '../api/auth';
 import { useFileUrl } from '../components/use-file-url';
 import { leaveSupport } from '../features/platform/support';
+import { GlobalSearch, SearchTrigger } from '../features/search/GlobalSearch';
 import type { Me } from '../api/types';
 import { logout } from '../auth/session';
 import { useSession } from '../auth/session-store';
@@ -173,6 +174,8 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
     .slice(0, 4);
   const title = me.account?.name ?? t('nav.platform');
   const support = Boolean(me.impersonation);
+  // La búsqueda global es de la iglesia: el panel de plataforma no la usa.
+  const searchable = Boolean(me.account);
 
   return (
     <AppShell
@@ -200,6 +203,7 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
             </Text>
           </Group>
           <Group gap={4} wrap="nowrap">
+            {searchable && <SearchTrigger />}
             <LanguageMenu />
             <ColorSchemeToggle />
             <UserMenu me={me} />
@@ -238,6 +242,7 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
         </ScrollArea>
       </AppShell.Navbar>
 
+      {searchable && <GlobalSearch />}
       <AppShell.Main>
         <AccountStatusBanner me={me} />
         {children}

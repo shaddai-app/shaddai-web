@@ -38,6 +38,8 @@
       "languageDefault": "El de la iglesia",
       "roles": "Roles",
       "rolesHint": "Si tiene varios roles, se suman sus permisos.",
+      "person": "Ficha de persona",
+      "personHint": "Vincula el usuario con su ficha (sirve para «lo propio» y para que se vea en su perfil).",
       "sendAccessEmail": "Enviarle el acceso por email"
     },
     "access": {

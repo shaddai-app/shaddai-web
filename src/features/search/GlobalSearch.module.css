@@ -1,0 +1,12 @@
+.trigger {
+  width: 220px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: var(--mantine-radius-md);
+  border: 1px solid var(--mantine-color-default-border);
+  background: var(--mantine-color-default);
+}
+
+.trigger:hover {
+  background: var(--mantine-color-default-hover);
+}

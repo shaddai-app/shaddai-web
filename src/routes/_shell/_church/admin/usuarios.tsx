@@ -38,6 +38,7 @@ import { requirePermission } from '../../../../auth/guards';
 import { can } from '../../../../auth/permissions';
 import { meQuery } from '../../../../auth/session';
 import { FormError } from '../../../../components/FormError';
+import { AnchorLink } from '../../../../components/links';
 import { PaginationBar } from '../../../../components/PaginationBar';
 import { showTemporaryAccess } from '../../../../components/TemporaryAccess';
 import { UserFormModal } from '../../../../features/admin/UserFormModal';
@@ -348,6 +349,11 @@ function UsersPage() {
                             <Text size="xs" c="dimmed">
                               {u.email}
                             </Text>
+                            {u.person && can(me, 'personas.ver') && (
+                              <AnchorLink to="/personas/$id" params={{ id: String(u.person.id) }} size="xs">
+                                {t('users.form.person')}: {u.person.firstName} {u.person.lastName}
+                              </AnchorLink>
+                            )}
                           </Table.Td>
                           <Table.Td>
                             <RoleBadges user={u} />
@@ -382,6 +388,11 @@ function UsersPage() {
                       {actionsMenu(u)}
                     </Group>
                     <Stack gap={6} mt="sm">
+                      {u.person && can(me, 'personas.ver') && (
+                        <AnchorLink to="/personas/$id" params={{ id: String(u.person.id) }} size="xs">
+                          {t('users.form.person')}: {u.person.firstName} {u.person.lastName}
+                        </AnchorLink>
+                      )}
                       <RoleBadges user={u} />
                       <StatusBadges user={u} />
                       <Text size="xs" c="dimmed">
@@ -406,6 +417,7 @@ function UsersPage() {
       <UserFormModal
         opened={formOpen}
         user={editing}
+        canLinkPerson={can(me, 'personas.ver')}
         onClose={() => setFormOpen(false)}
         onSubmit={saveUser}
       />

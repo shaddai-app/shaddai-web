@@ -6,7 +6,9 @@ import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import { rolesApi, type AccountUser, type UserInput } from '../../api/admin';
+import type { PersonListItem } from '../../api/people';
 import { FormError } from '../../components/FormError';
+import { PersonPicker } from '../people/PersonPicker';
 import { ResponsiveModal } from '../../components/ResponsiveModal';
 import { LANGUAGES } from '../../i18n';
 
@@ -34,14 +36,20 @@ const toValues = (user: AccountUser | null): Values =>
 
 type Props = {
   user: AccountUser | null;
+  /** Puede elegir la ficha de persona (necesita personas.ver para buscarla). */
+  canLinkPerson?: boolean;
   onClose: () => void;
   onSubmit: (values: UserInput) => Promise<void>;
 };
 
+const asPickerValue = (p: AccountUser['person']): PersonListItem | null =>
+  p ? ({ ...p, photoFileId: null, phone: null } as PersonListItem) : null;
+
 /** Contenido del modal: se monta al abrir, así cada apertura arranca con el formulario limpio. */
-function UserForm({ user, onClose, onSubmit }: Props) {
+function UserForm({ user, canLinkPerson, onClose, onSubmit }: Props) {
   const { t } = useTranslation(['admin', 'common', 'errors']);
   const [error, setError] = useState<unknown>(null);
+  const [person, setPerson] = useState<PersonListItem | null>(asPickerValue(user?.person ?? null));
   const roles = useQuery({ queryKey: ['roles'], queryFn: rolesApi.list });
   const form = useForm<Values>({ resolver: zodResolver(schema), defaultValues: toValues(user) });
 
@@ -55,6 +63,9 @@ function UserForm({ user, onClose, onSubmit }: Props) {
         locale: v.locale === 'default' ? null : v.locale,
         roleIds: v.roleIds.map(Number),
         sendAccessEmail: v.sendAccessEmail,
+        ...(user && canLinkPerson && (person?.id ?? null) !== (user.person?.id ?? null)
+          ? { personId: person?.id ?? null }
+          : {}),
       });
     } catch (err) {
       setError(err);
@@ -124,6 +135,14 @@ function UserForm({ user, onClose, onSubmit }: Props) {
             />
           )}
         />
+        {user && canLinkPerson && (
+          <PersonPicker
+            label={t('users.form.person')}
+            description={t('users.form.personHint')}
+            value={person}
+            onChange={setPerson}
+          />
+        )}
         {!user && <Checkbox label={t('users.form.sendAccessEmail')} {...form.register('sendAccessEmail')} />}
         <Group justify="flex-end">
           <Button variant="default" onClick={onClose}>

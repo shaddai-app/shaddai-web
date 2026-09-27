@@ -69,7 +69,19 @@
     "HOUSEHOLD_EDIT_FORBIDDEN": "You don't have permission to edit this family.",
     "HOUSEHOLD_MEMBERS_REQUIRED": "Add at least one member.",
     "MERGE_SAME_PERSON": "Choose a different record.",
-    "MERGE_BOTH_LINKED": "Both records have a user: unlink one before merging."
+    "MERGE_BOTH_LINKED": "Both records have a user: unlink one before merging.",
+    "IMPORT_FILE_UNREADABLE": "We couldn't read the file. Save it as .xlsx or .csv and try again.",
+    "IMPORT_FILE_EMPTY": "The file has no rows with data.",
+    "IMPORT_TOO_MANY_ROWS": "The file has too many rows (maximum {{maxRows}}). Split it into parts.",
+    "IMPORT_MISSING_COLUMNS": "Required columns are missing: the sheet must have “First name” and “Last name”.",
+    "IMPORT_NOT_FOUND": "We couldn't find that import.",
+    "IMPORT_ALREADY_COMMITTED": "That import was already confirmed.",
+    "IMPORT_EXPIRED": "The preview expired. Upload the file again.",
+    "EXPORT_TOO_MANY_ROWS": "Too many people to export at once (maximum {{max}}). Use filters.",
+    "NEWCOMER_NOT_FOUND": "We couldn't find that form.",
+    "NEWCOMER_ALREADY_REVIEWED": "That form was already reviewed.",
+    "CAPTCHA_FAILED": "Complete the anti-spam check and submit again.",
+    "PUBLIC_FORM_NOT_FOUND": "This form is not available."
   },
   "validation": {
     "required": "This field is required.",
