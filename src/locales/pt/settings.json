@@ -1,0 +1,27 @@
+{
+  "profile": {
+    "title": "Meu perfil",
+    "firstName": "Nome",
+    "lastName": "Sobrenome",
+    "email": "E-mail",
+    "emailHint": "Para alterar seu e-mail, peça ao administrador da sua igreja.",
+    "language": "Idioma",
+    "languageDefault": "O da igreja ({{language}})",
+    "theme": "Tema"
+  },
+  "security": {
+    "title": "Segurança",
+    "password": "Senha",
+    "passwordDescription": "Recomendamos uma frase longa que você não use em outros sites.",
+    "changePassword": "Alterar senha",
+    "sessions": "Sessões ativas",
+    "sessionsDescription": "Dispositivos onde sua conta está aberta. Encerre os que você não reconhecer.",
+    "current": "Este dispositivo",
+    "support": "Suporte do Shaddai",
+    "lastUsed": "Última atividade: {{date}}",
+    "unknownDevice": "Dispositivo desconhecido",
+    "revoke": "Encerrar",
+    "revoked": "Sessão encerrada",
+    "logoutAllConfirm": "Você sairá de todos os seus dispositivos, incluindo este. Continuar?"
+  }
+}

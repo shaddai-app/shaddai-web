@@ -21,5 +21,52 @@
     "down": "Sem conexão",
     "checking": "Verificando…"
   },
-  "notFound": "A página que você procura não existe."
+  "nav": {
+    "main": "Navegação principal",
+    "home": "Início",
+    "profile": "Meu perfil",
+    "security": "Segurança",
+    "settings": "Configurações",
+    "admin": "Administração",
+    "platform": "Plataforma",
+    "accounts": "Igrejas",
+    "more": "Mais",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  },
+  "userMenu": {
+    "label": "Menu do usuário",
+    "logout": "Sair"
+  },
+  "support": {
+    "banner": "Você está em uma sessão de suporte como {{email}}. Tudo o que fizer fica registrado.",
+    "end": "Encerrar suporte",
+    "expires": "Expira {{time}}"
+  },
+  "account": {
+    "trialDaysLeft_one": "Teste gratuito: resta {{count}} dia",
+    "trialDaysLeft_other": "Teste gratuito: restam {{count}} dias",
+    "readOnly": "A conta está em modo somente leitura. Fale com o Shaddai para regularizá-la."
+  },
+  "home": {
+    "greeting": "Olá, {{name}}!",
+    "subtitle": "Bem-vindo à {{church}}.",
+    "comingSoon": "Em breve você verá aqui as estatísticas de presença, crescimento, células e finanças."
+  },
+  "actions": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "back": "Voltar",
+    "continue": "Continuar",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "retry": "Tentar novamente"
+  },
+  "saved": "Alterações salvas",
+  "notFound": "A página que você procura não existe.",
+  "forbidden": {
+    "title": "Sem acesso",
+    "body": "Você não tem permissão para ver esta seção. Se acha que é um erro, fale com o administrador da sua igreja."
+  },
+  "loading": "Carregando…"
 }

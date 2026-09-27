@@ -1,0 +1,35 @@
+{
+  "generic": "Algo salió mal. Probá de nuevo en unos minutos.",
+  "network": "No pudimos conectarnos con el servidor. Revisá tu conexión.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "Email o contraseña incorrectos.",
+    "AUTH_INVALID_CODE": "El código no es válido. Revisá la hora de tu celular e intentá de nuevo.",
+    "AUTH_LOCKED": "Por seguridad, la cuenta quedó bloqueada. Probá de nuevo en {{minutes}} min.",
+    "AUTH_2FA_CHALLENGE_INVALID": "La verificación venció. Ingresá de nuevo.",
+    "USER_INACTIVE": "Tu usuario está desactivado. Hablá con el administrador de tu iglesia.",
+    "ACCOUNT_SUSPENDED": "La cuenta de tu iglesia está suspendida. Contactá a Shaddai.",
+    "ACCOUNT_READ_ONLY": "La cuenta está en modo solo lectura: no se pueden guardar cambios.",
+    "RATE_LIMITED": "Demasiados intentos. Esperá un minuto y volvé a probar.",
+    "PASSWORD_CURRENT_INVALID": "La contraseña actual no es correcta.",
+    "PASSWORD_SAME_AS_CURRENT": "La contraseña nueva tiene que ser distinta de la actual.",
+    "PASSWORD_TOO_WEAK": "Esa contraseña es fácil de adivinar. Probá con una frase más larga o menos común.",
+    "PASSWORD_LENGTH": "La contraseña debe tener entre 10 y 128 caracteres.",
+    "RESET_TOKEN_INVALID": "El enlace no es válido o ya venció. Pedí uno nuevo.",
+    "TOTP_ALREADY_ENABLED": "La verificación en dos pasos ya está activa.",
+    "IMPERSONATION_FORBIDDEN": "Esta acción no está disponible en una sesión de soporte.",
+    "PERMISSION_DENIED": "No tenés permiso para hacer esto.",
+    "VALIDATION_ERROR": "Revisá los datos ingresados.",
+    "NOT_FOUND": "No encontramos lo que buscabas."
+  },
+  "validation": {
+    "required": "Este campo es obligatorio.",
+    "email": "Ingresá un email válido.",
+    "passwordMin": "Mínimo 10 caracteres.",
+    "passwordsMatch": "Las contraseñas no coinciden.",
+    "code": "Ingresá los 6 dígitos."
+  },
+  "passwordFeedback": {
+    "tooShort": "Es demasiado corta.",
+    "common": "Es una contraseña muy usada."
+  }
+}

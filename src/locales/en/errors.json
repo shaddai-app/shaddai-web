@@ -1,0 +1,35 @@
+{
+  "generic": "Something went wrong. Please try again in a few minutes.",
+  "network": "We couldn't reach the server. Check your connection.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "Incorrect email or password.",
+    "AUTH_INVALID_CODE": "The code is not valid. Check your phone's time and try again.",
+    "AUTH_LOCKED": "For security, the account was locked. Try again in {{minutes}} min.",
+    "AUTH_2FA_CHALLENGE_INVALID": "The verification expired. Please sign in again.",
+    "USER_INACTIVE": "Your user is deactivated. Talk to your church administrator.",
+    "ACCOUNT_SUSPENDED": "Your church's account is suspended. Contact Shaddai.",
+    "ACCOUNT_READ_ONLY": "The account is read-only: changes can't be saved.",
+    "RATE_LIMITED": "Too many attempts. Wait a minute and try again.",
+    "PASSWORD_CURRENT_INVALID": "The current password is not correct.",
+    "PASSWORD_SAME_AS_CURRENT": "The new password must be different from the current one.",
+    "PASSWORD_TOO_WEAK": "That password is easy to guess. Try a longer or less common phrase.",
+    "PASSWORD_LENGTH": "The password must be between 10 and 128 characters.",
+    "RESET_TOKEN_INVALID": "The link is invalid or has expired. Request a new one.",
+    "TOTP_ALREADY_ENABLED": "Two-step verification is already enabled.",
+    "IMPERSONATION_FORBIDDEN": "This action isn't available in a support session.",
+    "PERMISSION_DENIED": "You don't have permission to do this.",
+    "VALIDATION_ERROR": "Please check the data you entered.",
+    "NOT_FOUND": "We couldn't find what you were looking for."
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Enter a valid email.",
+    "passwordMin": "At least 10 characters.",
+    "passwordsMatch": "Passwords don't match.",
+    "code": "Enter the 6 digits."
+  },
+  "passwordFeedback": {
+    "tooShort": "It is too short.",
+    "common": "It is a very common password."
+  }
+}
