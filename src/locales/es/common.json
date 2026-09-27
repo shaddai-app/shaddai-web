@@ -42,7 +42,9 @@
     "people": "Personas",
     "newcomers": "Nuevos",
     "catalogs": "Catálogos",
-    "campuses": "Sedes"
+    "campuses": "Sedes",
+    "cells": "Células",
+    "structure": "Estructura"
   },
   "userMenu": {
     "label": "Menú de usuario",
@@ -70,7 +72,8 @@
     "continue": "Continuar",
     "copy": "Copiar",
     "copied": "Copiado",
-    "retry": "Reintentar"
+    "retry": "Reintentar",
+    "more": "Más acciones"
   },
   "saved": "Cambios guardados",
   "notFound": "La página que buscás no existe.",

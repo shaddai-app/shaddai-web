@@ -81,7 +81,22 @@
     "NEWCOMER_NOT_FOUND": "We couldn't find that form.",
     "NEWCOMER_ALREADY_REVIEWED": "That form was already reviewed.",
     "CAPTCHA_FAILED": "Complete the anti-spam check and submit again.",
-    "PUBLIC_FORM_NOT_FOUND": "This form is not available."
+    "PUBLIC_FORM_NOT_FOUND": "This form is not available.",
+    "CELL_NOT_FOUND": "The group doesn’t exist or you don’t have access.",
+    "CELL_EDIT_FORBIDDEN": "You don’t have permission to edit this group.",
+    "CELL_ADDRESS_FORBIDDEN": "You don’t have permission to change this group’s address.",
+    "CELL_CLOSED": "The group is closed. Reactivate it first.",
+    "CELL_LEADER_REQUIRED": "The leader can’t be removed. Assign another leader first.",
+    "MEMBER_NOT_FOUND": "That person is no longer a member of the group.",
+    "PERSON_IN_OTHER_CELL": "The person is already in another group.",
+    "ZONE_INVALID": "Choose a valid zone.",
+    "ZONE_NOT_FOUND": "The zone doesn’t exist.",
+    "ZONE_HAS_CELLS": "The zone has groups: move them before deleting it.",
+    "NETWORK_INVALID": "Choose a valid network.",
+    "NETWORK_NOT_FOUND": "The network doesn’t exist.",
+    "NETWORK_HAS_ZONES": "The network has zones: move or delete them first.",
+    "GEOCODING_DISABLED": "Address search isn’t set up. Mark the location on the map.",
+    "GEOCODING_FAILED": "The address search didn’t respond. Try again or mark the location on the map."
   },
   "validation": {
     "required": "This field is required.",

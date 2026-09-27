@@ -34,7 +34,9 @@ import { navFor, type NavItem } from './nav';
 import classes from './AppShellLayout.module.css';
 
 function isActive(pathname: string, item: NavItem) {
-  if (item.excludeActive?.some((p) => pathname === p || pathname.startsWith(`${p}/`))) return false;
+  const under = (p: string) => pathname === p || pathname.startsWith(`${p}/`);
+  if (item.excludeActive?.some(under)) return false;
+  if (item.alsoActive?.some(under)) return true;
   return item.exact ? pathname === item.to : pathname === item.to || pathname.startsWith(`${item.to}/`);
 }
 

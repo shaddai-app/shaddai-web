@@ -6,8 +6,12 @@ import { useState } from 'react';
 import { peopleApi, type PersonListItem } from '../../api/people';
 import { fullName } from './format';
 
+/** Lo mínimo para mostrar la persona elegida (ej. el líder que ya tiene una célula). */
+export type PersonOption = Pick<PersonListItem, 'id' | 'firstName' | 'lastName' | 'phone'>;
+
 type Props = Omit<SelectProps, 'data' | 'value' | 'onChange' | 'searchValue' | 'onSearchChange'> & {
-  value: PersonListItem | null;
+  value: PersonOption | null;
+  /** Siempre una persona de la búsqueda (con todos sus datos), o null al limpiar. */
   onChange: (person: PersonListItem | null) => void;
   /** Ids que no se ofrecen (ej. la misma persona o quienes ya están en la familia). */
   exclude?: number[];
@@ -24,8 +28,10 @@ export function PersonPicker({ value, onChange, exclude = [], ...props }: Props)
     placeholderData: keepPreviousData,
   });
   const options = (results.data?.items ?? []).filter((p) => !exclude.includes(p.id));
-  const all = value && !options.some((o) => o.id === value.id) ? [value, ...options] : options;
+  const all: PersonOption[] =
+    value && !options.some((o) => o.id === value.id) ? [value, ...options] : options;
   const byId = new Map(all.map((p) => [String(p.id), p]));
+  const found = new Map(options.map((p) => [String(p.id), p]));
 
   return (
     <Select
@@ -37,7 +43,11 @@ export function PersonPicker({ value, onChange, exclude = [], ...props }: Props)
       filter={({ options: o }) => o} // el filtrado lo hace el servidor
       data={all.map((p) => ({ value: String(p.id), label: fullName(p) }))}
       value={value ? String(value.id) : null}
-      onChange={(id) => onChange(id ? (byId.get(id) ?? null) : null)}
+      onChange={(id) => {
+        if (!id) return onChange(null);
+        if (id === String(value?.id)) return; // misma persona: nada cambió
+        onChange(found.get(id) ?? null);
+      }}
       searchValue={search}
       onSearchChange={setSearch}
       nothingFoundMessage={debounced.trim().length >= 2 && !results.isFetching ? '—' : undefined}
