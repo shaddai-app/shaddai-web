@@ -224,5 +224,69 @@
     "loadReport": "Submit report",
     "recent": "Latest reports",
     "call": "Call {{name}}"
+  },
+  "compliance": {
+    "title": "Report tracker",
+    "description": "Which groups sent this week's report and which are missing.",
+    "prevWeek": "Previous week",
+    "nextWeek": "Next week",
+    "thisWeek": "This week",
+    "week": "Week of {{start}} to {{end}}",
+    "rate": "Completion",
+    "summary": {
+      "sent": "Sent",
+      "pending": "Waiting",
+      "missing": "Missing",
+      "upcoming": "Haven't met yet",
+      "attendance": "Total attendance"
+    },
+    "attentionOnly": "Only missing ones",
+    "allGood": "No reports are missing. Well done!",
+    "late": "Late",
+    "lateHint": "Sent after the grace period.",
+    "meetsOn": "Meets on {{date}}",
+    "status": {
+      "reported": "Sent",
+      "not_held": "No meeting",
+      "pending": "Waiting",
+      "missing": "Missing",
+      "upcoming": "Not yet"
+    }
+  },
+  "genealogy": {
+    "open": "Family tree",
+    "title": "Group family tree",
+    "description": "Which group each one was born from.",
+    "collapse": "Collapse",
+    "expand": "Expand",
+    "bornOn": "born on {{date}}",
+    "startedOn": "since {{date}}",
+    "stats": {
+      "cells": "Groups",
+      "generations": "Generations",
+      "multiplications": "Multiplications"
+    },
+    "showClosed": "Show closed groups"
+  },
+  "multiply": {
+    "open": "Multiply",
+    "title": "Multiply “{{name}}”",
+    "description": "A new group starts with part of the members. The mother group keeps its leader.",
+    "steps": {
+      "cell": "New group",
+      "location": "Location",
+      "members": "Who moves",
+      "confirm": "Confirm"
+    },
+    "leaderHint": "{{leader}} stays as leader of the mother group. The new leader can be a member or someone from outside.",
+    "membersHint": "Check who moves to the new group. The leader, co-leader and host always move.",
+    "goesAsResponsible": "Moves as person in charge",
+    "stays": "stay in the mother group",
+    "date": "Multiplication date",
+    "submit": "Multiply group",
+    "done": "“{{name}}” was born!",
+    "notActive": "Only an active group can be multiplied.",
+    "forbidden": "You can't multiply this group.",
+    "notReady": "The group has {{members}} of {{target}} members: it hasn't reached the goal yet, but you can still multiply it."
   }
 }

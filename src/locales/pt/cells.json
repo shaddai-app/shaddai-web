@@ -224,5 +224,69 @@
     "loadReport": "Enviar relatório",
     "recent": "Últimos relatórios",
     "call": "Ligar para {{name}}"
+  },
+  "compliance": {
+    "title": "Semáforo de relatórios",
+    "description": "Quais células enviaram o relatório da semana e quais faltam.",
+    "prevWeek": "Semana anterior",
+    "nextWeek": "Próxima semana",
+    "thisWeek": "Esta semana",
+    "week": "Semana de {{start}} a {{end}}",
+    "rate": "Cumprimento",
+    "summary": {
+      "sent": "Enviados",
+      "pending": "Aguardando",
+      "missing": "Faltam",
+      "upcoming": "Ainda não se reuniram",
+      "attendance": "Presença total"
+    },
+    "attentionOnly": "Só as que faltam",
+    "allGood": "Nenhum relatório faltando. Muito bem!",
+    "late": "Atrasado",
+    "lateHint": "Enviado depois dos dias de tolerância.",
+    "meetsOn": "Reúne-se em {{date}}",
+    "status": {
+      "reported": "Enviado",
+      "not_held": "Sem reunião",
+      "pending": "Aguardando",
+      "missing": "Falta",
+      "upcoming": "Ainda não"
+    }
+  },
+  "genealogy": {
+    "open": "Genealogia",
+    "title": "Genealogia de células",
+    "description": "De qual célula cada uma nasceu.",
+    "collapse": "Recolher",
+    "expand": "Expandir",
+    "bornOn": "nasceu em {{date}}",
+    "startedOn": "desde {{date}}",
+    "stats": {
+      "cells": "Células",
+      "generations": "Gerações",
+      "multiplications": "Multiplicações"
+    },
+    "showClosed": "Mostrar células encerradas"
+  },
+  "multiply": {
+    "open": "Multiplicar",
+    "title": "Multiplicar “{{name}}”",
+    "description": "Abre-se uma célula nova com parte dos membros. A célula mãe continua com seu líder.",
+    "steps": {
+      "cell": "Célula nova",
+      "location": "Localização",
+      "members": "Quem passa",
+      "confirm": "Confirmar"
+    },
+    "leaderHint": "{{leader}} continua como líder da célula mãe. O novo líder pode ser um membro ou alguém de fora.",
+    "membersHint": "Marque quem passa para a célula nova. O líder, o colíder e o anfitrião passam sempre.",
+    "goesAsResponsible": "Passa como responsável",
+    "stays": "ficam na célula mãe",
+    "date": "Data da multiplicação",
+    "submit": "Multiplicar célula",
+    "done": "Nasceu “{{name}}”!",
+    "notActive": "Só é possível multiplicar uma célula ativa.",
+    "forbidden": "Você não pode multiplicar esta célula.",
+    "notReady": "A célula tem {{members}} de {{target}} membros: ainda não chegou à meta, mas você pode multiplicá-la mesmo assim."
   }
 }

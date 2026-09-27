@@ -104,7 +104,8 @@
     "ATTENDANCE_INVALID": "A presença inclui pessoas que não são mais membros. Recarregue a página.",
     "REPORT_NOT_FOUND": "O relatório não existe ou você não tem acesso.",
     "REPORT_FORBIDDEN": "Você não pode enviar nem corrigir relatórios desta célula.",
-    "DATE_IN_FUTURE": "A data não pode ser futura."
+    "DATE_IN_FUTURE": "A data não pode ser futura.",
+    "MULTIPLY_FORBIDDEN": "Você não pode multiplicar esta célula."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

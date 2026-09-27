@@ -94,11 +94,14 @@ export function MapPicker({
   value,
   onChange,
   address,
+  near,
 }: {
   value: LatLng | null;
   onChange: (p: LatLng | null) => void;
   /** Dirección cargada en el formulario: se ofrece como búsqueda. */
   address?: string;
+  /** Sin ubicación todavía, el mapa arranca acá (ej. la célula madre al multiplicar). */
+  near?: LatLng | null;
 }) {
   const { t } = useTranslation('cells');
   const icon = usePinIcon(null);
@@ -194,7 +197,7 @@ export function MapPicker({
           )}
         </Stack>
       )}
-      <BaseMap center={value ?? DEFAULT_CENTER} zoom={value ? 16 : 11} height={280}>
+      <BaseMap center={value ?? near ?? DEFAULT_CENTER} zoom={value ? 16 : near ? 15 : 11} height={280}>
         <ClickToPlace onPick={place} />
         <Recenter point={focus} />
         {value && (

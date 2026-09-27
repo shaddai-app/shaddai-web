@@ -12,7 +12,7 @@ import {
 } from '@mantine/core';
 import { useDebouncedCallback } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications';
-import { IconMap, IconPlus, IconSearch, IconUsers } from '@tabler/icons-react';
+import { IconBinaryTree2, IconMap, IconPlus, IconSearch, IconUsers } from '@tabler/icons-react';
 import { keepPreviousData, useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
@@ -114,6 +114,13 @@ function CellsPage() {
               onClick={() => void navigate({ to: '/celulas/mapa' })}
             >
               {t('map.open')}
+            </Button>
+            <Button
+              variant="default"
+              leftSection={<IconBinaryTree2 size={18} />}
+              onClick={() => void navigate({ to: '/celulas/genealogia' })}
+            >
+              {t('genealogy.open')}
             </Button>
             {can(me, 'celulas.crear') && (
               <Button

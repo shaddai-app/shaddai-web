@@ -104,7 +104,8 @@
     "ATTENDANCE_INVALID": "Attendance includes people who are no longer members. Reload the page.",
     "REPORT_NOT_FOUND": "The report doesn't exist or you don't have access.",
     "REPORT_FORBIDDEN": "You can't submit or correct reports for this group.",
-    "DATE_IN_FUTURE": "The date can't be in the future."
+    "DATE_IN_FUTURE": "The date can't be in the future.",
+    "MULTIPLY_FORBIDDEN": "You can't multiply this group."
   },
   "validation": {
     "required": "This field is required.",

@@ -104,7 +104,8 @@
     "ATTENDANCE_INVALID": "La asistencia incluye personas que ya no son integrantes. Recargá la página.",
     "REPORT_NOT_FOUND": "El reporte no existe o no tenés acceso.",
     "REPORT_FORBIDDEN": "No podés cargar ni corregir reportes de esta célula.",
-    "DATE_IN_FUTURE": "La fecha no puede ser futura."
+    "DATE_IN_FUTURE": "La fecha no puede ser futura.",
+    "MULTIPLY_FORBIDDEN": "No podés multiplicar esta célula."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

@@ -45,7 +45,8 @@
     "campuses": "Sedes",
     "cells": "Células",
     "structure": "Estrutura",
-    "myCell": "Minha célula"
+    "myCell": "Minha célula",
+    "cellReports": "Semáforo"
   },
   "userMenu": {
     "label": "Menu do usuário",
