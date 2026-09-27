@@ -27,3 +27,6 @@ Thumbs.db
 !.vscode/extensions.json
 !.vscode/settings.json
 .idea/
+
+# Temporales del plugin de TanStack Router
+.tanstack/
