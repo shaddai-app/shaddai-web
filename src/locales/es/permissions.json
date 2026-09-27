@@ -1,0 +1,95 @@
+{
+  "modules": {
+    "dashboard": "Dashboard",
+    "personas": "Personas",
+    "consolidacion": "Consolidación",
+    "celulas": "Células",
+    "estructura": "Estructura",
+    "catalogos": "Catálogos",
+    "ministerios": "Ministerios",
+    "alabanza": "Alabanza",
+    "eventos": "Eventos",
+    "asistencia": "Asistencia",
+    "finanzas": "Finanzas",
+    "inventario": "Inventario",
+    "usuarios": "Usuarios",
+    "roles": "Roles",
+    "cuenta": "Cuenta",
+    "auditoria": "Auditoría"
+  },
+  "actions": {
+    "dashboard": { "ver": "Ver estadísticas" },
+    "personas": {
+      "ver": "Ver personas",
+      "crear": "Dar de alta",
+      "editar": "Editar",
+      "eliminar": "Eliminar",
+      "ver_sensibles": "Ver datos sensibles",
+      "fusionar": "Fusionar duplicados",
+      "importar": "Importar",
+      "exportar": "Exportar",
+      "nuevos_revisar": "Revisar nuevos del formulario"
+    },
+    "consolidacion": {
+      "ver": "Ver seguimiento",
+      "gestionar": "Registrar seguimiento",
+      "asignar": "Asignar consolidadores"
+    },
+    "celulas": {
+      "ver": "Ver células",
+      "crear": "Crear células",
+      "editar": "Editar células",
+      "eliminar": "Eliminar células",
+      "reportar": "Cargar reportes",
+      "ver_direccion": "Ver dirección exacta",
+      "multiplicar": "Multiplicar",
+      "ver_reportes": "Ver reportes"
+    },
+    "estructura": { "gestionar": "Sedes, redes y zonas" },
+    "catalogos": { "gestionar": "Estados, hitos, cargos y etiquetas" },
+    "ministerios": {
+      "ver": "Ver ministerios",
+      "gestionar": "Gestionar ministerios",
+      "turnos": "Asignar turnos"
+    },
+    "alabanza": {
+      "ver": "Ver repertorio y listas",
+      "canciones": "Editar canciones",
+      "listas": "Armar listas"
+    },
+    "eventos": {
+      "ver": "Ver calendario",
+      "gestionar": "Gestionar eventos",
+      "inscripciones": "Gestionar inscripciones"
+    },
+    "asistencia": { "ver": "Ver asistencia", "registrar": "Registrar asistencia" },
+    "finanzas": {
+      "ver": "Ver finanzas",
+      "registrar": "Registrar movimientos",
+      "anular": "Anular movimientos",
+      "diezmos_nominales": "Ver diezmos por persona",
+      "arqueo": "Arqueos de culto",
+      "confirmar_pendientes": "Confirmar pendientes",
+      "cierre": "Cierre mensual",
+      "reabrir_cierre": "Reabrir cierres",
+      "cajas": "Gestionar cajas",
+      "categorias": "Gestionar categorías",
+      "reportes": "Reportes"
+    },
+    "inventario": { "ver": "Ver inventario", "gestionar": "Gestionar equipos", "prestamos": "Préstamos" },
+    "usuarios": {
+      "ver": "Ver usuarios",
+      "gestionar": "Gestionar usuarios",
+      "resetear": "Resetear contraseñas"
+    },
+    "roles": { "ver": "Ver roles", "gestionar": "Gestionar roles y permisos" },
+    "cuenta": { "configurar": "Configurar la iglesia" },
+    "auditoria": { "ver": "Ver auditoría" }
+  },
+  "scope": {
+    "none": "Sin acceso",
+    "all": "Todo",
+    "own": "Propio"
+  },
+  "scopeHelp": "«Propio» limita el permiso a lo que la persona lidera o tiene asignado (sus células, redes, ministerios)."
+}

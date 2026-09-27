@@ -19,17 +19,30 @@
     "IMPERSONATION_FORBIDDEN": "This action isn't available in a support session.",
     "PERMISSION_DENIED": "You don't have permission to do this.",
     "VALIDATION_ERROR": "Please check the data you entered.",
-    "NOT_FOUND": "We couldn't find what you were looking for."
+    "NOT_FOUND": "We couldn't find what you were looking for.",
+    "USER_LIMIT_REACHED": "You reached your plan's user limit.",
+    "EMAIL_IN_USE": "That email is already registered in Shaddai.",
+    "ROLE_INVALID": "One of the selected roles doesn't exist.",
+    "OWNER_PROTECTED": "The account owner must remain active and an Administrator.",
+    "LAST_ADMIN": "The account needs at least one active Administrator.",
+    "CANNOT_DEACTIVATE_SELF": "You can't deactivate your own user.",
+    "USE_CHANGE_PASSWORD": "For your own user, use “Change password” in Security.",
+    "ROLE_LOCKED": "The Administrator role cannot be modified.",
+    "ROLE_IN_USE": "The role has users assigned: remove it from them before deleting.",
+    "SCOPE_NOT_SUPPORTED": "That permission doesn't support the “own” scope.",
+    "PERMISSION_UNKNOWN": "There is an unknown permission.",
+    "CONFLICT_UNIQUE": "A record with that name already exists.",
+    "FILE_TYPE_NOT_ALLOWED": "The file is not a valid image (PNG, JPG or WebP).",
+    "FILE_TOO_LARGE": "The file exceeds the maximum size.",
+    "FILE_REQUIRED": "Choose a file.",
+    "STORAGE_LIMIT_REACHED": "You ran out of storage space in your plan."
   },
   "validation": {
     "required": "This field is required.",
     "email": "Enter a valid email.",
     "passwordMin": "At least 10 characters.",
     "passwordsMatch": "Passwords don't match.",
-    "code": "Enter the 6 digits."
-  },
-  "passwordFeedback": {
-    "tooShort": "It is too short.",
-    "common": "It is a very common password."
+    "code": "Enter the 6 digits.",
+    "taxId": "Invalid tax ID (format 30-12345678-9)."
   }
 }

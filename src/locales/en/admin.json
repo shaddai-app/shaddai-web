@@ -1,0 +1,184 @@
+{
+  "users": {
+    "title": "Users",
+    "description": "Who can sign in to Shaddai at your church and what they can do.",
+    "usage": "{{active}} of {{limit}} active users",
+    "limitReached": "You reached your plan's user limit. Deactivate someone or ask to upgrade the plan.",
+    "search": "Search by name or email",
+    "status": { "all": "All", "active": "Active", "inactive": "Inactive" },
+    "role": "Role",
+    "allRoles": "All roles",
+    "add": "New user",
+    "empty": "No users match those filters.",
+    "columns": { "name": "Name", "roles": "Roles", "status": "Status", "lastLogin": "Last sign-in" },
+    "badges": {
+      "owner": "Owner",
+      "admin": "Administrator",
+      "inactive": "Inactive",
+      "locked": "Locked",
+      "pendingPassword": "Temporary password",
+      "active": "Active"
+    },
+    "never": "Never",
+    "actions": {
+      "label": "Actions",
+      "edit": "Edit",
+      "deactivate": "Deactivate",
+      "activate": "Reactivate",
+      "unlock": "Unlock",
+      "resetPassword": "New temporary password"
+    },
+    "form": {
+      "createTitle": "New user",
+      "editTitle": "Edit user",
+      "email": "Email",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "language": "Language",
+      "languageDefault": "Church default",
+      "roles": "Roles",
+      "rolesHint": "If they have several roles, their permissions add up.",
+      "sendAccessEmail": "Email them their access"
+    },
+    "access": {
+      "title": "Access created",
+      "resetTitle": "New temporary password",
+      "body": "Share these details with {{name}}. The password is shown only once and they'll be asked to create their own when signing in.",
+      "email": "Email",
+      "password": "Temporary password",
+      "done": "Done, I copied it"
+    },
+    "confirm": {
+      "deactivateTitle": "Deactivate {{name}}?",
+      "deactivateBody": "They won't be able to sign in and their sessions will be closed. You can reactivate them anytime.",
+      "resetTitle": "Generate a temporary password for {{name}}?",
+      "resetBody": "Their current password stops working and their sessions are closed."
+    },
+    "saved": "User saved",
+    "deactivated": "User deactivated",
+    "activated": "User reactivated",
+    "unlocked": "User unlocked"
+  },
+  "roles": {
+    "title": "Roles",
+    "description": "Each role groups permissions. A user can have several roles.",
+    "add": "New role",
+    "matrix": "Permission matrix",
+    "userCount_one": "{{count}} user",
+    "userCount_other": "{{count}} users",
+    "permissionCount_one": "{{count}} permission",
+    "permissionCount_other": "{{count}} permissions",
+    "locked": "Has every permission and cannot be modified.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteTitle": "Delete the role “{{name}}”?",
+    "deleteBody": "This action cannot be undone.",
+    "deleted": "Role deleted",
+    "saved": "Role saved",
+    "form": {
+      "createTitle": "New role",
+      "editTitle": "Edit role",
+      "name": "Name",
+      "description": "Description",
+      "copyFrom": "Copy permissions from",
+      "copyNone": "Start with no permissions",
+      "permissionsHint": "Permissions are adjusted in the matrix."
+    }
+  },
+  "matrix": {
+    "title": "Permission matrix",
+    "description": "Tap each cell to switch between no access, all and own.",
+    "permission": "Permission",
+    "save": "Save changes",
+    "discard": "Discard",
+    "unsaved_one": "{{count}} unsaved change",
+    "unsaved_other": "{{count}} unsaved changes",
+    "saved": "Permissions saved",
+    "readOnly": "You can view the matrix but not change it.",
+    "lockedColumn": "The Administrator always has every permission.",
+    "leaveWarning": "You have unsaved changes."
+  },
+  "account": {
+    "title": "Church settings",
+    "sections": {
+      "general": "General information",
+      "logo": "Logo",
+      "appearance": "Appearance",
+      "regional": "Language and region",
+      "structure": "Structure and cell groups",
+      "legal": "Tax information",
+      "usage": "Your plan"
+    },
+    "fields": {
+      "name": "Church name",
+      "email": "Contact email",
+      "phone": "Phone",
+      "address": "Address",
+      "ccliLicense": "CCLI license",
+      "defaultLocale": "Default language",
+      "defaultLocaleHint": "Used by users who haven't chosen their own language.",
+      "timezone": "Time zone",
+      "currency": "Currency",
+      "weekStartsOn": "Week starts on",
+      "monday": "Monday",
+      "sunday": "Sunday",
+      "primaryColor": "Main color",
+      "networkLabel": "First level name",
+      "zoneLabel": "Second level name",
+      "labelsHint": "What your church calls the levels that group cell groups (for example, Network and Zone).",
+      "cellMultiplyTarget": "Attendance to multiply",
+      "cellMultiplyTargetHint": "We notify the leader when their group reaches this number.",
+      "cellReportEditDays": "Days to edit a report",
+      "legalName": "Legal name",
+      "taxId": "Tax ID (CUIT)",
+      "taxCondition": "VAT status"
+    },
+    "colors": {
+      "slate": "Slate blue",
+      "indigo": "Indigo",
+      "teal": "Teal",
+      "burgundy": "Burgundy",
+      "graphite": "Graphite",
+      "violet": "Violet"
+    },
+    "logo": {
+      "upload": "Upload logo",
+      "replace": "Change logo",
+      "remove": "Remove",
+      "hint": "PNG, JPG or WebP up to 5 MB. We resize it to 512 px.",
+      "none": "No logo",
+      "uploaded": "Logo updated",
+      "removed": "Logo removed"
+    },
+    "usage": {
+      "plan": "Plan",
+      "users": "Active users",
+      "storage": "Storage",
+      "trialEnds": "The free trial ends on {{date}}"
+    },
+    "saved": "Settings saved"
+  },
+  "audit": {
+    "title": "Audit log",
+    "description": "Record of the important actions performed in the account.",
+    "filters": { "action": "Action type", "allActions": "All", "from": "From", "to": "To" },
+    "columns": { "date": "Date", "user": "Who", "action": "Action", "detail": "Detail" },
+    "support": "Shaddai support",
+    "system": "System",
+    "empty": "No records match those filters.",
+    "showDetail": "View detail",
+    "before": "Before",
+    "after": "After",
+    "groups": {
+      "auth": "Sign-ins and sessions",
+      "users": "Users",
+      "roles": "Roles and permissions",
+      "account": "Account settings",
+      "structure": "Structure",
+      "platform": "Support and platform"
+    }
+  },
+  "pagination": {
+    "summary": "{{from}}–{{to}} of {{total}}"
+  }
+}

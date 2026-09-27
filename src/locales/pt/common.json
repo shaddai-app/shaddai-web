@@ -32,7 +32,11 @@
     "accounts": "Igrejas",
     "more": "Mais",
     "openMenu": "Abrir menu",
-    "closeMenu": "Fechar menu"
+    "closeMenu": "Fechar menu",
+    "users": "Usuários",
+    "roles": "Funções",
+    "churchSettings": "Configurações da igreja",
+    "audit": "Auditoria"
   },
   "userMenu": {
     "label": "Menu do usuário",
@@ -68,5 +72,6 @@
     "title": "Sem acesso",
     "body": "Você não tem permissão para ver esta seção. Se acha que é um erro, fale com o administrador da sua igreja."
   },
-  "loading": "Carregando…"
+  "loading": "Carregando…",
+  "unsavedChanges": "Você tem alterações não salvas. Sair mesmo assim?"
 }

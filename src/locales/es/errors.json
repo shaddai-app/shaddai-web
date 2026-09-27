@@ -19,17 +19,30 @@
     "IMPERSONATION_FORBIDDEN": "Esta acción no está disponible en una sesión de soporte.",
     "PERMISSION_DENIED": "No tenés permiso para hacer esto.",
     "VALIDATION_ERROR": "Revisá los datos ingresados.",
-    "NOT_FOUND": "No encontramos lo que buscabas."
+    "NOT_FOUND": "No encontramos lo que buscabas.",
+    "USER_LIMIT_REACHED": "Llegaste al límite de usuarios de tu plan.",
+    "EMAIL_IN_USE": "Ese email ya está registrado en Shaddai.",
+    "ROLE_INVALID": "Alguno de los roles elegidos no existe.",
+    "OWNER_PROTECTED": "El dueño de la cuenta tiene que seguir activo y como Administrador.",
+    "LAST_ADMIN": "La cuenta necesita al menos un Administrador activo.",
+    "CANNOT_DEACTIVATE_SELF": "No podés desactivar tu propio usuario.",
+    "USE_CHANGE_PASSWORD": "Para tu propio usuario usá «Cambiar contraseña» en Seguridad.",
+    "ROLE_LOCKED": "El rol Administrador no se puede modificar.",
+    "ROLE_IN_USE": "El rol tiene usuarios asignados: quitáselo antes de eliminarlo.",
+    "SCOPE_NOT_SUPPORTED": "Ese permiso no admite el alcance «propio».",
+    "PERMISSION_UNKNOWN": "Hay un permiso desconocido.",
+    "CONFLICT_UNIQUE": "Ya existe un registro con ese nombre.",
+    "FILE_TYPE_NOT_ALLOWED": "El archivo no es una imagen válida (PNG, JPG o WebP).",
+    "FILE_TOO_LARGE": "El archivo supera el tamaño máximo.",
+    "FILE_REQUIRED": "Elegí un archivo.",
+    "STORAGE_LIMIT_REACHED": "Te quedaste sin espacio de almacenamiento en tu plan."
   },
   "validation": {
     "required": "Este campo es obligatorio.",
     "email": "Ingresá un email válido.",
     "passwordMin": "Mínimo 10 caracteres.",
     "passwordsMatch": "Las contraseñas no coinciden.",
-    "code": "Ingresá los 6 dígitos."
-  },
-  "passwordFeedback": {
-    "tooShort": "Es demasiado corta.",
-    "common": "Es una contraseña muy usada."
+    "code": "Ingresá los 6 dígitos.",
+    "taxId": "CUIT inválido (formato 30-12345678-9)."
   }
 }
