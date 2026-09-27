@@ -3,6 +3,7 @@ import {
   Card,
   Group,
   Loader,
+  Menu,
   MultiSelect,
   SegmentedControl,
   Select,
@@ -13,14 +14,22 @@ import {
 } from '@mantine/core';
 import { useDebouncedCallback } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications';
-import { IconPlus, IconSearch } from '@tabler/icons-react';
+import { IconDownload, IconPlus, IconSearch, IconUpload } from '@tabler/icons-react';
 import { keepPreviousData, useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import dayjs from 'dayjs';
 import { useState } from 'react';
 import { AnchorLink, UnstyledLink } from '../../../../components/links';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
-import { peopleApi, type PersonListItem } from '../../../../api/people';
+import {
+  importApi,
+  peopleApi,
+  saveBlob,
+  type PersonListItem,
+  type SheetFormat,
+} from '../../../../api/people';
+import { errorMessage } from '../../../../i18n/errors';
 import { requirePermission } from '../../../../auth/guards';
 import { can, scopeOf } from '../../../../auth/permissions';
 import { meQuery } from '../../../../auth/session';
@@ -63,7 +72,7 @@ function Contact({ person }: { person: PersonListItem }) {
 }
 
 function PeoplePage() {
-  const { t } = useTranslation(['people', 'common']);
+  const { t, i18n } = useTranslation(['people', 'common']);
   const params = Route.useSearch();
   const navigate = useNavigate({ from: Route.fullPath });
   const queryClient = useQueryClient();
@@ -94,6 +103,22 @@ function PeoplePage() {
   const debouncedQ = useDebouncedCallback((value: string) => setSearch({ q: value || undefined }), 350);
   const filtered = Boolean(params.q || params.status?.length || params.tagId || params.campusId);
 
+  const exportPeople = async (format: SheetFormat) => {
+    try {
+      const { sort, ...filters } = query;
+      const blob = await importApi.export({
+        ...filters,
+        sort,
+        format,
+        locale: i18n.resolvedLanguage ?? 'es',
+      });
+      saveBlob(blob, `${t('list.title').toLowerCase()}-${dayjs().format('YYYY-MM-DD')}.${format}`);
+      notifications.show({ color: 'teal', message: t('export.done') });
+    } catch (err) {
+      notifications.show({ color: 'red', message: errorMessage(err) });
+    }
+  };
+
   const open = (p: PersonListItem) => void navigate({ to: '/personas/$id', params: { id: String(p.id) } });
 
   return (
@@ -102,11 +127,39 @@ function PeoplePage() {
         title={t('list.title')}
         description={t('list.description')}
         actions={
-          can(me, 'personas.crear') && (
-            <Button leftSection={<IconPlus size={18} />} onClick={() => setFormOpen(true)}>
-              {t('list.add')}
-            </Button>
-          )
+          <Group gap="xs">
+            {can(me, 'personas.importar') && (
+              <Button
+                variant="default"
+                leftSection={<IconUpload size={18} />}
+                onClick={() => void navigate({ to: '/personas/importar' })}
+              >
+                {t('import.open')}
+              </Button>
+            )}
+            {can(me, 'personas.exportar') && (
+              <Menu position="bottom-end" withinPortal>
+                <Menu.Target>
+                  <Button variant="default" leftSection={<IconDownload size={18} />}>
+                    {t('export.button')}
+                  </Button>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Label>{t('export.hint')}</Menu.Label>
+                  {(['xlsx', 'csv'] as const).map((format) => (
+                    <Menu.Item key={format} onClick={() => void exportPeople(format)}>
+                      {t(`export.${format}`)}
+                    </Menu.Item>
+                  ))}
+                </Menu.Dropdown>
+              </Menu>
+            )}
+            {can(me, 'personas.crear') && (
+              <Button leftSection={<IconPlus size={18} />} onClick={() => setFormOpen(true)}>
+                {t('list.add')}
+              </Button>
+            )}
+          </Group>
         }
       />
 

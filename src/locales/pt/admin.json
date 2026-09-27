@@ -38,6 +38,8 @@
       "languageDefault": "O da igreja",
       "roles": "Funções",
       "rolesHint": "Se tiver várias funções, as permissões se somam.",
+      "person": "Cadastro de pessoa",
+      "personHint": "Vincula o usuário ao seu cadastro (usado para «o próprio» e no perfil).",
       "sendAccessEmail": "Enviar o acesso por e-mail"
     },
     "access": {

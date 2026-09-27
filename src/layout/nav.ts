@@ -9,6 +9,7 @@ import {
   IconShieldCheck,
   IconShieldLock,
   IconUserCircle,
+  IconUserPlus,
   IconUsers,
   IconUsersGroup,
   type Icon,
@@ -23,6 +24,7 @@ export interface NavItem {
   label:
     | 'home'
     | 'people'
+    | 'newcomers'
     | 'catalogs'
     | 'campuses'
     | 'profile'
@@ -63,7 +65,20 @@ const churchNav: NavSection[] = [
   {
     items: [
       { to: '/', label: 'home', icon: IconHome, mobile: true, exact: true },
-      { to: '/personas', label: 'people', icon: IconUsersGroup, mobile: true, permissions: ['personas.ver'] },
+      {
+        to: '/personas',
+        label: 'people',
+        icon: IconUsersGroup,
+        mobile: true,
+        permissions: ['personas.ver'],
+        excludeActive: ['/personas/nuevos'],
+      },
+      {
+        to: '/personas/nuevos',
+        label: 'newcomers',
+        icon: IconUserPlus,
+        permissions: ['personas.nuevos_revisar'],
+      },
     ],
   },
   {

@@ -31,6 +31,8 @@ export interface AccountUser {
   lastLoginAt: string | null;
   createdAt: string;
   roles: RoleRef[];
+  /** Ficha de persona vinculada (Fase 2). */
+  person: { id: number; firstName: string; lastName: string } | null;
 }
 
 export interface UserUsage {
@@ -53,6 +55,8 @@ export interface UserInput {
   locale: Locale | null;
   roleIds: number[];
   sendAccessEmail: boolean;
+  /** Solo en edición: ficha vinculada (null = desvincular, undefined = sin cambios). */
+  personId?: number | null;
 }
 
 export interface TemporaryAccess {
@@ -63,8 +67,10 @@ export interface TemporaryAccess {
 export const usersApi = {
   list: (q: UsersQuery) => api.get<Paged<AccountUser> & { usage: UserUsage }>('/users', { ...q }),
   create: (body: UserInput) => api.post<TemporaryAccess>('/users', body),
-  update: (id: number, body: Partial<Omit<UserInput, 'email' | 'sendAccessEmail'>>) =>
-    api.patch<AccountUser>(`/users/${id}`, body),
+  update: (
+    id: number,
+    body: Partial<Omit<UserInput, 'email' | 'sendAccessEmail'> & { personId: number | null }>,
+  ) => api.patch<AccountUser>(`/users/${id}`, body),
   activate: (id: number) => api.post<AccountUser>(`/users/${id}/activate`),
   deactivate: (id: number) => api.post<AccountUser>(`/users/${id}/deactivate`),
   unlock: (id: number) => api.post<AccountUser>(`/users/${id}/unlock`),

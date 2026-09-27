@@ -69,7 +69,19 @@
     "HOUSEHOLD_EDIT_FORBIDDEN": "Você não tem permissão para editar esta família.",
     "HOUSEHOLD_MEMBERS_REQUIRED": "Adicione pelo menos um integrante.",
     "MERGE_SAME_PERSON": "Escolha outro cadastro.",
-    "MERGE_BOTH_LINKED": "Os dois cadastros têm usuário: desvincule um antes de mesclar."
+    "MERGE_BOTH_LINKED": "Os dois cadastros têm usuário: desvincule um antes de mesclar.",
+    "IMPORT_FILE_UNREADABLE": "Não conseguimos ler o arquivo. Salve como .xlsx ou .csv e tente de novo.",
+    "IMPORT_FILE_EMPTY": "O arquivo não tem linhas com dados.",
+    "IMPORT_TOO_MANY_ROWS": "O arquivo tem linhas demais (máximo {{maxRows}}). Divida em partes.",
+    "IMPORT_MISSING_COLUMNS": "Faltam colunas obrigatórias: a planilha precisa ter «Nome» e «Sobrenome».",
+    "IMPORT_NOT_FOUND": "Não encontramos essa importação.",
+    "IMPORT_ALREADY_COMMITTED": "Essa importação já foi confirmada.",
+    "IMPORT_EXPIRED": "A pré-visualização expirou. Envie o arquivo de novo.",
+    "EXPORT_TOO_MANY_ROWS": "Pessoas demais para exportar de uma vez (máximo {{max}}). Use filtros.",
+    "NEWCOMER_NOT_FOUND": "Não encontramos esse formulário.",
+    "NEWCOMER_ALREADY_REVIEWED": "Esse formulário já foi revisado.",
+    "CAPTCHA_FAILED": "Complete a verificação anti-spam e envie de novo.",
+    "PUBLIC_FORM_NOT_FOUND": "Este formulário não está disponível."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

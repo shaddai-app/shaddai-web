@@ -38,6 +38,8 @@
       "languageDefault": "Church default",
       "roles": "Roles",
       "rolesHint": "If they have several roles, their permissions add up.",
+      "person": "Person record",
+      "personHint": "Links the user to their person record (used for “own” scope and their profile).",
       "sendAccessEmail": "Email them their access"
     },
     "access": {

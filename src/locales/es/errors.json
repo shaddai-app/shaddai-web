@@ -69,7 +69,19 @@
     "HOUSEHOLD_EDIT_FORBIDDEN": "No tenés permiso para editar esta familia.",
     "HOUSEHOLD_MEMBERS_REQUIRED": "Agregá al menos un integrante.",
     "MERGE_SAME_PERSON": "Elegí otra ficha.",
-    "MERGE_BOTH_LINKED": "Las dos fichas tienen usuario: desvinculá uno antes de fusionar."
+    "MERGE_BOTH_LINKED": "Las dos fichas tienen usuario: desvinculá uno antes de fusionar.",
+    "IMPORT_FILE_UNREADABLE": "No pudimos leer el archivo. Guardalo como .xlsx o .csv y probá de nuevo.",
+    "IMPORT_FILE_EMPTY": "El archivo no tiene filas con datos.",
+    "IMPORT_TOO_MANY_ROWS": "El archivo tiene demasiadas filas (máximo {{maxRows}}). Dividilo en partes.",
+    "IMPORT_MISSING_COLUMNS": "Faltan columnas obligatorias: la planilla tiene que tener «Nombre» y «Apellido».",
+    "IMPORT_NOT_FOUND": "No encontramos esa importación.",
+    "IMPORT_ALREADY_COMMITTED": "Esa importación ya se confirmó.",
+    "IMPORT_EXPIRED": "La vista previa venció. Subí el archivo de nuevo.",
+    "EXPORT_TOO_MANY_ROWS": "Son demasiadas personas para exportar de una vez (máximo {{max}}). Usá filtros.",
+    "NEWCOMER_NOT_FOUND": "No encontramos ese formulario.",
+    "NEWCOMER_ALREADY_REVIEWED": "Ese formulario ya fue revisado.",
+    "CAPTCHA_FAILED": "Completá la verificación anti-spam y volvé a enviar.",
+    "PUBLIC_FORM_NOT_FOUND": "Este formulario no está disponible."
   },
   "validation": {
     "required": "Este campo es obligatorio.",
