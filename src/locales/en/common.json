@@ -36,7 +36,9 @@
     "users": "Users",
     "roles": "Roles",
     "churchSettings": "Church settings",
-    "audit": "Audit log"
+    "audit": "Audit log",
+    "plans": "Plans",
+    "platformAudit": "Audit log"
   },
   "userMenu": {
     "label": "User menu",

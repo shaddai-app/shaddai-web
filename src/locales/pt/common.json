@@ -36,7 +36,9 @@
     "users": "Usuários",
     "roles": "Funções",
     "churchSettings": "Configurações da igreja",
-    "audit": "Auditoria"
+    "audit": "Auditoria",
+    "plans": "Planos",
+    "platformAudit": "Auditoria"
   },
   "userMenu": {
     "label": "Menu do usuário",

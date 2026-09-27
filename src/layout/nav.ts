@@ -2,6 +2,7 @@ import {
   IconBuildingChurch,
   IconHistory,
   IconHome,
+  IconPackage,
   IconSettings,
   IconShieldCheck,
   IconShieldLock,
@@ -16,7 +17,19 @@ import { can, type PermissionKey } from '../auth/permissions';
 export interface NavItem {
   to: string;
   /** Clave en common:nav.* */
-  label: 'home' | 'profile' | 'security' | 'accounts' | 'users' | 'roles' | 'churchSettings' | 'audit';
+  label:
+    | 'home'
+    | 'profile'
+    | 'security'
+    | 'accounts'
+    | 'users'
+    | 'roles'
+    | 'churchSettings'
+    | 'audit'
+    | 'plans'
+    | 'platformAudit';
+  /** Rutas que no deben marcar este ítem como activo aunque empiecen igual (ej. /plataforma vs /plataforma/planes). */
+  excludeActive?: string[];
   icon: Icon;
   /** Basta uno (OR). Sin permisos = visible para cualquier usuario de la sección. */
   permissions?: PermissionKey[];
@@ -62,7 +75,17 @@ const churchNav: NavSection[] = [
 const platformNav: NavSection[] = [
   {
     title: 'platform',
-    items: [{ to: '/plataforma', label: 'accounts', icon: IconBuildingChurch, mobile: true }],
+    items: [
+      {
+        to: '/plataforma',
+        label: 'accounts',
+        icon: IconBuildingChurch,
+        mobile: true,
+        excludeActive: ['/plataforma/planes', '/plataforma/auditoria'],
+      },
+      { to: '/plataforma/planes', label: 'plans', icon: IconPackage, mobile: true },
+      { to: '/plataforma/auditoria', label: 'platformAudit', icon: IconHistory },
+    ],
   },
   settingsSection,
 ];

@@ -23,6 +23,7 @@ import { useTranslation } from 'react-i18next';
 import { accountApi } from '../api/admin';
 import { authApi } from '../api/auth';
 import { useFileUrl } from '../components/use-file-url';
+import { leaveSupport } from '../features/platform/support';
 import type { Me } from '../api/types';
 import { logout } from '../auth/session';
 import { useSession } from '../auth/session-store';
@@ -32,6 +33,7 @@ import { navFor, type NavItem } from './nav';
 import classes from './AppShellLayout.module.css';
 
 function isActive(pathname: string, item: NavItem) {
+  if (item.excludeActive?.some((p) => pathname === p || pathname.startsWith(`${p}/`))) return false;
   return item.exact ? pathname === item.to : pathname === item.to || pathname.startsWith(`${item.to}/`);
 }
 
@@ -46,8 +48,7 @@ function SupportBanner({ me }: { me: Me }) {
     try {
       await authApi.stopSupport();
     } finally {
-      useSession.getState().endSupport();
-      await queryClient.invalidateQueries({ queryKey: ['me'] });
+      leaveSupport(queryClient);
       void navigate({ to: '/plataforma' });
     }
   };
@@ -221,6 +222,9 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
                     key={item.to}
                     component={Link}
                     to={item.to}
+                    // El estado activo lo decide isActive (con excepciones), no el matching difuso del router.
+                    activeOptions={{ exact: true }}
+                    aria-current={isActive(pathname, item) ? 'page' : undefined}
                     label={t(`nav.${item.label}`)}
                     leftSection={<item.icon size={20} stroke={1.6} />}
                     active={isActive(pathname, item)}
@@ -246,6 +250,8 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
             <Link
               key={item.to}
               to={item.to}
+              activeOptions={{ exact: true }}
+              aria-current={isActive(pathname, item) ? 'page' : undefined}
               className={classes.bottomItem}
               data-active={isActive(pathname, item) || undefined}
               onClick={close}

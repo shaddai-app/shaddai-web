@@ -35,7 +35,12 @@
     "FILE_TYPE_NOT_ALLOWED": "The file is not a valid image (PNG, JPG or WebP).",
     "FILE_TOO_LARGE": "The file exceeds the maximum size.",
     "FILE_REQUIRED": "Choose a file.",
-    "STORAGE_LIMIT_REACHED": "You ran out of storage space in your plan."
+    "STORAGE_LIMIT_REACHED": "You ran out of storage space in your plan.",
+    "PLAN_INVALID": "The plan doesn't exist or isn't available.",
+    "ACCOUNT_NOT_FOUND": "We couldn't find that church.",
+    "USER_NOT_FOUND": "We couldn't find that user.",
+    "IMPERSONATION_TARGET_INVALID": "You can't sign in as that user.",
+    "NOT_IMPERSONATING": "There is no active support session."
   },
   "validation": {
     "required": "This field is required.",
@@ -43,6 +48,8 @@
     "passwordMin": "At least 10 characters.",
     "passwordsMatch": "Passwords don't match.",
     "code": "Enter the 6 digits.",
-    "taxId": "Invalid tax ID (format 30-12345678-9)."
+    "taxId": "Invalid tax ID (format 30-12345678-9).",
+    "slug": "Lowercase letters, numbers and hyphens only.",
+    "reason": "Tell us the reason (at least 5 characters)."
   }
 }

@@ -35,7 +35,12 @@
     "FILE_TYPE_NOT_ALLOWED": "El archivo no es una imagen válida (PNG, JPG o WebP).",
     "FILE_TOO_LARGE": "El archivo supera el tamaño máximo.",
     "FILE_REQUIRED": "Elegí un archivo.",
-    "STORAGE_LIMIT_REACHED": "Te quedaste sin espacio de almacenamiento en tu plan."
+    "STORAGE_LIMIT_REACHED": "Te quedaste sin espacio de almacenamiento en tu plan.",
+    "PLAN_INVALID": "El plan no existe o no está disponible.",
+    "ACCOUNT_NOT_FOUND": "No encontramos esa iglesia.",
+    "USER_NOT_FOUND": "No encontramos ese usuario.",
+    "IMPERSONATION_TARGET_INVALID": "No se puede entrar como ese usuario.",
+    "NOT_IMPERSONATING": "No hay una sesión de soporte activa."
   },
   "validation": {
     "required": "Este campo es obligatorio.",
@@ -43,6 +48,8 @@
     "passwordMin": "Mínimo 10 caracteres.",
     "passwordsMatch": "Las contraseñas no coinciden.",
     "code": "Ingresá los 6 dígitos.",
-    "taxId": "CUIT inválido (formato 30-12345678-9)."
+    "taxId": "CUIT inválido (formato 30-12345678-9).",
+    "slug": "Solo minúsculas, números y guiones.",
+    "reason": "Contanos el motivo (mínimo 5 caracteres)."
   }
 }
