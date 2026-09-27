@@ -38,7 +38,10 @@
     "churchSettings": "Configuración de la iglesia",
     "audit": "Auditoría",
     "plans": "Planes",
-    "platformAudit": "Auditoría"
+    "platformAudit": "Auditoría",
+    "people": "Personas",
+    "catalogs": "Catálogos",
+    "campuses": "Sedes"
   },
   "userMenu": {
     "label": "Menú de usuario",

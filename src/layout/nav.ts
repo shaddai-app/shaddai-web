@@ -1,5 +1,7 @@
 import {
   IconBuildingChurch,
+  IconBuildingCommunity,
+  IconCategory,
   IconHistory,
   IconHome,
   IconPackage,
@@ -8,6 +10,7 @@ import {
   IconShieldLock,
   IconUserCircle,
   IconUsers,
+  IconUsersGroup,
   type Icon,
 } from '@tabler/icons-react';
 import type { Me } from '../api/types';
@@ -19,6 +22,9 @@ export interface NavItem {
   /** Clave en common:nav.* */
   label:
     | 'home'
+    | 'people'
+    | 'catalogs'
+    | 'campuses'
     | 'profile'
     | 'security'
     | 'accounts'
@@ -54,12 +60,29 @@ const settingsSection: NavSection = {
 
 // Cada módulo nuevo agrega acá sus entradas con el permiso que las muestra.
 const churchNav: NavSection[] = [
-  { items: [{ to: '/', label: 'home', icon: IconHome, mobile: true, exact: true }] },
+  {
+    items: [
+      { to: '/', label: 'home', icon: IconHome, mobile: true, exact: true },
+      { to: '/personas', label: 'people', icon: IconUsersGroup, mobile: true, permissions: ['personas.ver'] },
+    ],
+  },
   {
     title: 'admin',
     items: [
       { to: '/admin/usuarios', label: 'users', icon: IconUsers, permissions: ['usuarios.ver'] },
       { to: '/admin/roles', label: 'roles', icon: IconShieldCheck, permissions: ['roles.ver'] },
+      {
+        to: '/admin/catalogos',
+        label: 'catalogs',
+        icon: IconCategory,
+        permissions: ['catalogos.gestionar'],
+      },
+      {
+        to: '/admin/sedes',
+        label: 'campuses',
+        icon: IconBuildingCommunity,
+        permissions: ['estructura.gestionar'],
+      },
       {
         to: '/admin/cuenta',
         label: 'churchSettings',

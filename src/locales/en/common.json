@@ -38,7 +38,10 @@
     "churchSettings": "Church settings",
     "audit": "Audit log",
     "plans": "Plans",
-    "platformAudit": "Audit log"
+    "platformAudit": "Audit log",
+    "people": "People",
+    "catalogs": "Catalogs",
+    "campuses": "Campuses"
   },
   "userMenu": {
     "label": "User menu",

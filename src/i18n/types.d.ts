@@ -4,6 +4,7 @@ import type auth from '../locales/es/auth.json';
 import type common from '../locales/es/common.json';
 import type errors from '../locales/es/errors.json';
 import type permissions from '../locales/es/permissions.json';
+import type people from '../locales/es/people.json';
 import type platform from '../locales/es/platform.json';
 import type settings from '../locales/es/settings.json';
 
@@ -19,6 +20,7 @@ declare module 'i18next' {
       admin: typeof admin;
       permissions: typeof permissions;
       platform: typeof platform;
+      people: typeof people;
     };
   }
 }
