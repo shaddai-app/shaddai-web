@@ -137,7 +137,16 @@
     "TRANSFER_CURRENCY_MISMATCH": "Transfers are only between accounts in the same currency.",
     "TRANSFER_EDIT_FORBIDDEN": "A transfer can't be edited: void it and record it again.",
     "ATTACHMENT_LIMIT": "The movement already has the maximum number of receipts.",
-    "USER_INVALID": "Choose an active user of the church."
+    "USER_INVALID": "Choose an active user of the church.",
+    "MOVEMENT_PENDING": "The offering is pending: confirm or reject it from Pending offerings.",
+    "MOVEMENT_NOT_PENDING": "The offering was already handled.",
+    "MOVEMENT_FROM_COUNT": "This transaction comes from an offering count: void the whole count.",
+    "OFFERING_CONFIRMED": "The treasury already confirmed the offering: the amount cannot change and the report cannot be deleted.",
+    "COUNT_NOT_FOUND": "The offering count does not exist.",
+    "COUNT_NOT_DRAFT": "The count was already confirmed: it cannot be changed.",
+    "COUNT_NOT_CONFIRMED": "Only a confirmed count can be voided.",
+    "COUNT_EMPTY": "The count has nothing entered.",
+    "COUNTERS_SAME": "The two counters must be different people."
   },
   "validation": {
     "required": "This field is required.",

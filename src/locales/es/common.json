@@ -50,7 +50,9 @@
     "consolidation": "Consolidación",
     "finance": "Finanzas",
     "financeAccounts": "Cajas",
-    "financeCategories": "Categorías financieras"
+    "financeCategories": "Categorías financieras",
+    "offeringCounts": "Arqueos",
+    "financePending": "Ofrendas pendientes"
   },
   "userMenu": {
     "label": "Menú de usuario",

@@ -208,7 +208,14 @@
       "visitors_other": "{{count}} visitors",
       "children_one": "{{count}} child",
       "children_other": "{{count}} children"
-    }
+    },
+    "offeringStatus": {
+      "pending": "Pending at the treasury",
+      "confirmed": "Confirmed by the treasury",
+      "rejected": "Rejected by the treasury"
+    },
+    "offeringConfirmed": "The treasury already confirmed it: the amount can no longer change.",
+    "offeringRejected": "The treasury rejected it. If the amount was wrong, fix it and it goes back to the treasury."
   },
   "myCell": {
     "title": "My group",

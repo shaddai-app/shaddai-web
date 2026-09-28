@@ -1,6 +1,6 @@
-import { Button, Card, Group, Loader, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { Alert, Button, Card, Group, Loader, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
-import { IconArrowsExchange, IconMinus, IconPlus } from '@tabler/icons-react';
+import { IconAlertCircle, IconArrowsExchange, IconCoins, IconMinus, IconPlus } from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
@@ -10,7 +10,7 @@ import { requirePermission } from '../../../../auth/guards';
 import { can } from '../../../../auth/permissions';
 import { meQuery } from '../../../../auth/session';
 import { FormError } from '../../../../components/FormError';
-import { AnchorLink, UnstyledLink } from '../../../../components/links';
+import { AnchorLink, ButtonLink, UnstyledLink } from '../../../../components/links';
 import { ACCOUNT_ICONS, useMoney } from '../../../../features/finance/common';
 import { MovementLine } from '../../../../features/finance/MovementLine';
 import { MovementModal, TransferModal } from '../../../../features/finance/MovementModals';
@@ -59,6 +59,11 @@ function FinancePage() {
               >
                 {t('transfer.short')}
               </Button>
+              {can(me, 'finanzas.arqueo') && (
+                <ButtonLink to="/finanzas/arqueos" variant="default" leftSection={<IconCoins size={18} />}>
+                  {t('counts.short')}
+                </ButtonLink>
+              )}
             </Group>
           )
         }
@@ -69,6 +74,28 @@ function FinancePage() {
       ) : (
         summary.data && (
           <Stack gap="lg">
+            {summary.data.pending.movements > 0 && (
+              <Alert color="yellow" variant="light" icon={<IconAlertCircle size={18} />} p="sm">
+                <Group justify="space-between" gap="xs">
+                  <Text size="sm">
+                    {t('summary.pendingAlert', { count: summary.data.pending.movements })}
+                  </Text>
+                  <AnchorLink to="/finanzas/pendientes" size="sm" fw={600}>
+                    {t('summary.review')}
+                  </AnchorLink>
+                </Group>
+              </Alert>
+            )}
+            {summary.data.pending.counts > 0 && (
+              <Alert color="yellow" variant="light" icon={<IconAlertCircle size={18} />} p="sm">
+                <Group justify="space-between" gap="xs">
+                  <Text size="sm">{t('summary.countsAlert', { count: summary.data.pending.counts })}</Text>
+                  <AnchorLink to="/finanzas/arqueos" search={{ status: 'draft' }} size="sm" fw={600}>
+                    {t('summary.review')}
+                  </AnchorLink>
+                </Group>
+              </Alert>
+            )}
             <SimpleGrid cols={{ base: 1, xs: 2, md: 3 }} spacing="sm">
               {summary.data.accounts.map((a) => {
                 const AccountIcon = ACCOUNT_ICONS[a.type];

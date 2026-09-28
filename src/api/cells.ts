@@ -226,6 +226,8 @@ export interface CellReportListItem {
   anonymousVisitors: number;
   childrenCount: number;
   offeringAmount: number | null;
+  /** Estado de la ofrenda en tesorería (null: sin ofrenda). */
+  offeringStatus: 'pending' | 'confirmed' | 'rejected' | null;
   notes: string | null;
   submittedById: number;
   submittedAt: string;

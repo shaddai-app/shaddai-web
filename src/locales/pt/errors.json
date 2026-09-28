@@ -137,7 +137,16 @@
     "TRANSFER_CURRENCY_MISMATCH": "Só se transfere entre caixas da mesma moeda.",
     "TRANSFER_EDIT_FORBIDDEN": "Uma transferência não é editada: anule-a e registre de novo.",
     "ATTACHMENT_LIMIT": "O movimento já tem o máximo de comprovantes.",
-    "USER_INVALID": "Escolha um usuário ativo da igreja."
+    "USER_INVALID": "Escolha um usuário ativo da igreja.",
+    "MOVEMENT_PENDING": "A oferta está pendente: confirme ou rejeite em Ofertas pendentes.",
+    "MOVEMENT_NOT_PENDING": "A oferta já foi resolvida.",
+    "MOVEMENT_FROM_COUNT": "O movimento vem de uma contagem: anule a contagem inteira.",
+    "OFFERING_CONFIRMED": "A tesouraria já confirmou a oferta: não é possível mudar o valor nem excluir o relatório.",
+    "COUNT_NOT_FOUND": "A contagem não existe.",
+    "COUNT_NOT_DRAFT": "A contagem já foi confirmada: não pode ser alterada.",
+    "COUNT_NOT_CONFIRMED": "Só se anula uma contagem confirmada.",
+    "COUNT_EMPTY": "A contagem não tem nada lançado.",
+    "COUNTERS_SAME": "Os dois contadores devem ser pessoas diferentes."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

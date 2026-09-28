@@ -50,7 +50,9 @@
     "consolidation": "Consolidação",
     "finance": "Finanças",
     "financeAccounts": "Caixas",
-    "financeCategories": "Categorias financeiras"
+    "financeCategories": "Categorias financeiras",
+    "offeringCounts": "Contagens",
+    "financePending": "Ofertas pendentes"
   },
   "userMenu": {
     "label": "Menu do usuário",

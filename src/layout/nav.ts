@@ -5,6 +5,8 @@ import {
   IconCategory,
   IconClipboardText,
   IconCoin,
+  IconCoins,
+  IconHourglass,
   IconHeartHandshake,
   IconHierarchy2,
   IconHistory,
@@ -35,6 +37,8 @@ export interface NavItem {
     | 'newcomers'
     | 'consolidation'
     | 'finance'
+    | 'offeringCounts'
+    | 'financePending'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -130,7 +134,24 @@ const churchNav: NavSection[] = [
         icon: IconCoin,
         mobile: true,
         permissions: ['finanzas.ver'],
-        excludeActive: ['/finanzas/cajas', '/finanzas/categorias'],
+        excludeActive: [
+          '/finanzas/cajas',
+          '/finanzas/categorias',
+          '/finanzas/arqueos',
+          '/finanzas/pendientes',
+        ],
+      },
+      {
+        to: '/finanzas/arqueos',
+        label: 'offeringCounts',
+        icon: IconCoins,
+        permissions: ['finanzas.arqueo'],
+      },
+      {
+        to: '/finanzas/pendientes',
+        label: 'financePending',
+        icon: IconHourglass,
+        permissions: ['finanzas.confirmar_pendientes'],
       },
     ],
   },

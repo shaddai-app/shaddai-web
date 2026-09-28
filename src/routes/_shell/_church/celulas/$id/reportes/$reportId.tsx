@@ -18,6 +18,8 @@ import { formatDate, fullName } from '../../../../../../features/people/format';
 import { errorMessage } from '../../../../../../i18n/errors';
 import { PageHeader } from '../../../../../../layout/PageHeader';
 
+const OFFERING_COLORS = { pending: 'yellow', confirmed: 'teal', rejected: 'red' } as const;
+
 export const Route = createFileRoute('/_shell/_church/celulas/$id/reportes/$reportId')({
   beforeLoad: ({ context }) => requirePermission(context.me, 'celulas.ver_reportes', 'celulas.reportar'),
   component: ReportPage,
@@ -190,7 +192,14 @@ function ReportPage() {
                     <Text size="xs" c="dimmed">
                       {t('report.offering')}
                     </Text>
-                    <Text size="sm">{money(r.offeringAmount)}</Text>
+                    <Group gap="xs">
+                      <Text size="sm">{money(r.offeringAmount)}</Text>
+                      {r.offeringStatus && (
+                        <Badge size="xs" variant="light" color={OFFERING_COLORS[r.offeringStatus]}>
+                          {t(`report.offeringStatus.${r.offeringStatus}`)}
+                        </Badge>
+                      )}
+                    </Group>
                   </div>
                 )}
               </Stack>

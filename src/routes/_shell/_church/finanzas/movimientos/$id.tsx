@@ -16,7 +16,15 @@ import {
 } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
-import { IconBan, IconFileTypePdf, IconPaperclip, IconPencil, IconTrash } from '@tabler/icons-react';
+import {
+  IconBan,
+  IconCheck,
+  IconFileTypePdf,
+  IconPaperclip,
+  IconPencil,
+  IconTrash,
+  IconX,
+} from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 import dayjs from 'dayjs';
@@ -29,8 +37,16 @@ import { meQuery } from '../../../../../auth/session';
 import { FormError } from '../../../../../components/FormError';
 import { AnchorLink } from '../../../../../components/links';
 import { useFileUrl } from '../../../../../components/use-file-url';
-import { kindColor, signedAmount, useCategoryLabel, useMoney } from '../../../../../features/finance/common';
+import {
+  kindColor,
+  signedAmount,
+  STATUS_COLORS,
+  useCategoryLabel,
+  useChurchCurrency,
+  useMoney,
+} from '../../../../../features/finance/common';
 import { MovementModal, VoidModal } from '../../../../../features/finance/MovementModals';
+import { ConfirmPendingModal } from '../../../../../features/finance/PendingModals';
 import { formatDate, fullName } from '../../../../../features/people/format';
 import { errorMessage } from '../../../../../i18n/errors';
 import { PageHeader } from '../../../../../layout/PageHeader';
@@ -115,6 +131,9 @@ function MovementPage() {
   const [editing, setEditing] = useState(false);
   const [voiding, setVoiding] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [confirming, setConfirming] = useState(false);
+  const [rejecting, setRejecting] = useState(false);
+  const churchCurrency = useChurchCurrency();
 
   const update = (m: MovementDetail) => {
     queryClient.setQueryData(movementKey(id), m);
@@ -136,10 +155,15 @@ function MovementPage() {
   if (query.isError) return <FormError error={query.error} />;
   const m = query.data;
   const transfer = m.kind === 'transfer_in' || m.kind === 'transfer_out';
-  const voided = m.status === 'voided';
+  const voided = m.status === 'voided' || m.status === 'rejected';
+  const pending = m.status === 'pending';
+  const currency = m.financeAccount?.currency ?? churchCurrency;
   const canRegister = can(me, 'finanzas.registrar') && !voided;
-  const canEdit = canRegister && !transfer;
-  const canVoid = can(me, 'finanzas.anular') && !voided;
+  // Los pendientes se confirman o rechazan; los de un arqueo se anulan con el arqueo.
+  const own = m.status === 'confirmed' && !m.offeringCount;
+  const canEdit = canRegister && own && !transfer;
+  const canVoid = can(me, 'finanzas.anular') && own;
+  const canResolve = pending && can(me, 'finanzas.confirmar_pendientes');
 
   const removeAttachment = (fileId: number) =>
     modals.openConfirmModal({
@@ -161,9 +185,9 @@ function MovementPage() {
       <PageHeader
         title={transfer ? t(`kinds.${m.kind}`) : categoryLabel(m.category)}
         badge={
-          voided ? (
-            <Badge color="gray" variant="light">
-              {t('status.voided')}
+          m.status !== 'confirmed' ? (
+            <Badge color={STATUS_COLORS[m.status]} variant="light">
+              {t(`status.${m.status}`)}
             </Badge>
           ) : (
             <Badge color={kindColor(m.kind)} variant="light">
@@ -194,8 +218,37 @@ function MovementPage() {
         }
       />
       <Stack gap="md" maw={820}>
+        {pending && (
+          <Alert color="yellow" variant="light">
+            <Text size="sm">{t('pending.pendingHint')}</Text>
+            {canResolve && (
+              <Group gap="xs" mt="sm">
+                <Button
+                  color="teal"
+                  size="xs"
+                  leftSection={<IconCheck size={14} />}
+                  onClick={() => setConfirming(true)}
+                >
+                  {t('pending.confirm')}
+                </Button>
+                <Button
+                  variant="default"
+                  size="xs"
+                  leftSection={<IconX size={14} />}
+                  onClick={() => setRejecting(true)}
+                >
+                  {t('pending.reject')}
+                </Button>
+              </Group>
+            )}
+          </Alert>
+        )}
         {voided && (
-          <Alert color="gray" variant="light" title={t('void.voidedTitle')}>
+          <Alert
+            color="gray"
+            variant="light"
+            title={m.status === 'rejected' ? t('pending.rejectedTitle') : t('void.voidedTitle')}
+          >
             {m.voidReason}
             {m.voidedAt && (
               <Text size="xs" c="dimmed" mt={4}>
@@ -208,26 +261,46 @@ function MovementPage() {
           <Text
             fw={700}
             size="2rem"
-            c={voided ? 'dimmed' : kindColor(m.kind)}
+            c={voided || pending ? 'dimmed' : kindColor(m.kind)}
             td={voided ? 'line-through' : undefined}
             mb="md"
             style={{ fontVariantNumeric: 'tabular-nums' }}
           >
-            {money(signedAmount(m.kind, m.amount), m.financeAccount.currency, { signed: true })}
+            {money(signedAmount(m.kind, m.amount), currency, { signed: true })}
           </Text>
           <SimpleGrid cols={{ base: 2, sm: 3 }} spacing="md">
             <Field label={t('movement.date')}>
               <Text size="sm">{formatDate(m.date)}</Text>
             </Field>
             <Field label={t('movement.account')}>
-              <AnchorLink
-                to="/finanzas/movimientos"
-                search={{ financeAccountId: m.financeAccount.id }}
-                size="sm"
-              >
-                {m.financeAccount.name}
-              </AnchorLink>
+              {m.financeAccount && (
+                <AnchorLink
+                  to="/finanzas/movimientos"
+                  search={{ financeAccountId: m.financeAccount.id }}
+                  size="sm"
+                >
+                  {m.financeAccount.name}
+                </AnchorLink>
+              )}
             </Field>
+            {m.cellReport && (
+              <Field label={t('movement.origin')}>
+                <AnchorLink
+                  to="/celulas/$id/reportes/$reportId"
+                  params={{ id: String(m.cellReport.cell.id), reportId: String(m.cellReport.id) }}
+                  size="sm"
+                >
+                  {t('pending.fromCell', { cell: m.cellReport.cell.name })}
+                </AnchorLink>
+              </Field>
+            )}
+            {m.offeringCount && (
+              <Field label={t('movement.origin')}>
+                <AnchorLink to="/finanzas/arqueos/$id" params={{ id: String(m.offeringCount.id) }} size="sm">
+                  {t('counts.fromCount', { title: m.offeringCount.title ?? `#${m.offeringCount.id}` })}
+                </AnchorLink>
+              </Field>
+            )}
             {!transfer && (
               <Field label={t('movement.category')}>
                 <Text size="sm">{categoryLabel(m.category)}</Text>
@@ -239,7 +312,7 @@ function MovementPage() {
             <Field label={t('movement.reference')}>
               {m.reference && <Text size="sm">{m.reference}</Text>}
             </Field>
-            {m.person !== undefined && m.kind === 'income' && (
+            {m.person !== undefined && m.kind === 'income' && !m.cellReport && (
               <Field label={t('movement.contributor')}>
                 {m.person ? (
                   <AnchorLink to="/personas/$id" params={{ id: String(m.person.id) }} size="sm">
@@ -275,6 +348,11 @@ function MovementPage() {
               date: dayjs(m.createdAt).format('L LT'),
             })}
           </Text>
+          {m.confirmedAt && (
+            <Text size="xs" c="dimmed">
+              {t('movement.confirmedAt', { date: dayjs(m.confirmedAt).format('L LT') })}
+            </Text>
+          )}
         </Card>
 
         <Card withBorder radius="lg">
@@ -347,6 +425,28 @@ function MovementPage() {
         onConfirm={async (reason) => {
           await act(() => financeApi.voidMovement(m.id, reason), t('void.done'));
           setVoiding(false);
+        }}
+      />
+      <ConfirmPendingModal
+        movement={confirming ? m : null}
+        onClose={() => setConfirming(false)}
+        onDone={(saved) => {
+          setConfirming(false);
+          update(saved);
+          notifications.show({ color: 'teal', message: t('pending.confirmed') });
+        }}
+      />
+      <VoidModal
+        opened={rejecting}
+        onClose={() => setRejecting(false)}
+        labels={{
+          title: t('pending.rejectTitle'),
+          body: t('pending.rejectBody'),
+          confirm: t('pending.reject'),
+        }}
+        onConfirm={async (reason) => {
+          await act(() => financeApi.rejectPending(m.id, reason), t('pending.rejected'));
+          setRejecting(false);
         }}
       />
     </>

@@ -137,7 +137,16 @@
     "TRANSFER_CURRENCY_MISMATCH": "Solo se transfiere entre cajas de la misma moneda.",
     "TRANSFER_EDIT_FORBIDDEN": "Una transferencia no se edita: anulala y cargala de nuevo.",
     "ATTACHMENT_LIMIT": "El movimiento ya tiene el máximo de comprobantes.",
-    "USER_INVALID": "Elegí un usuario activo de la iglesia."
+    "USER_INVALID": "Elegí un usuario activo de la iglesia.",
+    "MOVEMENT_PENDING": "La ofrenda está pendiente: confirmala o rechazala desde Ofrendas pendientes.",
+    "MOVEMENT_NOT_PENDING": "La ofrenda ya fue resuelta.",
+    "MOVEMENT_FROM_COUNT": "El movimiento es de un arqueo: se anula el arqueo entero.",
+    "OFFERING_CONFIRMED": "Tesorería ya confirmó la ofrenda: no se puede cambiar el monto ni borrar el reporte.",
+    "COUNT_NOT_FOUND": "El arqueo no existe.",
+    "COUNT_NOT_DRAFT": "El arqueo ya fue confirmado: no se puede modificar.",
+    "COUNT_NOT_CONFIRMED": "Solo se anula un arqueo confirmado.",
+    "COUNT_EMPTY": "El arqueo no tiene nada cargado.",
+    "COUNTERS_SAME": "Los dos contadores tienen que ser personas distintas."
   },
   "validation": {
     "required": "Este campo es obligatorio.",
