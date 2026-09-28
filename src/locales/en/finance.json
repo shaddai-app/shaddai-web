@@ -1,0 +1,163 @@
+{
+  "title": "Finance",
+  "description": "The church's cash book: income, expenses and balances.",
+  "kinds": {
+    "income": "Income",
+    "expense": "Expense",
+    "transfer": "Transfers",
+    "transfer_in": "Transfer received",
+    "transfer_out": "Transfer sent"
+  },
+  "status": {
+    "voided": "Voided"
+  },
+  "methods": {
+    "cash": "Cash",
+    "transfer": "Bank transfer",
+    "card": "Card",
+    "wallet": "Digital wallet",
+    "other": "Other"
+  },
+  "categories": {
+    "title": "Categories",
+    "description": "How income and expenses are classified.",
+    "tabs": {
+      "income": "Income",
+      "expense": "Expenses"
+    },
+    "hints": {
+      "income": "Income categories (tithes, offerings…). System ones can't be deleted: rename or deactivate them.",
+      "expense": "Expense categories (rent, utilities…). A category in use can't be deleted: deactivate it."
+    },
+    "defaults": {
+      "tithe": "Tithes",
+      "offering": "Offerings",
+      "special_offering": "Special offerings",
+      "donation": "Donations",
+      "other_income": "Other income",
+      "rent": "Rent",
+      "utilities": "Utilities (power, water, gas, internet)",
+      "maintenance": "Maintenance",
+      "salaries": "Salaries and fees",
+      "missions": "Missions",
+      "social_aid": "Social aid",
+      "supplies": "Supplies and equipment",
+      "events": "Events",
+      "other_expense": "Other expenses"
+    },
+    "name": "Name",
+    "systemNameHint": "Leave it empty to use the default name.",
+    "add": "Add category",
+    "rename": "Rename",
+    "delete": "Delete",
+    "deleteTitle": "Delete “{{name}}”?",
+    "system": "System",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "moveUp": "Move up",
+    "moveDown": "Move down"
+  },
+  "accounts": {
+    "title": "Accounts",
+    "description": "Cash, bank accounts and wallets. Each account has its own currency.",
+    "add": "New account",
+    "edit": "Edit account",
+    "delete": "Delete",
+    "deleteTitle": "Delete “{{name}}”?",
+    "deleteBody": "Only an account without movements can be deleted. If it has history, deactivate it.",
+    "name": "Name",
+    "namePlaceholder": "For example: General cash, Main bank",
+    "types": {
+      "cash": "Cash",
+      "bank": "Bank",
+      "wallet": "Digital wallet"
+    },
+    "currency": "Currency",
+    "currencyHint": "The account's amounts are recorded in this currency (no conversion).",
+    "currencyLockedHint": "With movements recorded, the currency can't be changed.",
+    "openingBalance": "Opening balance",
+    "openingDate": "Opening date",
+    "openingHint": "What the account held when you started using Shaddai. Movements before that date are not allowed.",
+    "openedOn": "since {{date}} with {{amount}}",
+    "activate": "Activate",
+    "deactivate": "Deactivate"
+  },
+  "summary": {
+    "month": "This month ({{from}} to {{to}})",
+    "income": "Income",
+    "expense": "Expenses",
+    "net": "Net",
+    "recent": "Latest movements",
+    "all": "See all",
+    "noMovements": "No movements yet."
+  },
+  "movements": {
+    "title": "Movements",
+    "description": "Everything that came in and went out of the accounts.",
+    "search": "Search by description or reference",
+    "from": "From",
+    "to": "To",
+    "allAccounts": "All accounts",
+    "kind": "Type",
+    "allKinds": "All types",
+    "allCategories": "All categories",
+    "voided": "Show voided",
+    "emptyFiltered": "No movements match those filters.",
+    "clearFilters": "Clear filters",
+    "total_one": "{{count}} movement",
+    "total_other": "{{count}} movements"
+  },
+  "movement": {
+    "newTitle": "New movement",
+    "editTitle": "Edit movement",
+    "amount": "Amount",
+    "account": "Account",
+    "category": "Category",
+    "date": "Date",
+    "method": "Payment method",
+    "contributor": "Contributor",
+    "contributorHint": "For named tithes and offerings (shows in the yearly statement).",
+    "anonymous": "Anonymous",
+    "description": "Description",
+    "reference": "Reference",
+    "referenceHint": "Invoice, receipt or transfer number",
+    "receipt": "Receipt",
+    "receiptHint": "Photo or PDF (optional)",
+    "save": {
+      "income": "Record income",
+      "expense": "Record expense"
+    },
+    "saved": "Movement recorded",
+    "edit": "Edit",
+    "createdBy": "Recorded by {{name}} on {{date}}"
+  },
+  "transfer": {
+    "short": "Transfer",
+    "title": "Transfer between accounts",
+    "from": "From",
+    "to": "To",
+    "noTargets": "There is no other account in the same currency.",
+    "descriptionHint": "For example: bank deposit",
+    "save": "Transfer",
+    "saved": "Transfer recorded",
+    "otherLeg": "See the other account"
+  },
+  "void": {
+    "open": "Void",
+    "title": "Void movement",
+    "body": "The movement isn't deleted: it's voided with the reason and stops counting in the balance. For a transfer, both parts are voided.",
+    "reason": "Reason",
+    "confirm": "Void",
+    "done": "Movement voided",
+    "voidedTitle": "Movement voided"
+  },
+  "receipts": {
+    "title": "Receipts",
+    "add": "Attach",
+    "added": "Receipt attached",
+    "remove": "Remove",
+    "removeTitle": "Remove this receipt?",
+    "empty": "No receipts.",
+    "limits": "Photos or PDF, up to 10 MB and 5 per movement."
+  }
+}

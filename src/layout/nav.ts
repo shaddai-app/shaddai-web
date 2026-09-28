@@ -1,8 +1,10 @@
 import {
+  IconBuildingBank,
   IconBuildingChurch,
   IconBuildingCommunity,
   IconCategory,
   IconClipboardText,
+  IconCoin,
   IconHeartHandshake,
   IconHierarchy2,
   IconHistory,
@@ -12,6 +14,7 @@ import {
   IconSettings,
   IconShieldCheck,
   IconShieldLock,
+  IconTags,
   IconTrafficLights,
   IconUserCircle,
   IconUserPlus,
@@ -31,6 +34,9 @@ export interface NavItem {
     | 'people'
     | 'newcomers'
     | 'consolidation'
+    | 'finance'
+    | 'financeAccounts'
+    | 'financeCategories'
     | 'cells'
     | 'myCell'
     | 'cellReports'
@@ -118,6 +124,14 @@ const churchNav: NavSection[] = [
         icon: IconTrafficLights,
         permissions: ['celulas.ver_reportes'],
       },
+      {
+        to: '/finanzas',
+        label: 'finance',
+        icon: IconCoin,
+        mobile: true,
+        permissions: ['finanzas.ver'],
+        excludeActive: ['/finanzas/cajas', '/finanzas/categorias'],
+      },
     ],
   },
   {
@@ -137,6 +151,18 @@ const churchNav: NavSection[] = [
         icon: IconHierarchy2,
         permissions: ['estructura.gestionar'],
         alsoActive: ['/estructura'],
+      },
+      {
+        to: '/finanzas/cajas',
+        label: 'financeAccounts',
+        icon: IconBuildingBank,
+        permissions: ['finanzas.cajas'],
+      },
+      {
+        to: '/finanzas/categorias',
+        label: 'financeCategories',
+        icon: IconTags,
+        permissions: ['finanzas.categorias'],
       },
       {
         to: '/admin/sedes',

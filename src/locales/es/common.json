@@ -47,7 +47,10 @@
     "structure": "Estructura",
     "myCell": "Mi célula",
     "cellReports": "Semáforo",
-    "consolidation": "Consolidación"
+    "consolidation": "Consolidación",
+    "finance": "Finanzas",
+    "financeAccounts": "Cajas",
+    "financeCategories": "Categorías financieras"
   },
   "userMenu": {
     "label": "Menú de usuario",

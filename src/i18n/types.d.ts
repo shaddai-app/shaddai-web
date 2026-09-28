@@ -2,6 +2,7 @@ import 'i18next';
 import type admin from '../locales/es/admin.json';
 import type auth from '../locales/es/auth.json';
 import type cells from '../locales/es/cells.json';
+import type finance from '../locales/es/finance.json';
 import type consolidation from '../locales/es/consolidation.json';
 import type common from '../locales/es/common.json';
 import type errors from '../locales/es/errors.json';
@@ -25,6 +26,7 @@ declare module 'i18next' {
       people: typeof people;
       cells: typeof cells;
       consolidation: typeof consolidation;
+      finance: typeof finance;
     };
   }
 }

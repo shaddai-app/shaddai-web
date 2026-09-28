@@ -1,0 +1,163 @@
+{
+  "title": "Finanzas",
+  "description": "Libro de caja de la iglesia: ingresos, egresos y saldos.",
+  "kinds": {
+    "income": "Ingreso",
+    "expense": "Egreso",
+    "transfer": "Transferencias",
+    "transfer_in": "Transferencia recibida",
+    "transfer_out": "Transferencia enviada"
+  },
+  "status": {
+    "voided": "Anulado"
+  },
+  "methods": {
+    "cash": "Efectivo",
+    "transfer": "Transferencia",
+    "card": "Tarjeta",
+    "wallet": "Billetera virtual",
+    "other": "Otro"
+  },
+  "categories": {
+    "title": "Categorías",
+    "description": "Cómo se clasifican los ingresos y egresos.",
+    "tabs": {
+      "income": "Ingresos",
+      "expense": "Egresos"
+    },
+    "hints": {
+      "income": "Las categorías de ingreso (diezmos, ofrendas…). Las del sistema no se borran: se pueden renombrar o desactivar.",
+      "expense": "Las categorías de egreso (alquiler, servicios…). Una categoría usada no se borra: desactivala."
+    },
+    "defaults": {
+      "tithe": "Diezmos",
+      "offering": "Ofrendas",
+      "special_offering": "Ofrendas especiales",
+      "donation": "Donaciones",
+      "other_income": "Otros ingresos",
+      "rent": "Alquiler",
+      "utilities": "Servicios (luz, agua, gas, internet)",
+      "maintenance": "Mantenimiento",
+      "salaries": "Sueldos y honorarios",
+      "missions": "Misiones",
+      "social_aid": "Ayuda social",
+      "supplies": "Materiales y equipos",
+      "events": "Eventos",
+      "other_expense": "Otros egresos"
+    },
+    "name": "Nombre",
+    "systemNameHint": "Dejalo vacío para usar el nombre por defecto.",
+    "add": "Agregar categoría",
+    "rename": "Renombrar",
+    "delete": "Eliminar",
+    "deleteTitle": "¿Eliminar «{{name}}»?",
+    "system": "Sistema",
+    "activate": "Activar",
+    "deactivate": "Desactivar",
+    "moveUp": "Subir",
+    "moveDown": "Bajar"
+  },
+  "accounts": {
+    "title": "Cajas",
+    "description": "Efectivo, cuentas bancarias y billeteras. Cada caja tiene su moneda.",
+    "add": "Nueva caja",
+    "edit": "Editar caja",
+    "delete": "Eliminar",
+    "deleteTitle": "¿Eliminar «{{name}}»?",
+    "deleteBody": "Solo se puede eliminar una caja sin movimientos. Si tiene historia, desactivala.",
+    "name": "Nombre",
+    "namePlaceholder": "Por ejemplo: Caja general, Banco Nación",
+    "types": {
+      "cash": "Efectivo",
+      "bank": "Banco",
+      "wallet": "Billetera virtual"
+    },
+    "currency": "Moneda",
+    "currencyHint": "Los montos de la caja se registran en esta moneda (no se convierten).",
+    "currencyLockedHint": "Con movimientos cargados, la moneda ya no se puede cambiar.",
+    "openingBalance": "Saldo inicial",
+    "openingDate": "Fecha de apertura",
+    "openingHint": "Lo que tenía la caja al empezar a usar Shaddai. No se cargan movimientos anteriores a esa fecha.",
+    "openedOn": "desde el {{date}} con {{amount}}",
+    "activate": "Activar",
+    "deactivate": "Desactivar"
+  },
+  "summary": {
+    "month": "Este mes ({{from}} al {{to}})",
+    "income": "Ingresos",
+    "expense": "Egresos",
+    "net": "Resultado",
+    "recent": "Últimos movimientos",
+    "all": "Ver todos",
+    "noMovements": "Todavía no hay movimientos."
+  },
+  "movements": {
+    "title": "Movimientos",
+    "description": "Todo lo que entró y salió de las cajas.",
+    "search": "Buscar por descripción o referencia",
+    "from": "Desde",
+    "to": "Hasta",
+    "allAccounts": "Todas las cajas",
+    "kind": "Tipo",
+    "allKinds": "Todos los tipos",
+    "allCategories": "Todas las categorías",
+    "voided": "Ver anulados",
+    "emptyFiltered": "No hay movimientos con esos filtros.",
+    "clearFilters": "Limpiar filtros",
+    "total_one": "{{count}} movimiento",
+    "total_other": "{{count}} movimientos"
+  },
+  "movement": {
+    "newTitle": "Nuevo movimiento",
+    "editTitle": "Editar movimiento",
+    "amount": "Monto",
+    "account": "Caja",
+    "category": "Categoría",
+    "date": "Fecha",
+    "method": "Medio de pago",
+    "contributor": "Aportante",
+    "contributorHint": "Para diezmos y ofrendas nominales (aparece en la constancia anual).",
+    "anonymous": "Anónimo",
+    "description": "Descripción",
+    "reference": "Referencia",
+    "referenceHint": "N.º de factura, recibo o transferencia",
+    "receipt": "Comprobante",
+    "receiptHint": "Foto o PDF (opcional)",
+    "save": {
+      "income": "Registrar ingreso",
+      "expense": "Registrar egreso"
+    },
+    "saved": "Movimiento registrado",
+    "edit": "Editar",
+    "createdBy": "Cargado por {{name}} el {{date}}"
+  },
+  "transfer": {
+    "short": "Transferencia",
+    "title": "Transferencia entre cajas",
+    "from": "Desde",
+    "to": "Hacia",
+    "noTargets": "No hay otra caja en la misma moneda.",
+    "descriptionHint": "Por ejemplo: depósito en el banco",
+    "save": "Transferir",
+    "saved": "Transferencia registrada",
+    "otherLeg": "Ver la otra caja"
+  },
+  "void": {
+    "open": "Anular",
+    "title": "Anular movimiento",
+    "body": "El movimiento no se borra: queda anulado, con el motivo, y deja de contar en el saldo. Si es una transferencia se anulan las dos partes.",
+    "reason": "Motivo",
+    "confirm": "Anular",
+    "done": "Movimiento anulado",
+    "voidedTitle": "Movimiento anulado"
+  },
+  "receipts": {
+    "title": "Comprobantes",
+    "add": "Adjuntar",
+    "added": "Comprobante adjuntado",
+    "remove": "Quitar",
+    "removeTitle": "¿Quitar este comprobante?",
+    "empty": "Sin comprobantes.",
+    "limits": "Fotos o PDF, hasta 10 MB y 5 por movimiento."
+  }
+}
