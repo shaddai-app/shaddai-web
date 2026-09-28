@@ -46,7 +46,8 @@
       "social_aid": "Ayuda social",
       "supplies": "Materiales y equipos",
       "events": "Eventos",
-      "other_expense": "Otros egresos"
+      "other_expense": "Otros egresos",
+      "event_fees": "Inscripciones a eventos"
     },
     "name": "Nombre",
     "systemNameHint": "Dejalo vacío para usar el nombre por defecto.",

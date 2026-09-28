@@ -26,6 +26,7 @@ import {
 } from '../../api/calendar';
 import { FormError } from '../../components/FormError';
 import { ResponsiveModal } from '../../components/ResponsiveModal';
+import { useSeparators } from '../finance/money-input';
 import { nthOfMonth, weekdayName } from './common';
 import { addDays, dayOf, timeOf, weekdayOf } from './dates';
 
@@ -51,6 +52,7 @@ function EventForm({
   onSaved: (e: CalendarEvent) => void;
 }) {
   const { t } = useTranslation(['calendar', 'common']);
+  const separators = useSeparators();
   // En "desde esta fecha" se arranca por la fecha elegida (con su horario).
   const initial = mode === 'following' && occurrence ? occurrence : event;
   const [type, setType] = useState<EventType>(event?.type ?? 'special');
@@ -68,6 +70,11 @@ function EventForm({
   const [monthlyBy, setMonthlyBy] = useState<'day' | 'weekday'>(event?.recurrence?.monthlyBy ?? 'day');
   const [until, setUntil] = useState(event?.recurrence?.until ?? '');
   const [location, setLocation] = useState(event?.location ?? '');
+  const [registration, setRegistration] = useState(event?.registrationEnabled ?? false);
+  const [capacity, setCapacity] = useState<number | ''>(event?.capacity ?? '');
+  const [waitlist, setWaitlist] = useState(event?.waitlistEnabled ?? true);
+  const [price, setPrice] = useState<number | ''>(event?.price ?? '');
+  const [isPublic, setIsPublic] = useState(event?.isPublic ?? false);
   const [description, setDescription] = useState(event?.description ?? '');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -113,6 +120,11 @@ function EventForm({
         endsAt,
         allDay,
         recurrence,
+        registrationEnabled: registration,
+        capacity: registration && capacity !== '' ? Number(capacity) : null,
+        waitlistEnabled: registration && capacity !== '' && waitlist,
+        price: registration && price !== '' ? Number(price) : null,
+        isPublic: registration && isPublic,
       };
       const saved =
         mode === 'create' || !event
@@ -269,6 +281,50 @@ function EventForm({
           </Stack>
         )}
 
+        <Switch
+          label={t('form.registration')}
+          description={t('form.registrationHint')}
+          checked={registration}
+          onChange={(e) => setRegistration(e.currentTarget.checked)}
+        />
+        {registration && (
+          <Stack gap="sm" pl="sm" style={{ borderLeft: '2px solid var(--mantine-color-default-border)' }}>
+            <SimpleGrid cols={2} spacing="sm">
+              <NumberInput
+                label={t('form.capacity')}
+                description={t('form.capacityHint')}
+                value={capacity}
+                onChange={(v) => setCapacity(v === '' ? '' : Number(v))}
+                min={1}
+                allowDecimal={false}
+                allowNegative={false}
+              />
+              <NumberInput
+                label={t('form.price')}
+                description={t('form.priceHint')}
+                value={price}
+                onChange={(v) => setPrice(v === '' ? '' : Number(v))}
+                min={0}
+                decimalScale={2}
+                allowNegative={false}
+                {...separators}
+              />
+            </SimpleGrid>
+            {capacity !== '' && (
+              <Switch
+                label={t('form.waitlist')}
+                checked={waitlist}
+                onChange={(e) => setWaitlist(e.currentTarget.checked)}
+              />
+            )}
+            <Switch
+              label={t('form.public')}
+              description={t('form.publicHint')}
+              checked={isPublic}
+              onChange={(e) => setIsPublic(e.currentTarget.checked)}
+            />
+          </Stack>
+        )}
         <TextInput
           label={t('form.location')}
           value={location}

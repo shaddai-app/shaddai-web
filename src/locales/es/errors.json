@@ -165,7 +165,16 @@
     "EXCEPTION_EMPTY": "Indicá el nuevo horario.",
     "EXCEPTION_NOT_FOUND": "Esa fecha no tenía cambios.",
     "EVENT_NOT_RECURRING": "El evento no se repite: editalo directamente.",
-    "SPLIT_AT_FIRST": "Es la primera fecha: editá toda la serie."
+    "SPLIT_AT_FIRST": "Es la primera fecha: editá toda la serie.",
+    "EVENT_FULL": "El cupo está lleno.",
+    "REGISTRATION_EXISTS": "Esa persona ya está anotada en esta fecha.",
+    "REGISTRATION_CLOSED": "Esa fecha ya pasó: no se puede anotar.",
+    "REGISTRATION_DISABLED": "El evento no tiene la inscripción abierta.",
+    "REGISTRATION_NOT_FOUND": "La inscripción no existe.",
+    "REGISTRATION_CANCELLED": "La inscripción ya estaba cancelada.",
+    "OCCURRENCE_CANCELLED": "Esa fecha está cancelada.",
+    "PAYMENT_FORBIDDEN": "Registrar pagos necesita permiso para cargar movimientos de finanzas.",
+    "PAYMENT_AMOUNT_REQUIRED": "Indicá el monto."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

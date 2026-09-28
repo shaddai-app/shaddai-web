@@ -1,23 +1,18 @@
 import {
   Alert,
-  Box,
   Button,
   Center,
   Checkbox,
-  Group,
-  Image,
   Loader,
-  Paper,
   SimpleGrid,
   Stack,
   Text,
   Textarea,
   TextInput,
-  ThemeIcon,
   Title,
 } from '@mantine/core';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { IconCircleCheck, IconCross } from '@tabler/icons-react';
+import { IconCircleCheck } from '@tabler/icons-react';
 import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 import dayjs from 'dayjs';
@@ -27,9 +22,8 @@ import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import { publicApi } from '../api/people';
 import { FormError } from '../components/FormError';
+import { PublicShell } from '../components/PublicShell';
 import { Turnstile } from '../components/Turnstile';
-import { ColorSchemeToggle } from '../layout/ColorSchemeToggle';
-import { LanguageMenu } from '../layout/LanguageMenu';
 
 // Página pública (sin sesión): la abre quien escanea el QR en el culto.
 export const Route = createFileRoute('/nuevo/$slug')({
@@ -70,38 +64,6 @@ const empty: Values = {
   website: '',
 };
 
-function Shell({ logo, name, children }: { logo?: string | null; name?: string; children: React.ReactNode }) {
-  return (
-    <Box mih="100dvh" bg="var(--mantine-color-body)">
-      <Group justify="flex-end" p="sm" gap={4}>
-        <LanguageMenu />
-        <ColorSchemeToggle />
-      </Group>
-      <Center px="md" pb="xl">
-        <Stack w="100%" maw={520} gap="lg">
-          <Stack align="center" gap={6}>
-            {logo ? (
-              <Image src={logo} alt="" w={64} h={64} radius="md" fit="contain" />
-            ) : (
-              <ThemeIcon size={56} radius="lg" aria-hidden>
-                <IconCross size={30} />
-              </ThemeIcon>
-            )}
-            {name && (
-              <Text fw={600} size="lg" ta="center">
-                {name}
-              </Text>
-            )}
-          </Stack>
-          <Paper withBorder radius="lg" p={{ base: 'lg', sm: 'xl' }} shadow="xs">
-            {children}
-          </Paper>
-        </Stack>
-      </Center>
-    </Box>
-  );
-}
-
 function NewcomerFormPage() {
   const { slug } = Route.useParams();
   const { t, i18n } = useTranslation(['people', 'errors', 'common']);
@@ -124,16 +86,16 @@ function NewcomerFormPage() {
   }
   if (config.error) {
     return (
-      <Shell>
+      <PublicShell>
         <Text ta="center">{t('publicForm.notFound')}</Text>
-      </Shell>
+      </PublicShell>
     );
   }
   const { church, turnstileSiteKey } = config.data;
 
   if (sentName) {
     return (
-      <Shell logo={church.logoUrl} name={church.name}>
+      <PublicShell logo={church.logoUrl} name={church.name}>
         <Stack align="center" ta="center" gap="sm">
           <IconCircleCheck size={48} color="var(--mantine-color-teal-6)" />
           <Title order={1} size="h3">
@@ -151,7 +113,7 @@ function NewcomerFormPage() {
             {t('publicForm.another')}
           </Button>
         </Stack>
-      </Shell>
+      </PublicShell>
     );
   }
 
@@ -189,7 +151,7 @@ function NewcomerFormPage() {
   });
 
   return (
-    <Shell logo={church.logoUrl} name={church.name}>
+    <PublicShell logo={church.logoUrl} name={church.name}>
       <form onSubmit={submit} noValidate>
         <Stack gap="md">
           <div>
@@ -297,6 +259,6 @@ function NewcomerFormPage() {
           </Button>
         </Stack>
       </form>
-    </Shell>
+    </PublicShell>
   );
 }

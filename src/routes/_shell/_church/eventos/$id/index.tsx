@@ -21,6 +21,7 @@ import {
   IconMapPin,
   IconPencil,
   IconRepeat,
+  IconTicket,
   IconTrash,
 } from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
@@ -29,24 +30,25 @@ import dayjs from 'dayjs';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
-import { calendarApi, type CalendarEvent, type Occurrence } from '../../../../api/calendar';
-import { requirePermission } from '../../../../auth/guards';
-import { can } from '../../../../auth/permissions';
-import { meQuery } from '../../../../auth/session';
-import { FormError } from '../../../../components/FormError';
-import { AnchorLink } from '../../../../components/links';
-import { TYPE_COLORS, useRecurrenceText, useWhenText } from '../../../../features/calendar/common';
-import { dayOf } from '../../../../features/calendar/dates';
-import { EventFormModal, type EventFormMode } from '../../../../features/calendar/EventFormModal';
-import { OccurrenceRow } from '../../../../features/calendar/OccurrenceItem';
-import { OccurrenceModal, type OccurrenceAction } from '../../../../features/calendar/OccurrenceModal';
-import { fullName, todayIso } from '../../../../features/people/format';
-import { errorMessage } from '../../../../i18n/errors';
-import { PageHeader } from '../../../../layout/PageHeader';
+import { calendarApi, type CalendarEvent, type Occurrence } from '../../../../../api/calendar';
+import { requirePermission } from '../../../../../auth/guards';
+import { can } from '../../../../../auth/permissions';
+import { meQuery } from '../../../../../auth/session';
+import { FormError } from '../../../../../components/FormError';
+import { AnchorLink, ButtonLink } from '../../../../../components/links';
+import { TYPE_COLORS, useRecurrenceText, useWhenText } from '../../../../../features/calendar/common';
+import { dayOf } from '../../../../../features/calendar/dates';
+import { EventFormModal, type EventFormMode } from '../../../../../features/calendar/EventFormModal';
+import { OccurrenceRow } from '../../../../../features/calendar/OccurrenceItem';
+import { OccurrenceModal, type OccurrenceAction } from '../../../../../features/calendar/OccurrenceModal';
+import { useChurchCurrency, useMoney } from '../../../../../features/finance/common';
+import { fullName, todayIso } from '../../../../../features/people/format';
+import { errorMessage } from '../../../../../i18n/errors';
+import { PageHeader } from '../../../../../layout/PageHeader';
 
 const localDateTime = z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/);
 
-export const Route = createFileRoute('/_shell/_church/eventos/$id')({
+export const Route = createFileRoute('/_shell/_church/eventos/$id/')({
   validateSearch: z.object({ fecha: localDateTime.optional() }),
   beforeLoad: ({ context }) => requirePermission(context.me, 'eventos.ver'),
   component: EventPage,
@@ -72,6 +74,7 @@ function occurrenceAt(e: CalendarEvent, originalStart: string): Occurrence {
     endsAt: end,
     allDay: e.allDay,
     recurring: Boolean(e.recurrence),
+    registration: e.registrationEnabled,
     originalStart,
     cancelled: Boolean(x?.cancelled),
     moved: Boolean(x && !x.cancelled && x.newStartsAt),
@@ -88,6 +91,8 @@ function EventPage() {
   const { data: me } = useSuspenseQuery(meQuery());
   const recurrenceText = useRecurrenceText();
   const whenText = useWhenText();
+  const money = useMoney();
+  const currency = useChurchCurrency();
   const query = useQuery({ queryKey: eventKey(id), queryFn: () => calendarApi.event(id) });
   const [editing, setEditing] = useState<EventFormMode | null>(null);
   const [action, setAction] = useState<OccurrenceAction | null>(null);
@@ -268,6 +273,42 @@ function EventPage() {
             </Text>
           </Stack>
         </Card>
+        {e.registrationEnabled && (
+          <Card withBorder radius="lg">
+            <Group justify="space-between" wrap="wrap" gap="sm">
+              <div>
+                <Title order={3} size="h5">
+                  {t('registrations.title')}
+                </Title>
+                <Text size="sm" c="dimmed">
+                  {[
+                    e.capacity !== null
+                      ? t('registrations.capacityOf', { count: e.capacity })
+                      : t('registrations.noCapacity'),
+                    e.waitlistEnabled && t('registrations.withWaitlist'),
+                    e.price !== null && money(e.price, currency),
+                    e.isPublic && t('registrations.publicLink'),
+                  ]
+                    .filter(Boolean)
+                    .join(' · ')}
+                </Text>
+              </div>
+              {can(me, 'eventos.inscripciones') && (
+                <ButtonLink
+                  to="/eventos/$id/inscripciones"
+                  params={{ id: String(e.id) }}
+                  search={{
+                    fecha: selected?.originalStart ?? (recurring ? e.upcoming[0]?.originalStart : e.startsAt),
+                  }}
+                  variant="light"
+                  leftSection={<IconTicket size={16} />}
+                >
+                  {t('registrations.open')}
+                </ButtonLink>
+              )}
+            </Group>
+          </Card>
+        )}
 
         {recurring && (
           <Card withBorder radius="lg">
