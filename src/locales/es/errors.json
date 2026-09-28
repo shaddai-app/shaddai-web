@@ -154,7 +154,18 @@
     "PERIOD_NOT_CLOSED": "El mes no está cerrado.",
     "PERIOD_LATER_CLOSED": "Solo se puede reabrir el último mes cerrado.",
     "PERIOD_NOT_FOUND": "Ese mes no está en el período de la contabilidad.",
-    "RECEIPT_NOT_AVAILABLE": "Solo hay recibo de ingresos confirmados."
+    "RECEIPT_NOT_AVAILABLE": "Solo hay recibo de ingresos confirmados.",
+    "EVENT_NOT_FOUND": "El evento no existe.",
+    "EVENT_RANGE_INVALID": "El evento termina antes de empezar.",
+    "EVENT_TOO_LONG": "Un evento puede durar como máximo {{days}} días.",
+    "RECURRENCE_UNTIL_INVALID": "La fecha de fin de la repetición es anterior al inicio.",
+    "CALENDAR_RANGE_TOO_LONG": "El período es demasiado largo.",
+    "OCCURRENCE_INVALID": "Esa fecha no es parte de la serie.",
+    "EXCEPTION_TOO_FAR": "Una fecha se puede mover como mucho {{days}} días.",
+    "EXCEPTION_EMPTY": "Indicá el nuevo horario.",
+    "EXCEPTION_NOT_FOUND": "Esa fecha no tenía cambios.",
+    "EVENT_NOT_RECURRING": "El evento no se repite: editalo directamente.",
+    "SPLIT_AT_FIRST": "Es la primera fecha: editá toda la serie."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

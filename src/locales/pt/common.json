@@ -54,7 +54,8 @@
     "offeringCounts": "Contagens",
     "financePending": "Ofertas pendentes",
     "financePeriods": "Fechamentos",
-    "financeReports": "Relatórios"
+    "financeReports": "Relatórios",
+    "calendar": "Calendário"
   },
   "userMenu": {
     "label": "Menu do usuário",

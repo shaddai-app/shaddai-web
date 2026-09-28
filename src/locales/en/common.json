@@ -54,7 +54,8 @@
     "offeringCounts": "Offering counts",
     "financePending": "Pending offerings",
     "financePeriods": "Monthly closes",
-    "financeReports": "Reports"
+    "financeReports": "Reports",
+    "calendar": "Calendar"
   },
   "userMenu": {
     "label": "User menu",

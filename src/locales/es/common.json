@@ -54,7 +54,8 @@
     "offeringCounts": "Arqueos",
     "financePending": "Ofrendas pendientes",
     "financePeriods": "Cierres",
-    "financeReports": "Reportes"
+    "financeReports": "Reportes",
+    "calendar": "Calendario"
   },
   "userMenu": {
     "label": "Menú de usuario",

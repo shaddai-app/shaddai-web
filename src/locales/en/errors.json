@@ -154,7 +154,18 @@
     "PERIOD_NOT_CLOSED": "The month is not closed.",
     "PERIOD_LATER_CLOSED": "Only the last closed month can be reopened.",
     "PERIOD_NOT_FOUND": "That month is outside the bookkeeping period.",
-    "RECEIPT_NOT_AVAILABLE": "Receipts are only available for confirmed income."
+    "RECEIPT_NOT_AVAILABLE": "Receipts are only available for confirmed income.",
+    "EVENT_NOT_FOUND": "The event does not exist.",
+    "EVENT_RANGE_INVALID": "The event ends before it starts.",
+    "EVENT_TOO_LONG": "An event can last at most {{days}} days.",
+    "RECURRENCE_UNTIL_INVALID": "The repetition end date is before the start.",
+    "CALENDAR_RANGE_TOO_LONG": "The period is too long.",
+    "OCCURRENCE_INVALID": "That date is not part of the series.",
+    "EXCEPTION_TOO_FAR": "A date can be moved at most {{days}} days.",
+    "EXCEPTION_EMPTY": "Enter the new time.",
+    "EXCEPTION_NOT_FOUND": "That date had no changes.",
+    "EVENT_NOT_RECURRING": "The event does not repeat: edit it directly.",
+    "SPLIT_AT_FIRST": "This is the first date: edit the whole series."
   },
   "validation": {
     "required": "This field is required.",

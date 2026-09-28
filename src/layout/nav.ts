@@ -1,5 +1,6 @@
 import {
   IconBuildingBank,
+  IconCalendar,
   IconBuildingChurch,
   IconBuildingCommunity,
   IconCategory,
@@ -43,6 +44,7 @@ export interface NavItem {
     | 'financePending'
     | 'financePeriods'
     | 'financeReports'
+    | 'calendar'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -131,6 +133,13 @@ const churchNav: NavSection[] = [
         label: 'cellReports',
         icon: IconTrafficLights,
         permissions: ['celulas.ver_reportes'],
+      },
+      {
+        to: '/calendario',
+        label: 'calendar',
+        icon: IconCalendar,
+        permissions: ['eventos.ver'],
+        alsoActive: ['/eventos'],
       },
       {
         to: '/finanzas',

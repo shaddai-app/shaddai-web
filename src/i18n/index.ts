@@ -35,6 +35,7 @@ void i18n
       'cells',
       'consolidation',
       'finance',
+      'calendar',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },
