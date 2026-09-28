@@ -29,34 +29,9 @@ import { ResponsiveModal } from '../../components/ResponsiveModal';
 import { todayIso } from '../people/format';
 import { PersonPicker, type PersonOption } from '../people/PersonPicker';
 import { accountsQuery, categoriesQuery, useCategoryLabel } from './common';
+import { currencySymbol, readLastAccount, rememberAccount, useSeparators } from './money-input';
 
-const LAST_ACCOUNT_KEY = 'shaddai-last-finance-account';
-const readLastAccount = () => {
-  try {
-    return localStorage.getItem(LAST_ACCOUNT_KEY);
-  } catch {
-    return null;
-  }
-};
 const orNull = (v: string) => (v.trim() === '' ? null : v.trim());
-
-/** Separadores del NumberInput según el idioma (1.234,50 / 1,234.50). */
-function useSeparators() {
-  const { i18n } = useTranslation();
-  return i18n.resolvedLanguage === 'en'
-    ? { decimalSeparator: '.', thousandSeparator: ',' }
-    : { decimalSeparator: ',', thousandSeparator: '.' };
-}
-
-function currencySymbol(currency: string | undefined, lang: string) {
-  if (!currency) return '';
-  const locale = lang === 'es' ? 'es-AR' : lang;
-  return (
-    new Intl.NumberFormat(locale, { style: 'currency', currency })
-      .formatToParts(0)
-      .find((p) => p.type === 'currency')?.value ?? currency
-  );
-}
 
 function MovementForm({
   kind: initialKind,
@@ -81,7 +56,7 @@ function MovementForm({
   const categories = useQuery(categoriesQuery(kind));
   const [amount, setAmount] = useState<number | ''>(movement?.amount ?? '');
   const [accountId, setAccountId] = useState<string | null>(
-    movement ? String(movement.financeAccount.id) : readLastAccount(),
+    movement?.financeAccount ? String(movement.financeAccount.id) : readLastAccount(),
   );
   const [categoryId, setCategoryId] = useState<string | null>(
     movement?.category ? String(movement.category.id) : null,
@@ -123,11 +98,7 @@ function MovementForm({
         ? await financeApi.updateMovement(movement.id, body)
         : await financeApi.createMovement({ kind, ...body });
       if (file) saved = await financeApi.attach(saved.id, file);
-      try {
-        localStorage.setItem(LAST_ACCOUNT_KEY, String(selectedAccount.id));
-      } catch {
-        // sin almacenamiento local no pasa nada
-      }
+      rememberAccount(selectedAccount.id);
       onSaved(saved);
     } catch (err) {
       setError(err);
@@ -406,20 +377,23 @@ export function TransferModal({
   );
 }
 
+/** Pide el motivo de una anulación (o de un rechazo: los textos se pueden cambiar). */
 export function VoidModal({
   opened,
   onClose,
   onConfirm,
+  labels,
 }: {
   opened: boolean;
   onClose: () => void;
   onConfirm: (reason: string) => Promise<void>;
+  labels?: { title: string; body: string; confirm: string };
 }) {
   const { t } = useTranslation(['finance', 'common']);
   const [reason, setReason] = useState('');
   const [busy, setBusy] = useState(false);
   return (
-    <ResponsiveModal opened={opened} onClose={onClose} title={t('void.title')} size="md">
+    <ResponsiveModal opened={opened} onClose={onClose} title={labels?.title ?? t('void.title')} size="md">
       <form
         onSubmit={async (e) => {
           e.preventDefault();
@@ -433,7 +407,7 @@ export function VoidModal({
         }}
       >
         <Stack>
-          <Text size="sm">{t('void.body')}</Text>
+          <Text size="sm">{labels?.body ?? t('void.body')}</Text>
           <Textarea
             label={t('void.reason')}
             value={reason}
@@ -449,7 +423,7 @@ export function VoidModal({
               {t('common:actions.cancel')}
             </Button>
             <Button type="submit" color="red" loading={busy} disabled={!reason.trim()}>
-              {t('void.confirm')}
+              {labels?.confirm ?? t('void.confirm')}
             </Button>
           </Group>
         </Stack>

@@ -419,7 +419,15 @@ export function ReportForm({
                 />
                 <NumberInput
                   label={t('report.offering')}
-                  description={t('report.offeringHint')}
+                  description={
+                    report?.offeringStatus === 'confirmed'
+                      ? t('report.offeringConfirmed')
+                      : report?.offeringStatus === 'rejected'
+                        ? t('report.offeringRejected')
+                        : t('report.offeringHint')
+                  }
+                  // Confirmada por tesorería: el monto ya no se cambia (la API lo rechaza).
+                  disabled={report?.offeringStatus === 'confirmed'}
                   prefix={`${currencySymbol(currency, i18n.resolvedLanguage ?? 'es')} `}
                   value={form.offering === '' ? '' : Number(form.offering)}
                   onChange={(v) => update({ offering: v === '' ? '' : String(v) })}

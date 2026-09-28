@@ -1,13 +1,18 @@
 import { IconBuildingBank, IconCash, IconWallet, type Icon } from '@tabler/icons-react';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   financeApi,
   type AccountType,
   type CategoryKind,
+  type CountStatus,
   type FinanceCategory,
+  type Movement,
   type MovementKind,
+  type MovementStatus,
 } from '../../api/finance';
+import { meQuery } from '../../auth/session';
 
 export const ACCOUNT_ICONS: Record<AccountType, Icon> = {
   cash: IconCash,
@@ -50,11 +55,15 @@ export function useMoney() {
   const lang = i18n.resolvedLanguage ?? 'es';
   const locale = lang === 'es' ? 'es-AR' : lang;
   return useCallback(
-    (value: number, currency: string, opts: { signed?: boolean } = {}) =>
+    (value: number, currency: string, opts: { signed?: boolean; whole?: boolean } = {}) =>
       new Intl.NumberFormat(locale, {
         style: 'currency',
         currency,
         signDisplay: opts.signed ? 'exceptZero' : 'auto',
+        // whole: sin centavos cuando el monto es entero (billetes, subtotales del arqueo).
+        ...(opts.whole && Number.isInteger(value)
+          ? { minimumFractionDigits: 0, maximumFractionDigits: 0 }
+          : {}),
       }).format(value),
     [locale],
   );
@@ -64,3 +73,36 @@ export function useMoney() {
 export const isInflow = (kind: MovementKind) => kind === 'income' || kind === 'transfer_in';
 export const signedAmount = (kind: MovementKind, amount: number) => (isInflow(kind) ? amount : -amount);
 export const kindColor = (kind: MovementKind) => (isInflow(kind) ? 'teal' : 'red');
+
+/** Moneda de la iglesia: la de las ofrendas de célula pendientes, que todavía no tienen caja. */
+export function useChurchCurrency() {
+  const { data: me } = useSuspenseQuery(meQuery());
+  return me.account?.currency ?? 'ARS';
+}
+
+export const STATUS_COLORS: Record<MovementStatus, string> = {
+  pending: 'yellow',
+  confirmed: 'teal',
+  voided: 'gray',
+  rejected: 'gray',
+};
+
+export const COUNT_STATUS_COLORS: Record<CountStatus, string> = {
+  draft: 'yellow',
+  confirmed: 'teal',
+  voided: 'gray',
+};
+
+/** Origen de un movimiento generado por el sistema (ofrenda de célula o arqueo). */
+export function useMovementOrigin() {
+  const { t } = useTranslation('finance');
+  return useCallback(
+    (m: Pick<Movement, 'cellReport' | 'offeringCount'>) =>
+      m.cellReport
+        ? t('pending.fromCell', { cell: m.cellReport.cell.name })
+        : m.offeringCount
+          ? t('counts.fromCount', { title: m.offeringCount.title ?? `#${m.offeringCount.id}` })
+          : null,
+    [t],
+  );
+}

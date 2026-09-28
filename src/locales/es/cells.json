@@ -208,7 +208,14 @@
       "visitors_other": "{{count}} visitas",
       "children_one": "{{count}} niño",
       "children_other": "{{count}} niños"
-    }
+    },
+    "offeringStatus": {
+      "pending": "Pendiente en tesorería",
+      "confirmed": "Confirmada por tesorería",
+      "rejected": "Rechazada por tesorería"
+    },
+    "offeringConfirmed": "Tesorería ya la confirmó: el monto no se puede cambiar.",
+    "offeringRejected": "Tesorería la rechazó. Si el monto estaba mal, corregilo y vuelve a tesorería."
   },
   "myCell": {
     "title": "Mi célula",

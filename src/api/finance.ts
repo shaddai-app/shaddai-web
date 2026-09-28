@@ -47,6 +47,7 @@ export interface FinanceCategory {
 export const PAYMENT_METHODS = ['cash', 'transfer', 'card', 'wallet', 'other'] as const;
 export type PaymentMethod = (typeof PAYMENT_METHODS)[number];
 export type MovementKind = 'income' | 'expense' | 'transfer_in' | 'transfer_out';
+export type MovementStatus = 'pending' | 'confirmed' | 'voided' | 'rejected';
 
 export interface Movement {
   id: number;
@@ -57,16 +58,20 @@ export interface Movement {
   isAnonymous: boolean;
   paymentMethod: PaymentMethod | null;
   reference: string | null;
-  status: 'confirmed' | 'voided';
+  status: MovementStatus;
   transferPairId: number | null;
+  confirmedAt: string | null;
   voidedAt: string | null;
   voidReason: string | null;
   createdById: number;
   createdAt: string;
   updatedAt: string;
   attachmentCount: number;
-  financeAccount: { id: number; name: string; currency: string };
+  /** null en las ofrendas de célula pendientes (o rechazadas): tesorería elige la caja al confirmar. */
+  financeAccount: { id: number; name: string; currency: string } | null;
   category: Pick<FinanceCategory, 'id' | 'kind' | 'systemKey' | 'name'> | null;
+  cellReport: { id: number; meetingDate: string; cell: { id: number; name: string } } | null;
+  offeringCount: { id: number; title: string | null } | null;
   /** Solo viene con finanzas.diezmos_nominales. */
   person?: { id: number; firstName: string; lastName: string } | null;
 }
@@ -112,8 +117,84 @@ export interface MovementsQuery {
 export interface FinanceSummary {
   today: string;
   month: { from: string; to: string; totals: CurrencyTotals[] };
+  /** Ofrendas de célula por confirmar y arqueos en borrador. */
+  pending: { movements: number; counts: number };
   accounts: FinanceAccount[];
   recent: Movement[];
+}
+
+// ── Pendientes y arqueos ──────────────────────────────────────────────────
+export interface PendingList extends Paged<Movement> {
+  /** Suma en la moneda de la iglesia (las ofrendas de célula se informan en esa moneda). */
+  sum: { currency: string; amount: number };
+}
+
+export interface ConfirmPendingInput {
+  financeAccountId: number;
+  categoryId?: number;
+  date?: string;
+  amount?: number;
+  paymentMethod?: PaymentMethod;
+  description?: string | null;
+  reference?: string | null;
+}
+
+export type CountStatus = 'draft' | 'confirmed' | 'voided';
+type PersonRef = { id: number; firstName: string; lastName: string };
+
+export interface OfferingCount {
+  id: number;
+  date: string;
+  title: string | null;
+  status: CountStatus;
+  notes: string | null;
+  total: number;
+  createdAt: string;
+  confirmedAt: string | null;
+  voidedAt: string | null;
+  voidReason: string | null;
+  financeAccount: { id: number; name: string; currency: string };
+  counter1: PersonRef;
+  counter2: PersonRef;
+}
+
+export interface CountLine {
+  id: number;
+  paymentMethod: PaymentMethod;
+  denomination: number | null;
+  quantity: number | null;
+  amount: number;
+  category: FinanceCategory;
+  /** Sobre con nombre. El nombre solo viene con finanzas.diezmos_nominales. */
+  nominal: boolean;
+  person?: PersonRef | null;
+}
+
+export interface OfferingCountDetail extends OfferingCount {
+  createdBy: PersonRef | null;
+  confirmedBy: PersonRef | null;
+  byPaymentMethod: { paymentMethod: PaymentMethod; amount: number }[];
+  lines: CountLine[];
+  movements: Movement[];
+}
+
+export interface CountLineInput {
+  categoryId: number;
+  paymentMethod: PaymentMethod;
+  denomination?: number | null;
+  quantity?: number | null;
+  amount?: number | null;
+  personId?: number | null;
+}
+
+export interface CountInput {
+  date: string;
+  financeAccountId: number;
+  title: string | null;
+  counter1PersonId: number;
+  counter2PersonId: number;
+  notes: string | null;
+  lines: CountLineInput[];
 }
 
 export const financeApi = {
@@ -158,4 +239,22 @@ export const financeApi = {
     return api.post<MovementDetail>(`/finance/movements/${id}/attachments`, form);
   },
   detach: (id: number, fileId: number) => api.delete(`/finance/movements/${id}/attachments/${fileId}`),
+
+  pending: (q: { page?: number; pageSize?: number; status?: 'pending' | 'rejected' } = {}) =>
+    api.get<PendingList>('/finance/pending', { ...q }),
+  confirmPending: (id: number, body: ConfirmPendingInput) =>
+    api.post<MovementDetail>(`/finance/pending/${id}/confirm`, body),
+  rejectPending: (id: number, reason: string) =>
+    api.post<MovementDetail>(`/finance/pending/${id}/reject`, { reason }),
+
+  counts: (q: { page?: number; pageSize?: number; status?: CountStatus; from?: string; to?: string } = {}) =>
+    api.get<Paged<OfferingCount>>('/finance/offering-counts', { ...q }),
+  count: (id: number) => api.get<OfferingCountDetail>(`/finance/offering-counts/${id}`),
+  createCount: (body: CountInput) => api.post<OfferingCountDetail>('/finance/offering-counts', body),
+  updateCount: (id: number, body: Partial<CountInput>) =>
+    api.patch<OfferingCountDetail>(`/finance/offering-counts/${id}`, body),
+  deleteCount: (id: number) => api.delete(`/finance/offering-counts/${id}`),
+  confirmCount: (id: number) => api.post<OfferingCountDetail>(`/finance/offering-counts/${id}/confirm`),
+  voidCount: (id: number, reason: string) =>
+    api.post<OfferingCountDetail>(`/finance/offering-counts/${id}/void`, { reason }),
 };

@@ -50,7 +50,9 @@
     "consolidation": "Follow-up",
     "finance": "Finance",
     "financeAccounts": "Accounts",
-    "financeCategories": "Finance categories"
+    "financeCategories": "Finance categories",
+    "offeringCounts": "Offering counts",
+    "financePending": "Pending offerings"
   },
   "userMenu": {
     "label": "User menu",
