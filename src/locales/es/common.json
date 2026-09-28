@@ -53,7 +53,8 @@
     "financeCategories": "Categorías financieras",
     "offeringCounts": "Arqueos",
     "financePending": "Ofrendas pendientes",
-    "financePeriods": "Cierres"
+    "financePeriods": "Cierres",
+    "financeReports": "Reportes"
   },
   "userMenu": {
     "label": "Menú de usuario",

@@ -1,5 +1,5 @@
 import type { Paged } from './admin';
-import { api } from './http';
+import { api, apiRequest } from './http';
 
 // ── Cajas ─────────────────────────────────────────────────────────────────
 export const ACCOUNT_TYPES = ['cash', 'bank', 'wallet'] as const;
@@ -300,4 +300,95 @@ export const financeApi = {
     api.post<PeriodDetail>(`/finance/periods/${year}/${month}/close`, { notes }),
   reopenPeriod: (year: number, month: number, reason: string) =>
     api.post<PeriodDetail>(`/finance/periods/${year}/${month}/reopen`, { reason }),
+};
+
+// ── Reportes ──────────────────────────────────────────────────────────────
+export type ReportType = 'income-statement' | 'balances' | 'tithes-trend' | 'contributions';
+export type ReportFormat = 'pdf' | 'xlsx';
+type CategoryRef = Pick<FinanceCategory, 'id' | 'kind' | 'systemKey' | 'name'>;
+
+export interface IncomeStatement {
+  from: string;
+  to: string;
+  financeAccount: { id: number; name: string; currency: string } | null;
+  currencies: {
+    currency: string;
+    income: { category: CategoryRef; amount: number }[];
+    expense: { category: CategoryRef; amount: number }[];
+    totalIncome: number;
+    totalExpense: number;
+    net: number;
+  }[];
+}
+
+export interface BalancesReport {
+  asOf: string;
+  items: {
+    id: number;
+    name: string;
+    type: AccountType;
+    currency: string;
+    isActive: boolean;
+    balance: number;
+  }[];
+  totals: { currency: string; balance: number }[];
+}
+
+export interface TrendMonth {
+  month: number;
+  tithe: number;
+  offering: number;
+  otherIncome: number;
+  expense: number;
+  net: number;
+}
+
+export interface TrendReport {
+  year: number;
+  currencies: { currency: string; months: TrendMonth[]; totals: Omit<TrendMonth, 'month'> }[];
+}
+
+export interface ContributionsReport {
+  year: number;
+  items: {
+    person: PersonRef & { documentNumber?: string | null };
+    byCurrency: { currency: string; tithe: number; other: number; total: number; count: number }[];
+  }[];
+  totals: { currency: string; total: number }[];
+}
+
+export interface PersonContributions {
+  person: PersonRef & { documentNumber?: string | null };
+  year: number;
+  years: number[];
+  movements: {
+    id: number;
+    date: string;
+    amount: number;
+    paymentMethod: PaymentMethod | null;
+    description: string | null;
+    financeAccount: { id: number; name: string; currency: string };
+    category: CategoryRef | null;
+  }[];
+  totals: { currency: string; total: number }[];
+}
+
+type ReportQuery = Record<string, string | number | undefined>;
+
+export const reportsApi = {
+  incomeStatement: (q: { from?: string; to?: string; financeAccountId?: number }) =>
+    api.get<IncomeStatement>('/finance/reports/income-statement', { ...q }),
+  balances: (q: { asOf?: string }) => api.get<BalancesReport>('/finance/reports/balances', { ...q }),
+  trend: (q: { year?: number }) => api.get<TrendReport>('/finance/reports/tithes-trend', { ...q }),
+  contributions: (q: { year?: number }) =>
+    api.get<ContributionsReport>('/finance/reports/contributions', { ...q }),
+  /** El archivo del reporte (PDF o Excel) en el idioma pedido. */
+  download: (type: ReportType, format: ReportFormat, lang: string, q: ReportQuery) =>
+    apiRequest<Blob>(`/finance/reports/${type}`, { query: { ...q, format, lang }, blob: true }),
+  personContributions: (personId: number, year?: number) =>
+    api.get<PersonContributions>(`/people/${personId}/contributions`, { year }),
+  certificate: (personId: number, year: number, lang: string) =>
+    apiRequest<Blob>(`/people/${personId}/contributions/certificate`, { query: { year, lang }, blob: true }),
+  receipt: (movementId: number, lang: string) =>
+    apiRequest<Blob>(`/finance/movements/${movementId}/receipt`, { query: { lang }, blob: true }),
 };

@@ -8,6 +8,7 @@ import {
   IconCoins,
   IconHourglass,
   IconLock,
+  IconReportMoney,
   IconHeartHandshake,
   IconHierarchy2,
   IconHistory,
@@ -41,6 +42,7 @@ export interface NavItem {
     | 'offeringCounts'
     | 'financePending'
     | 'financePeriods'
+    | 'financeReports'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -160,6 +162,12 @@ const churchNav: NavSection[] = [
         label: 'financePeriods',
         icon: IconLock,
         permissions: ['finanzas.cierre'],
+      },
+      {
+        to: '/finanzas/reportes',
+        label: 'financeReports',
+        icon: IconReportMoney,
+        permissions: ['finanzas.reportes'],
       },
     ],
   },

@@ -291,5 +291,46 @@
     "reopened": "Mês reaberto",
     "lockedMovement": "O mês deste movimento está fechado: não pode ser editado nem anulado.",
     "closedUntil": "Fechado até {{date}}"
+  },
+  "reports": {
+    "title": "Relatórios",
+    "description": "Demonstração de resultados, saldos, evolução mensal e contribuições. Baixe em PDF ou Excel.",
+    "tabs": {
+      "income-statement": "Resultados",
+      "balances": "Saldos",
+      "tithes-trend": "Evolução mensal",
+      "contributions": "Contribuições"
+    },
+    "files": {
+      "income-statement": "demonstracao-de-resultados",
+      "balances": "saldos-dos-caixas",
+      "tithes-trend": "evolucao-mensal",
+      "contributions": "contribuicoes-por-pessoa",
+      "certificate": "declaracao-de-contribuicoes",
+      "receipt": "recibo"
+    },
+    "year": "Ano",
+    "asOf": "Na data",
+    "month": "Mês",
+    "total": "Total",
+    "inactive": "inativo",
+    "empty": "Não há movimentos no período.",
+    "inCurrency": "Em {{currency}}",
+    "trend": {
+      "tithe": "Dízimos",
+      "offering": "Ofertas",
+      "otherIncome": "Outras entradas",
+      "expense": "Saídas",
+      "net": "Resultado"
+    },
+    "contributionsHint": "Só contribuições nominais (dízimos e ofertas lançados para uma pessoa). O download fica registrado.",
+    "people_one": "{{count}} pessoa",
+    "people_other": "{{count}} pessoas",
+    "countLine_one": "{{count}} contribuição em {{currency}}",
+    "countLine_other": "{{count}} contribuições em {{currency}}",
+    "certificate": "Declaração anual",
+    "noContributions": "Sem contribuições registradas em {{year}}.",
+    "totalYear": "Total {{year}} ({{currency}})",
+    "receipt": "Recibo"
   }
 }

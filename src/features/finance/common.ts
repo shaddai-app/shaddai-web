@@ -139,3 +139,9 @@ export const monthLabel = (year: number, month: number) => {
   const text = dayjs(`${year}-${String(month).padStart(2, '0')}-01`).format('MMMM YYYY');
   return text.charAt(0).toUpperCase() + text.slice(1);
 };
+
+/** "Agosto" (sin el año), en el idioma activo. */
+export const monthName = (month: number) => {
+  const text = dayjs(`2000-${String(month).padStart(2, '0')}-01`).format('MMMM');
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};

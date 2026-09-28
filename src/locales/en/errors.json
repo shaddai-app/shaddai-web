@@ -57,7 +57,7 @@
     "MILESTONE_NOT_FOUND": "We couldn't find that milestone.",
     "POSITION_INVALID": "The position doesn't exist or is inactive.",
     "POSITION_NOT_FOUND": "We couldn't find that position.",
-    "DATE_RANGE_INVALID": "The end date can't be before the start date.",
+    "DATE_RANGE_INVALID": "The start date is after the end date.",
     "PERSON_NOT_FOUND": "We couldn't find that person.",
     "PERSON_INVALID": "The person doesn't exist or you can't see them.",
     "PERSON_EDIT_FORBIDDEN": "You don't have permission to edit this person.",
@@ -153,7 +153,8 @@
     "PERIOD_ALREADY_CLOSED": "The month is already closed.",
     "PERIOD_NOT_CLOSED": "The month is not closed.",
     "PERIOD_LATER_CLOSED": "Only the last closed month can be reopened.",
-    "PERIOD_NOT_FOUND": "That month is outside the bookkeeping period."
+    "PERIOD_NOT_FOUND": "That month is outside the bookkeeping period.",
+    "RECEIPT_NOT_AVAILABLE": "Receipts are only available for confirmed income."
   },
   "validation": {
     "required": "This field is required.",
