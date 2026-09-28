@@ -1,0 +1,121 @@
+{
+  "title": "Calendar",
+  "description": "Services, meetings, special events and cell meetings.",
+  "newEvent": "New event",
+  "today": "Today",
+  "prev": "Previous",
+  "next": "Next",
+  "views": {
+    "month": "Month",
+    "week": "Week",
+    "agenda": "Agenda"
+  },
+  "types": {
+    "service": "Service",
+    "meeting": "Meeting",
+    "special": "Special",
+    "other": "Other",
+    "cell": "Cells"
+  },
+  "allDay": "All day",
+  "cancelled": "Cancelled",
+  "moved": "Time change",
+  "empty": "Nothing on these dates.",
+  "more_one": "+{{count}} more",
+  "more_other": "+{{count}} more",
+  "range": {
+    "hours": "{{from}} to {{to}}",
+    "days": "From {{from}} to {{to}}"
+  },
+  "form": {
+    "titles": {
+      "create": "New event",
+      "series": "Edit event",
+      "following": "Change from this date"
+    },
+    "title": "Name",
+    "start": "Date",
+    "startTime": "From",
+    "end": "Until",
+    "endTime": "To",
+    "rangeError": "Ends before it starts",
+    "location": "Place",
+    "description": "Details",
+    "create": "Create event",
+    "followingHint": "Changes apply from {{date}}. Earlier dates stay as they were.",
+    "seriesHint": "If you change the time or the repetition, manually changed dates that no longer fit are discarded."
+  },
+  "recurrence": {
+    "label": "Repeats",
+    "none": "Does not repeat",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "every": "Every",
+    "units": {
+      "day_one": "day",
+      "day_other": "days",
+      "week_one": "week",
+      "week_other": "weeks",
+      "month_one": "month",
+      "month_other": "months"
+    },
+    "monthlyDay": "On day {{day}}",
+    "monthlyWeekday": "On the {{nth}} {{weekday}}",
+    "nth": {
+      "1": "first",
+      "2": "second",
+      "3": "third",
+      "4": "fourth",
+      "-1": "last"
+    },
+    "until": "Until",
+    "untilHint": "Empty: no end date.",
+    "describe": {
+      "daily_one": "Every day",
+      "daily_other": "Every {{count}} days",
+      "weekly_one": "Every week: {{days}}",
+      "weekly_other": "Every {{count}} weeks: {{days}}",
+      "monthlyDay_one": "Every month on day {{day}}",
+      "monthlyDay_other": "Every {{count}} months on day {{day}}",
+      "monthlyWeekday_one": "Every month on the {{nth}} {{weekday}}",
+      "monthlyWeekday_other": "Every {{count}} months on the {{nth}} {{weekday}}",
+      "until": ", until {{date}}"
+    }
+  },
+  "event": {
+    "edit": "Edit",
+    "editSeries": "Edit series",
+    "delete": "Delete",
+    "deleteTitle": "Delete “{{title}}”?",
+    "deleteBody": "The event will no longer appear in the calendar.",
+    "deleteSeriesBody": "All dates of the series are deleted, including past ones.",
+    "since": "since {{date}}",
+    "upcoming": "Upcoming dates",
+    "noUpcoming": "No dates left ahead.",
+    "exceptions": "Dates with changes",
+    "past": "This event is over.",
+    "createdBy": "Created by {{name}} on {{date}}",
+    "removedExceptions_one": "{{count}} manually changed date no longer fits and was discarded.",
+    "removedExceptions_other": "{{count}} manually changed dates no longer fit and were discarded."
+  },
+  "occurrence": {
+    "title": "This date",
+    "cancel": "Cancel this date",
+    "cancelTitle": "Cancel this date",
+    "cancelBody": "Only {{date}} is cancelled. The rest of the series stays the same.",
+    "cancelPlaceholder": "For example: public holiday",
+    "cancelDone": "Date cancelled",
+    "move": "Change time",
+    "moveTitle": "Change the time of this date",
+    "moveBody": "Only {{date}} changes. The rest of the series stays the same.",
+    "movePlaceholder": "For example: worship concert",
+    "moveDone": "Time changed",
+    "note": "Notice",
+    "restore": "Back to the usual time",
+    "restored": "The date is back to normal",
+    "editFollowing": "Change from this date",
+    "cancelledNote": "Cancelled: {{note}}",
+    "movedFrom": "Moved (was {{date}})"
+  }
+}

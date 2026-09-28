@@ -1,0 +1,121 @@
+{
+  "title": "Calendário",
+  "description": "Cultos, reuniões, eventos especiais e reuniões de célula.",
+  "newEvent": "Novo evento",
+  "today": "Hoje",
+  "prev": "Anterior",
+  "next": "Próximo",
+  "views": {
+    "month": "Mês",
+    "week": "Semana",
+    "agenda": "Agenda"
+  },
+  "types": {
+    "service": "Culto",
+    "meeting": "Reunião",
+    "special": "Especial",
+    "other": "Outro",
+    "cell": "Células"
+  },
+  "allDay": "Dia inteiro",
+  "cancelled": "Cancelado",
+  "moved": "Mudança de horário",
+  "empty": "Não há nada nestas datas.",
+  "more_one": "+{{count}} mais",
+  "more_other": "+{{count}} mais",
+  "range": {
+    "hours": "{{from}} às {{to}}",
+    "days": "De {{from}} a {{to}}"
+  },
+  "form": {
+    "titles": {
+      "create": "Novo evento",
+      "series": "Editar evento",
+      "following": "Mudar a partir desta data"
+    },
+    "title": "Nome",
+    "start": "Data",
+    "startTime": "Das",
+    "end": "Até o dia",
+    "endTime": "Até",
+    "rangeError": "Termina antes de começar",
+    "location": "Local",
+    "description": "Detalhes",
+    "create": "Criar evento",
+    "followingHint": "As mudanças valem a partir de {{date}}. As datas anteriores ficam como estavam.",
+    "seriesHint": "Se mudar o horário ou a repetição, as datas alteradas à mão que não correspondam mais são descartadas."
+  },
+  "recurrence": {
+    "label": "Repete",
+    "none": "Não se repete",
+    "daily": "Todo dia",
+    "weekly": "Toda semana",
+    "monthly": "Todo mês",
+    "every": "A cada",
+    "units": {
+      "day_one": "dia",
+      "day_other": "dias",
+      "week_one": "semana",
+      "week_other": "semanas",
+      "month_one": "mês",
+      "month_other": "meses"
+    },
+    "monthlyDay": "No dia {{day}}",
+    "monthlyWeekday": "No(a) {{nth}} {{weekday}}",
+    "nth": {
+      "1": "primeiro(a)",
+      "2": "segundo(a)",
+      "3": "terceiro(a)",
+      "4": "quarto(a)",
+      "-1": "último(a)"
+    },
+    "until": "Até",
+    "untilHint": "Vazio: sem data de fim.",
+    "describe": {
+      "daily_one": "Todos os dias",
+      "daily_other": "A cada {{count}} dias",
+      "weekly_one": "Toda semana: {{days}}",
+      "weekly_other": "A cada {{count}} semanas: {{days}}",
+      "monthlyDay_one": "Todo mês, no dia {{day}}",
+      "monthlyDay_other": "A cada {{count}} meses, no dia {{day}}",
+      "monthlyWeekday_one": "Todo mês, no(a) {{nth}} {{weekday}}",
+      "monthlyWeekday_other": "A cada {{count}} meses, no(a) {{nth}} {{weekday}}",
+      "until": ", até {{date}}"
+    }
+  },
+  "event": {
+    "edit": "Editar",
+    "editSeries": "Editar série",
+    "delete": "Excluir",
+    "deleteTitle": "Excluir “{{title}}”?",
+    "deleteBody": "O evento deixa de aparecer no calendário.",
+    "deleteSeriesBody": "Todas as datas da série são excluídas, inclusive as passadas.",
+    "since": "desde {{date}}",
+    "upcoming": "Próximas datas",
+    "noUpcoming": "Não há mais datas pela frente.",
+    "exceptions": "Datas com mudanças",
+    "past": "Este evento já passou.",
+    "createdBy": "Criado por {{name}} em {{date}}",
+    "removedExceptions_one": "{{count}} data alterada à mão não corresponde mais e foi descartada.",
+    "removedExceptions_other": "{{count}} datas alteradas à mão não correspondem mais e foram descartadas."
+  },
+  "occurrence": {
+    "title": "Esta data",
+    "cancel": "Cancelar esta data",
+    "cancelTitle": "Cancelar esta data",
+    "cancelBody": "Só {{date}} é cancelado. O resto da série continua igual.",
+    "cancelPlaceholder": "Por exemplo: feriado",
+    "cancelDone": "Data cancelada",
+    "move": "Mudar horário",
+    "moveTitle": "Mudar o horário desta data",
+    "moveBody": "Só {{date}} muda. O resto da série continua igual.",
+    "movePlaceholder": "Por exemplo: show de louvor",
+    "moveDone": "Horário alterado",
+    "note": "Aviso",
+    "restore": "Voltar ao horário de sempre",
+    "restored": "A data voltou ao normal",
+    "editFollowing": "Mudar a partir desta data",
+    "cancelledNote": "Cancelado: {{note}}",
+    "movedFrom": "Mudado (era {{date}})"
+  }
+}
