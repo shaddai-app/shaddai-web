@@ -291,5 +291,46 @@
     "reopened": "Month reopened",
     "lockedMovement": "This transaction's month is closed: it cannot be edited or voided.",
     "closedUntil": "Closed until {{date}}"
+  },
+  "reports": {
+    "title": "Reports",
+    "description": "Income statement, balances, monthly trend and contributions. Download them as PDF or Excel.",
+    "tabs": {
+      "income-statement": "Income statement",
+      "balances": "Balances",
+      "tithes-trend": "Monthly trend",
+      "contributions": "Contributions"
+    },
+    "files": {
+      "income-statement": "income-statement",
+      "balances": "account-balances",
+      "tithes-trend": "monthly-trend",
+      "contributions": "contributions-by-person",
+      "certificate": "contribution-statement",
+      "receipt": "receipt"
+    },
+    "year": "Year",
+    "asOf": "As of",
+    "month": "Month",
+    "total": "Total",
+    "inactive": "inactive",
+    "empty": "No transactions in the period.",
+    "inCurrency": "In {{currency}}",
+    "trend": {
+      "tithe": "Tithes",
+      "offering": "Offerings",
+      "otherIncome": "Other income",
+      "expense": "Expenses",
+      "net": "Net result"
+    },
+    "contributionsHint": "Only named contributions (tithes and offerings recorded to a person). Downloads are logged.",
+    "people_one": "{{count}} person",
+    "people_other": "{{count}} people",
+    "countLine_one": "{{count}} contribution in {{currency}}",
+    "countLine_other": "{{count}} contributions in {{currency}}",
+    "certificate": "Yearly statement",
+    "noContributions": "No contributions recorded in {{year}}.",
+    "totalYear": "Total {{year}} ({{currency}})",
+    "receipt": "Receipt"
   }
 }

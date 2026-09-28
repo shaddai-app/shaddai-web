@@ -44,6 +44,7 @@ import { useTranslation } from 'react-i18next';
 import { peopleApi, type PersonDetail, type TimelineItem } from '../../../../api/people';
 import { requirePermission } from '../../../../auth/guards';
 import { FormError } from '../../../../components/FormError';
+import { ContributionsTab } from '../../../../features/finance/PersonContributions';
 import { useCatalogLabel } from '../../../../features/people/catalog';
 import { FamilyPanel } from '../../../../features/people/FamilyPanel';
 import { formatDate, fullName, todayIso, useAgeLabel } from '../../../../features/people/format';
@@ -56,6 +57,9 @@ import { PersonFollowUpTab } from '../../../../features/consolidation/PersonFoll
 import { errorMessage } from '../../../../i18n/errors';
 
 export const Route = createFileRoute('/_shell/_church/personas/$id')({
+  // ?tab= abre una pestaña directo (ej. "contributions" desde el reporte de aportes).
+  validateSearch: (s: Record<string, unknown>): { tab?: string } =>
+    typeof s.tab === 'string' ? { tab: s.tab } : {},
   beforeLoad: ({ context }) => requirePermission(context.me, 'personas.ver'),
   component: PersonPage,
 });
@@ -405,9 +409,10 @@ function PersonPage() {
   const query = useQuery(personQuery(id));
   const [modal, setModal] = useState<PersonModal>(null);
   const [editing, setEditing] = useState(false);
-  const [tab, setTab] = useState<string | null>('info');
+  const [tab, setTab] = useState<string | null>(Route.useSearch().tab ?? 'info');
   const { data: me } = useSuspenseQuery(meQuery());
   const showFollowUp = can(me, 'consolidacion.ver');
+  const showContributions = can(me, 'finanzas.diezmos_nominales');
   const ageLabel = useAgeLabel();
 
   if (query.isPending) return <Loader />;
@@ -602,6 +607,7 @@ function PersonPage() {
           <Tabs.Tab value="family">{t('detail.tabs.family')}</Tabs.Tab>
           <Tabs.Tab value="milestones">{t('detail.tabs.milestones')}</Tabs.Tab>
           {showFollowUp && <Tabs.Tab value="followup">{t('detail.tabs.followUp')}</Tabs.Tab>}
+          {showContributions && <Tabs.Tab value="contributions">{t('detail.tabs.contributions')}</Tabs.Tab>}
           <Tabs.Tab value="history">{t('detail.tabs.history')}</Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="info">
@@ -621,6 +627,11 @@ function PersonPage() {
         <Tabs.Panel value="history">
           <HistoryTab personId={person.id} />
         </Tabs.Panel>
+        {showContributions && (
+          <Tabs.Panel value="contributions">
+            <ContributionsTab person={person} />
+          </Tabs.Panel>
+        )}
       </Tabs>
 
       <PersonActionModal

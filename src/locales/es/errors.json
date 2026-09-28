@@ -57,7 +57,7 @@
     "MILESTONE_NOT_FOUND": "No encontramos ese hito.",
     "POSITION_INVALID": "El cargo no existe o está desactivado.",
     "POSITION_NOT_FOUND": "No encontramos ese cargo.",
-    "DATE_RANGE_INVALID": "La fecha de fin no puede ser anterior a la de inicio.",
+    "DATE_RANGE_INVALID": "La fecha de inicio es posterior a la de fin.",
     "PERSON_NOT_FOUND": "No encontramos esa persona.",
     "PERSON_INVALID": "La persona no existe o no la podés ver.",
     "PERSON_EDIT_FORBIDDEN": "No tenés permiso para editar a esta persona.",
@@ -153,7 +153,8 @@
     "PERIOD_ALREADY_CLOSED": "El mes ya está cerrado.",
     "PERIOD_NOT_CLOSED": "El mes no está cerrado.",
     "PERIOD_LATER_CLOSED": "Solo se puede reabrir el último mes cerrado.",
-    "PERIOD_NOT_FOUND": "Ese mes no está en el período de la contabilidad."
+    "PERIOD_NOT_FOUND": "Ese mes no está en el período de la contabilidad.",
+    "RECEIPT_NOT_AVAILABLE": "Solo hay recibo de ingresos confirmados."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

@@ -22,6 +22,7 @@ import {
   IconFileTypePdf,
   IconLock,
   IconPaperclip,
+  IconReceipt,
   IconPencil,
   IconTrash,
   IconX,
@@ -31,7 +32,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import dayjs from 'dayjs';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { financeApi, type MovementDetail } from '../../../../../api/finance';
+import { financeApi, reportsApi, type MovementDetail } from '../../../../../api/finance';
 import { requirePermission } from '../../../../../auth/guards';
 import { can } from '../../../../../auth/permissions';
 import { meQuery } from '../../../../../auth/session';
@@ -48,6 +49,7 @@ import {
   useMoney,
 } from '../../../../../features/finance/common';
 import { MovementModal, VoidModal } from '../../../../../features/finance/MovementModals';
+import { useDownload } from '../../../../../features/finance/download';
 import { ConfirmPendingModal } from '../../../../../features/finance/PendingModals';
 import { formatDate, fullName } from '../../../../../features/people/format';
 import { errorMessage } from '../../../../../i18n/errors';
@@ -136,6 +138,7 @@ function MovementPage() {
   const [confirming, setConfirming] = useState(false);
   const [rejecting, setRejecting] = useState(false);
   const churchCurrency = useChurchCurrency();
+  const download = useDownload();
   const closedUntil = useClosedUntil();
 
   const update = (m: MovementDetail) => {
@@ -169,6 +172,8 @@ function MovementPage() {
   const canEdit = canRegister && own && !transfer;
   const canVoid = can(me, 'finanzas.anular') && own;
   const canResolve = pending && can(me, 'finanzas.confirmar_pendientes');
+  // Recibo: solo de ingresos confirmados (la API rechaza el resto).
+  const canReceipt = m.kind === 'income' && m.status === 'confirmed';
 
   const removeAttachment = (fileId: number) =>
     modals.openConfirmModal({
@@ -201,11 +206,27 @@ function MovementPage() {
           )
         }
         actions={
-          (canEdit || canVoid) && (
+          (canEdit || canVoid || canReceipt) && (
             <Group gap="xs">
               {canEdit && (
                 <Button leftSection={<IconPencil size={18} />} onClick={() => setEditing(true)}>
                   {t('movement.edit')}
+                </Button>
+              )}
+              {canReceipt && (
+                <Button
+                  variant="default"
+                  leftSection={<IconReceipt size={18} />}
+                  loading={download.busy === 'receipt'}
+                  onClick={() =>
+                    void download.run(
+                      'receipt',
+                      (lang) => reportsApi.receipt(m.id, lang),
+                      `${t('reports.files.receipt')}-${m.id}.pdf`,
+                    )
+                  }
+                >
+                  {t('reports.receipt')}
                 </Button>
               )}
               {canVoid && (

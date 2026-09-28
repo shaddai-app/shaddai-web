@@ -53,7 +53,8 @@
     "financeCategories": "Categorias financeiras",
     "offeringCounts": "Contagens",
     "financePending": "Ofertas pendentes",
-    "financePeriods": "Fechamentos"
+    "financePeriods": "Fechamentos",
+    "financeReports": "Relatórios"
   },
   "userMenu": {
     "label": "Menu do usuário",

@@ -291,5 +291,46 @@
     "reopened": "Mes reabierto",
     "lockedMovement": "El mes de este movimiento está cerrado: no se puede editar ni anular.",
     "closedUntil": "Cerrado hasta el {{date}}"
+  },
+  "reports": {
+    "title": "Reportes",
+    "description": "Estado de resultados, saldos, evolución mensual y aportes. Se descargan en PDF o Excel.",
+    "tabs": {
+      "income-statement": "Estado de resultados",
+      "balances": "Saldos",
+      "tithes-trend": "Evolución mensual",
+      "contributions": "Aportes"
+    },
+    "files": {
+      "income-statement": "estado-de-resultados",
+      "balances": "saldos-de-cajas",
+      "tithes-trend": "evolucion-mensual",
+      "contributions": "aportes-por-persona",
+      "certificate": "constancia-de-aportes",
+      "receipt": "recibo"
+    },
+    "year": "Año",
+    "asOf": "Al día",
+    "month": "Mes",
+    "total": "Total",
+    "inactive": "inactiva",
+    "empty": "No hay movimientos en el período.",
+    "inCurrency": "En {{currency}}",
+    "trend": {
+      "tithe": "Diezmos",
+      "offering": "Ofrendas",
+      "otherIncome": "Otros ingresos",
+      "expense": "Egresos",
+      "net": "Resultado"
+    },
+    "contributionsHint": "Solo aportes con nombre (diezmos y ofrendas cargados a una persona). La descarga queda registrada.",
+    "people_one": "{{count}} persona",
+    "people_other": "{{count}} personas",
+    "countLine_one": "{{count}} aporte en {{currency}}",
+    "countLine_other": "{{count}} aportes en {{currency}}",
+    "certificate": "Constancia anual",
+    "noContributions": "Sin aportes registrados en {{year}}.",
+    "totalYear": "Total {{year}} ({{currency}})",
+    "receipt": "Recibo"
   }
 }

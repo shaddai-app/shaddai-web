@@ -57,7 +57,7 @@
     "MILESTONE_NOT_FOUND": "Não encontramos esse marco.",
     "POSITION_INVALID": "O cargo não existe ou está desativado.",
     "POSITION_NOT_FOUND": "Não encontramos esse cargo.",
-    "DATE_RANGE_INVALID": "A data de término não pode ser anterior à de início.",
+    "DATE_RANGE_INVALID": "A data inicial é posterior à final.",
     "PERSON_NOT_FOUND": "Não encontramos essa pessoa.",
     "PERSON_INVALID": "A pessoa não existe ou você não pode vê-la.",
     "PERSON_EDIT_FORBIDDEN": "Você não tem permissão para editar esta pessoa.",
@@ -153,7 +153,8 @@
     "PERIOD_ALREADY_CLOSED": "O mês já está fechado.",
     "PERIOD_NOT_CLOSED": "O mês não está fechado.",
     "PERIOD_LATER_CLOSED": "Só é possível reabrir o último mês fechado.",
-    "PERIOD_NOT_FOUND": "Esse mês está fora do período da contabilidade."
+    "PERIOD_NOT_FOUND": "Esse mês está fora do período da contabilidade.",
+    "RECEIPT_NOT_AVAILABLE": "Só há recibo de entradas confirmadas."
   },
   "validation": {
     "required": "Este campo é obrigatório.",
