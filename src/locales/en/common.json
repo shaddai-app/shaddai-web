@@ -46,7 +46,8 @@
     "cells": "Small groups",
     "structure": "Structure",
     "myCell": "My group",
-    "cellReports": "Report tracker"
+    "cellReports": "Report tracker",
+    "consolidation": "Follow-up"
   },
   "userMenu": {
     "label": "User menu",

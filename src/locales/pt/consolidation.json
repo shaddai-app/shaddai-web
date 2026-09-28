@@ -1,0 +1,155 @@
+{
+  "title": "Consolidação",
+  "description": "Acompanhamento das pessoas novas até se integrarem.",
+  "status": {
+    "open": "Em andamento",
+    "completed": "Concluído",
+    "dropped": "Encerrado"
+  },
+  "sources": {
+    "manual": "cadastro manual",
+    "form": "formulário “Sou novo”",
+    "cell": "visita de célula"
+  },
+  "due": {
+    "on": "Vence em {{date}}",
+    "overdue": "Venceu em {{date}}"
+  },
+  "contact": {
+    "call": "Ligar"
+  },
+  "whatsapp": {
+    "greeting": "Olá {{name}}! "
+  },
+  "steps": {
+    "defaults": {
+      "first_contact": "Primeiro contato",
+      "home_visit": "Visita",
+      "cell_invite": "Convite para célula",
+      "encounter": "Encontro",
+      "discipleship": "Discipulado"
+    }
+  },
+  "board": {
+    "tab": "Quadro",
+    "unassigned": "Sem responsável",
+    "moveTo": "Mover para…",
+    "progress": "{{done}} de {{total}} passos",
+    "dueDays_one": "{{count}} dia",
+    "dueDays_other": "{{count}} dias",
+    "emptyColumn": "Ninguém neste passo",
+    "unplaced": "Sem passo (desativado)",
+    "dragHint": "Arraste um cartão para outra coluna (no celular: mantenha pressionado) ou use “Mover para…”.",
+    "summary": {
+      "open_one": "{{count}} em andamento",
+      "open_other": "{{count}} em andamento",
+      "overdue_one": "{{count}} vencido",
+      "overdue_other": "{{count}} vencidos",
+      "unassigned_one": "{{count}} sem responsável",
+      "unassigned_other": "{{count}} sem responsável"
+    },
+    "filters": {
+      "all": "Todos",
+      "mine": "Meus",
+      "unassigned": "Sem responsável"
+    },
+    "anyConsolidator": "Qualquer consolidador"
+  },
+  "cases": {
+    "openTitle": "Novo caso",
+    "open": "Abrir caso",
+    "opened": "Caso aberto",
+    "openExisting": "Ver o caso que já está aberto",
+    "person": "Pessoa",
+    "searchPerson": "Buscar pessoa",
+    "consolidator": "Consolidador",
+    "openHint": "O caso começa no primeiro passo, com os prazos configurados em Catálogos.",
+    "search": "Buscar por nome",
+    "empty": "Não há casos.",
+    "closedTab": "Fechados",
+    "closedAt": "Fechamento",
+    "status": "Status"
+  },
+  "closeReasons": {
+    "merged": "Cadastro mesclado com outro",
+    "person_deleted": "Pessoa removida"
+  },
+  "case": {
+    "steps": "Passos ({{done}} de {{total}})",
+    "undo": "Desfazer",
+    "complete": "Concluir",
+    "completedOn": "Concluído em {{date}}",
+    "completeTitle": "Concluir “{{step}}”",
+    "stepNotes": "Observação (opcional)",
+    "openedFrom": "Desde {{date}}, por {{source}}",
+    "drop": "Encerrar",
+    "dropTitle": "Encerrar o acompanhamento de {{name}}?",
+    "dropReason": "Motivo",
+    "dropped": "Caso encerrado",
+    "reopen": "Reabrir",
+    "reopenTitle": "Reabrir o caso?",
+    "reopened": "Caso reaberto",
+    "viewPerson": "Ver cadastro",
+    "closeReason": "Motivo",
+    "assigned": "Consolidador atualizado"
+  },
+  "followUps": {
+    "title": "Acompanhamentos",
+    "add": "Registrar",
+    "type": "Tipo",
+    "types": {
+      "call": "Ligação",
+      "visit": "Visita",
+      "whatsapp": "WhatsApp",
+      "message": "Mensagem",
+      "prayer": "Oração",
+      "other": "Outro"
+    },
+    "date": "Data",
+    "notes": "O que aconteceu",
+    "notesPlaceholder": "Por exemplo: atendeu, vem no domingo com a família.",
+    "nextAction": "Próxima ação",
+    "nextActionPlaceholder": "Por exemplo: buscá-la para o culto",
+    "nextActionAt": "Para quando",
+    "save": "Salvar acompanhamento",
+    "saved": "Acompanhamento registrado",
+    "empty": "Ainda não há acompanhamentos.",
+    "deleteTitle": "Excluir este acompanhamento?",
+    "delete": "Excluir",
+    "next": "Próximo: {{action}} ({{date}})",
+    "contactAgain": "contatar de novo"
+  },
+  "tasks": {
+    "title": "Minhas tarefas de consolidação",
+    "board": "Ver quadro",
+    "empty": "Você não tem tarefas pendentes para hoje.",
+    "stepOverdue": "Passo vencido"
+  },
+  "nearest": {
+    "title": "Células próximas",
+    "noLocation": "O cadastro não tem a localização da casa. Cadastre-a para ver as células mais próximas.",
+    "unavailable": "Você não pode ver a localização desta pessoa.",
+    "none": "Não há células ativas com localização.",
+    "distance": "a {{km}} km"
+  },
+  "person": {
+    "caseTitle": "Consolidação",
+    "viewCase": "Ver caso",
+    "noCase": "Não tem um caso de consolidação aberto."
+  },
+  "stepsAdmin": {
+    "hint": "Os passos que cada pessoa nova percorre. O prazo conta a partir da abertura do caso.",
+    "name": "Nome",
+    "systemNameHint": "Deixe vazio para usar o nome padrão.",
+    "dueDays": "Prazo (dias)",
+    "dueDaysHint": "Dias desde a abertura do caso para cumprir o passo.",
+    "add": "Adicionar passo",
+    "edit": "Editar passo",
+    "delete": "Excluir",
+    "deleteTitle": "Excluir o passo “{{name}}”?",
+    "activate": "Ativar",
+    "deactivate": "Desativar",
+    "moveUp": "Subir",
+    "moveDown": "Descer"
+  }
+}

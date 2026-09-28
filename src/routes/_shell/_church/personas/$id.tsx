@@ -35,7 +35,7 @@ import {
   IconUserPlus,
   IconX,
 } from '@tabler/icons-react';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import dayjs from 'dayjs';
 import { useState, type ReactNode } from 'react';
@@ -50,6 +50,9 @@ import { formatDate, fullName, todayIso, useAgeLabel } from '../../../../feature
 import { PersonAvatar, StatusBadge, TagBadges } from '../../../../features/people/PersonBits';
 import { PersonFormModal } from '../../../../features/people/PersonFormModal';
 import { PersonActionModal, type PersonModal } from '../../../../features/people/PersonModals';
+import { can } from '../../../../auth/permissions';
+import { meQuery } from '../../../../auth/session';
+import { PersonFollowUpTab } from '../../../../features/consolidation/PersonFollowUpTab';
 import { errorMessage } from '../../../../i18n/errors';
 
 export const Route = createFileRoute('/_shell/_church/personas/$id')({
@@ -403,6 +406,8 @@ function PersonPage() {
   const [modal, setModal] = useState<PersonModal>(null);
   const [editing, setEditing] = useState(false);
   const [tab, setTab] = useState<string | null>('info');
+  const { data: me } = useSuspenseQuery(meQuery());
+  const showFollowUp = can(me, 'consolidacion.ver');
   const ageLabel = useAgeLabel();
 
   if (query.isPending) return <Loader />;
@@ -596,6 +601,7 @@ function PersonPage() {
           <Tabs.Tab value="info">{t('detail.tabs.info')}</Tabs.Tab>
           <Tabs.Tab value="family">{t('detail.tabs.family')}</Tabs.Tab>
           <Tabs.Tab value="milestones">{t('detail.tabs.milestones')}</Tabs.Tab>
+          {showFollowUp && <Tabs.Tab value="followup">{t('detail.tabs.followUp')}</Tabs.Tab>}
           <Tabs.Tab value="history">{t('detail.tabs.history')}</Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="info">
@@ -607,6 +613,11 @@ function PersonPage() {
         <Tabs.Panel value="milestones">
           <MilestonesTab person={person} onUpdate={update} openModal={setModal} />
         </Tabs.Panel>
+        {showFollowUp && (
+          <Tabs.Panel value="followup">
+            <PersonFollowUpTab person={person} />
+          </Tabs.Panel>
+        )}
         <Tabs.Panel value="history">
           <HistoryTab personId={person.id} />
         </Tabs.Panel>

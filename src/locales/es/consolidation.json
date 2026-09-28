@@ -1,0 +1,155 @@
+{
+  "title": "Consolidación",
+  "description": "Acompañamiento de las personas nuevas hasta que se integran.",
+  "status": {
+    "open": "En curso",
+    "completed": "Completado",
+    "dropped": "Dado de baja"
+  },
+  "sources": {
+    "manual": "alta manual",
+    "form": "formulario «Soy nuevo»",
+    "cell": "visita de célula"
+  },
+  "due": {
+    "on": "Vence el {{date}}",
+    "overdue": "Venció el {{date}}"
+  },
+  "contact": {
+    "call": "Llamar"
+  },
+  "whatsapp": {
+    "greeting": "¡Hola {{name}}! "
+  },
+  "steps": {
+    "defaults": {
+      "first_contact": "Primer contacto",
+      "home_visit": "Visita",
+      "cell_invite": "Invitación a célula",
+      "encounter": "Encuentro",
+      "discipleship": "Discipulado"
+    }
+  },
+  "board": {
+    "tab": "Tablero",
+    "unassigned": "Sin asignar",
+    "moveTo": "Mover a…",
+    "progress": "{{done}} de {{total}} pasos",
+    "dueDays_one": "{{count}} día",
+    "dueDays_other": "{{count}} días",
+    "emptyColumn": "Nadie en este paso",
+    "unplaced": "Sin paso (desactivado)",
+    "dragHint": "Arrastrá una tarjeta a otra columna (con el dedo: mantené apretado) o usá «Mover a…».",
+    "summary": {
+      "open_one": "{{count}} en curso",
+      "open_other": "{{count}} en curso",
+      "overdue_one": "{{count}} vencido",
+      "overdue_other": "{{count}} vencidos",
+      "unassigned_one": "{{count}} sin asignar",
+      "unassigned_other": "{{count}} sin asignar"
+    },
+    "filters": {
+      "all": "Todos",
+      "mine": "Míos",
+      "unassigned": "Sin asignar"
+    },
+    "anyConsolidator": "Cualquier consolidador"
+  },
+  "cases": {
+    "openTitle": "Nuevo caso",
+    "open": "Abrir caso",
+    "opened": "Caso abierto",
+    "openExisting": "Ver el caso que ya tiene abierto",
+    "person": "Persona",
+    "searchPerson": "Buscar persona",
+    "consolidator": "Consolidador",
+    "openHint": "El caso arranca en el primer paso, con los plazos configurados en Catálogos.",
+    "search": "Buscar por nombre",
+    "empty": "No hay casos.",
+    "closedTab": "Cerrados",
+    "closedAt": "Cierre",
+    "status": "Estado"
+  },
+  "closeReasons": {
+    "merged": "Ficha fusionada con otra",
+    "person_deleted": "Persona dada de baja"
+  },
+  "case": {
+    "steps": "Pasos ({{done}} de {{total}})",
+    "undo": "Deshacer",
+    "complete": "Completar",
+    "completedOn": "Completado el {{date}}",
+    "completeTitle": "Completar «{{step}}»",
+    "stepNotes": "Nota (opcional)",
+    "openedFrom": "Desde el {{date}}, por {{source}}",
+    "drop": "Dar de baja",
+    "dropTitle": "¿Dar de baja el seguimiento de {{name}}?",
+    "dropReason": "Motivo",
+    "dropped": "Caso dado de baja",
+    "reopen": "Reabrir",
+    "reopenTitle": "¿Reabrir el caso?",
+    "reopened": "Caso reabierto",
+    "viewPerson": "Ver ficha",
+    "closeReason": "Motivo",
+    "assigned": "Consolidador actualizado"
+  },
+  "followUps": {
+    "title": "Seguimientos",
+    "add": "Registrar",
+    "type": "Tipo",
+    "types": {
+      "call": "Llamada",
+      "visit": "Visita",
+      "whatsapp": "WhatsApp",
+      "message": "Mensaje",
+      "prayer": "Oración",
+      "other": "Otro"
+    },
+    "date": "Fecha",
+    "notes": "Qué pasó",
+    "notesPlaceholder": "Por ejemplo: atendió, viene el domingo con la familia.",
+    "nextAction": "Próxima acción",
+    "nextActionPlaceholder": "Por ejemplo: pasarla a buscar para el culto",
+    "nextActionAt": "Para cuándo",
+    "save": "Guardar seguimiento",
+    "saved": "Seguimiento registrado",
+    "empty": "Todavía no hay seguimientos.",
+    "deleteTitle": "¿Eliminar este seguimiento?",
+    "delete": "Eliminar",
+    "next": "Próximo: {{action}} ({{date}})",
+    "contactAgain": "volver a contactar"
+  },
+  "tasks": {
+    "title": "Mis tareas de consolidación",
+    "board": "Ver tablero",
+    "empty": "No tenés tareas pendientes para hoy.",
+    "stepOverdue": "Paso vencido"
+  },
+  "nearest": {
+    "title": "Células cercanas",
+    "noLocation": "La ficha no tiene la ubicación de la casa. Cargala para ver las células más cercanas.",
+    "unavailable": "No podés ver la ubicación de esta persona.",
+    "none": "No hay células activas con ubicación.",
+    "distance": "a {{km}} km"
+  },
+  "person": {
+    "caseTitle": "Consolidación",
+    "viewCase": "Ver caso",
+    "noCase": "No tiene un caso de consolidación abierto."
+  },
+  "stepsAdmin": {
+    "hint": "Los pasos que recorre cada persona nueva. El plazo se cuenta desde que se abre el caso.",
+    "name": "Nombre",
+    "systemNameHint": "Dejalo vacío para usar el nombre por defecto.",
+    "dueDays": "Plazo (días)",
+    "dueDaysHint": "Días desde la apertura del caso para cumplir el paso.",
+    "add": "Agregar paso",
+    "edit": "Editar paso",
+    "delete": "Eliminar",
+    "deleteTitle": "¿Eliminar el paso «{{name}}»?",
+    "activate": "Activar",
+    "deactivate": "Desactivar",
+    "moveUp": "Subir",
+    "moveDown": "Bajar"
+  }
+}

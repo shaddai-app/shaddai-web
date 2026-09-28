@@ -3,8 +3,9 @@ import { IconChartBar } from '@tabler/icons-react';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
-import { scopeOf } from '../../../auth/permissions';
+import { can, scopeOf } from '../../../auth/permissions';
 import { meQuery } from '../../../auth/session';
+import { MyTasksCard } from '../../../features/consolidation/MyTasksCard';
 
 export const Route = createFileRoute('/_shell/_church/')({
   // Inicio según el rol: quien reporta solo su célula (líder) arranca en «Mi célula».
@@ -34,6 +35,7 @@ function Home() {
           <Text>{t('home.comingSoon')}</Text>
         </Group>
       </Card>
+      {can(me, 'consolidacion.ver', 'consolidacion.gestionar') && <MyTasksCard />}
     </Stack>
   );
 }

@@ -40,7 +40,10 @@
       "retreat": "Retiro"
     }
   },
-  "gender": { "F": "Feminino", "M": "Masculino" },
+  "gender": {
+    "F": "Feminino",
+    "M": "Masculino"
+  },
   "marital": {
     "single": "Solteiro(a)",
     "married": "Casado(a)",
@@ -48,7 +51,12 @@
     "divorced": "Divorciado(a)",
     "separated": "Separado(a)"
   },
-  "householdRole": { "head": "Chefe de família", "spouse": "Cônjuge", "child": "Filho(a)", "other": "Outro" },
+  "householdRole": {
+    "head": "Chefe de família",
+    "spouse": "Cônjuge",
+    "child": "Filho(a)",
+    "other": "Outro"
+  },
   "source": {
     "manual": "Cadastro manual",
     "form": "Formulário «Sou novo»",
@@ -68,7 +76,10 @@
     "allStatuses": "Todas as situações",
     "allTags": "Todas as etiquetas",
     "allCampuses": "Todas as sedes",
-    "sort": { "name": "Por sobrenome", "recent": "Recentes" },
+    "sort": {
+      "name": "Por sobrenome",
+      "recent": "Recentes"
+    },
     "total_one": "{{count}} pessoa",
     "total_other": "{{count}} pessoas",
     "empty": "Ainda não há pessoas cadastradas.",
@@ -133,7 +144,13 @@
   },
   "detail": {
     "back": "Pessoas",
-    "tabs": { "info": "Dados", "family": "Família", "milestones": "Marcos e cargos", "history": "Histórico" },
+    "tabs": {
+      "info": "Dados",
+      "family": "Família",
+      "milestones": "Marcos e cargos",
+      "history": "Histórico",
+      "followUp": "Acompanhamento"
+    },
     "actions": "Ações",
     "edit": "Editar",
     "editTags": "Etiquetas",
@@ -163,7 +180,11 @@
     "notePlaceholder": "Ex.: concluiu a classe de membresia",
     "changed": "Situação atualizada"
   },
-  "tagsModal": { "title": "Etiquetas", "saved": "Etiquetas salvas", "manage": "Gerenciar etiquetas" },
+  "tagsModal": {
+    "title": "Etiquetas",
+    "saved": "Etiquetas salvas",
+    "manage": "Gerenciar etiquetas"
+  },
   "milestones": {
     "title": "Marcos",
     "add": "Adicionar marco",
@@ -249,7 +270,8 @@
       "position": "Cargos",
       "inventory_category": "Categorias de inventário",
       "event_type": "Tipos de evento",
-      "tags": "Etiquetas"
+      "tags": "Etiquetas",
+      "consolidation_steps": "Passos de consolidação"
     },
     "hints": {
       "person_status": "O percurso de cada pessoa na igreja. Pelo menos uma deve continuar ativa.",
@@ -337,8 +359,17 @@
     "newTags": "Serão criadas estas etiquetas: {{tags}}",
     "ignoredColumns": "Estas colunas são ignoradas porque você não tem permissão para dados sensíveis: {{columns}}",
     "unknownColumns": "Estas colunas não correspondem a nenhum campo e são ignoradas: {{columns}}",
-    "filter": { "all": "Todas", "errors": "Com erros", "warnings": "Com avisos", "duplicates": "Duplicados" },
-    "columns": { "row": "Linha", "person": "Pessoa", "problems": "Observações" },
+    "filter": {
+      "all": "Todas",
+      "errors": "Com erros",
+      "warnings": "Com avisos",
+      "duplicates": "Duplicados"
+    },
+    "columns": {
+      "row": "Linha",
+      "person": "Pessoa",
+      "problems": "Observações"
+    },
     "noProblems": "Sem observações",
     "duplicateOf": "Parece ser {{name}} ({{reasons}})",
     "duplicatesMode": "O que fazemos com os possíveis duplicados?",
@@ -375,7 +406,11 @@
     "title": "Novos («Sou novo»)",
     "nav": "Novos",
     "description": "Pessoas que preencheram o formulário público. Revise para incluí-las na igreja.",
-    "tabs": { "pending": "Pendentes", "accepted": "Aceitos", "rejected": "Rejeitados" },
+    "tabs": {
+      "pending": "Pendentes",
+      "accepted": "Aceitos",
+      "rejected": "Rejeitados"
+    },
     "empty": {
       "pending": "Não há formulários pendentes. Compartilhe o QR no próximo culto!",
       "accepted": "Nenhum formulário foi aceito ainda.",
@@ -436,6 +471,10 @@
     "placeholder": "Buscar pessoas, famílias, usuários…",
     "hint": "Digite pelo menos 2 letras",
     "nothing": "Sem resultados",
-    "groups": { "people": "Pessoas", "households": "Famílias", "users": "Usuários" }
+    "groups": {
+      "people": "Pessoas",
+      "households": "Famílias",
+      "users": "Usuários"
+    }
   }
 }
