@@ -165,7 +165,16 @@
     "EXCEPTION_EMPTY": "Enter the new time.",
     "EXCEPTION_NOT_FOUND": "That date had no changes.",
     "EVENT_NOT_RECURRING": "The event does not repeat: edit it directly.",
-    "SPLIT_AT_FIRST": "This is the first date: edit the whole series."
+    "SPLIT_AT_FIRST": "This is the first date: edit the whole series.",
+    "EVENT_FULL": "It is full.",
+    "REGISTRATION_EXISTS": "That person is already registered for this date.",
+    "REGISTRATION_CLOSED": "That date is over: registration is closed.",
+    "REGISTRATION_DISABLED": "The event does not have registration open.",
+    "REGISTRATION_NOT_FOUND": "The registration does not exist.",
+    "REGISTRATION_CANCELLED": "The registration was already cancelled.",
+    "OCCURRENCE_CANCELLED": "That date is cancelled.",
+    "PAYMENT_FORBIDDEN": "Recording payments requires permission to enter finance transactions.",
+    "PAYMENT_AMOUNT_REQUIRED": "Enter the amount."
   },
   "validation": {
     "required": "This field is required.",

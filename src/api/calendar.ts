@@ -30,6 +30,8 @@ export interface Occurrence {
   endsAt: LocalDateTime;
   allDay: boolean;
   recurring: boolean;
+  /** El evento tiene inscripción. */
+  registration: boolean;
   originalStart: LocalDateTime;
   cancelled: boolean;
   moved: boolean;
@@ -54,6 +56,12 @@ export interface CalendarEvent {
   endsAt: LocalDateTime;
   allDay: boolean;
   recurrence: Recurrence | null;
+  registrationEnabled: boolean;
+  capacity: number | null;
+  waitlistEnabled: boolean;
+  /** En la moneda de la iglesia. */
+  price: number | null;
+  isPublic: boolean;
   campus: { id: number; name: string } | null;
   exceptions: EventException[];
   upcoming: Occurrence[];
@@ -74,6 +82,11 @@ export interface EventInput {
   allDay: boolean;
   campusId?: number | null;
   recurrence: Recurrence | null;
+  registrationEnabled?: boolean;
+  capacity?: number | null;
+  waitlistEnabled?: boolean;
+  price?: number | null;
+  isPublic?: boolean;
 }
 
 export const calendarApi = {
@@ -102,4 +115,123 @@ export const calendarApi = {
   ) => api.put<CalendarEvent>(`/events/${id}/exceptions`, body),
   clearException: (id: number, originalStart: LocalDateTime) =>
     apiRequest<CalendarEvent>(`/events/${id}/exceptions`, { method: 'DELETE', query: { originalStart } }),
+};
+
+// ── Inscripciones ─────────────────────────────────────────────────────────
+export type RegistrationStatus = 'confirmed' | 'waitlist' | 'cancelled';
+
+export interface Registration {
+  id: number;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  notes: string | null;
+  status: RegistrationStatus;
+  source: 'staff' | 'public';
+  paidAmount: number | null;
+  paymentMovementId: number | null;
+  createdAt: string;
+  cancelledAt: string | null;
+  occurrenceStart: LocalDateTime;
+  person: { id: number; firstName: string; lastName: string } | null;
+}
+
+export interface Availability {
+  capacity: number | null;
+  confirmed: number;
+  waitlist: number;
+  available: number | null;
+  full: boolean;
+}
+
+export interface RegistrationList extends Availability {
+  event: {
+    id: number;
+    title: string;
+    price: number | null;
+    waitlistEnabled: boolean;
+    registrationEnabled: boolean;
+    isPublic: boolean;
+  };
+  occurrence: {
+    originalStart: LocalDateTime;
+    startsAt: LocalDateTime;
+    endsAt: LocalDateTime;
+    cancelled: boolean;
+  };
+  items: Registration[];
+}
+
+export interface RegistrationInput {
+  occurrence: LocalDateTime;
+  personId?: number | null;
+  name?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  notes?: string | null;
+}
+
+export const registrationsApi = {
+  list: (eventId: number, occurrence: LocalDateTime) =>
+    api.get<RegistrationList>(`/events/${eventId}/registrations`, { occurrence }),
+  exportXlsx: (eventId: number, occurrence: LocalDateTime, locale: string) =>
+    apiRequest<Blob>(`/events/${eventId}/registrations`, {
+      query: { occurrence, format: 'xlsx', locale },
+      blob: true,
+    }),
+  create: (eventId: number, body: RegistrationInput) =>
+    api.post<Registration>(`/events/${eventId}/registrations`, body),
+  cancel: (id: number) => api.post<{ promoted: number[] }>(`/registrations/${id}/cancel`),
+  pay: (
+    id: number,
+    body: { financeAccountId: number; amount?: number; paymentMethod: string; date?: string },
+  ) => api.post<{ paidAmount: number; movementId: number }>(`/registrations/${id}/payment`, body),
+};
+
+// ── Inscripción pública (sin sesión) ──────────────────────────────────────
+export interface PublicEventPage {
+  church: {
+    name: string;
+    slug: string;
+    logoUrl: string | null;
+    defaultLocale: string;
+    primaryColor: string;
+    currency: string;
+  };
+  event: {
+    id: number;
+    title: string;
+    description: string | null;
+    location: string | null;
+    allDay: boolean;
+    price: number | null;
+    dates: {
+      occurrence: LocalDateTime;
+      startsAt: LocalDateTime;
+      endsAt: LocalDateTime;
+      full: boolean;
+      waitlist: boolean;
+      available: number | null;
+    }[];
+  };
+  turnstileSiteKey: string | null;
+}
+
+export const publicEventsApi = {
+  event: (slug: string, id: number) =>
+    api.get<PublicEventPage>(`/public/${slug}/events/${id}`, undefined, { auth: false }),
+  register: (
+    slug: string,
+    id: number,
+    body: {
+      occurrence: LocalDateTime;
+      name: string;
+      email: string | null;
+      phone: string | null;
+      notes: string | null;
+      turnstileToken?: string;
+      website: string;
+    },
+  ) =>
+    api.post<{ status: RegistrationStatus }>(`/public/${slug}/events/${id}/register`, body, { auth: false }),
 };

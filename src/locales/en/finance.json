@@ -46,7 +46,8 @@
       "social_aid": "Social aid",
       "supplies": "Supplies and equipment",
       "events": "Events",
-      "other_expense": "Other expenses"
+      "other_expense": "Other expenses",
+      "event_fees": "Event registrations"
     },
     "name": "Name",
     "systemNameHint": "Leave it empty to use the default name.",
