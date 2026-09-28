@@ -46,7 +46,8 @@
     "cells": "Células",
     "structure": "Estrutura",
     "myCell": "Minha célula",
-    "cellReports": "Semáforo"
+    "cellReports": "Semáforo",
+    "consolidation": "Consolidação"
   },
   "userMenu": {
     "label": "Menu do usuário",

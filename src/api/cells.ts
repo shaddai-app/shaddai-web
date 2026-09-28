@@ -332,3 +332,21 @@ export const multiplicationApi = {
     ),
   genealogy: () => api.get<{ items: GenealogyNode[] }>('/cells/genealogy'),
 };
+
+// ── Célula más cercana (para derivar a alguien nuevo) ─────────────────────
+export interface NearestCell {
+  id: number;
+  name: string;
+  meetingDay: number;
+  meetingTime: string;
+  neighborhood: string | null;
+  city: string | null;
+  distanceKm: number;
+  leader: { id: number; firstName: string; lastName: string; phone: string | null };
+  zone: { name: string; network: { name: string } };
+}
+
+export const nearestApi = {
+  forPerson: (personId: number, limit = 3) =>
+    api.get<{ items: NearestCell[] }>('/cells/nearest', { personId, limit }),
+};

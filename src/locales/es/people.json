@@ -40,7 +40,10 @@
       "retreat": "Retiro"
     }
   },
-  "gender": { "F": "Femenino", "M": "Masculino" },
+  "gender": {
+    "F": "Femenino",
+    "M": "Masculino"
+  },
   "marital": {
     "single": "Soltero/a",
     "married": "Casado/a",
@@ -48,7 +51,12 @@
     "divorced": "Divorciado/a",
     "separated": "Separado/a"
   },
-  "householdRole": { "head": "Jefe/a de hogar", "spouse": "Cónyuge", "child": "Hijo/a", "other": "Otro" },
+  "householdRole": {
+    "head": "Jefe/a de hogar",
+    "spouse": "Cónyuge",
+    "child": "Hijo/a",
+    "other": "Otro"
+  },
   "source": {
     "manual": "Carga manual",
     "form": "Formulario «Soy nuevo»",
@@ -68,7 +76,10 @@
     "allStatuses": "Todos los estados",
     "allTags": "Todas las etiquetas",
     "allCampuses": "Todas las sedes",
-    "sort": { "name": "Por apellido", "recent": "Recientes" },
+    "sort": {
+      "name": "Por apellido",
+      "recent": "Recientes"
+    },
     "total_one": "{{count}} persona",
     "total_other": "{{count}} personas",
     "empty": "Todavía no hay personas cargadas.",
@@ -133,7 +144,13 @@
   },
   "detail": {
     "back": "Personas",
-    "tabs": { "info": "Datos", "family": "Familia", "milestones": "Hitos y cargos", "history": "Historial" },
+    "tabs": {
+      "info": "Datos",
+      "family": "Familia",
+      "milestones": "Hitos y cargos",
+      "history": "Historial",
+      "followUp": "Seguimiento"
+    },
     "actions": "Acciones",
     "edit": "Editar",
     "editTags": "Etiquetas",
@@ -163,7 +180,11 @@
     "notePlaceholder": "Ej.: completó la clase de membresía",
     "changed": "Estado actualizado"
   },
-  "tagsModal": { "title": "Etiquetas", "saved": "Etiquetas guardadas", "manage": "Administrar etiquetas" },
+  "tagsModal": {
+    "title": "Etiquetas",
+    "saved": "Etiquetas guardadas",
+    "manage": "Administrar etiquetas"
+  },
   "milestones": {
     "title": "Hitos",
     "add": "Agregar hito",
@@ -249,7 +270,8 @@
       "position": "Cargos",
       "inventory_category": "Categorías de inventario",
       "event_type": "Tipos de evento",
-      "tags": "Etiquetas"
+      "tags": "Etiquetas",
+      "consolidation_steps": "Pasos de consolidación"
     },
     "hints": {
       "person_status": "El recorrido de cada persona en la iglesia. Siempre tiene que quedar al menos uno activo.",
@@ -343,7 +365,11 @@
       "warnings": "Con advertencias",
       "duplicates": "Duplicados"
     },
-    "columns": { "row": "Fila", "person": "Persona", "problems": "Observaciones" },
+    "columns": {
+      "row": "Fila",
+      "person": "Persona",
+      "problems": "Observaciones"
+    },
     "noProblems": "Sin observaciones",
     "duplicateOf": "Parece ser {{name}} ({{reasons}})",
     "duplicatesMode": "¿Qué hacemos con los posibles duplicados?",
@@ -380,7 +406,11 @@
     "title": "Nuevos («Soy nuevo»)",
     "nav": "Nuevos",
     "description": "Personas que completaron el formulario público. Revisalas para sumarlas a la iglesia.",
-    "tabs": { "pending": "Pendientes", "accepted": "Aceptados", "rejected": "Rechazados" },
+    "tabs": {
+      "pending": "Pendientes",
+      "accepted": "Aceptados",
+      "rejected": "Rechazados"
+    },
     "empty": {
       "pending": "No hay formularios pendientes. ¡Compartí el QR en el próximo culto!",
       "accepted": "Todavía no se aceptó ningún formulario.",
@@ -441,6 +471,10 @@
     "placeholder": "Buscar personas, familias, usuarios…",
     "hint": "Escribí al menos 2 letras",
     "nothing": "Sin resultados",
-    "groups": { "people": "Personas", "households": "Familias", "users": "Usuarios" }
+    "groups": {
+      "people": "Personas",
+      "households": "Familias",
+      "users": "Usuarios"
+    }
   }
 }

@@ -23,7 +23,18 @@ void i18n
     nonExplicitSupportedLngs: true, // es-AR -> es, pt-BR -> pt
     load: 'languageOnly',
     // Namespaces chicos: se cargan todos juntos por idioma (cada módulo nuevo suma el suyo).
-    ns: ['common', 'auth', 'errors', 'settings', 'admin', 'permissions', 'platform', 'people', 'cells'],
+    ns: [
+      'common',
+      'auth',
+      'errors',
+      'settings',
+      'admin',
+      'permissions',
+      'platform',
+      'people',
+      'cells',
+      'consolidation',
+    ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },
     // Antes del login se detecta del navegador; luego manda la preferencia del usuario/cuenta.

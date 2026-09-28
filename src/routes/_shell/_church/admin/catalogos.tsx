@@ -34,10 +34,11 @@ import { requirePermission } from '../../../../auth/guards';
 import { FormError } from '../../../../components/FormError';
 import { catalogQuery, tagsQuery, useCatalogLabel } from '../../../../features/people/catalog';
 import { CatalogItemModal, type CatalogItemDraft } from '../../../../features/people/CatalogItemModal';
+import { StepsPanel } from '../../../../features/consolidation/StepsPanel';
 import { errorMessage } from '../../../../i18n/errors';
 import { PageHeader } from '../../../../layout/PageHeader';
 
-const TABS = [...CATALOG_TYPES, 'tags'] as const;
+const TABS = [...CATALOG_TYPES, 'tags', 'consolidation_steps'] as const;
 type TabKey = (typeof TABS)[number];
 
 export const Route = createFileRoute('/_shell/_church/admin/catalogos')({
@@ -369,6 +370,9 @@ function CatalogsPage() {
         ))}
         <Tabs.Panel value="tags">
           <TagsPanel />
+        </Tabs.Panel>
+        <Tabs.Panel value="consolidation_steps">
+          <StepsPanel />
         </Tabs.Panel>
       </Tabs>
     </>

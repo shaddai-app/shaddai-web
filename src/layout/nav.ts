@@ -3,6 +3,7 @@ import {
   IconBuildingCommunity,
   IconCategory,
   IconClipboardText,
+  IconHeartHandshake,
   IconHierarchy2,
   IconHistory,
   IconHome,
@@ -29,6 +30,7 @@ export interface NavItem {
     | 'home'
     | 'people'
     | 'newcomers'
+    | 'consolidation'
     | 'cells'
     | 'myCell'
     | 'cellReports'
@@ -95,6 +97,12 @@ const churchNav: NavSection[] = [
         label: 'newcomers',
         icon: IconUserPlus,
         permissions: ['personas.nuevos_revisar'],
+      },
+      {
+        to: '/consolidacion',
+        label: 'consolidation',
+        icon: IconHeartHandshake,
+        permissions: ['consolidacion.ver'],
       },
       {
         to: '/celulas',

@@ -40,7 +40,10 @@
       "retreat": "Retreat"
     }
   },
-  "gender": { "F": "Female", "M": "Male" },
+  "gender": {
+    "F": "Female",
+    "M": "Male"
+  },
   "marital": {
     "single": "Single",
     "married": "Married",
@@ -48,7 +51,12 @@
     "divorced": "Divorced",
     "separated": "Separated"
   },
-  "householdRole": { "head": "Head of household", "spouse": "Spouse", "child": "Child", "other": "Other" },
+  "householdRole": {
+    "head": "Head of household",
+    "spouse": "Spouse",
+    "child": "Child",
+    "other": "Other"
+  },
   "source": {
     "manual": "Entered manually",
     "form": "“I'm new” form",
@@ -68,7 +76,10 @@
     "allStatuses": "All statuses",
     "allTags": "All tags",
     "allCampuses": "All campuses",
-    "sort": { "name": "By last name", "recent": "Recent" },
+    "sort": {
+      "name": "By last name",
+      "recent": "Recent"
+    },
     "total_one": "{{count}} person",
     "total_other": "{{count}} people",
     "empty": "No people yet.",
@@ -137,7 +148,8 @@
       "info": "Details",
       "family": "Family",
       "milestones": "Milestones & positions",
-      "history": "History"
+      "history": "History",
+      "followUp": "Follow-up"
     },
     "actions": "Actions",
     "edit": "Edit",
@@ -168,7 +180,11 @@
     "notePlaceholder": "E.g.: completed the membership class",
     "changed": "Status updated"
   },
-  "tagsModal": { "title": "Tags", "saved": "Tags saved", "manage": "Manage tags" },
+  "tagsModal": {
+    "title": "Tags",
+    "saved": "Tags saved",
+    "manage": "Manage tags"
+  },
   "milestones": {
     "title": "Milestones",
     "add": "Add milestone",
@@ -254,7 +270,8 @@
       "position": "Positions",
       "inventory_category": "Inventory categories",
       "event_type": "Event types",
-      "tags": "Tags"
+      "tags": "Tags",
+      "consolidation_steps": "Follow-up steps"
     },
     "hints": {
       "person_status": "Each person's journey in the church. At least one must remain active.",
@@ -348,7 +365,11 @@
       "warnings": "With warnings",
       "duplicates": "Duplicates"
     },
-    "columns": { "row": "Row", "person": "Person", "problems": "Notes" },
+    "columns": {
+      "row": "Row",
+      "person": "Person",
+      "problems": "Notes"
+    },
     "noProblems": "No issues",
     "duplicateOf": "Looks like {{name}} ({{reasons}})",
     "duplicatesMode": "What should we do with possible duplicates?",
@@ -385,7 +406,11 @@
     "title": "Newcomers (“I'm new”)",
     "nav": "Newcomers",
     "description": "People who filled in the public form. Review them to add them to the church.",
-    "tabs": { "pending": "Pending", "accepted": "Accepted", "rejected": "Rejected" },
+    "tabs": {
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "rejected": "Rejected"
+    },
     "empty": {
       "pending": "No pending forms. Share the QR code at the next service!",
       "accepted": "No forms have been accepted yet.",
@@ -446,6 +471,10 @@
     "placeholder": "Search people, families, users…",
     "hint": "Type at least 2 letters",
     "nothing": "No results",
-    "groups": { "people": "People", "households": "Families", "users": "Users" }
+    "groups": {
+      "people": "People",
+      "households": "Families",
+      "users": "Users"
+    }
   }
 }

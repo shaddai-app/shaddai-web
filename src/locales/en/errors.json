@@ -105,7 +105,20 @@
     "REPORT_NOT_FOUND": "The report doesn't exist or you don't have access.",
     "REPORT_FORBIDDEN": "You can't submit or correct reports for this group.",
     "DATE_IN_FUTURE": "The date can't be in the future.",
-    "MULTIPLY_FORBIDDEN": "You can't multiply this group."
+    "MULTIPLY_FORBIDDEN": "You can't multiply this group.",
+    "CASE_NOT_FOUND": "The case doesn't exist or you don't have access.",
+    "CASE_MANAGE_FORBIDDEN": "You can't change this case.",
+    "CASE_ASSIGN_FORBIDDEN": "You can't assign follow-up workers.",
+    "CASE_ALREADY_OPEN": "The person already has an open follow-up case.",
+    "CASE_STEP_NOT_FOUND": "That step doesn't belong to the case.",
+    "CASE_DROPPED": "The case was dropped. Reopen it first.",
+    "CLOSE_REASON_REQUIRED": "Enter the reason.",
+    "CONSOLIDATOR_INVALID": "Choose an active user of the church.",
+    "CONSOLIDATOR_NO_ACCESS": "That user doesn't have access to follow-up.",
+    "CONSOLIDATION_LAST_STEP": "At least one step must stay active.",
+    "FOLLOW_UP_NOT_FOUND": "The follow-up doesn't exist.",
+    "FOLLOW_UP_DELETE_FORBIDDEN": "You can only delete the follow-ups you logged.",
+    "LOCATION_REQUIRED": "The location is missing."
   },
   "validation": {
     "required": "This field is required.",

@@ -105,7 +105,20 @@
     "REPORT_NOT_FOUND": "El reporte no existe o no tenés acceso.",
     "REPORT_FORBIDDEN": "No podés cargar ni corregir reportes de esta célula.",
     "DATE_IN_FUTURE": "La fecha no puede ser futura.",
-    "MULTIPLY_FORBIDDEN": "No podés multiplicar esta célula."
+    "MULTIPLY_FORBIDDEN": "No podés multiplicar esta célula.",
+    "CASE_NOT_FOUND": "El caso no existe o no tenés acceso.",
+    "CASE_MANAGE_FORBIDDEN": "No podés modificar este caso.",
+    "CASE_ASSIGN_FORBIDDEN": "No podés asignar consolidadores.",
+    "CASE_ALREADY_OPEN": "La persona ya tiene un caso de consolidación abierto.",
+    "CASE_STEP_NOT_FOUND": "Ese paso no pertenece al caso.",
+    "CASE_DROPPED": "El caso está dado de baja. Reabrilo primero.",
+    "CLOSE_REASON_REQUIRED": "Indicá el motivo.",
+    "CONSOLIDATOR_INVALID": "Elegí un usuario activo de la iglesia.",
+    "CONSOLIDATOR_NO_ACCESS": "Ese usuario no tiene acceso a consolidación.",
+    "CONSOLIDATION_LAST_STEP": "Tiene que quedar al menos un paso activo.",
+    "FOLLOW_UP_NOT_FOUND": "El seguimiento no existe.",
+    "FOLLOW_UP_DELETE_FORBIDDEN": "Solo podés eliminar los seguimientos que cargaste vos.",
+    "LOCATION_REQUIRED": "Falta la ubicación."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

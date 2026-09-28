@@ -1,0 +1,155 @@
+{
+  "title": "Follow-up",
+  "description": "Walking with newcomers until they settle in.",
+  "status": {
+    "open": "In progress",
+    "completed": "Completed",
+    "dropped": "Dropped"
+  },
+  "sources": {
+    "manual": "manual entry",
+    "form": "“I’m new” form",
+    "cell": "group visit"
+  },
+  "due": {
+    "on": "Due {{date}}",
+    "overdue": "Overdue since {{date}}"
+  },
+  "contact": {
+    "call": "Call"
+  },
+  "whatsapp": {
+    "greeting": "Hi {{name}}! "
+  },
+  "steps": {
+    "defaults": {
+      "first_contact": "First contact",
+      "home_visit": "Home visit",
+      "cell_invite": "Group invitation",
+      "encounter": "Encounter",
+      "discipleship": "Discipleship"
+    }
+  },
+  "board": {
+    "tab": "Board",
+    "unassigned": "Unassigned",
+    "moveTo": "Move to…",
+    "progress": "{{done}} of {{total}} steps",
+    "dueDays_one": "{{count}} day",
+    "dueDays_other": "{{count}} days",
+    "emptyColumn": "Nobody at this step",
+    "unplaced": "No step (deactivated)",
+    "dragHint": "Drag a card to another column (on touch: press and hold) or use “Move to…”.",
+    "summary": {
+      "open_one": "{{count}} in progress",
+      "open_other": "{{count}} in progress",
+      "overdue_one": "{{count}} overdue",
+      "overdue_other": "{{count}} overdue",
+      "unassigned_one": "{{count}} unassigned",
+      "unassigned_other": "{{count}} unassigned"
+    },
+    "filters": {
+      "all": "All",
+      "mine": "Mine",
+      "unassigned": "Unassigned"
+    },
+    "anyConsolidator": "Any follow-up worker"
+  },
+  "cases": {
+    "openTitle": "New case",
+    "open": "Open case",
+    "opened": "Case opened",
+    "openExisting": "See the case already open",
+    "person": "Person",
+    "searchPerson": "Search a person",
+    "consolidator": "Follow-up worker",
+    "openHint": "The case starts at the first step, with the deadlines set in Catalogs.",
+    "search": "Search by name",
+    "empty": "No cases.",
+    "closedTab": "Closed",
+    "closedAt": "Closed",
+    "status": "Status"
+  },
+  "closeReasons": {
+    "merged": "Record merged into another",
+    "person_deleted": "Person removed"
+  },
+  "case": {
+    "steps": "Steps ({{done}} of {{total}})",
+    "undo": "Undo",
+    "complete": "Complete",
+    "completedOn": "Completed on {{date}}",
+    "completeTitle": "Complete “{{step}}”",
+    "stepNotes": "Note (optional)",
+    "openedFrom": "Since {{date}}, from {{source}}",
+    "drop": "Drop",
+    "dropTitle": "Drop the follow-up of {{name}}?",
+    "dropReason": "Reason",
+    "dropped": "Case dropped",
+    "reopen": "Reopen",
+    "reopenTitle": "Reopen the case?",
+    "reopened": "Case reopened",
+    "viewPerson": "See record",
+    "closeReason": "Reason",
+    "assigned": "Follow-up worker updated"
+  },
+  "followUps": {
+    "title": "Follow-ups",
+    "add": "Log",
+    "type": "Type",
+    "types": {
+      "call": "Call",
+      "visit": "Visit",
+      "whatsapp": "WhatsApp",
+      "message": "Message",
+      "prayer": "Prayer",
+      "other": "Other"
+    },
+    "date": "Date",
+    "notes": "What happened",
+    "notesPlaceholder": "For example: answered, coming on Sunday with the family.",
+    "nextAction": "Next action",
+    "nextActionPlaceholder": "For example: pick her up for the service",
+    "nextActionAt": "By when",
+    "save": "Save follow-up",
+    "saved": "Follow-up logged",
+    "empty": "No follow-ups yet.",
+    "deleteTitle": "Delete this follow-up?",
+    "delete": "Delete",
+    "next": "Next: {{action}} ({{date}})",
+    "contactAgain": "contact again"
+  },
+  "tasks": {
+    "title": "My follow-up tasks",
+    "board": "See board",
+    "empty": "You have no pending tasks for today.",
+    "stepOverdue": "Step overdue"
+  },
+  "nearest": {
+    "title": "Nearby groups",
+    "noLocation": "The record doesn't have the home location. Add it to see the nearest groups.",
+    "unavailable": "You can't see this person's location.",
+    "none": "There are no active groups with a location.",
+    "distance": "{{km}} km away"
+  },
+  "person": {
+    "caseTitle": "Follow-up",
+    "viewCase": "See case",
+    "noCase": "Doesn't have an open follow-up case."
+  },
+  "stepsAdmin": {
+    "hint": "The steps each newcomer goes through. The deadline counts from when the case opens.",
+    "name": "Name",
+    "systemNameHint": "Leave it empty to use the default name.",
+    "dueDays": "Deadline (days)",
+    "dueDaysHint": "Days after the case opens to complete the step.",
+    "add": "Add step",
+    "edit": "Edit step",
+    "delete": "Delete",
+    "deleteTitle": "Delete the step “{{name}}”?",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "moveUp": "Move up",
+    "moveDown": "Move down"
+  }
+}

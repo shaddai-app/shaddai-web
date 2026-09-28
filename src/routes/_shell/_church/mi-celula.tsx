@@ -22,6 +22,8 @@ import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import type { CellDetail } from '../../../api/cells';
 import { requirePermission } from '../../../auth/guards';
+import { can } from '../../../auth/permissions';
+import { MyTasksCard } from '../../../features/consolidation/MyTasksCard';
 import { meQuery } from '../../../auth/session';
 import { FormError } from '../../../components/FormError';
 import { AnchorLink, ButtonLink, UnstyledLink } from '../../../components/links';
@@ -230,6 +232,7 @@ function MyCell({ cellId }: { cellId: number }) {
         />
       </Card>
 
+      {can(me, 'consolidacion.ver', 'consolidacion.gestionar') && <MyTasksCard />}
       <RecentReports cellId={c.id} />
 
       <Card withBorder radius="lg" p={0}>
