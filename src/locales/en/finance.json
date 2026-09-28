@@ -253,5 +253,43 @@
     "short": "Count",
     "delete": "Delete",
     "confirmShort": "Confirm"
+  },
+  "periods": {
+    "title": "Monthly closes",
+    "description": "Closing a month saves the balances, and nothing dated in that month can be entered or changed afterwards.",
+    "empty": "There are no accounts yet: nothing to close.",
+    "closedOn": "Closed on {{date}} by {{name}}.",
+    "reopenedOn": "Reopened on {{date}}",
+    "openHint": "Open",
+    "status": {
+      "open": "Open",
+      "closed": "Closed"
+    },
+    "toClose": "Ready to close",
+    "opening": "Opening balance",
+    "closing": "Closing balance",
+    "transfers": "Transfers",
+    "closeTitle": "Close {{month}}",
+    "closeBody": "Each account's balance is saved. Afterwards nothing dated in this month can be entered, edited or voided unless someone with permission reopens it.",
+    "unresolved": "{{pending}} pending offerings and {{drafts}} draft counts are dated in this month. If you close it, they must be resolved with a date in an open month.",
+    "notes": "Notes",
+    "notesHint": "For example: reconciled with the bank statement",
+    "close": "Close month",
+    "reopen": "Reopen",
+    "readyHint": "The month has ended and the previous ones are closed: review the balances and close it.",
+    "notEndedHint": "The month has not ended yet. Balances update with every transaction.",
+    "previousOpenHint": "The previous months must be closed first.",
+    "reopenedTitle": "Reopened",
+    "reopenedBy": "Reopened by {{name}} on {{date}}. Reason:",
+    "totals": "Totals in {{currency}}",
+    "byAccount": "By account",
+    "seeMovements": "See the month's transactions",
+    "noAccounts": "No accounts were open in this month.",
+    "closed": "Month closed",
+    "reopenTitle": "Reopen the month",
+    "reopenBody": "Transactions of the month can be entered and changed again, and the saved balances are discarded until it is closed again. Who reopened it and why is recorded.",
+    "reopened": "Month reopened",
+    "lockedMovement": "This transaction's month is closed: it cannot be edited or voided.",
+    "closedUntil": "Closed until {{date}}"
   }
 }

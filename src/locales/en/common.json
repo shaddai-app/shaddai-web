@@ -52,7 +52,8 @@
     "financeAccounts": "Accounts",
     "financeCategories": "Finance categories",
     "offeringCounts": "Offering counts",
-    "financePending": "Pending offerings"
+    "financePending": "Pending offerings",
+    "financePeriods": "Monthly closes"
   },
   "userMenu": {
     "label": "User menu",

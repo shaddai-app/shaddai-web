@@ -146,7 +146,14 @@
     "COUNT_NOT_DRAFT": "El arqueo ya fue confirmado: no se puede modificar.",
     "COUNT_NOT_CONFIRMED": "Solo se anula un arqueo confirmado.",
     "COUNT_EMPTY": "El arqueo no tiene nada cargado.",
-    "COUNTERS_SAME": "Los dos contadores tienen que ser personas distintas."
+    "COUNTERS_SAME": "Los dos contadores tienen que ser personas distintas.",
+    "PERIOD_CLOSED": "El mes está cerrado ({{period}}): no se puede cargar ni modificar nada con esa fecha.",
+    "PERIOD_NOT_ENDED": "El mes todavía no terminó.",
+    "PERIOD_PREVIOUS_OPEN": "Primero hay que cerrar {{period}}.",
+    "PERIOD_ALREADY_CLOSED": "El mes ya está cerrado.",
+    "PERIOD_NOT_CLOSED": "El mes no está cerrado.",
+    "PERIOD_LATER_CLOSED": "Solo se puede reabrir el último mes cerrado.",
+    "PERIOD_NOT_FOUND": "Ese mes no está en el período de la contabilidad."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

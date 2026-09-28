@@ -1,5 +1,6 @@
 import { IconBuildingBank, IconCash, IconWallet, type Icon } from '@tabler/icons-react';
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
+import dayjs from 'dayjs';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -106,3 +107,35 @@ export function useMovementOrigin() {
     [t],
   );
 }
+
+export const periodsQuery = () => ({
+  queryKey: ['finance', 'periods'],
+  queryFn: financeApi.periods,
+  staleTime: 60_000,
+  retry: false,
+});
+
+/**
+ * Último día cerrado ("2026-08-31") o null. Los formularios lo usan como fecha mínima; la API igual
+ * rechaza con PERIOD_CLOSED, así que si no se puede consultar no pasa nada.
+ */
+export function useClosedUntil(): string | null {
+  const { data } = useQuery(periodsQuery());
+  const last = data?.lastClosed;
+  if (!last) return null;
+  return new Date(Date.UTC(last.year, last.month, 0)).toISOString().slice(0, 10);
+}
+
+/** Día siguiente a una fecha ISO (para el mínimo de los campos de fecha). */
+export const dayAfter = (iso: string | null) => {
+  if (!iso) return undefined;
+  const d = new Date(`${iso}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+};
+
+/** "agosto de 2026" con la primera letra en mayúscula, en el idioma activo. */
+export const monthLabel = (year: number, month: number) => {
+  const text = dayjs(`${year}-${String(month).padStart(2, '0')}-01`).format('MMMM YYYY');
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};

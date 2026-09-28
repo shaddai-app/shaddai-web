@@ -20,6 +20,7 @@ import {
   IconBan,
   IconCheck,
   IconFileTypePdf,
+  IconLock,
   IconPaperclip,
   IconPencil,
   IconTrash,
@@ -41,6 +42,7 @@ import {
   kindColor,
   signedAmount,
   STATUS_COLORS,
+  useClosedUntil,
   useCategoryLabel,
   useChurchCurrency,
   useMoney,
@@ -134,6 +136,7 @@ function MovementPage() {
   const [confirming, setConfirming] = useState(false);
   const [rejecting, setRejecting] = useState(false);
   const churchCurrency = useChurchCurrency();
+  const closedUntil = useClosedUntil();
 
   const update = (m: MovementDetail) => {
     queryClient.setQueryData(movementKey(id), m);
@@ -160,7 +163,9 @@ function MovementPage() {
   const currency = m.financeAccount?.currency ?? churchCurrency;
   const canRegister = can(me, 'finanzas.registrar') && !voided;
   // Los pendientes se confirman o rechazan; los de un arqueo se anulan con el arqueo.
-  const own = m.status === 'confirmed' && !m.offeringCount;
+  // Mes cerrado: no se edita ni se anula (la API responde PERIOD_CLOSED).
+  const locked = Boolean(closedUntil && m.date <= closedUntil);
+  const own = m.status === 'confirmed' && !m.offeringCount && !locked;
   const canEdit = canRegister && own && !transfer;
   const canVoid = can(me, 'finanzas.anular') && own;
   const canResolve = pending && can(me, 'finanzas.confirmar_pendientes');
@@ -218,6 +223,11 @@ function MovementPage() {
         }
       />
       <Stack gap="md" maw={820}>
+        {locked && !voided && (
+          <Alert color="gray" variant="light" icon={<IconLock size={18} />}>
+            {t('periods.lockedMovement')}
+          </Alert>
+        )}
         {pending && (
           <Alert color="yellow" variant="light">
             <Text size="sm">{t('pending.pendingHint')}</Text>

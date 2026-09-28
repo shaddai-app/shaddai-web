@@ -119,6 +119,8 @@ export interface FinanceSummary {
   month: { from: string; to: string; totals: CurrencyTotals[] };
   /** Ofrendas de célula por confirmar y arqueos en borrador. */
   pending: { movements: number; counts: number };
+  /** Último día cerrado (null si no hay meses cerrados): antes no se carga ni se modifica nada. */
+  closedUntil: string | null;
   accounts: FinanceAccount[];
   recent: Movement[];
 }
@@ -197,6 +199,39 @@ export interface CountInput {
   lines: CountLineInput[];
 }
 
+// ── Cierre mensual ────────────────────────────────────────────────────────
+export interface Period {
+  year: number;
+  month: number;
+  from: string;
+  to: string;
+  status: 'open' | 'closed';
+  closedAt: string | null;
+  closedBy: PersonRef | null;
+  notes: string | null;
+  reopenedAt: string | null;
+  reopenedBy: PersonRef | null;
+  reopenReason: string | null;
+  canClose: boolean;
+  canReopen: boolean;
+}
+
+export interface PeriodBalance {
+  financeAccount: { id: number; name: string; currency: string; isActive: boolean };
+  opening: number;
+  income: number;
+  expense: number;
+  transfersIn: number;
+  transfersOut: number;
+  closing: number;
+}
+
+export interface PeriodDetail extends Period {
+  balances: PeriodBalance[];
+  totals: { currency: string; opening: number; income: number; expense: number; closing: number }[];
+  unresolved: { pending: number; drafts: number };
+}
+
 export const financeApi = {
   summary: () => api.get<FinanceSummary>('/finance/summary'),
   accounts: (includeInactive = false) =>
@@ -257,4 +292,12 @@ export const financeApi = {
   confirmCount: (id: number) => api.post<OfferingCountDetail>(`/finance/offering-counts/${id}/confirm`),
   voidCount: (id: number, reason: string) =>
     api.post<OfferingCountDetail>(`/finance/offering-counts/${id}/void`, { reason }),
+
+  periods: () =>
+    api.get<{ items: Period[]; lastClosed: { year: number; month: number } | null }>('/finance/periods'),
+  period: (year: number, month: number) => api.get<PeriodDetail>(`/finance/periods/${year}/${month}`),
+  closePeriod: (year: number, month: number, notes: string | null) =>
+    api.post<PeriodDetail>(`/finance/periods/${year}/${month}/close`, { notes }),
+  reopenPeriod: (year: number, month: number, reason: string) =>
+    api.post<PeriodDetail>(`/finance/periods/${year}/${month}/reopen`, { reason }),
 };

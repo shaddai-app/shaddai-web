@@ -39,6 +39,7 @@ import {
   COUNT_STATUS_COLORS,
   useCategoryLabel,
   useMoney,
+  useClosedUntil,
 } from '../../../../../features/finance/common';
 import { CountHeaderModal } from '../../../../../features/finance/CountHeaderModal';
 import {
@@ -658,6 +659,8 @@ function CountView({
   const [voiding, setVoiding] = useState(false);
   const voided = count.status === 'voided';
   const currency = count.financeAccount.currency;
+  const closedUntil = useClosedUntil();
+  const locked = Boolean(closedUntil && count.date <= closedUntil);
   return (
     <>
       <PageHeader
@@ -669,6 +672,7 @@ function CountView({
         }
         actions={
           count.status === 'confirmed' &&
+          !locked &&
           can(me, 'finanzas.anular') && (
             <Button
               variant="default"

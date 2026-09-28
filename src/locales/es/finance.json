@@ -253,5 +253,43 @@
     "short": "Arqueo",
     "delete": "Eliminar",
     "confirmShort": "Confirmar"
+  },
+  "periods": {
+    "title": "Cierres mensuales",
+    "description": "Al cerrar un mes se guardan los saldos y ya no se carga ni se modifica nada con fecha en ese mes.",
+    "empty": "Todavía no hay cajas: no hay meses para cerrar.",
+    "closedOn": "Cerrado el {{date}} por {{name}}.",
+    "reopenedOn": "Reabierto el {{date}}",
+    "openHint": "Abierto",
+    "status": {
+      "open": "Abierto",
+      "closed": "Cerrado"
+    },
+    "toClose": "Para cerrar",
+    "opening": "Saldo inicial",
+    "closing": "Saldo final",
+    "transfers": "Transferencias",
+    "closeTitle": "Cerrar {{month}}",
+    "closeBody": "Se guardan los saldos de cada caja. Después no se puede cargar, editar ni anular nada con fecha en este mes, salvo que alguien con permiso lo reabra.",
+    "unresolved": "Quedan {{pending}} ofrendas pendientes y {{drafts}} arqueos en borrador con fecha en este mes. Si se cierra, habrá que resolverlos con fecha de un mes abierto.",
+    "notes": "Notas",
+    "notesHint": "Por ejemplo: conciliado con el extracto del banco",
+    "close": "Cerrar mes",
+    "reopen": "Reabrir",
+    "readyHint": "El mes terminó y los anteriores están cerrados: revisá los saldos y cerralo.",
+    "notEndedHint": "El mes todavía no terminó. Los saldos se actualizan con cada movimiento.",
+    "previousOpenHint": "Primero hay que cerrar los meses anteriores.",
+    "reopenedTitle": "Reabierto",
+    "reopenedBy": "Lo reabrió {{name}} el {{date}}. Motivo:",
+    "totals": "Totales en {{currency}}",
+    "byAccount": "Por caja",
+    "seeMovements": "Ver movimientos del mes",
+    "noAccounts": "No había cajas abiertas en este mes.",
+    "closed": "Mes cerrado",
+    "reopenTitle": "Reabrir el mes",
+    "reopenBody": "Se vuelve a poder cargar y modificar movimientos del mes, y los saldos guardados se descartan hasta que se cierre de nuevo. Queda registrado quién lo reabrió y por qué.",
+    "reopened": "Mes reabierto",
+    "lockedMovement": "El mes de este movimiento está cerrado: no se puede editar ni anular.",
+    "closedUntil": "Cerrado hasta el {{date}}"
   }
 }

@@ -253,5 +253,43 @@
     "short": "Contagem",
     "delete": "Excluir",
     "confirmShort": "Confirmar"
+  },
+  "periods": {
+    "title": "Fechamentos mensais",
+    "description": "Ao fechar um mês, os saldos são salvos e nada com data nesse mês pode ser lançado ou alterado.",
+    "empty": "Ainda não há caixas: não há meses para fechar.",
+    "closedOn": "Fechado em {{date}} por {{name}}.",
+    "reopenedOn": "Reaberto em {{date}}",
+    "openHint": "Aberto",
+    "status": {
+      "open": "Aberto",
+      "closed": "Fechado"
+    },
+    "toClose": "Para fechar",
+    "opening": "Saldo inicial",
+    "closing": "Saldo final",
+    "transfers": "Transferências",
+    "closeTitle": "Fechar {{month}}",
+    "closeBody": "Os saldos de cada caixa são salvos. Depois não é possível lançar, editar nem anular nada com data neste mês, a menos que alguém com permissão o reabra.",
+    "unresolved": "Há {{pending}} ofertas pendentes e {{drafts}} contagens em rascunho com data neste mês. Se fechar, será preciso resolvê-las com data de um mês aberto.",
+    "notes": "Observações",
+    "notesHint": "Por exemplo: conciliado com o extrato do banco",
+    "close": "Fechar mês",
+    "reopen": "Reabrir",
+    "readyHint": "O mês terminou e os anteriores estão fechados: revise os saldos e feche-o.",
+    "notEndedHint": "O mês ainda não terminou. Os saldos se atualizam a cada movimento.",
+    "previousOpenHint": "Primeiro é preciso fechar os meses anteriores.",
+    "reopenedTitle": "Reaberto",
+    "reopenedBy": "Reaberto por {{name}} em {{date}}. Motivo:",
+    "totals": "Totais em {{currency}}",
+    "byAccount": "Por caixa",
+    "seeMovements": "Ver movimentos do mês",
+    "noAccounts": "Não havia caixas abertos neste mês.",
+    "closed": "Mês fechado",
+    "reopenTitle": "Reabrir o mês",
+    "reopenBody": "Os movimentos do mês voltam a poder ser lançados e alterados, e os saldos salvos são descartados até fechar de novo. Fica registrado quem reabriu e por quê.",
+    "reopened": "Mês reaberto",
+    "lockedMovement": "O mês deste movimento está fechado: não pode ser editado nem anulado.",
+    "closedUntil": "Fechado até {{date}}"
   }
 }

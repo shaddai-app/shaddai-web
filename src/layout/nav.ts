@@ -7,6 +7,7 @@ import {
   IconCoin,
   IconCoins,
   IconHourglass,
+  IconLock,
   IconHeartHandshake,
   IconHierarchy2,
   IconHistory,
@@ -39,6 +40,7 @@ export interface NavItem {
     | 'finance'
     | 'offeringCounts'
     | 'financePending'
+    | 'financePeriods'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -152,6 +154,12 @@ const churchNav: NavSection[] = [
         label: 'financePending',
         icon: IconHourglass,
         permissions: ['finanzas.confirmar_pendientes'],
+      },
+      {
+        to: '/finanzas/cierres',
+        label: 'financePeriods',
+        icon: IconLock,
+        permissions: ['finanzas.cierre'],
       },
     ],
   },

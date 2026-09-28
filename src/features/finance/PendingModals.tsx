@@ -12,7 +12,15 @@ import {
 import { FormError } from '../../components/FormError';
 import { ResponsiveModal } from '../../components/ResponsiveModal';
 import { formatDate, todayIso } from '../people/format';
-import { accountsQuery, categoriesQuery, useCategoryLabel, useChurchCurrency, useMoney } from './common';
+import {
+  accountsQuery,
+  categoriesQuery,
+  dayAfter,
+  useCategoryLabel,
+  useChurchCurrency,
+  useClosedUntil,
+  useMoney,
+} from './common';
 import { currencySymbol, readLastAccount, rememberAccount, useSeparators } from './money-input';
 
 function ConfirmPendingForm({
@@ -25,6 +33,7 @@ function ConfirmPendingForm({
   onDone: (m: MovementDetail) => void;
 }) {
   const { t, i18n } = useTranslation(['finance', 'common']);
+  const closedUntil = useClosedUntil();
   const money = useMoney();
   const separators = useSeparators();
   const categoryLabel = useCategoryLabel();
@@ -120,6 +129,7 @@ function ConfirmPendingForm({
             type="date"
             label={t('movement.date')}
             value={date}
+            min={dayAfter(closedUntil)}
             max={todayIso()}
             onChange={(e) => setDate(e.currentTarget.value)}
             required

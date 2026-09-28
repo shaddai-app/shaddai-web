@@ -1,6 +1,13 @@
 import { Alert, Button, Card, Group, Loader, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
-import { IconAlertCircle, IconArrowsExchange, IconCoins, IconMinus, IconPlus } from '@tabler/icons-react';
+import {
+  IconAlertCircle,
+  IconArrowsExchange,
+  IconCoins,
+  IconLock,
+  IconMinus,
+  IconPlus,
+} from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
@@ -130,12 +137,22 @@ function FinancePage() {
             </SimpleGrid>
 
             <Card withBorder radius="lg">
-              <Title order={3} size="h5" mb="sm">
-                {t('summary.month', {
-                  from: formatDate(summary.data.month.from),
-                  to: formatDate(summary.data.month.to),
-                })}
-              </Title>
+              <Group justify="space-between" mb="sm" gap="xs">
+                <Title order={3} size="h5">
+                  {t('summary.month', {
+                    from: formatDate(summary.data.month.from),
+                    to: formatDate(summary.data.month.to),
+                  })}
+                </Title>
+                {summary.data.closedUntil && (
+                  <AnchorLink to="/finanzas/cierres" size="xs" c="dimmed">
+                    <Group gap={4} wrap="nowrap">
+                      <IconLock size={12} />
+                      {t('periods.closedUntil', { date: formatDate(summary.data.closedUntil) })}
+                    </Group>
+                  </AnchorLink>
+                )}
+              </Group>
               {summary.data.month.totals.length === 0 ? (
                 <Text size="sm" c="dimmed">
                   {t('summary.noMovements')}
