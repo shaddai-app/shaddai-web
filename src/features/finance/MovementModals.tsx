@@ -28,7 +28,7 @@ import { FormError } from '../../components/FormError';
 import { ResponsiveModal } from '../../components/ResponsiveModal';
 import { todayIso } from '../people/format';
 import { PersonPicker, type PersonOption } from '../people/PersonPicker';
-import { accountsQuery, categoriesQuery, useCategoryLabel } from './common';
+import { accountsQuery, categoriesQuery, dayAfter, useCategoryLabel, useClosedUntil } from './common';
 import { currencySymbol, readLastAccount, rememberAccount, useSeparators } from './money-input';
 
 const orNull = (v: string) => (v.trim() === '' ? null : v.trim());
@@ -45,6 +45,7 @@ function MovementForm({
   onSaved: (m: MovementDetail) => void;
 }) {
   const { t, i18n } = useTranslation(['finance', 'common']);
+  const closedUntil = useClosedUntil();
   const { data: me } = useSuspenseQuery(meQuery());
   const categoryLabel = useCategoryLabel();
   const separators = useSeparators();
@@ -169,6 +170,7 @@ function MovementForm({
             type="date"
             label={t('movement.date')}
             value={date}
+            min={dayAfter(closedUntil)}
             max={todayIso()}
             onChange={(e) => setDate(e.currentTarget.value)}
             required
@@ -255,6 +257,7 @@ export function MovementModal({
 
 function TransferForm({ onClose, onSaved }: { onClose: () => void; onSaved: () => void }) {
   const { t } = useTranslation(['finance', 'common']);
+  const closedUntil = useClosedUntil();
   const separators = useSeparators();
   const accounts = useQuery(accountsQuery());
   const [from, setFrom] = useState<string | null>(null);
@@ -335,6 +338,7 @@ function TransferForm({ onClose, onSaved }: { onClose: () => void; onSaved: () =
             type="date"
             label={t('movement.date')}
             value={date}
+            min={dayAfter(closedUntil)}
             max={todayIso()}
             onChange={(e) => setDate(e.currentTarget.value)}
             required

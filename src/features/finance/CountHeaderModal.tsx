@@ -7,7 +7,7 @@ import { FormError } from '../../components/FormError';
 import { ResponsiveModal } from '../../components/ResponsiveModal';
 import { todayIso } from '../people/format';
 import { PersonPicker, type PersonOption } from '../people/PersonPicker';
-import { accountsQuery } from './common';
+import { accountsQuery, dayAfter, useClosedUntil } from './common';
 import { readLastAccount, rememberAccount } from './money-input';
 
 const orNull = (v: string) => (v.trim() === '' ? null : v.trim());
@@ -22,6 +22,7 @@ function CountHeaderForm({
   onSaved: (c: OfferingCountDetail) => void;
 }) {
   const { t } = useTranslation(['finance', 'common']);
+  const closedUntil = useClosedUntil();
   const accounts = useQuery(accountsQuery());
   const [date, setDate] = useState(count?.date ?? todayIso());
   const [title, setTitle] = useState(count?.title ?? '');
@@ -87,6 +88,7 @@ function CountHeaderForm({
             type="date"
             label={t('movement.date')}
             value={date}
+            min={dayAfter(closedUntil)}
             max={todayIso()}
             onChange={(e) => setDate(e.currentTarget.value)}
             required

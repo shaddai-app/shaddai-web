@@ -52,7 +52,8 @@
     "financeAccounts": "Cajas",
     "financeCategories": "Categorías financieras",
     "offeringCounts": "Arqueos",
-    "financePending": "Ofrendas pendientes"
+    "financePending": "Ofrendas pendientes",
+    "financePeriods": "Cierres"
   },
   "userMenu": {
     "label": "Menú de usuario",

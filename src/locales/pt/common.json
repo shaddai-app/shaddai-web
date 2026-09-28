@@ -52,7 +52,8 @@
     "financeAccounts": "Caixas",
     "financeCategories": "Categorias financeiras",
     "offeringCounts": "Contagens",
-    "financePending": "Ofertas pendentes"
+    "financePending": "Ofertas pendentes",
+    "financePeriods": "Fechamentos"
   },
   "userMenu": {
     "label": "Menu do usuário",

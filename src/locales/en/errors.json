@@ -146,7 +146,14 @@
     "COUNT_NOT_DRAFT": "The count was already confirmed: it cannot be changed.",
     "COUNT_NOT_CONFIRMED": "Only a confirmed count can be voided.",
     "COUNT_EMPTY": "The count has nothing entered.",
-    "COUNTERS_SAME": "The two counters must be different people."
+    "COUNTERS_SAME": "The two counters must be different people.",
+    "PERIOD_CLOSED": "The month is closed ({{period}}): nothing with that date can be entered or changed.",
+    "PERIOD_NOT_ENDED": "The month has not ended yet.",
+    "PERIOD_PREVIOUS_OPEN": "{{period}} must be closed first.",
+    "PERIOD_ALREADY_CLOSED": "The month is already closed.",
+    "PERIOD_NOT_CLOSED": "The month is not closed.",
+    "PERIOD_LATER_CLOSED": "Only the last closed month can be reopened.",
+    "PERIOD_NOT_FOUND": "That month is outside the bookkeeping period."
   },
   "validation": {
     "required": "This field is required.",

@@ -183,7 +183,7 @@ function MovementsPage() {
           list.data && (
             <>
               {list.data.totals.length > 0 && !params.voided && (
-                <SimpleGrid cols={{ base: 1, sm: list.data.totals.length > 1 ? 2 : 1 }} spacing="sm">
+                <SimpleGrid cols={{ base: 1, md: list.data.totals.length > 1 ? 2 : 1 }} spacing="sm">
                   {list.data.totals.map((row) => (
                     <Card key={row.currency} withBorder radius="lg" padding="sm">
                       <SimpleGrid cols={3} spacing="xs">

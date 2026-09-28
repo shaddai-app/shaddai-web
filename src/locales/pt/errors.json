@@ -146,7 +146,14 @@
     "COUNT_NOT_DRAFT": "A contagem já foi confirmada: não pode ser alterada.",
     "COUNT_NOT_CONFIRMED": "Só se anula uma contagem confirmada.",
     "COUNT_EMPTY": "A contagem não tem nada lançado.",
-    "COUNTERS_SAME": "Os dois contadores devem ser pessoas diferentes."
+    "COUNTERS_SAME": "Os dois contadores devem ser pessoas diferentes.",
+    "PERIOD_CLOSED": "O mês está fechado ({{period}}): nada com essa data pode ser lançado ou alterado.",
+    "PERIOD_NOT_ENDED": "O mês ainda não terminou.",
+    "PERIOD_PREVIOUS_OPEN": "Primeiro é preciso fechar {{period}}.",
+    "PERIOD_ALREADY_CLOSED": "O mês já está fechado.",
+    "PERIOD_NOT_CLOSED": "O mês não está fechado.",
+    "PERIOD_LATER_CLOSED": "Só é possível reabrir o último mês fechado.",
+    "PERIOD_NOT_FOUND": "Esse mês está fora do período da contabilidade."
   },
   "validation": {
     "required": "Este campo é obrigatório.",
