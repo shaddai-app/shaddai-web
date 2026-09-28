@@ -23,6 +23,7 @@ import {
   IconRepeat,
   IconTicket,
   IconTrash,
+  IconUserCheck,
 } from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
@@ -30,12 +31,14 @@ import dayjs from 'dayjs';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
+import { attendanceApi } from '../../../../../api/attendance';
 import { calendarApi, type CalendarEvent, type Occurrence } from '../../../../../api/calendar';
 import { requirePermission } from '../../../../../auth/guards';
 import { can } from '../../../../../auth/permissions';
 import { meQuery } from '../../../../../auth/session';
 import { FormError } from '../../../../../components/FormError';
 import { AnchorLink, ButtonLink } from '../../../../../components/links';
+import { AttendanceModal } from '../../../../../features/attendance/AttendanceModal';
 import { TYPE_COLORS, useRecurrenceText, useWhenText } from '../../../../../features/calendar/common';
 import { dayOf } from '../../../../../features/calendar/dates';
 import { EventFormModal, type EventFormMode } from '../../../../../features/calendar/EventFormModal';
@@ -96,6 +99,18 @@ function EventPage() {
   const query = useQuery({ queryKey: eventKey(id), queryFn: () => calendarApi.event(id) });
   const [editing, setEditing] = useState<EventFormMode | null>(null);
   const [action, setAction] = useState<OccurrenceAction | null>(null);
+  const [attendanceOpen, setAttendanceOpen] = useState(false);
+  // Asistencia de la fecha elegida (o del evento único), una vez que empezó.
+  const e0 = query.data;
+  const attendanceAt = e0 && (e0.recurrence ? (fecha ?? null) : e0.startsAt);
+  const attendanceTarget = e0 && attendanceAt ? { eventId: e0.id, occurrence: attendanceAt } : null;
+  const canAttendance = can(me, 'asistencia.ver', 'asistencia.registrar');
+  const attendance = useQuery({
+    queryKey: ['attendance', 'occurrence', attendanceTarget?.eventId, attendanceTarget?.occurrence],
+    queryFn: () => attendanceApi.get(attendanceTarget!.eventId, attendanceTarget!.occurrence),
+    enabled:
+      canAttendance && attendanceTarget !== null && attendanceAt! <= dayjs().format('YYYY-MM-DDTHH:mm'),
+  });
 
   if (query.isPending) return <Loader />;
   if (query.isError) return <FormError error={query.error} />;
@@ -310,6 +325,37 @@ function EventPage() {
           </Card>
         )}
 
+        {attendance.data && attendance.data.started && !attendance.data.cancelled && (
+          <Card withBorder radius="lg">
+            <Group justify="space-between" wrap="wrap" gap="sm">
+              <div>
+                <Title order={3} size="h5">
+                  {t('attendance.title')}
+                </Title>
+                <Text size="sm" c="dimmed">
+                  {attendance.data.attendance
+                    ? t('attendance.summary', {
+                        inPerson: attendance.data.attendance.inPerson,
+                        online: attendance.data.attendance.online,
+                      })
+                    : t('attendance.none')}
+                </Text>
+              </div>
+              <Button
+                variant="light"
+                leftSection={<IconUserCheck size={16} />}
+                onClick={() => setAttendanceOpen(true)}
+              >
+                {!can(me, 'asistencia.registrar')
+                  ? t('attendance.viewButton')
+                  : attendance.data.attendance
+                    ? t('attendance.editButton')
+                    : t('attendance.recordButton')}
+              </Button>
+            </Group>
+          </Card>
+        )}
+
         {recurring && (
           <Card withBorder radius="lg">
             <Title order={3} size="h5" mb="sm">
@@ -389,6 +435,19 @@ function EventPage() {
               search: { fecha: saved.startsAt },
             });
           }
+        }}
+      />
+      <AttendanceModal
+        target={attendanceOpen ? attendanceTarget : null}
+        canEdit={can(me, 'asistencia.registrar')}
+        onClose={() => setAttendanceOpen(false)}
+        onSaved={(deleted) => {
+          setAttendanceOpen(false);
+          void queryClient.invalidateQueries({ queryKey: ['attendance'] });
+          notifications.show({
+            color: 'teal',
+            message: deleted ? t('attendance.deleted') : t('attendance.saved'),
+          });
         }}
       />
       <OccurrenceModal

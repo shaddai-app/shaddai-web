@@ -174,7 +174,11 @@
     "REGISTRATION_CANCELLED": "A inscrição já estava cancelada.",
     "OCCURRENCE_CANCELLED": "Essa data está cancelada.",
     "PAYMENT_FORBIDDEN": "Registrar pagamentos exige permissão para lançar movimentos financeiros.",
-    "PAYMENT_AMOUNT_REQUIRED": "Informe o valor."
+    "PAYMENT_AMOUNT_REQUIRED": "Informe o valor.",
+    "ATTENDANCE_FUTURE": "A presença é registrada quando a reunião começa.",
+    "ATTENDANCE_NEWCOMERS_EXCEED": "Os novos não podem ser mais que os presentes.",
+    "ATTENDANCE_NOT_FOUND": "Não há presença registrada para essa data.",
+    "ATTENDANCE_RANGE_TOO_LONG": "Escolha um período de até {{days}} dias."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

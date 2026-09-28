@@ -203,5 +203,76 @@
     "notes": "Algo que devemos saber?",
     "joinWaitlist": "Entrar na lista de espera",
     "submit": "Inscrever-me"
+  },
+  "attendance": {
+    "title": "Presença",
+    "description": "Quantos vieram a cada culto: presenciais, crianças, novos e online.",
+    "modalTitle": "Presença",
+    "export": "Exportar para Excel",
+    "file": "presenca",
+    "record": "Registrar",
+    "recordButton": "Registrar presença",
+    "editButton": "Editar presença",
+    "pending": "Sem registro",
+    "pendingTitle_one": "{{count}} culto sem presença registrada",
+    "pendingTitle_other": "{{count}} cultos sem presença registrada",
+    "history": "Detalhe",
+    "empty": "Ainda não há presença registrada neste período.",
+    "none": "A presença desta data não foi registrada.",
+    "cancelled": "Esta data foi cancelada: não se registra presença.",
+    "notStarted": "A presença é registrada quando a reunião começa.",
+    "tooManyNew": "Os novos não podem ser mais que os presentes (adultos + crianças).",
+    "notes": "Observações",
+    "notesPlaceholder": "Ex.: Santa ceia, dia de chuva, batismos",
+    "saved": "Presença salva",
+    "deleted": "Presença excluída",
+    "deleteTitle": "Excluir a presença desta data?",
+    "deleteBody": "Ela volta a ficar pendente.",
+    "less": "Diminuir {{label}}",
+    "more": "Aumentar {{label}}",
+    "summary": "{{inPerson}} presenciais · {{online}} online",
+    "fields": {
+      "adults": "Adultos",
+      "children": "Crianças",
+      "newcomers": "Novos",
+      "online": "Online",
+      "inPerson": "Presenciais"
+    },
+    "hints": {
+      "newcomers": "Vieram pela primeira vez (já contados acima)",
+      "online": "Conexões na transmissão ao vivo"
+    },
+    "breakdown": {
+      "adults_one": "{{count}} adulto",
+      "adults_other": "{{count}} adultos",
+      "children_one": "{{count}} criança",
+      "children_other": "{{count}} crianças",
+      "newcomers_one": "{{count}} novo",
+      "newcomers_other": "{{count}} novos",
+      "online_one": "{{count}} online",
+      "online_other": "{{count}} online"
+    },
+    "periods": {
+      "4w": "4 semanas",
+      "3m": "3 meses",
+      "6m": "6 meses",
+      "12m": "12 meses"
+    },
+    "stats": {
+      "avgInPerson": "Média presencial",
+      "avgOnline": "Média online",
+      "newcomers": "Novos",
+      "peak": "Recorde",
+      "split": "{{adults}} adultos · {{children}} crianças",
+      "recorded_one": "em {{count}} reunião",
+      "recorded_other": "em {{count}} reuniões"
+    },
+    "chart": {
+      "title": "Evolução semanal",
+      "tooltip_one": "Semana de {{week}}: {{inPerson}} presenciais, {{online}} online ({{count}} reunião)",
+      "tooltip_other": "Semana de {{week}}: {{inPerson}} presenciais, {{online}} online ({{count}} reuniões)"
+    },
+    "delete": "Excluir",
+    "viewButton": "Ver presença"
   }
 }

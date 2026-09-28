@@ -55,7 +55,8 @@
     "financePending": "Ofrendas pendientes",
     "financePeriods": "Cierres",
     "financeReports": "Reportes",
-    "calendar": "Calendario"
+    "calendar": "Calendario",
+    "attendance": "Asistencia"
   },
   "userMenu": {
     "label": "Menú de usuario",

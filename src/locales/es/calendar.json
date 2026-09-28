@@ -203,5 +203,76 @@
     "notes": "¿Algo que debamos saber?",
     "joinWaitlist": "Anotarme en la lista de espera",
     "submit": "Anotarme"
+  },
+  "attendance": {
+    "title": "Asistencia",
+    "description": "Cuántos vinieron a cada culto: presenciales, niños, nuevos y online.",
+    "modalTitle": "Asistencia",
+    "export": "Exportar a Excel",
+    "file": "asistencia",
+    "record": "Cargar",
+    "recordButton": "Cargar asistencia",
+    "editButton": "Editar asistencia",
+    "pending": "Sin cargar",
+    "pendingTitle_one": "{{count}} culto sin asistencia cargada",
+    "pendingTitle_other": "{{count}} cultos sin asistencia cargada",
+    "history": "Detalle",
+    "empty": "Todavía no hay asistencia cargada en este período.",
+    "none": "No se cargó la asistencia de esta fecha.",
+    "cancelled": "Esta fecha fue cancelada: no se carga asistencia.",
+    "notStarted": "La asistencia se carga cuando empieza la reunión.",
+    "tooManyNew": "Los nuevos no pueden ser más que los presentes (adultos + niños).",
+    "notes": "Notas",
+    "notesPlaceholder": "Ej.: Santa cena, día de lluvia, bautismos",
+    "saved": "Asistencia guardada",
+    "deleted": "Asistencia borrada",
+    "deleteTitle": "¿Borrar la asistencia de esta fecha?",
+    "deleteBody": "Vuelve a quedar como pendiente.",
+    "less": "Restar en {{label}}",
+    "more": "Sumar en {{label}}",
+    "summary": "{{inPerson}} presenciales · {{online}} online",
+    "fields": {
+      "adults": "Adultos",
+      "children": "Niños",
+      "newcomers": "Nuevos",
+      "online": "Online",
+      "inPerson": "Presenciales"
+    },
+    "hints": {
+      "newcomers": "Vinieron por primera vez (ya contados arriba)",
+      "online": "Conexiones en la transmisión en vivo"
+    },
+    "breakdown": {
+      "adults_one": "{{count}} adulto",
+      "adults_other": "{{count}} adultos",
+      "children_one": "{{count}} niño",
+      "children_other": "{{count}} niños",
+      "newcomers_one": "{{count}} nuevo",
+      "newcomers_other": "{{count}} nuevos",
+      "online_one": "{{count}} online",
+      "online_other": "{{count}} online"
+    },
+    "periods": {
+      "4w": "4 semanas",
+      "3m": "3 meses",
+      "6m": "6 meses",
+      "12m": "12 meses"
+    },
+    "stats": {
+      "avgInPerson": "Promedio presencial",
+      "avgOnline": "Promedio online",
+      "newcomers": "Nuevos",
+      "peak": "Récord",
+      "split": "{{adults}} adultos · {{children}} niños",
+      "recorded_one": "en {{count}} reunión",
+      "recorded_other": "en {{count}} reuniones"
+    },
+    "chart": {
+      "title": "Evolución semanal",
+      "tooltip_one": "Semana del {{week}}: {{inPerson}} presenciales, {{online}} online ({{count}} reunión)",
+      "tooltip_other": "Semana del {{week}}: {{inPerson}} presenciales, {{online}} online ({{count}} reuniones)"
+    },
+    "delete": "Borrar",
+    "viewButton": "Ver asistencia"
   }
 }

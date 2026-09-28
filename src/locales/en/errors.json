@@ -174,7 +174,11 @@
     "REGISTRATION_CANCELLED": "The registration was already cancelled.",
     "OCCURRENCE_CANCELLED": "That date is cancelled.",
     "PAYMENT_FORBIDDEN": "Recording payments requires permission to enter finance transactions.",
-    "PAYMENT_AMOUNT_REQUIRED": "Enter the amount."
+    "PAYMENT_AMOUNT_REQUIRED": "Enter the amount.",
+    "ATTENDANCE_FUTURE": "Attendance can be recorded once the meeting starts.",
+    "ATTENDANCE_NEWCOMERS_EXCEED": "Newcomers cannot exceed those present.",
+    "ATTENDANCE_NOT_FOUND": "There is no attendance recorded for that date.",
+    "ATTENDANCE_RANGE_TOO_LONG": "Choose a period of up to {{days}} days."
   },
   "validation": {
     "required": "This field is required.",

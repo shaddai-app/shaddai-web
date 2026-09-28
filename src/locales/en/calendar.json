@@ -203,5 +203,76 @@
     "notes": "Anything we should know?",
     "joinWaitlist": "Join the waitlist",
     "submit": "Register"
+  },
+  "attendance": {
+    "title": "Attendance",
+    "description": "How many came to each service: in person, children, newcomers and online.",
+    "modalTitle": "Attendance",
+    "export": "Export to Excel",
+    "file": "attendance",
+    "record": "Record",
+    "recordButton": "Record attendance",
+    "editButton": "Edit attendance",
+    "pending": "Not recorded",
+    "pendingTitle_one": "{{count}} service without attendance",
+    "pendingTitle_other": "{{count}} services without attendance",
+    "history": "Details",
+    "empty": "No attendance recorded in this period yet.",
+    "none": "Attendance was not recorded for this date.",
+    "cancelled": "This date was cancelled: no attendance is recorded.",
+    "notStarted": "Attendance can be recorded once the meeting starts.",
+    "tooManyNew": "Newcomers cannot exceed those present (adults + children).",
+    "notes": "Notes",
+    "notesPlaceholder": "E.g. communion, rainy day, baptisms",
+    "saved": "Attendance saved",
+    "deleted": "Attendance deleted",
+    "deleteTitle": "Delete the attendance for this date?",
+    "deleteBody": "It will be pending again.",
+    "less": "Decrease {{label}}",
+    "more": "Increase {{label}}",
+    "summary": "{{inPerson}} in person · {{online}} online",
+    "fields": {
+      "adults": "Adults",
+      "children": "Children",
+      "newcomers": "Newcomers",
+      "online": "Online",
+      "inPerson": "In person"
+    },
+    "hints": {
+      "newcomers": "First-time visitors (already counted above)",
+      "online": "Connections to the live stream"
+    },
+    "breakdown": {
+      "adults_one": "{{count}} adult",
+      "adults_other": "{{count}} adults",
+      "children_one": "{{count}} child",
+      "children_other": "{{count}} children",
+      "newcomers_one": "{{count}} newcomer",
+      "newcomers_other": "{{count}} newcomers",
+      "online_one": "{{count}} online",
+      "online_other": "{{count}} online"
+    },
+    "periods": {
+      "4w": "4 weeks",
+      "3m": "3 months",
+      "6m": "6 months",
+      "12m": "12 months"
+    },
+    "stats": {
+      "avgInPerson": "In-person average",
+      "avgOnline": "Online average",
+      "newcomers": "Newcomers",
+      "peak": "Record",
+      "split": "{{adults}} adults · {{children}} children",
+      "recorded_one": "in {{count}} meeting",
+      "recorded_other": "in {{count}} meetings"
+    },
+    "chart": {
+      "title": "Weekly trend",
+      "tooltip_one": "Week of {{week}}: {{inPerson}} in person, {{online}} online ({{count}} meeting)",
+      "tooltip_other": "Week of {{week}}: {{inPerson}} in person, {{online}} online ({{count}} meetings)"
+    },
+    "delete": "Delete",
+    "viewButton": "View attendance"
   }
 }
