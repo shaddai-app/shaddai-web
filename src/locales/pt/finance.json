@@ -1,0 +1,163 @@
+{
+  "title": "Finanças",
+  "description": "Livro caixa da igreja: entradas, saídas e saldos.",
+  "kinds": {
+    "income": "Entrada",
+    "expense": "Saída",
+    "transfer": "Transferências",
+    "transfer_in": "Transferência recebida",
+    "transfer_out": "Transferência enviada"
+  },
+  "status": {
+    "voided": "Anulado"
+  },
+  "methods": {
+    "cash": "Dinheiro",
+    "transfer": "Transferência",
+    "card": "Cartão",
+    "wallet": "Carteira digital",
+    "other": "Outro"
+  },
+  "categories": {
+    "title": "Categorias",
+    "description": "Como as entradas e saídas são classificadas.",
+    "tabs": {
+      "income": "Entradas",
+      "expense": "Saídas"
+    },
+    "hints": {
+      "income": "Categorias de entrada (dízimos, ofertas…). As do sistema não são excluídas: podem ser renomeadas ou desativadas.",
+      "expense": "Categorias de saída (aluguel, contas…). Uma categoria em uso não é excluída: desative-a."
+    },
+    "defaults": {
+      "tithe": "Dízimos",
+      "offering": "Ofertas",
+      "special_offering": "Ofertas especiais",
+      "donation": "Doações",
+      "other_income": "Outras entradas",
+      "rent": "Aluguel",
+      "utilities": "Contas (luz, água, gás, internet)",
+      "maintenance": "Manutenção",
+      "salaries": "Salários e honorários",
+      "missions": "Missões",
+      "social_aid": "Ação social",
+      "supplies": "Materiais e equipamentos",
+      "events": "Eventos",
+      "other_expense": "Outras saídas"
+    },
+    "name": "Nome",
+    "systemNameHint": "Deixe vazio para usar o nome padrão.",
+    "add": "Adicionar categoria",
+    "rename": "Renomear",
+    "delete": "Excluir",
+    "deleteTitle": "Excluir “{{name}}”?",
+    "system": "Sistema",
+    "activate": "Ativar",
+    "deactivate": "Desativar",
+    "moveUp": "Subir",
+    "moveDown": "Descer"
+  },
+  "accounts": {
+    "title": "Caixas",
+    "description": "Dinheiro, contas bancárias e carteiras. Cada caixa tem sua moeda.",
+    "add": "Novo caixa",
+    "edit": "Editar caixa",
+    "delete": "Excluir",
+    "deleteTitle": "Excluir “{{name}}”?",
+    "deleteBody": "Só é possível excluir um caixa sem movimentos. Se tiver histórico, desative-o.",
+    "name": "Nome",
+    "namePlaceholder": "Por exemplo: Caixa geral, Banco do Brasil",
+    "types": {
+      "cash": "Dinheiro",
+      "bank": "Banco",
+      "wallet": "Carteira digital"
+    },
+    "currency": "Moeda",
+    "currencyHint": "Os valores do caixa são registrados nesta moeda (sem conversão).",
+    "currencyLockedHint": "Com movimentos registrados, a moeda não pode mais ser alterada.",
+    "openingBalance": "Saldo inicial",
+    "openingDate": "Data de abertura",
+    "openingHint": "O que o caixa tinha ao começar a usar o Shaddai. Não se registram movimentos anteriores a essa data.",
+    "openedOn": "desde {{date}} com {{amount}}",
+    "activate": "Ativar",
+    "deactivate": "Desativar"
+  },
+  "summary": {
+    "month": "Este mês ({{from}} a {{to}})",
+    "income": "Entradas",
+    "expense": "Saídas",
+    "net": "Resultado",
+    "recent": "Últimos movimentos",
+    "all": "Ver todos",
+    "noMovements": "Ainda não há movimentos."
+  },
+  "movements": {
+    "title": "Movimentos",
+    "description": "Tudo o que entrou e saiu dos caixas.",
+    "search": "Buscar por descrição ou referência",
+    "from": "De",
+    "to": "Até",
+    "allAccounts": "Todos os caixas",
+    "kind": "Tipo",
+    "allKinds": "Todos os tipos",
+    "allCategories": "Todas as categorias",
+    "voided": "Ver anulados",
+    "emptyFiltered": "Nenhum movimento com esses filtros.",
+    "clearFilters": "Limpar filtros",
+    "total_one": "{{count}} movimento",
+    "total_other": "{{count}} movimentos"
+  },
+  "movement": {
+    "newTitle": "Novo movimento",
+    "editTitle": "Editar movimento",
+    "amount": "Valor",
+    "account": "Caixa",
+    "category": "Categoria",
+    "date": "Data",
+    "method": "Forma de pagamento",
+    "contributor": "Contribuinte",
+    "contributorHint": "Para dízimos e ofertas nominais (aparece no comprovante anual).",
+    "anonymous": "Anônimo",
+    "description": "Descrição",
+    "reference": "Referência",
+    "referenceHint": "N.º da nota, recibo ou transferência",
+    "receipt": "Comprovante",
+    "receiptHint": "Foto ou PDF (opcional)",
+    "save": {
+      "income": "Registrar entrada",
+      "expense": "Registrar saída"
+    },
+    "saved": "Movimento registrado",
+    "edit": "Editar",
+    "createdBy": "Registrado por {{name}} em {{date}}"
+  },
+  "transfer": {
+    "short": "Transferência",
+    "title": "Transferência entre caixas",
+    "from": "De",
+    "to": "Para",
+    "noTargets": "Não há outro caixa na mesma moeda.",
+    "descriptionHint": "Por exemplo: depósito no banco",
+    "save": "Transferir",
+    "saved": "Transferência registrada",
+    "otherLeg": "Ver o outro caixa"
+  },
+  "void": {
+    "open": "Anular",
+    "title": "Anular movimento",
+    "body": "O movimento não é excluído: fica anulado, com o motivo, e deixa de contar no saldo. Se for uma transferência, as duas partes são anuladas.",
+    "reason": "Motivo",
+    "confirm": "Anular",
+    "done": "Movimento anulado",
+    "voidedTitle": "Movimento anulado"
+  },
+  "receipts": {
+    "title": "Comprovantes",
+    "add": "Anexar",
+    "added": "Comprovante anexado",
+    "remove": "Remover",
+    "removeTitle": "Remover este comprovante?",
+    "empty": "Sem comprovantes.",
+    "limits": "Fotos ou PDF, até 10 MB e 5 por movimento."
+  }
+}

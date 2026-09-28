@@ -34,6 +34,7 @@ void i18n
       'people',
       'cells',
       'consolidation',
+      'finance',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },

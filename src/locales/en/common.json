@@ -47,7 +47,10 @@
     "structure": "Structure",
     "myCell": "My group",
     "cellReports": "Report tracker",
-    "consolidation": "Follow-up"
+    "consolidation": "Follow-up",
+    "finance": "Finance",
+    "financeAccounts": "Accounts",
+    "financeCategories": "Finance categories"
   },
   "userMenu": {
     "label": "User menu",
