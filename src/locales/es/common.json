@@ -60,7 +60,8 @@
     "ministries": "Ministerios",
     "myAssignments": "Mis turnos",
     "songs": "Canciones",
-    "setlists": "Listas"
+    "setlists": "Listas",
+    "inventory": "Inventario"
   },
   "userMenu": {
     "label": "Menú de usuario",

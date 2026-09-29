@@ -204,7 +204,11 @@
     "SETLIST_TITLE_REQUIRED": "Dê um título ao repertório.",
     "SETLIST_EDIT_FORBIDDEN": "Você não pode montar repertórios.",
     "SETLIST_RANGE_TOO_LONG": "Escolha um período de até {{days}} dias.",
-    "SONG_INVALID": "Alguma música não existe ou foi excluída."
+    "SONG_INVALID": "Alguma música não existe ou foi excluída.",
+    "INVENTORY_ITEM_NOT_FOUND": "Não encontramos esse equipamento.",
+    "INVENTORY_CODE_IN_USE": "Já existe outro equipamento com esse código.",
+    "INVENTORY_CATEGORY_INVALID": "Escolha uma categoria de inventário.",
+    "INVENTORY_MAINTENANCE_NOT_FOUND": "Não encontramos esse registro de manutenção."
   },
   "validation": {
     "required": "Este campo é obrigatório.",
