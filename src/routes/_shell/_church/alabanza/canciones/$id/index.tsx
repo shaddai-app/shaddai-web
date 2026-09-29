@@ -32,15 +32,16 @@ import {
 } from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import dayjs from 'dayjs';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
-import { songsApi, type LinkType } from '../../../../../../api/worship';
+import { setlistsApi, songsApi, type LinkType } from '../../../../../../api/worship';
 import { requirePermission } from '../../../../../../auth/guards';
 import { can } from '../../../../../../auth/permissions';
 import { meQuery } from '../../../../../../auth/session';
 import { FormError } from '../../../../../../components/FormError';
-import { ButtonLink } from '../../../../../../components/links';
+import { AnchorLink, ButtonLink } from '../../../../../../components/links';
 import { transposeKey } from '../../../../../../features/worship/chordpro';
 import { KeyControl, SongSheet } from '../../../../../../features/worship/SongSheet';
 import { useSheet } from '../../../../../../features/worship/useSheet';
@@ -70,6 +71,7 @@ function SongPage() {
   const queryClient = useQueryClient();
   const { data: me } = useSuspenseQuery(meQuery());
   const query = useQuery({ queryKey: ['songs', 'detail', id], queryFn: () => songsApi.get(id) });
+  const usage = useQuery({ queryKey: ['songs', 'usage', id], queryFn: () => setlistsApi.usage(id) });
   const [editing, setEditing] = useState(false);
   const [showChords, setShowChords] = useState(true);
   const [fontSize, setFontSize] = useState(16);
@@ -255,6 +257,39 @@ function SongPage() {
                     );
                   })}
                 </Stack>
+              </Card>
+            )}
+            {usage.data && (
+              <Card withBorder radius="lg">
+                <Title order={3} size="h6" mb="xs">
+                  {t('usage.title', { count: usage.data.total })}
+                </Title>
+                {usage.data.items.length === 0 ? (
+                  <Text size="sm" c="dimmed">
+                    {t('usage.never')}
+                  </Text>
+                ) : (
+                  <Stack gap={4}>
+                    {usage.data.items.slice(0, 6).map((u) => (
+                      <Group key={u.setlistId} justify="space-between" wrap="nowrap" gap="xs">
+                        <AnchorLink
+                          to="/alabanza/listas/$id"
+                          params={{ id: String(u.setlistId) }}
+                          size="sm"
+                          truncate
+                        >
+                          {dayjs(u.date).format('L')}
+                          {u.title ? ` · ${u.title}` : ''}
+                        </AnchorLink>
+                        {u.key && (
+                          <Badge variant="light" tt="none" style={{ flexShrink: 0 }}>
+                            {u.key}
+                          </Badge>
+                        )}
+                      </Group>
+                    ))}
+                  </Stack>
+                )}
               </Card>
             )}
             {s.notes && (
