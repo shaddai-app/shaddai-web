@@ -11,6 +11,7 @@ import {
   IconHourglass,
   IconLock,
   IconMusic,
+  IconPlaylist,
   IconReportMoney,
   IconHeartHandshake,
   IconHierarchy2,
@@ -53,6 +54,7 @@ export interface NavItem {
     | 'ministries'
     | 'myAssignments'
     | 'songs'
+    | 'setlists'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -167,6 +169,12 @@ const churchNav: NavSection[] = [
         to: '/alabanza/canciones',
         label: 'songs',
         icon: IconMusic,
+        permissions: ['alabanza.ver'],
+      },
+      {
+        to: '/alabanza/listas',
+        label: 'setlists',
+        icon: IconPlaylist,
         permissions: ['alabanza.ver'],
       },
       {

@@ -198,7 +198,13 @@
     "PERSON_NOT_LINKED": "Seu usuário não está vinculado a uma ficha de pessoa.",
     "UNAVAILABILITY_TOO_LONG": "Escolha um período de até {{days}} dias.",
     "UNAVAILABILITY_NOT_FOUND": "Não encontramos essas datas.",
-    "SONG_NOT_FOUND": "Não encontramos essa música."
+    "SONG_NOT_FOUND": "Não encontramos essa música.",
+    "SETLIST_NOT_FOUND": "Não encontramos esse repertório.",
+    "SETLIST_EXISTS": "Já existe um repertório para essa data.",
+    "SETLIST_TITLE_REQUIRED": "Dê um título ao repertório.",
+    "SETLIST_EDIT_FORBIDDEN": "Você não pode montar repertórios.",
+    "SETLIST_RANGE_TOO_LONG": "Escolha um período de até {{days}} dias.",
+    "SONG_INVALID": "Alguma música não existe ou foi excluída."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

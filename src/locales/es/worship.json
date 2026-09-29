@@ -43,7 +43,8 @@
   },
   "stage": {
     "open": "Modo escenario",
-    "exit": "Salir del modo escenario"
+    "exit": "Salir del modo escenario",
+    "openFor": "Modo escenario: {{title}}"
   },
   "form": {
     "newTitle": "Nueva canción",
@@ -72,5 +73,63 @@
     "addLink": "Agregar enlace",
     "notes": "Notas",
     "active": "Activa"
+  },
+  "setlists": {
+    "title": "Listas de canciones",
+    "description": "Qué se canta en cada culto, en qué tonalidad y con qué músicos.",
+    "upcoming": "Próximas",
+    "past": "Anteriores",
+    "emptyUpcoming": "No hay listas armadas para las próximas fechas.",
+    "emptyPast": "No hay listas anteriores.",
+    "untitled": "Lista sin título",
+    "noSongs": "Todavía no tiene canciones.",
+    "cancelled": "Fecha cancelada",
+    "status": {
+      "draft": "Borrador",
+      "published": "Publicada"
+    },
+    "created": "Lista creada",
+    "existing": "Ya había una lista para esa fecha: te llevamos a esa.",
+    "publish": "Publicar",
+    "unpublish": "Pasar a borrador",
+    "published": "Lista publicada: ya la ve el equipo de alabanza",
+    "unpublished": "La lista volvió a borrador",
+    "edit": "Editar título y notas",
+    "delete": "Eliminar lista",
+    "deleteTitle": "¿Eliminar la lista «{{title}}»?",
+    "deleteBody": "Se borran también sus canciones (las canciones del repertorio no se tocan).",
+    "songs_one": "{{count}} canción",
+    "songs_other": "{{count}} canciones",
+    "songDeleted": "Eliminada del repertorio",
+    "itemNotes": "Notas para esta canción (ej.: arranca la batería)",
+    "itemNotesOf": "Notas de {{title}}",
+    "keyOf": "Tonalidad de {{title}}",
+    "up": "Subir {{title}}",
+    "down": "Bajar {{title}}",
+    "remove": "Quitar {{title}}",
+    "addSong": "Agregar una canción…",
+    "noMatches": "No hay canciones con ese nombre",
+    "musicians": "Músicos",
+    "noMusicians": "Todavía no hay turnos de alabanza para esta fecha.",
+    "notes": "Notas",
+    "new": {
+      "heading": "Nueva lista",
+      "forEvent": "Para un culto o evento",
+      "free": "Fecha suelta",
+      "date": "Fecha",
+      "pick": "Elegí la fecha",
+      "loading": "Buscando fechas…",
+      "noDates": "No hay fechas próximas",
+      "title": "Título",
+      "titlePlaceholder": "Ej.: Ensayo general",
+      "day": "Día",
+      "time": "Hora",
+      "create": "Crear lista"
+    }
+  },
+  "usage": {
+    "title_one": "Se usó {{count}} vez",
+    "title_other": "Se usó {{count}} veces",
+    "never": "Todavía no está en ninguna lista."
   }
 }

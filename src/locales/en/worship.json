@@ -43,7 +43,8 @@
   },
   "stage": {
     "open": "Stage mode",
-    "exit": "Exit stage mode"
+    "exit": "Exit stage mode",
+    "openFor": "Stage mode: {{title}}"
   },
   "form": {
     "newTitle": "New song",
@@ -72,5 +73,63 @@
     "addLink": "Add link",
     "notes": "Notes",
     "active": "Active"
+  },
+  "setlists": {
+    "title": "Setlists",
+    "description": "What is sung at each service, in which key and with which musicians.",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "emptyUpcoming": "There are no setlists for the upcoming dates.",
+    "emptyPast": "There are no past setlists.",
+    "untitled": "Untitled setlist",
+    "noSongs": "No songs yet.",
+    "cancelled": "Date cancelled",
+    "status": {
+      "draft": "Draft",
+      "published": "Published"
+    },
+    "created": "Setlist created",
+    "existing": "There was already a setlist for that date: here it is.",
+    "publish": "Publish",
+    "unpublish": "Back to draft",
+    "published": "Setlist published: the worship team can see it",
+    "unpublished": "The setlist is a draft again",
+    "edit": "Edit title and notes",
+    "delete": "Delete setlist",
+    "deleteTitle": "Delete the setlist “{{title}}”?",
+    "deleteBody": "Its songs are removed from it too (the repertoire is not affected).",
+    "songs_one": "{{count}} song",
+    "songs_other": "{{count}} songs",
+    "songDeleted": "Removed from the repertoire",
+    "itemNotes": "Notes for this song (e.g. drums start)",
+    "itemNotesOf": "Notes for {{title}}",
+    "keyOf": "Key of {{title}}",
+    "up": "Move {{title}} up",
+    "down": "Move {{title}} down",
+    "remove": "Remove {{title}}",
+    "addSong": "Add a song…",
+    "noMatches": "No songs with that name",
+    "musicians": "Musicians",
+    "noMusicians": "There are no worship assignments for this date yet.",
+    "notes": "Notes",
+    "new": {
+      "heading": "New setlist",
+      "forEvent": "For a service or event",
+      "free": "Standalone date",
+      "date": "Date",
+      "pick": "Choose the date",
+      "loading": "Looking for dates…",
+      "noDates": "No upcoming dates",
+      "title": "Title",
+      "titlePlaceholder": "E.g. Full rehearsal",
+      "day": "Day",
+      "time": "Time",
+      "create": "Create setlist"
+    }
+  },
+  "usage": {
+    "title_one": "Used {{count}} time",
+    "title_other": "Used {{count}} times",
+    "never": "It is not in any setlist yet."
   }
 }

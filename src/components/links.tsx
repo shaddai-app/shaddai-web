@@ -1,7 +1,9 @@
 import {
+  ActionIcon,
   Anchor,
   Button,
   UnstyledButton,
+  type ActionIconProps,
   type AnchorProps,
   type ButtonProps,
   type UnstyledButtonProps,
@@ -23,7 +25,13 @@ function MantineButtonAnchor(props: ButtonProps & ComponentPropsWithRef<'a'>) {
   return <Button component="a" {...props} />;
 }
 
+function MantineActionIconAnchor(props: ActionIconProps & ComponentPropsWithRef<'a'>) {
+  return <ActionIcon component="a" {...props} />;
+}
+
 export const AnchorLink = createLink(MantineAnchor);
 export const UnstyledLink = createLink(MantineUnstyledAnchor);
 /** Botón que navega (ej. una acción principal que abre otra pantalla). */
 export const ButtonLink = createLink(MantineButtonAnchor);
+/** Ícono que navega (ej. abrir el modo escenario de una canción de la lista). */
+export const ActionIconLink = createLink(MantineActionIconAnchor);

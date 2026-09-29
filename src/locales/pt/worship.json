@@ -43,7 +43,8 @@
   },
   "stage": {
     "open": "Modo palco",
-    "exit": "Sair do modo palco"
+    "exit": "Sair do modo palco",
+    "openFor": "Modo palco: {{title}}"
   },
   "form": {
     "newTitle": "Nova música",
@@ -72,5 +73,63 @@
     "addLink": "Adicionar link",
     "notes": "Observações",
     "active": "Ativa"
+  },
+  "setlists": {
+    "title": "Repertórios",
+    "description": "O que se canta em cada culto, em que tom e com quais músicos.",
+    "upcoming": "Próximos",
+    "past": "Anteriores",
+    "emptyUpcoming": "Não há repertórios para as próximas datas.",
+    "emptyPast": "Não há repertórios anteriores.",
+    "untitled": "Repertório sem título",
+    "noSongs": "Ainda não tem músicas.",
+    "cancelled": "Data cancelada",
+    "status": {
+      "draft": "Rascunho",
+      "published": "Publicado"
+    },
+    "created": "Repertório criado",
+    "existing": "Já havia um repertório para essa data: levamos você até ele.",
+    "publish": "Publicar",
+    "unpublish": "Voltar a rascunho",
+    "published": "Repertório publicado: a equipe de louvor já pode ver",
+    "unpublished": "O repertório voltou a rascunho",
+    "edit": "Editar título e observações",
+    "delete": "Excluir repertório",
+    "deleteTitle": "Excluir o repertório «{{title}}»?",
+    "deleteBody": "As músicas saem dele também (o repertório geral não é afetado).",
+    "songs_one": "{{count}} música",
+    "songs_other": "{{count}} músicas",
+    "songDeleted": "Excluída do repertório",
+    "itemNotes": "Observações desta música (ex.: começa a bateria)",
+    "itemNotesOf": "Observações de {{title}}",
+    "keyOf": "Tom de {{title}}",
+    "up": "Subir {{title}}",
+    "down": "Descer {{title}}",
+    "remove": "Remover {{title}}",
+    "addSong": "Adicionar uma música…",
+    "noMatches": "Não há músicas com esse nome",
+    "musicians": "Músicos",
+    "noMusicians": "Ainda não há escalas de louvor para esta data.",
+    "notes": "Observações",
+    "new": {
+      "heading": "Novo repertório",
+      "forEvent": "Para um culto ou evento",
+      "free": "Data avulsa",
+      "date": "Data",
+      "pick": "Escolha a data",
+      "loading": "Buscando datas…",
+      "noDates": "Não há próximas datas",
+      "title": "Título",
+      "titlePlaceholder": "Ex.: Ensaio geral",
+      "day": "Dia",
+      "time": "Hora",
+      "create": "Criar repertório"
+    }
+  },
+  "usage": {
+    "title_one": "Usada {{count}} vez",
+    "title_other": "Usada {{count}} vezes",
+    "never": "Ainda não está em nenhum repertório."
   }
 }
