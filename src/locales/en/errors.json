@@ -178,7 +178,15 @@
     "ATTENDANCE_FUTURE": "Attendance can be recorded once the meeting starts.",
     "ATTENDANCE_NEWCOMERS_EXCEED": "Newcomers cannot exceed those present.",
     "ATTENDANCE_NOT_FOUND": "There is no attendance recorded for that date.",
-    "ATTENDANCE_RANGE_TOO_LONG": "Choose a period of up to {{days}} days."
+    "ATTENDANCE_RANGE_TOO_LONG": "Choose a period of up to {{days}} days.",
+    "MINISTRY_NOT_FOUND": "We could not find that ministry.",
+    "MINISTRY_MANAGE_FORBIDDEN": "You cannot manage this ministry.",
+    "MINISTRY_CREATE_FORBIDDEN": "Creating ministries requires managing all ministries.",
+    "MINISTRY_DELETE_FORBIDDEN": "Deleting ministries requires managing all ministries.",
+    "MINISTRY_LEADER_FORBIDDEN": "Only those who manage all ministries can appoint or remove leaders.",
+    "MINISTRY_MEMBER_EXISTS": "That person is already a member of the ministry.",
+    "SERVICE_ROLE_NOT_FOUND": "We could not find that position.",
+    "SERVICE_ROLE_ORDER_INVALID": "The order of the positions changed; reload the page."
   },
   "validation": {
     "required": "This field is required.",

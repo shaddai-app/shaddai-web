@@ -36,6 +36,7 @@ void i18n
       'consolidation',
       'finance',
       'calendar',
+      'ministries',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },

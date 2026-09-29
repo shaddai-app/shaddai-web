@@ -178,7 +178,15 @@
     "ATTENDANCE_FUTURE": "A presença é registrada quando a reunião começa.",
     "ATTENDANCE_NEWCOMERS_EXCEED": "Os novos não podem ser mais que os presentes.",
     "ATTENDANCE_NOT_FOUND": "Não há presença registrada para essa data.",
-    "ATTENDANCE_RANGE_TOO_LONG": "Escolha um período de até {{days}} dias."
+    "ATTENDANCE_RANGE_TOO_LONG": "Escolha um período de até {{days}} dias.",
+    "MINISTRY_NOT_FOUND": "Não encontramos esse ministério.",
+    "MINISTRY_MANAGE_FORBIDDEN": "Você não pode gerenciar este ministério.",
+    "MINISTRY_CREATE_FORBIDDEN": "Criar ministérios exige gerenciar todos os ministérios.",
+    "MINISTRY_DELETE_FORBIDDEN": "Excluir ministérios exige gerenciar todos os ministérios.",
+    "MINISTRY_LEADER_FORBIDDEN": "Somente quem gerencia todos os ministérios pode nomear ou remover líderes.",
+    "MINISTRY_MEMBER_EXISTS": "Essa pessoa já é membro do ministério.",
+    "SERVICE_ROLE_NOT_FOUND": "Não encontramos essa função.",
+    "SERVICE_ROLE_ORDER_INVALID": "A ordem das funções mudou; recarregue a página."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

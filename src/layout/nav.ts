@@ -22,6 +22,7 @@ import {
   IconTags,
   IconTrafficLights,
   IconUserCheck,
+  IconUserStar,
   IconUserCircle,
   IconUserPlus,
   IconUsers,
@@ -47,6 +48,7 @@ export interface NavItem {
     | 'financeReports'
     | 'calendar'
     | 'attendance'
+    | 'ministries'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -148,6 +150,12 @@ const churchNav: NavSection[] = [
         label: 'attendance',
         icon: IconUserCheck,
         permissions: ['asistencia.ver', 'asistencia.registrar'],
+      },
+      {
+        to: '/ministerios',
+        label: 'ministries',
+        icon: IconUserStar,
+        permissions: ['ministerios.ver'],
       },
       {
         to: '/finanzas',
