@@ -74,8 +74,7 @@
   },
   "home": {
     "greeting": "Hi, {{name}}!",
-    "subtitle": "Welcome to {{church}}.",
-    "comingSoon": "Soon you'll see attendance, growth, cell group and finance statistics here."
+    "subtitle": "Welcome to {{church}}."
   },
   "actions": {
     "save": "Save",
@@ -100,5 +99,60 @@
     "updateBody": "Update when you finish what you are doing.",
     "update": "Update",
     "later": "Later"
+  },
+  "dashboard": {
+    "previous": "Previous period: {{value}}",
+    "new": "new",
+    "see": "View",
+    "review": "Review",
+    "comparedTo": "Compared with the previous period",
+    "periods": {
+      "7d": "7 days",
+      "30d": "30 days",
+      "90d": "90 days"
+    },
+    "newcomersPending_one": "{{count}} newcomer form to review",
+    "newcomersPending_other": "{{count}} newcomer forms to review",
+    "attendance": {
+      "title": "Service attendance",
+      "avgInPerson": "In-person average",
+      "avgOnline": "Online average",
+      "newcomers": "First-timers",
+      "pending": "Services not recorded"
+    },
+    "people": {
+      "title": "People",
+      "total": "In the database",
+      "added": "New records",
+      "members": "Members",
+      "visitors": "Visitors and newcomers"
+    },
+    "cells": {
+      "title": "Cells",
+      "active": "Active",
+      "held": "Meetings",
+      "avgAttendance": "Average attendance",
+      "visitors": "Visitors"
+    },
+    "consolidation": {
+      "title": "Follow-up",
+      "open": "Open cases",
+      "overdue": "With overdue steps",
+      "unassigned": "Unassigned",
+      "completed": "Completed"
+    },
+    "finance": {
+      "title": "Finances",
+      "empty": "No transactions in the period.",
+      "income": "Income ({{currency}})",
+      "expense": "Expenses ({{currency}})",
+      "net": "Net ({{currency}})",
+      "pendingOfferings_one": "{{count}} cell offering to confirm",
+      "pendingOfferings_other": "{{count}} cell offerings to confirm"
+    },
+    "upcoming": {
+      "title": "Upcoming events",
+      "empty": "No events in the next two weeks."
+    }
   }
 }
