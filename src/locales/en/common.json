@@ -58,7 +58,8 @@
     "calendar": "Calendar",
     "attendance": "Attendance",
     "ministries": "Ministries",
-    "myAssignments": "My rota"
+    "myAssignments": "My rota",
+    "songs": "Songs"
   },
   "userMenu": {
     "label": "User menu",

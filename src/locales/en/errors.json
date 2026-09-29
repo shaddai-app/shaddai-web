@@ -197,7 +197,8 @@
     "SCHEDULE_RANGE_TOO_LONG": "Choose a period of up to {{days}} days.",
     "PERSON_NOT_LINKED": "Your user is not linked to a person record.",
     "UNAVAILABILITY_TOO_LONG": "Choose a period of up to {{days}} days.",
-    "UNAVAILABILITY_NOT_FOUND": "We could not find those dates."
+    "UNAVAILABILITY_NOT_FOUND": "We could not find those dates.",
+    "SONG_NOT_FOUND": "We could not find that song."
   },
   "validation": {
     "required": "This field is required.",

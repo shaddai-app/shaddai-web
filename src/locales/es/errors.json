@@ -197,7 +197,8 @@
     "SCHEDULE_RANGE_TOO_LONG": "Elegí un período de hasta {{days}} días.",
     "PERSON_NOT_LINKED": "Tu usuario no está vinculado a una ficha de persona.",
     "UNAVAILABILITY_TOO_LONG": "Elegí un período de hasta {{days}} días.",
-    "UNAVAILABILITY_NOT_FOUND": "No encontramos esas fechas."
+    "UNAVAILABILITY_NOT_FOUND": "No encontramos esas fechas.",
+    "SONG_NOT_FOUND": "No encontramos esa canción."
   },
   "validation": {
     "required": "Este campo es obligatorio.",
