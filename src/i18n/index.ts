@@ -37,6 +37,7 @@ void i18n
       'finance',
       'calendar',
       'ministries',
+      'worship',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },

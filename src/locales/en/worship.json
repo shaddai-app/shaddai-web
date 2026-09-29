@@ -1,0 +1,76 @@
+{
+  "title": "Songs",
+  "description": "The worship repertoire, with lyrics and chords (ChordPro).",
+  "new": "New song",
+  "created": "Song created",
+  "search": "Search by title, author or CCLI",
+  "showInactive": "Show inactive",
+  "inactive": "Inactive",
+  "empty": "There are no songs yet.",
+  "noResults": "No songs match that filter.",
+  "showing": "Showing {{shown}} of {{total}}",
+  "edit": "Edit",
+  "delete": "Delete song",
+  "deleteTitle": "Delete “{{title}}”?",
+  "deleteBody": "It will no longer appear in the repertoire.",
+  "chords": "Chords",
+  "fontSmaller": "Smaller text",
+  "fontBigger": "Bigger text",
+  "parseError": "We could not read the ChordPro lyrics. Check them from Edit.",
+  "noChordPro": "This song has no lyrics yet.",
+  "links": "Links",
+  "notes": "Notes",
+  "details": {
+    "key": "Key",
+    "bpm": "BPM",
+    "timeSignature": "Time signature"
+  },
+  "linkTypes": {
+    "youtube": "YouTube",
+    "spotify": "Spotify",
+    "multitrack": "Multitrack",
+    "sheet": "Sheet music",
+    "other": "Other"
+  },
+  "sections": {
+    "chorus": "Chorus",
+    "bridge": "Bridge"
+  },
+  "key": {
+    "down": "Down a semitone",
+    "up": "Up a semitone",
+    "label": "Key"
+  },
+  "stage": {
+    "open": "Stage mode",
+    "exit": "Exit stage mode"
+  },
+  "form": {
+    "newTitle": "New song",
+    "editTitle": "Edit song",
+    "title": "Title",
+    "author": "Author",
+    "key": "Key",
+    "major": "Major",
+    "minor": "Minor",
+    "bpm": "BPM",
+    "timeSignature": "Time signature",
+    "ccli": "CCLI #",
+    "tags": "Tags",
+    "tagsPlaceholder": "E.g. Worship, Upbeat (Enter to add)",
+    "chordPro": "Lyrics and chords (ChordPro)",
+    "chordProHint": "Chords in brackets: [G]Every morning [D]new. Sections: {start_of_chorus} … {end_of_chorus}.",
+    "preview": "Preview",
+    "previewEmpty": "Type the lyrics to see how they look.",
+    "previewError": "Something in the ChordPro format cannot be read.",
+    "links": "Links",
+    "linkType": "Link type",
+    "linkUrl": "Link address",
+    "linkLabel": "Description",
+    "linkInvalid": "It must start with http:// or https://",
+    "removeLink": "Remove link",
+    "addLink": "Add link",
+    "notes": "Notes",
+    "active": "Active"
+  }
+}

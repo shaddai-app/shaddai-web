@@ -10,6 +10,7 @@ import {
   IconCoins,
   IconHourglass,
   IconLock,
+  IconMusic,
   IconReportMoney,
   IconHeartHandshake,
   IconHierarchy2,
@@ -51,6 +52,7 @@ export interface NavItem {
     | 'attendance'
     | 'ministries'
     | 'myAssignments'
+    | 'songs'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -161,6 +163,12 @@ const churchNav: NavSection[] = [
       },
       // Sin permisos: cualquiera ve sus turnos (si su usuario está vinculado a una ficha).
       { to: '/mis-turnos', label: 'myAssignments', icon: IconCalendarUser },
+      {
+        to: '/alabanza/canciones',
+        label: 'songs',
+        icon: IconMusic,
+        permissions: ['alabanza.ver'],
+      },
       {
         to: '/finanzas',
         label: 'finance',

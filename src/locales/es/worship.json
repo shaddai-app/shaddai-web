@@ -1,0 +1,76 @@
+{
+  "title": "Canciones",
+  "description": "El repertorio de alabanza, con letra y acordes (ChordPro).",
+  "new": "Nueva canción",
+  "created": "Canción creada",
+  "search": "Buscar por título, autor o CCLI",
+  "showInactive": "Mostrar inactivas",
+  "inactive": "Inactiva",
+  "empty": "Todavía no hay canciones.",
+  "noResults": "No encontramos canciones con ese filtro.",
+  "showing": "Mostrando {{shown}} de {{total}}",
+  "edit": "Editar",
+  "delete": "Eliminar canción",
+  "deleteTitle": "¿Eliminar «{{title}}»?",
+  "deleteBody": "Deja de aparecer en el repertorio.",
+  "chords": "Acordes",
+  "fontSmaller": "Letra más chica",
+  "fontBigger": "Letra más grande",
+  "parseError": "No pudimos leer la letra en formato ChordPro. Revisala desde Editar.",
+  "noChordPro": "Esta canción todavía no tiene letra cargada.",
+  "links": "Enlaces",
+  "notes": "Notas",
+  "details": {
+    "key": "Tonalidad",
+    "bpm": "BPM",
+    "timeSignature": "Compás"
+  },
+  "linkTypes": {
+    "youtube": "YouTube",
+    "spotify": "Spotify",
+    "multitrack": "Multitrack",
+    "sheet": "Partitura",
+    "other": "Otro"
+  },
+  "sections": {
+    "chorus": "Coro",
+    "bridge": "Puente"
+  },
+  "key": {
+    "down": "Bajar medio tono",
+    "up": "Subir medio tono",
+    "label": "Tonalidad"
+  },
+  "stage": {
+    "open": "Modo escenario",
+    "exit": "Salir del modo escenario"
+  },
+  "form": {
+    "newTitle": "Nueva canción",
+    "editTitle": "Editar canción",
+    "title": "Título",
+    "author": "Autor",
+    "key": "Tonalidad",
+    "major": "Mayores",
+    "minor": "Menores",
+    "bpm": "BPM",
+    "timeSignature": "Compás",
+    "ccli": "N.º CCLI",
+    "tags": "Etiquetas",
+    "tagsPlaceholder": "Ej.: Adoración, Rápida (Enter para agregar)",
+    "chordPro": "Letra y acordes (ChordPro)",
+    "chordProHint": "Acordes entre corchetes: [G]Cada mañana [D]nueva. Secciones: {start_of_chorus} … {end_of_chorus}.",
+    "preview": "Vista previa",
+    "previewEmpty": "Escribí la letra para ver cómo queda.",
+    "previewError": "Hay algo que no se entiende en el formato ChordPro.",
+    "links": "Enlaces",
+    "linkType": "Tipo de enlace",
+    "linkUrl": "Dirección del enlace",
+    "linkLabel": "Descripción",
+    "linkInvalid": "Tiene que empezar con http:// o https://",
+    "removeLink": "Quitar enlace",
+    "addLink": "Agregar enlace",
+    "notes": "Notas",
+    "active": "Activa"
+  }
+}

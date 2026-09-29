@@ -1,0 +1,76 @@
+{
+  "title": "Músicas",
+  "description": "O repertório de louvor, com letra e cifras (ChordPro).",
+  "new": "Nova música",
+  "created": "Música criada",
+  "search": "Buscar por título, autor ou CCLI",
+  "showInactive": "Mostrar inativas",
+  "inactive": "Inativa",
+  "empty": "Ainda não há músicas.",
+  "noResults": "Não encontramos músicas com esse filtro.",
+  "showing": "Mostrando {{shown}} de {{total}}",
+  "edit": "Editar",
+  "delete": "Excluir música",
+  "deleteTitle": "Excluir «{{title}}»?",
+  "deleteBody": "Ela deixa de aparecer no repertório.",
+  "chords": "Cifras",
+  "fontSmaller": "Letra menor",
+  "fontBigger": "Letra maior",
+  "parseError": "Não conseguimos ler a letra em ChordPro. Revise em Editar.",
+  "noChordPro": "Esta música ainda não tem letra.",
+  "links": "Links",
+  "notes": "Observações",
+  "details": {
+    "key": "Tom",
+    "bpm": "BPM",
+    "timeSignature": "Compasso"
+  },
+  "linkTypes": {
+    "youtube": "YouTube",
+    "spotify": "Spotify",
+    "multitrack": "Multitrack",
+    "sheet": "Partitura",
+    "other": "Outro"
+  },
+  "sections": {
+    "chorus": "Refrão",
+    "bridge": "Ponte"
+  },
+  "key": {
+    "down": "Descer meio tom",
+    "up": "Subir meio tom",
+    "label": "Tom"
+  },
+  "stage": {
+    "open": "Modo palco",
+    "exit": "Sair do modo palco"
+  },
+  "form": {
+    "newTitle": "Nova música",
+    "editTitle": "Editar música",
+    "title": "Título",
+    "author": "Autor",
+    "key": "Tom",
+    "major": "Maiores",
+    "minor": "Menores",
+    "bpm": "BPM",
+    "timeSignature": "Compasso",
+    "ccli": "N.º CCLI",
+    "tags": "Etiquetas",
+    "tagsPlaceholder": "Ex.: Adoração, Rápida (Enter para adicionar)",
+    "chordPro": "Letra e cifras (ChordPro)",
+    "chordProHint": "Cifras entre colchetes: [G]Cada manhã [D]nova. Seções: {start_of_chorus} … {end_of_chorus}.",
+    "preview": "Pré-visualização",
+    "previewEmpty": "Escreva a letra para ver como fica.",
+    "previewError": "Há algo que não dá para ler no formato ChordPro.",
+    "links": "Links",
+    "linkType": "Tipo de link",
+    "linkUrl": "Endereço do link",
+    "linkLabel": "Descrição",
+    "linkInvalid": "Precisa começar com http:// ou https://",
+    "removeLink": "Remover link",
+    "addLink": "Adicionar link",
+    "notes": "Observações",
+    "active": "Ativa"
+  }
+}
