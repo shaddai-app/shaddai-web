@@ -186,7 +186,18 @@
     "MINISTRY_LEADER_FORBIDDEN": "Nombrar o quitar líderes lo hace quien gestiona todos los ministerios.",
     "MINISTRY_MEMBER_EXISTS": "Esa persona ya integra el ministerio.",
     "SERVICE_ROLE_NOT_FOUND": "No encontramos ese puesto.",
-    "SERVICE_ROLE_ORDER_INVALID": "El orden de los puestos cambió; recargá la página."
+    "SERVICE_ROLE_ORDER_INVALID": "El orden de los puestos cambió; recargá la página.",
+    "ASSIGNMENTS_FORBIDDEN": "No podés armar los turnos de este ministerio.",
+    "ASSIGNMENT_EXISTS": "Esa persona ya está en ese puesto en esa fecha.",
+    "ASSIGNMENT_NOT_MEMBER": "Solo se asignan integrantes del ministerio.",
+    "ASSIGNMENT_PAST": "Esa fecha ya pasó.",
+    "ASSIGNMENT_NOT_FOUND": "No encontramos ese turno.",
+    "SERVICE_ROLE_INACTIVE": "Ese puesto está desactivado.",
+    "SERVICE_ROLE_IN_USE": "El puesto tiene turnos: desactivalo en lugar de eliminarlo.",
+    "SCHEDULE_RANGE_TOO_LONG": "Elegí un período de hasta {{days}} días.",
+    "PERSON_NOT_LINKED": "Tu usuario no está vinculado a una ficha de persona.",
+    "UNAVAILABILITY_TOO_LONG": "Elegí un período de hasta {{days}} días.",
+    "UNAVAILABILITY_NOT_FOUND": "No encontramos esas fechas."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

@@ -19,6 +19,7 @@ import { notifications } from '@mantine/notifications';
 import {
   IconArrowDown,
   IconArrowUp,
+  IconCalendarUser,
   IconCheck,
   IconDots,
   IconPencil,
@@ -42,7 +43,7 @@ import {
 import type { PersonListItem } from '../../../../../api/people';
 import { requirePermission } from '../../../../../auth/guards';
 import { FormError } from '../../../../../components/FormError';
-import { AnchorLink } from '../../../../../components/links';
+import { AnchorLink, ButtonLink } from '../../../../../components/links';
 import { KIND_ICONS, ministriesKey, ministryKey, moveItem } from '../../../../../features/ministries/common';
 import { MinistryFormModal } from '../../../../../features/ministries/MinistryFormModal';
 import { formatDate, fullName } from '../../../../../features/people/format';
@@ -263,27 +264,35 @@ function MinistryPage() {
           </Group>
         }
         actions={
-          m.canManage && (
-            <Group gap="xs">
+          <Group gap="xs">
+            <ButtonLink
+              to="/ministerios/$id/turnos"
+              params={{ id: String(m.id) }}
+              variant={m.canManage ? 'default' : 'filled'}
+              leftSection={<IconCalendarUser size={18} />}
+            >
+              {t('schedule.open')}
+            </ButtonLink>
+            {m.canManage && (
               <Button leftSection={<IconPencil size={18} />} onClick={() => setEditing(true)}>
                 {t('edit')}
               </Button>
-              {m.canDelete && (
-                <Menu position="bottom-end" withinPortal>
-                  <Menu.Target>
-                    <ActionIcon variant="default" size="lg" aria-label={t('common:actions.more')}>
-                      <IconDots size={18} />
-                    </ActionIcon>
-                  </Menu.Target>
-                  <Menu.Dropdown>
-                    <Menu.Item color="red" leftSection={<IconTrash size={16} />} onClick={remove}>
-                      {t('delete')}
-                    </Menu.Item>
-                  </Menu.Dropdown>
-                </Menu>
-              )}
-            </Group>
-          )
+            )}
+            {m.canDelete && (
+              <Menu position="bottom-end" withinPortal>
+                <Menu.Target>
+                  <ActionIcon variant="default" size="lg" aria-label={t('common:actions.more')}>
+                    <IconDots size={18} />
+                  </ActionIcon>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Item color="red" leftSection={<IconTrash size={16} />} onClick={remove}>
+                    {t('delete')}
+                  </Menu.Item>
+                </Menu.Dropdown>
+              </Menu>
+            )}
+          </Group>
         }
       />
       <Stack gap="md" maw={1000}>

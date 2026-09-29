@@ -57,7 +57,8 @@
     "financeReports": "Reportes",
     "calendar": "Calendario",
     "attendance": "Asistencia",
-    "ministries": "Ministerios"
+    "ministries": "Ministerios",
+    "myAssignments": "Mis turnos"
   },
   "userMenu": {
     "label": "Menú de usuario",

@@ -74,5 +74,66 @@
       "coleader": "Co-líder",
       "servant": "Servo"
     }
+  },
+  "schedule": {
+    "open": "Escala",
+    "title": "Escala",
+    "titleOf": "Escala de {{name}}",
+    "description": "Quem serve em cada função nas próximas datas.",
+    "backToMinistry": "Voltar ao ministério",
+    "previous": "Semanas anteriores",
+    "next": "Próximas semanas",
+    "range": "De {{from}} a {{to}}",
+    "weekOf": "Semana de {{date}}",
+    "coverage": "{{covered}} de {{total}} funções",
+    "assignTo": "Escalar em {{role}}",
+    "noMembers": "O ministério não tem membros.",
+    "noRoles": "Este ministério ainda não tem funções. Adicione-as na ficha do ministério.",
+    "empty": "Não há datas neste período.",
+    "remove": "Remover {{name}}",
+    "assigned": "Escalado",
+    "assignedWithWarnings": "Escalado. Atenção:",
+    "status": {
+      "pending": "Sem confirmar",
+      "accepted": "Confirmado",
+      "declined": "Não pode"
+    },
+    "warn": {
+      "unavailable": "Avisou que não estará",
+      "unavailableWhy": "Avisou que não estará ({{reason}})",
+      "sameDate": "Já está em {{role}} nessa data",
+      "elsewhere": "Já serve em {{ministry}} ({{role}})"
+    }
+  },
+  "mine": {
+    "title": "Minhas escalas",
+    "description": "Suas próximas escalas nos ministérios e as datas em que não pode servir.",
+    "notLinked": "Seu usuário não está vinculado a uma ficha de pessoa, então não podemos mostrar suas escalas. Peça ao administrador para vinculá-lo.",
+    "empty": "Você não tem escalas.",
+    "pendingCount_one": "Você tem {{count}} escala para confirmar.",
+    "pendingCount_other": "Você tem {{count}} escalas para confirmar.",
+    "team": "Com:",
+    "accept": "Confirmo",
+    "decline": "Não posso",
+    "accepted": "Escala confirmada",
+    "declined": "Avisamos que você não pode",
+    "declineTitle": "Não posso: {{role}} em {{event}}",
+    "reason": "Motivo (opcional)",
+    "reasonPlaceholder": "Ex.: estou viajando nesse fim de semana",
+    "yourReason": "Seu motivo: {{reason}}",
+    "unavailable": {
+      "title": "Datas em que não estou",
+      "hint": "Quem monta a escala vê isso ao escalar você.",
+      "from": "De",
+      "to": "Até",
+      "range": "De {{from}} a {{to}}",
+      "reason": "Motivo (opcional)",
+      "reasonPlaceholder": "Ex.: férias",
+      "add": "Adicionar",
+      "added": "Datas salvas",
+      "remove": "Remover estas datas",
+      "conflicts_one": "Datas salvas. Você já tem {{count}} escala nessas datas: avise que não pode.",
+      "conflicts_other": "Datas salvas. Você já tem {{count}} escalas nessas datas: avise que não pode."
+    }
   }
 }

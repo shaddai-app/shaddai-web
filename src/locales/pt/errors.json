@@ -186,7 +186,18 @@
     "MINISTRY_LEADER_FORBIDDEN": "Somente quem gerencia todos os ministérios pode nomear ou remover líderes.",
     "MINISTRY_MEMBER_EXISTS": "Essa pessoa já é membro do ministério.",
     "SERVICE_ROLE_NOT_FOUND": "Não encontramos essa função.",
-    "SERVICE_ROLE_ORDER_INVALID": "A ordem das funções mudou; recarregue a página."
+    "SERVICE_ROLE_ORDER_INVALID": "A ordem das funções mudou; recarregue a página.",
+    "ASSIGNMENTS_FORBIDDEN": "Você não pode montar a escala deste ministério.",
+    "ASSIGNMENT_EXISTS": "Essa pessoa já está nessa função nessa data.",
+    "ASSIGNMENT_NOT_MEMBER": "Só membros do ministério podem ser escalados.",
+    "ASSIGNMENT_PAST": "Essa data já passou.",
+    "ASSIGNMENT_NOT_FOUND": "Não encontramos essa escala.",
+    "SERVICE_ROLE_INACTIVE": "Essa função está desativada.",
+    "SERVICE_ROLE_IN_USE": "A função tem escalas: desative-a em vez de excluí-la.",
+    "SCHEDULE_RANGE_TOO_LONG": "Escolha um período de até {{days}} dias.",
+    "PERSON_NOT_LINKED": "Seu usuário não está vinculado a uma ficha de pessoa.",
+    "UNAVAILABILITY_TOO_LONG": "Escolha um período de até {{days}} dias.",
+    "UNAVAILABILITY_NOT_FOUND": "Não encontramos essas datas."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

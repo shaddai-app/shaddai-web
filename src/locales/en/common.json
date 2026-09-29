@@ -57,7 +57,8 @@
     "financeReports": "Reports",
     "calendar": "Calendar",
     "attendance": "Attendance",
-    "ministries": "Ministries"
+    "ministries": "Ministries",
+    "myAssignments": "My rota"
   },
   "userMenu": {
     "label": "User menu",
