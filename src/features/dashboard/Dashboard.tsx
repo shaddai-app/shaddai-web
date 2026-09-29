@@ -45,7 +45,8 @@ const number = (n: number | null) =>
 function DeltaBadge({ value, invert }: { value: Compared<number | null>; invert?: boolean }) {
   const { t } = useTranslation();
   const d = delta(value);
-  if (!d) return null;
+  // Sin movimiento en ninguno de los dos períodos no hay nada que comparar.
+  if (!d || (value.current === 0 && value.previous === 0)) return null;
   const Icon = d.trend === 'up' ? IconArrowUpRight : d.trend === 'down' ? IconArrowDownRight : IconMinus;
   return (
     <Badge
@@ -119,18 +120,25 @@ export function Dashboard({
     </AnchorLink>
   );
 
+  // El período solo importa si hay algún bloque con cifras del período (no solo próximos eventos).
+  const d = query.data;
+  const periodic =
+    !d || Boolean(d.people || d.consolidation || d.cells?.meetings || d.attendance || d.finance);
+
   return (
     <Stack gap="md">
-      <Group justify="space-between" wrap="wrap" gap="sm">
-        <SegmentedControl
-          value={period}
-          onChange={(v) => onPeriod(v as DashboardPeriod)}
-          data={DASHBOARD_PERIODS.map((p) => ({ value: p, label: t(`dashboard.periods.${p}`) }))}
-        />
-        <Text size="xs" c="dimmed">
-          {t('dashboard.comparedTo')}
-        </Text>
-      </Group>
+      {periodic && (
+        <Group justify="space-between" wrap="wrap" gap="sm">
+          <SegmentedControl
+            value={period}
+            onChange={(v) => onPeriod(v as DashboardPeriod)}
+            data={DASHBOARD_PERIODS.map((p) => ({ value: p, label: t(`dashboard.periods.${p}`) }))}
+          />
+          <Text size="xs" c="dimmed">
+            {t('dashboard.comparedTo')}
+          </Text>
+        </Group>
+      )}
       {query.isPending ? (
         <Loader />
       ) : query.isError ? (
