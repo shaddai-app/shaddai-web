@@ -74,8 +74,7 @@
   },
   "home": {
     "greeting": "Olá, {{name}}!",
-    "subtitle": "Bem-vindo à {{church}}.",
-    "comingSoon": "Em breve você verá aqui as estatísticas de presença, crescimento, células e finanças."
+    "subtitle": "Bem-vindo à {{church}}."
   },
   "actions": {
     "save": "Salvar",
@@ -100,5 +99,60 @@
     "updateBody": "Atualize quando terminar o que está fazendo.",
     "update": "Atualizar",
     "later": "Depois"
+  },
+  "dashboard": {
+    "previous": "Período anterior: {{value}}",
+    "new": "novo",
+    "see": "Ver",
+    "review": "Revisar",
+    "comparedTo": "Comparado com o período anterior",
+    "periods": {
+      "7d": "7 dias",
+      "30d": "30 dias",
+      "90d": "90 dias"
+    },
+    "newcomersPending_one": "{{count}} formulário de novos para revisar",
+    "newcomersPending_other": "{{count}} formulários de novos para revisar",
+    "attendance": {
+      "title": "Presença nos cultos",
+      "avgInPerson": "Média presencial",
+      "avgOnline": "Média online",
+      "newcomers": "Primeira vez",
+      "pending": "Cultos sem registro"
+    },
+    "people": {
+      "title": "Pessoas",
+      "total": "Na base",
+      "added": "Fichas novas",
+      "members": "Membros",
+      "visitors": "Visitantes e novos"
+    },
+    "cells": {
+      "title": "Células",
+      "active": "Ativas",
+      "held": "Reuniões",
+      "avgAttendance": "Presença média",
+      "visitors": "Visitas"
+    },
+    "consolidation": {
+      "title": "Consolidação",
+      "open": "Casos abertos",
+      "overdue": "Com etapas vencidas",
+      "unassigned": "Sem responsável",
+      "completed": "Concluídos"
+    },
+    "finance": {
+      "title": "Finanças",
+      "empty": "Sem movimentos no período.",
+      "income": "Receitas ({{currency}})",
+      "expense": "Despesas ({{currency}})",
+      "net": "Resultado ({{currency}})",
+      "pendingOfferings_one": "{{count}} oferta de célula para confirmar",
+      "pendingOfferings_other": "{{count}} ofertas de célula para confirmar"
+    },
+    "upcoming": {
+      "title": "Próximos eventos",
+      "empty": "Não há eventos nas próximas duas semanas."
+    }
   }
 }

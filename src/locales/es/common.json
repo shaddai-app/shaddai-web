@@ -74,8 +74,7 @@
   },
   "home": {
     "greeting": "¡Hola, {{name}}!",
-    "subtitle": "Bienvenido a {{church}}.",
-    "comingSoon": "Muy pronto vas a ver acá las estadísticas de asistencia, crecimiento, células y finanzas."
+    "subtitle": "Bienvenido a {{church}}."
   },
   "actions": {
     "save": "Guardar",
@@ -100,5 +99,60 @@
     "updateBody": "Actualizá cuando termines lo que estás haciendo.",
     "update": "Actualizar",
     "later": "Después"
+  },
+  "dashboard": {
+    "previous": "Período anterior: {{value}}",
+    "new": "nuevo",
+    "see": "Ver",
+    "review": "Revisar",
+    "comparedTo": "Comparado con el período anterior",
+    "periods": {
+      "7d": "7 días",
+      "30d": "30 días",
+      "90d": "90 días"
+    },
+    "newcomersPending_one": "{{count}} formulario de nuevos para revisar",
+    "newcomersPending_other": "{{count}} formularios de nuevos para revisar",
+    "attendance": {
+      "title": "Asistencia a cultos",
+      "avgInPerson": "Promedio presencial",
+      "avgOnline": "Promedio online",
+      "newcomers": "Primera vez",
+      "pending": "Cultos sin cargar"
+    },
+    "people": {
+      "title": "Personas",
+      "total": "En la base",
+      "added": "Fichas nuevas",
+      "members": "Miembros",
+      "visitors": "Visitantes y nuevos"
+    },
+    "cells": {
+      "title": "Células",
+      "active": "Activas",
+      "held": "Reuniones",
+      "avgAttendance": "Asistencia promedio",
+      "visitors": "Visitas"
+    },
+    "consolidation": {
+      "title": "Consolidación",
+      "open": "Casos abiertos",
+      "overdue": "Con pasos vencidos",
+      "unassigned": "Sin asignar",
+      "completed": "Completados"
+    },
+    "finance": {
+      "title": "Finanzas",
+      "empty": "Sin movimientos en el período.",
+      "income": "Ingresos ({{currency}})",
+      "expense": "Egresos ({{currency}})",
+      "net": "Resultado ({{currency}})",
+      "pendingOfferings_one": "{{count}} ofrenda de célula por confirmar",
+      "pendingOfferings_other": "{{count}} ofrendas de célula por confirmar"
+    },
+    "upcoming": {
+      "title": "Próximos eventos",
+      "empty": "No hay eventos en las próximas dos semanas."
+    }
   }
 }
