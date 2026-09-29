@@ -178,7 +178,15 @@
     "ATTENDANCE_FUTURE": "La asistencia se carga cuando empieza la reunión.",
     "ATTENDANCE_NEWCOMERS_EXCEED": "Los nuevos no pueden ser más que los presentes.",
     "ATTENDANCE_NOT_FOUND": "No hay asistencia cargada para esa fecha.",
-    "ATTENDANCE_RANGE_TOO_LONG": "Elegí un período de hasta {{days}} días."
+    "ATTENDANCE_RANGE_TOO_LONG": "Elegí un período de hasta {{days}} días.",
+    "MINISTRY_NOT_FOUND": "No encontramos ese ministerio.",
+    "MINISTRY_MANAGE_FORBIDDEN": "No podés gestionar este ministerio.",
+    "MINISTRY_CREATE_FORBIDDEN": "Crear ministerios necesita gestionar todos los ministerios.",
+    "MINISTRY_DELETE_FORBIDDEN": "Eliminar ministerios necesita gestionar todos los ministerios.",
+    "MINISTRY_LEADER_FORBIDDEN": "Nombrar o quitar líderes lo hace quien gestiona todos los ministerios.",
+    "MINISTRY_MEMBER_EXISTS": "Esa persona ya integra el ministerio.",
+    "SERVICE_ROLE_NOT_FOUND": "No encontramos ese puesto.",
+    "SERVICE_ROLE_ORDER_INVALID": "El orden de los puestos cambió; recargá la página."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

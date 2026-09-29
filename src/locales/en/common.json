@@ -56,7 +56,8 @@
     "financePeriods": "Monthly closes",
     "financeReports": "Reports",
     "calendar": "Calendar",
-    "attendance": "Attendance"
+    "attendance": "Attendance",
+    "ministries": "Ministries"
   },
   "userMenu": {
     "label": "User menu",

@@ -56,7 +56,8 @@
     "financePeriods": "Cierres",
     "financeReports": "Reportes",
     "calendar": "Calendario",
-    "attendance": "Asistencia"
+    "attendance": "Asistencia",
+    "ministries": "Ministerios"
   },
   "userMenu": {
     "label": "Menú de usuario",
