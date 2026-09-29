@@ -5,6 +5,7 @@ import type cells from '../locales/es/cells.json';
 import type calendar from '../locales/es/calendar.json';
 import type ministries from '../locales/es/ministries.json';
 import type worship from '../locales/es/worship.json';
+import type inventory from '../locales/es/inventory.json';
 import type finance from '../locales/es/finance.json';
 import type consolidation from '../locales/es/consolidation.json';
 import type common from '../locales/es/common.json';
@@ -33,6 +34,7 @@ declare module 'i18next' {
       calendar: typeof calendar;
       ministries: typeof ministries;
       worship: typeof worship;
+      inventory: typeof inventory;
     };
   }
 }

@@ -1,4 +1,5 @@
 import {
+  IconBox,
   IconBuildingBank,
   IconCalendar,
   IconCalendarUser,
@@ -55,6 +56,7 @@ export interface NavItem {
     | 'myAssignments'
     | 'songs'
     | 'setlists'
+    | 'inventory'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -176,6 +178,12 @@ const churchNav: NavSection[] = [
         label: 'setlists',
         icon: IconPlaylist,
         permissions: ['alabanza.ver'],
+      },
+      {
+        to: '/inventario',
+        label: 'inventory',
+        icon: IconBox,
+        permissions: ['inventario.ver'],
       },
       {
         to: '/finanzas',

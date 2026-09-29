@@ -204,7 +204,11 @@
     "SETLIST_TITLE_REQUIRED": "Poné un título a la lista.",
     "SETLIST_EDIT_FORBIDDEN": "No podés armar listas de canciones.",
     "SETLIST_RANGE_TOO_LONG": "Elegí un período de hasta {{days}} días.",
-    "SONG_INVALID": "Alguna canción no existe o fue eliminada."
+    "SONG_INVALID": "Alguna canción no existe o fue eliminada.",
+    "INVENTORY_ITEM_NOT_FOUND": "No encontramos ese equipo.",
+    "INVENTORY_CODE_IN_USE": "Ya hay otro equipo con ese código.",
+    "INVENTORY_CATEGORY_INVALID": "Elegí una categoría de inventario.",
+    "INVENTORY_MAINTENANCE_NOT_FOUND": "No encontramos ese registro de mantenimiento."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

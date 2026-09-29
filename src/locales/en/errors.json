@@ -204,7 +204,11 @@
     "SETLIST_TITLE_REQUIRED": "Give the setlist a title.",
     "SETLIST_EDIT_FORBIDDEN": "You cannot build setlists.",
     "SETLIST_RANGE_TOO_LONG": "Choose a period of up to {{days}} days.",
-    "SONG_INVALID": "Some song does not exist or was deleted."
+    "SONG_INVALID": "Some song does not exist or was deleted.",
+    "INVENTORY_ITEM_NOT_FOUND": "We could not find that item.",
+    "INVENTORY_CODE_IN_USE": "Another item already has that code.",
+    "INVENTORY_CATEGORY_INVALID": "Choose an inventory category.",
+    "INVENTORY_MAINTENANCE_NOT_FOUND": "We could not find that maintenance record."
   },
   "validation": {
     "required": "This field is required.",
