@@ -186,7 +186,18 @@
     "MINISTRY_LEADER_FORBIDDEN": "Only those who manage all ministries can appoint or remove leaders.",
     "MINISTRY_MEMBER_EXISTS": "That person is already a member of the ministry.",
     "SERVICE_ROLE_NOT_FOUND": "We could not find that position.",
-    "SERVICE_ROLE_ORDER_INVALID": "The order of the positions changed; reload the page."
+    "SERVICE_ROLE_ORDER_INVALID": "The order of the positions changed; reload the page.",
+    "ASSIGNMENTS_FORBIDDEN": "You cannot build this ministry’s rota.",
+    "ASSIGNMENT_EXISTS": "That person is already in that position on that date.",
+    "ASSIGNMENT_NOT_MEMBER": "Only ministry members can be assigned.",
+    "ASSIGNMENT_PAST": "That date has already passed.",
+    "ASSIGNMENT_NOT_FOUND": "We could not find that assignment.",
+    "SERVICE_ROLE_INACTIVE": "That position is deactivated.",
+    "SERVICE_ROLE_IN_USE": "The position has assignments: deactivate it instead of deleting it.",
+    "SCHEDULE_RANGE_TOO_LONG": "Choose a period of up to {{days}} days.",
+    "PERSON_NOT_LINKED": "Your user is not linked to a person record.",
+    "UNAVAILABILITY_TOO_LONG": "Choose a period of up to {{days}} days.",
+    "UNAVAILABILITY_NOT_FOUND": "We could not find those dates."
   },
   "validation": {
     "required": "This field is required.",

@@ -74,5 +74,66 @@
       "coleader": "Colíder",
       "servant": "Servidor"
     }
+  },
+  "schedule": {
+    "open": "Turnos",
+    "title": "Turnos",
+    "titleOf": "Turnos de {{name}}",
+    "description": "Quién sirve en cada puesto en las próximas fechas.",
+    "backToMinistry": "Volver al ministerio",
+    "previous": "Semanas anteriores",
+    "next": "Semanas siguientes",
+    "range": "Del {{from}} al {{to}}",
+    "weekOf": "Semana del {{date}}",
+    "coverage": "{{covered}} de {{total}} puestos",
+    "assignTo": "Asignar en {{role}}",
+    "noMembers": "El ministerio no tiene integrantes.",
+    "noRoles": "Este ministerio todavía no tiene puestos. Agregalos en la ficha del ministerio.",
+    "empty": "No hay fechas en este período.",
+    "remove": "Quitar a {{name}}",
+    "assigned": "Turno asignado",
+    "assignedWithWarnings": "Turno asignado. Ojo:",
+    "status": {
+      "pending": "Sin confirmar",
+      "accepted": "Confirmado",
+      "declined": "No puede"
+    },
+    "warn": {
+      "unavailable": "Avisó que no está",
+      "unavailableWhy": "Avisó que no está ({{reason}})",
+      "sameDate": "Ya está en {{role}} esa fecha",
+      "elsewhere": "Ya sirve en {{ministry}} ({{role}})"
+    }
+  },
+  "mine": {
+    "title": "Mis turnos",
+    "description": "Tus próximos turnos en los ministerios y las fechas en las que no podés servir.",
+    "notLinked": "Tu usuario no está vinculado a una ficha de persona, así que no podemos mostrarte turnos. Pedile al administrador que lo vincule.",
+    "empty": "No tenés turnos asignados.",
+    "pendingCount_one": "Tenés {{count}} turno sin confirmar.",
+    "pendingCount_other": "Tenés {{count}} turnos sin confirmar.",
+    "team": "Con:",
+    "accept": "Confirmo",
+    "decline": "No puedo",
+    "accepted": "Turno confirmado",
+    "declined": "Avisamos que no podés",
+    "declineTitle": "No puedo: {{role}} en {{event}}",
+    "reason": "Motivo (opcional)",
+    "reasonPlaceholder": "Ej.: estoy de viaje ese fin de semana",
+    "yourReason": "Tu motivo: {{reason}}",
+    "unavailable": {
+      "title": "Fechas en las que no estoy",
+      "hint": "Quien arma los turnos lo ve al asignarte.",
+      "from": "Desde",
+      "to": "Hasta",
+      "range": "Del {{from}} al {{to}}",
+      "reason": "Motivo (opcional)",
+      "reasonPlaceholder": "Ej.: vacaciones",
+      "add": "Agregar",
+      "added": "Fechas guardadas",
+      "remove": "Quitar estas fechas",
+      "conflicts_one": "Fechas guardadas. Ya tenés {{count}} turno en esas fechas: avisá que no podés.",
+      "conflicts_other": "Fechas guardadas. Ya tenés {{count}} turnos en esas fechas: avisá que no podés."
+    }
   }
 }

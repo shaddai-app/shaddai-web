@@ -74,5 +74,66 @@
       "coleader": "Co-leader",
       "servant": "Servant"
     }
+  },
+  "schedule": {
+    "open": "Rota",
+    "title": "Rota",
+    "titleOf": "{{name}} rota",
+    "description": "Who serves in each position on the upcoming dates.",
+    "backToMinistry": "Back to the ministry",
+    "previous": "Previous weeks",
+    "next": "Next weeks",
+    "range": "{{from}} to {{to}}",
+    "weekOf": "Week of {{date}}",
+    "coverage": "{{covered}} of {{total}} positions",
+    "assignTo": "Assign to {{role}}",
+    "noMembers": "The ministry has no members.",
+    "noRoles": "This ministry has no positions yet. Add them on the ministry page.",
+    "empty": "There are no dates in this period.",
+    "remove": "Remove {{name}}",
+    "assigned": "Assigned",
+    "assignedWithWarnings": "Assigned. Note:",
+    "status": {
+      "pending": "Not confirmed",
+      "accepted": "Confirmed",
+      "declined": "Can’t make it"
+    },
+    "warn": {
+      "unavailable": "Said they are away",
+      "unavailableWhy": "Said they are away ({{reason}})",
+      "sameDate": "Already in {{role}} that date",
+      "elsewhere": "Already serving in {{ministry}} ({{role}})"
+    }
+  },
+  "mine": {
+    "title": "My rota",
+    "description": "Your upcoming ministry assignments and the dates you cannot serve.",
+    "notLinked": "Your user is not linked to a person record, so we cannot show your assignments. Ask the administrator to link it.",
+    "empty": "You have no assignments.",
+    "pendingCount_one": "You have {{count}} assignment to confirm.",
+    "pendingCount_other": "You have {{count}} assignments to confirm.",
+    "team": "With:",
+    "accept": "Confirm",
+    "decline": "Can’t make it",
+    "accepted": "Assignment confirmed",
+    "declined": "We let them know you can’t make it",
+    "declineTitle": "Can’t make it: {{role}} at {{event}}",
+    "reason": "Reason (optional)",
+    "reasonPlaceholder": "E.g. I am away that weekend",
+    "yourReason": "Your reason: {{reason}}",
+    "unavailable": {
+      "title": "Dates I am away",
+      "hint": "Whoever builds the rota sees it when assigning you.",
+      "from": "From",
+      "to": "To",
+      "range": "{{from}} to {{to}}",
+      "reason": "Reason (optional)",
+      "reasonPlaceholder": "E.g. holidays",
+      "add": "Add",
+      "added": "Dates saved",
+      "remove": "Remove these dates",
+      "conflicts_one": "Dates saved. You already have {{count}} assignment on those dates: let them know.",
+      "conflicts_other": "Dates saved. You already have {{count}} assignments on those dates: let them know."
+    }
   }
 }

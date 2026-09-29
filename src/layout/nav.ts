@@ -1,6 +1,7 @@
 import {
   IconBuildingBank,
   IconCalendar,
+  IconCalendarUser,
   IconBuildingChurch,
   IconBuildingCommunity,
   IconCategory,
@@ -49,6 +50,7 @@ export interface NavItem {
     | 'calendar'
     | 'attendance'
     | 'ministries'
+    | 'myAssignments'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -157,6 +159,8 @@ const churchNav: NavSection[] = [
         icon: IconUserStar,
         permissions: ['ministerios.ver'],
       },
+      // Sin permisos: cualquiera ve sus turnos (si su usuario está vinculado a una ficha).
+      { to: '/mis-turnos', label: 'myAssignments', icon: IconCalendarUser },
       {
         to: '/finanzas',
         label: 'finance',

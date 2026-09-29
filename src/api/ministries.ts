@@ -1,3 +1,4 @@
+import type { EventType, LocalDateTime } from './calendar';
 import { api } from './http';
 
 export const MINISTRY_KINDS = ['general', 'worship', 'tech', 'kids', 'ushers'] as const;
@@ -85,4 +86,93 @@ export const ministriesApi = {
     api.put<Ministry>(`/ministries/${id}/service-roles/order`, { ids }),
   removeRole: (id: number, roleId: number) =>
     api.delete<Ministry>(`/ministries/${id}/service-roles/${roleId}`),
+};
+
+// ── Turnos ────────────────────────────────────────────────────────────────
+export type AssignmentStatus = 'pending' | 'accepted' | 'declined';
+
+export interface ScheduleAssignment {
+  id: number;
+  serviceRoleId: number;
+  status: AssignmentStatus;
+  declineReason: string | null;
+  notes: string | null;
+  person: PersonRef;
+}
+
+export interface ScheduleOccurrence {
+  eventId: number;
+  title: string;
+  type: EventType;
+  startsAt: LocalDateTime;
+  endsAt: LocalDateTime;
+  originalStart: LocalDateTime;
+  cancelled: boolean;
+  assignments: ScheduleAssignment[];
+}
+
+export interface Schedule {
+  from: string;
+  to: string;
+  ministry: { id: number; name: string; color: string | null };
+  canAssign: boolean;
+  roles: { id: number; name: string; isActive: boolean }[];
+  members: (PersonRef & { role: MemberRole })[];
+  occurrences: ScheduleOccurrence[];
+  unavailability: { personId: number; fromDate: string; toDate: string; reason: string | null }[];
+  /** Turnos de los integrantes en otros ministerios (para advertir). */
+  elsewhere: {
+    personId: number;
+    eventId: number;
+    occurrence: LocalDateTime;
+    ministry: string;
+    role: string;
+  }[];
+}
+
+export type AssignmentWarning =
+  | { code: 'UNAVAILABLE'; reason: string | null }
+  | { code: 'ALREADY_ASSIGNED'; ministry: string; role: string };
+
+export interface MyAssignment {
+  id: number;
+  status: AssignmentStatus;
+  declineReason: string | null;
+  notes: string | null;
+  ministry: { id: number; name: string; color: string | null };
+  role: string;
+  event: { id: number; title: string; type: EventType; location: string | null; allDay: boolean };
+  occurrence: LocalDateTime;
+  startsAt: LocalDateTime;
+  endsAt: LocalDateTime;
+  cancelled: boolean;
+  team: { role: string; status: AssignmentStatus; person: PersonRef }[];
+}
+
+export interface Unavailability {
+  id: number;
+  fromDate: string;
+  toDate: string;
+  reason: string | null;
+}
+
+export const assignmentsApi = {
+  schedule: (ministryId: number, q: { from: string; to: string; types: string }) =>
+    api.get<Schedule>(`/ministries/${ministryId}/schedule`, q),
+  assign: (
+    ministryId: number,
+    body: { eventId: number; occurrence: LocalDateTime; serviceRoleId: number; personId: number },
+  ) => api.post<{ id: number; warnings: AssignmentWarning[] }>(`/ministries/${ministryId}/assignments`, body),
+  unassign: (ministryId: number, id: number) => api.delete(`/ministries/${ministryId}/assignments/${id}`),
+  mine: () => api.get<{ linked: boolean; items: MyAssignment[] }>('/me/assignments'),
+  respond: (id: number, response: 'accept' | 'decline', reason?: string | null) =>
+    api.post<{ linked: boolean; items: MyAssignment[] }>(`/me/assignments/${id}/respond`, {
+      response,
+      reason,
+    }),
+  unavailability: () => api.get<{ linked: boolean; items: Unavailability[] }>('/me/unavailability'),
+  addUnavailability: (body: { fromDate: string; toDate: string; reason: string | null }) =>
+    api.post<{ conflicts: number; linked: boolean; items: Unavailability[] }>('/me/unavailability', body),
+  removeUnavailability: (id: number) =>
+    api.delete<{ linked: boolean; items: Unavailability[] }>(`/me/unavailability/${id}`),
 };
