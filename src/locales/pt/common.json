@@ -161,5 +161,11 @@
       "title": "Próximos eventos",
       "empty": "Não há eventos nas próximas duas semanas."
     }
+  },
+  "crash": {
+    "title": "Algo deu errado",
+    "body": "Ocorreu um erro inesperado ao mostrar esta tela. Tente de novo; se continuar, avise o administrador da sua igreja.",
+    "retry": "Tentar de novo",
+    "home": "Ir para o início"
   }
 }

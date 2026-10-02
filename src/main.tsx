@@ -4,14 +4,18 @@ import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Providers } from './app/providers';
 import { queryClient } from './app/query-client';
-import { PageLoader } from './routes/__root';
+import { initSentry } from './app/sentry';
+import { PageLoader, RouteError } from './routes/__root';
 import { routeTree } from './routeTree.gen';
+
+initSentry();
 
 const router = createRouter({
   routeTree,
   context: { queryClient },
   defaultPreload: 'intent',
   defaultPendingComponent: PageLoader,
+  defaultErrorComponent: RouteError,
   scrollRestoration: true,
 });
 

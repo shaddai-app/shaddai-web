@@ -1,9 +1,15 @@
-import { Center, Loader, Stack, Text, Title } from '@mantine/core';
+import { Button, Center, Group, Loader, Stack, Text, Title } from '@mantine/core';
 import { useQueryClient, type QueryClient } from '@tanstack/react-query';
-import { createRootRouteWithContext, Outlet, useRouter } from '@tanstack/react-router';
+import {
+  createRootRouteWithContext,
+  Outlet,
+  useRouter,
+  type ErrorComponentProps,
+} from '@tanstack/react-router';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sessionEvents } from '../api/http';
+import { reportError } from '../app/sentry';
 import { PwaUpdater } from '../pwa/PwaUpdater';
 
 export interface RouterContext {
@@ -69,6 +75,34 @@ function NotFound() {
       <Stack align="center" gap="xs">
         <Title order={1}>404</Title>
         <Text c="dimmed">{t('notFound')}</Text>
+      </Stack>
+    </Center>
+  );
+}
+
+/** Error no previsto al mostrar una pantalla: se reporta y se ofrece reintentar sin perder la sesión. */
+export function RouteError({ error, reset }: ErrorComponentProps) {
+  const { t } = useTranslation();
+  const router = useRouter();
+  useEffect(() => reportError(error), [error]);
+  return (
+    <Center mih="60vh" px="md">
+      <Stack align="center" gap="sm" maw={420} ta="center">
+        <Title order={2}>{t('crash.title')}</Title>
+        <Text c="dimmed">{t('crash.body')}</Text>
+        <Group justify="center">
+          <Button
+            onClick={() => {
+              reset();
+              void router.invalidate();
+            }}
+          >
+            {t('crash.retry')}
+          </Button>
+          <Button variant="default" onClick={() => window.location.assign('/')}>
+            {t('crash.home')}
+          </Button>
+        </Group>
       </Stack>
     </Center>
   );

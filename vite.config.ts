@@ -1,11 +1,12 @@
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { securityHeaders } from './build/security-headers';
 
 const apiProxy = { '/api': { target: 'http://localhost:3000', changeOrigin: false } };
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     tanstackRouter({ target: 'react', autoCodeSplitting: true }),
     react(),
@@ -48,6 +49,8 @@ export default defineConfig({
         ],
       },
     }),
+    // CSP y headers de seguridad: dist/staticwebapp.config.json y los mismos en vite preview.
+    securityHeaders(loadEnv(mode, process.cwd(), 'VITE_')),
   ],
   server: {
     port: 5173,
@@ -57,4 +60,4 @@ export default defineConfig({
   },
   // `vite preview` (build con service worker) también necesita la API en el mismo origen.
   preview: { port: 4173, strictPort: true, proxy: apiProxy },
-});
+}));
