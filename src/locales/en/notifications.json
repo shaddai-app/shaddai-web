@@ -1,0 +1,50 @@
+{
+  "title": "Notifications",
+  "description": "Your notices: schedules and reminders.",
+  "bell": "Notifications",
+  "unread_one": "{{count}} unread",
+  "unread_other": "{{count}} unread",
+  "markAllRead": "Mark all as read",
+  "seeAll": "See all",
+  "empty": "You have no notifications.",
+  "emptyUnread": "You have no unread notifications.",
+  "onlyUnread": "Unread only",
+  "loadMore": "Load more",
+  "settings": "Notification settings",
+  "types": {
+    "assignment": {
+      "created": {
+        "title": "You were scheduled",
+        "body": "{{role}} at {{event}} ({{ministry}}), {{date}}."
+      },
+      "declined": {
+        "title": "{{person}} can’t serve",
+        "body": "{{role}} at {{event}} ({{ministry}}), {{date}}."
+      }
+    },
+    "unknown": {
+      "title": "Notice",
+      "body": ""
+    }
+  },
+  "reason": "Reason: {{reason}}",
+  "prefs": {
+    "title": "Notifications",
+    "description": "Choose which notices you get in the app and by email.",
+    "inApp": "In the app",
+    "email": "By email",
+    "saved": "Preferences saved",
+    "types": {
+      "assignment": {
+        "created": {
+          "label": "I’m scheduled to serve",
+          "hint": "When you are scheduled in a ministry."
+        },
+        "declined": {
+          "label": "Someone can’t serve",
+          "hint": "In schedules you made or ministries you lead."
+        }
+      }
+    }
+  }
+}

@@ -39,6 +39,7 @@ void i18n
       'ministries',
       'worship',
       'inventory',
+      'notifications',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },
