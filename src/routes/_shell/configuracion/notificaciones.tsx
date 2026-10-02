@@ -47,6 +47,9 @@ function NotificationPrefsPage() {
   return (
     <>
       <PageHeader title={t('prefs.title')} description={t('prefs.description')} />
+      <Text size="sm" c="dimmed" mb="md" maw={720}>
+        {t('prefs.dailyHint')}
+      </Text>
       {query.isPending ? (
         <Loader />
       ) : query.isError ? (

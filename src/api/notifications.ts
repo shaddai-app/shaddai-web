@@ -1,6 +1,12 @@
 import { api } from './http';
 
-export const NOTIFICATION_TYPES = ['assignment.created', 'assignment.declined'] as const;
+export const NOTIFICATION_TYPES = [
+  'assignment.created',
+  'assignment.declined',
+  'loan.overdue',
+  'consolidation.overdue',
+  'cell.report_missing',
+] as const;
 export type NotificationType = (typeof NOTIFICATION_TYPES)[number];
 
 export interface AppNotification {
