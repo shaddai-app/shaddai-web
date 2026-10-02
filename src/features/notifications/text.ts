@@ -16,12 +16,21 @@ export function useNotificationText() {
     (n: AppNotification) => {
       if (!known(n.type)) return { title: t('types.unknown.title'), body: '' };
       const p = n.params;
-      // startsAt es la hora local de la iglesia ("2026-10-04T10:00").
-      const date = typeof p.startsAt === 'string' ? dayjs(p.startsAt).format('ddd L LT') : '';
+      // startsAt: hora local de la iglesia ("2026-10-04T10:00"); dueAt/date: día ("2026-10-04").
+      const day = p.dueAt ?? p.date;
+      const date =
+        typeof p.startsAt === 'string'
+          ? dayjs(p.startsAt).format('ddd L LT')
+          : typeof day === 'string'
+            ? dayjs(day).format('L')
+            : '';
       const values = { ...p, date };
       const body = [
         t(`types.${n.type}.body`, values),
         ...(n.type === 'assignment.declined' && p.reason ? [t('reason', { reason: p.reason })] : []),
+        ...(n.type === 'consolidation.overdue' && p.unassigned
+          ? [t('types.consolidation.overdue.unassigned')]
+          : []),
       ];
       return { title: t(`types.${n.type}.title`, values), body: body.join(' ') };
     },

@@ -22,6 +22,25 @@
         "body": "{{role}} em {{event}} ({{ministry}}), {{date}}."
       }
     },
+    "loan": {
+      "overdue": {
+        "title": "Empréstimo vencido: {{item}}",
+        "body": "{{person}} estava com ele até {{date}} ({{code}})."
+      }
+    },
+    "consolidation": {
+      "overdue": {
+        "title": "Acompanhamento vencido: {{person}}",
+        "body": "A etapa atual venceu em {{date}}.",
+        "unassigned": "O caso não tem consolidador."
+      }
+    },
+    "cell": {
+      "report_missing": {
+        "title": "Falta o relatório de {{cell}}",
+        "body": "Reunião de {{date}}."
+      }
+    },
     "unknown": {
       "title": "Aviso",
       "body": ""
@@ -44,7 +63,26 @@
           "label": "Alguém não pode servir",
           "hint": "Nas escalas que você fez ou nos ministérios que lidera."
         }
+      },
+      "loan": {
+        "overdue": {
+          "label": "Empréstimo vencido",
+          "hint": "Se você pode emprestar equipamentos: cada empréstimo que passa do vencimento."
+        }
+      },
+      "consolidation": {
+        "overdue": {
+          "label": "Acompanhamento vencido",
+          "hint": "Nos casos que você acompanha (ou, se designa casos, os que não têm consolidador)."
+        }
+      },
+      "cell": {
+        "report_missing": {
+          "label": "Falta o relatório da minha célula",
+          "hint": "Quando passam dois dias da reunião sem relatório."
+        }
       }
-    }
+    },
+    "dailyHint": "Os avisos de vencidos são verificados uma vez por dia, de manhã."
   }
 }

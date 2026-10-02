@@ -22,6 +22,25 @@
         "body": "{{role}} at {{event}} ({{ministry}}), {{date}}."
       }
     },
+    "loan": {
+      "overdue": {
+        "title": "Overdue loan: {{item}}",
+        "body": "{{person}} had it until {{date}} ({{code}})."
+      }
+    },
+    "consolidation": {
+      "overdue": {
+        "title": "Overdue follow-up: {{person}}",
+        "body": "The current step was due on {{date}}.",
+        "unassigned": "The case has no consolidator."
+      }
+    },
+    "cell": {
+      "report_missing": {
+        "title": "Missing report: {{cell}}",
+        "body": "Meeting on {{date}}."
+      }
+    },
     "unknown": {
       "title": "Notice",
       "body": ""
@@ -44,7 +63,26 @@
           "label": "Someone can’t serve",
           "hint": "In schedules you made or ministries you lead."
         }
+      },
+      "loan": {
+        "overdue": {
+          "label": "Overdue loan",
+          "hint": "If you can lend equipment: each loan that passes its due date."
+        }
+      },
+      "consolidation": {
+        "overdue": {
+          "label": "Overdue follow-up",
+          "hint": "In the cases you follow (or, if you assign cases, those without a consolidator)."
+        }
+      },
+      "cell": {
+        "report_missing": {
+          "label": "My cell’s report is missing",
+          "hint": "When two days pass after the meeting without a report."
+        }
       }
-    }
+    },
+    "dailyHint": "Overdue notices are checked once a day, in the morning."
   }
 }
