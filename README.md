@@ -63,3 +63,10 @@ src/features/   módulos de negocio
 - Tema claro / oscuro / según el sistema (toggle en el header), sin parpadeo al cargar. El color primario lo elige cada cuenta entre 6 presets sobrios.
 
 Ver [CONTRIBUTING.md](CONTRIBUTING.md) para ramas y commits.
+
+## Producción y seguridad
+
+- `npm run build` genera `dist/staticwebapp.config.json` (Azure Static Web Apps) con la CSP y los headers de seguridad (`build/security-headers.ts`). `npm run preview` sirve los mismos headers, así se prueban antes de publicar.
+- La CSP solo deja conectarse a la API y a Sentry configurados **al compilar** (`VITE_API_BASE`, `VITE_SENTRY_DSN`): si cambian, hay que recompilar.
+- Sentry se activa con `VITE_SENTRY_DSN` y no envía datos personales (`src/app/sentry.ts`).
+- Decisiones de infraestructura y revisión de seguridad: `docs/produccion.md` y `docs/seguridad.md` en shaddai-api.

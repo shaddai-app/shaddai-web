@@ -161,5 +161,11 @@
       "title": "Próximos eventos",
       "empty": "No hay eventos en las próximas dos semanas."
     }
+  },
+  "crash": {
+    "title": "Algo salió mal",
+    "body": "Hubo un error inesperado al mostrar esta pantalla. Probá de nuevo; si se repite, avisale al administrador de tu iglesia.",
+    "retry": "Reintentar",
+    "home": "Ir al inicio"
   }
 }
