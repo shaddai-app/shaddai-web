@@ -10,6 +10,7 @@ import {
   IconCoin,
   IconCoins,
   IconHourglass,
+  IconArrowsExchange,
   IconLock,
   IconMusic,
   IconPlaylist,
@@ -57,6 +58,7 @@ export interface NavItem {
     | 'songs'
     | 'setlists'
     | 'inventory'
+    | 'loans'
     | 'financeAccounts'
     | 'financeCategories'
     | 'cells'
@@ -184,6 +186,13 @@ const churchNav: NavSection[] = [
         label: 'inventory',
         icon: IconBox,
         permissions: ['inventario.ver'],
+        excludeActive: ['/inventario/prestamos'],
+      },
+      {
+        to: '/inventario/prestamos',
+        label: 'loans',
+        icon: IconArrowsExchange,
+        permissions: ['inventario.prestamos'],
       },
       {
         to: '/finanzas',

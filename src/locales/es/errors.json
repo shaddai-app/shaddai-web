@@ -208,7 +208,13 @@
     "INVENTORY_ITEM_NOT_FOUND": "No encontramos ese equipo.",
     "INVENTORY_CODE_IN_USE": "Ya hay otro equipo con ese código.",
     "INVENTORY_CATEGORY_INVALID": "Elegí una categoría de inventario.",
-    "INVENTORY_MAINTENANCE_NOT_FOUND": "No encontramos ese registro de mantenimiento."
+    "INVENTORY_MAINTENANCE_NOT_FOUND": "No encontramos ese registro de mantenimiento.",
+    "LOAN_NOT_FOUND": "No encontramos ese préstamo.",
+    "LOAN_DATE_INVALID": "La fecha del préstamo no puede ser futura.",
+    "LOAN_DUE_INVALID": "El vencimiento no puede ser anterior a la fecha del préstamo.",
+    "LOAN_ALREADY_RETURNED": "Ese préstamo ya se devolvió.",
+    "INVENTORY_ITEM_ON_LOAN": "El equipo está prestado: primero registrá la devolución.",
+    "INVENTORY_ITEM_UNAVAILABLE": "El equipo está en reparación o de baja: no se puede prestar."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

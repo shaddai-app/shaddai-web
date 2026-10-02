@@ -61,7 +61,8 @@
     "myAssignments": "My rota",
     "songs": "Songs",
     "setlists": "Setlists",
-    "inventory": "Inventory"
+    "inventory": "Inventory",
+    "loans": "Loans"
   },
   "userMenu": {
     "label": "User menu",

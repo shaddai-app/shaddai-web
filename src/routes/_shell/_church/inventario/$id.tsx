@@ -39,6 +39,7 @@ import { useFileUrl } from '../../../../components/use-file-url';
 import { useChurchCurrency, useMoney } from '../../../../features/finance/common';
 import { STATUS_COLORS, useCategoryLabel } from '../../../../features/inventory/common';
 import { ItemFormModal } from '../../../../features/inventory/ItemFormModal';
+import { LoanCard } from '../../../../features/inventory/LoanCard';
 import { MaintenanceModal } from '../../../../features/inventory/MaintenanceModal';
 import { formatDate } from '../../../../features/people/format';
 import { errorMessage } from '../../../../i18n/errors';
@@ -185,6 +186,7 @@ function ItemPage() {
   const [addingMaintenance, setAddingMaintenance] = useState(false);
   const query = useQuery({ queryKey: ['inventory', 'detail', id], queryFn: () => inventoryApi.get(id) });
   const manage = can(me, 'inventario.gestionar');
+  const canLend = can(me, 'inventario.prestamos');
 
   if (query.isPending) return <Loader />;
   if (query.isError) return <FormError error={query.error} />;
@@ -274,6 +276,7 @@ function ItemPage() {
       <Grid gap="md" maw={1100}>
         <Grid.Col span={{ base: 12, md: 8 }}>
           <Stack gap="md">
+            <LoanCard item={item} canLend={canLend} />
             <Card withBorder radius="lg">
               <Title order={2} size="h6" mb="sm">
                 {t('details.title')}

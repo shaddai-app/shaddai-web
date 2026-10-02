@@ -19,6 +19,13 @@ export interface InventoryListItem {
   photoFileId: number | null;
   category: CategoryRef;
   campus: Ref | null;
+  /** Préstamo abierto (sin la persona: eso requiere inventario.prestamos). */
+  loan: OpenLoan | null;
+}
+
+export interface OpenLoan {
+  dueAt: string;
+  overdue: boolean;
 }
 
 export interface Maintenance {
@@ -73,6 +80,7 @@ export type InventoryListQuery = {
   campusId?: number;
   status?: ItemStatus;
   includeRetired?: boolean;
+  onLoan?: boolean;
   page?: number;
   pageSize?: number;
 };
@@ -84,7 +92,7 @@ export const inventoryApi = {
       total: number;
       page: number;
       pageSize: number;
-      counts: Record<ItemStatus, number>;
+      counts: Record<ItemStatus | 'onLoan', number>;
     }>('/inventory/items', q),
   get: (id: number) => api.get<InventoryItem>(`/inventory/items/${id}`),
   create: (body: ItemInput) => api.post<InventoryItem>('/inventory/items', body),
@@ -103,4 +111,67 @@ export const inventoryApi = {
   label: (id: number) => apiRequest<Blob>(`/inventory/items/${id}/label.pdf`, { blob: true }),
   labels: (ids: number[]) =>
     apiRequest<Blob>('/inventory/labels.pdf', { query: { ids: ids.join(',') }, blob: true }),
+};
+
+// ── Préstamos ─────────────────────────────────────────────────────────────
+export const LOAN_STATES = ['open', 'overdue', 'returned', 'all'] as const;
+export type LoanState = (typeof LOAN_STATES)[number];
+
+export interface Borrower {
+  id: number;
+  firstName: string;
+  lastName: string;
+  phone: string | null;
+}
+
+export interface Loan {
+  id: number;
+  borrowedAt: string;
+  dueAt: string;
+  returnedAt: string | null;
+  conditionOut: string | null;
+  conditionIn: string | null;
+  notes: string | null;
+  createdAt: string;
+  overdue: boolean;
+  daysOverdue: number;
+  item: { id: number; code: string; name: string; status: ItemStatus; deleted: boolean };
+  borrower: Borrower & { photoFileId: number | null };
+}
+
+export interface LoanInput {
+  itemId: number;
+  borrowerPersonId: number;
+  borrowedAt?: string;
+  dueAt: string;
+  conditionOut: string | null;
+  notes: string | null;
+}
+
+export type LoansQuery = {
+  state?: LoanState;
+  q?: string;
+  itemId?: number;
+  personId?: number;
+  page?: number;
+  pageSize?: number;
+};
+
+export const loansApi = {
+  list: (q: LoansQuery) =>
+    api.get<{
+      items: Loan[];
+      total: number;
+      page: number;
+      pageSize: number;
+      counts: { open: number; overdue: number };
+    }>('/inventory/loans', q),
+  get: (id: number) => api.get<Loan>(`/inventory/loans/${id}`),
+  create: (body: LoanInput) => api.post<Loan>('/inventory/loans', body),
+  update: (id: number, body: { dueAt?: string; notes?: string | null }) =>
+    api.patch<Loan>(`/inventory/loans/${id}`, body),
+  giveBack: (id: number, body: { conditionIn: string | null; status?: Exclude<ItemStatus, 'retired'> }) =>
+    api.post<Loan>(`/inventory/loans/${id}/return`, body),
+  remove: (id: number) => api.delete(`/inventory/loans/${id}`),
+  borrowers: (q: string) => api.get<{ items: Borrower[] }>('/inventory/borrowers', { q }),
 };

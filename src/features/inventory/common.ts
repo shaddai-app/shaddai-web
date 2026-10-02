@@ -1,6 +1,9 @@
+import dayjs from 'dayjs';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { InventoryListItem, ItemStatus } from '../../api/inventory';
 import { useCatalogLabel } from '../people/catalog';
+import { formatDate, todayIso } from '../people/format';
 
 export const STATUS_COLORS: Record<ItemStatus, string> = {
   ok: 'teal',
@@ -43,3 +46,15 @@ export const detectorCtor = () => (window as unknown as { BarcodeDetector?: Dete
 /** Si se puede leer un QR con la cámara desde la app. */
 export const canScan = () =>
   typeof window !== 'undefined' && !!detectorCtor() && !!navigator.mediaDevices?.getUserMedia;
+
+/** Texto del vencimiento de un préstamo abierto: vencido hace N días, vence hoy o vence el …. */
+export function useDueLabel() {
+  const { t } = useTranslation('inventory');
+  return (loan: { dueAt: string; overdue: boolean }) => {
+    if (loan.overdue) {
+      return t('loans.overdueSince', { count: dayjs(todayIso()).diff(dayjs(loan.dueAt), 'day') });
+    }
+    if (loan.dueAt === todayIso()) return t('loans.dueToday');
+    return t('loans.dueOn', { date: formatDate(loan.dueAt) });
+  };
+}
