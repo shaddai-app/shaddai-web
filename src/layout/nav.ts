@@ -1,5 +1,6 @@
 import {
   IconBox,
+  IconBell,
   IconBuildingBank,
   IconCalendar,
   IconCalendarUser,
@@ -69,6 +70,7 @@ export interface NavItem {
     | 'campuses'
     | 'profile'
     | 'security'
+    | 'notifications'
     | 'accounts'
     | 'users'
     | 'roles'
@@ -99,6 +101,15 @@ const settingsSection: NavSection = {
   items: [
     { to: '/configuracion/perfil', label: 'profile', icon: IconUserCircle, mobile: true },
     { to: '/configuracion/seguridad', label: 'security', icon: IconShieldLock },
+  ],
+};
+
+// En una iglesia, además, las preferencias de avisos (el panel de plataforma no tiene avisos).
+const churchSettingsSection: NavSection = {
+  ...settingsSection,
+  items: [
+    ...settingsSection.items,
+    { to: '/configuracion/notificaciones', label: 'notifications', icon: IconBell },
   ],
 };
 
@@ -278,7 +289,7 @@ const churchNav: NavSection[] = [
       { to: '/admin/auditoria', label: 'audit', icon: IconHistory, permissions: ['auditoria.ver'] },
     ],
   },
-  settingsSection,
+  churchSettingsSection,
 ];
 
 const platformNav: NavSection[] = [

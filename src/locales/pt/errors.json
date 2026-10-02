@@ -214,7 +214,8 @@
     "LOAN_DUE_INVALID": "O vencimento não pode ser anterior à data do empréstimo.",
     "LOAN_ALREADY_RETURNED": "Esse empréstimo já foi devolvido.",
     "INVENTORY_ITEM_ON_LOAN": "O equipamento está emprestado: registre a devolução primeiro.",
-    "INVENTORY_ITEM_UNAVAILABLE": "O equipamento está em conserto ou baixado: não pode ser emprestado."
+    "INVENTORY_ITEM_UNAVAILABLE": "O equipamento está em conserto ou baixado: não pode ser emprestado.",
+    "NOTIFICATION_NOT_FOUND": "Não encontramos essa notificação."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

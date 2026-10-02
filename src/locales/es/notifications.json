@@ -1,0 +1,50 @@
+{
+  "title": "Notificaciones",
+  "description": "Tus avisos: turnos y recordatorios.",
+  "bell": "Notificaciones",
+  "unread_one": "{{count}} sin leer",
+  "unread_other": "{{count}} sin leer",
+  "markAllRead": "Marcar todas como leídas",
+  "seeAll": "Ver todas",
+  "empty": "No tenés notificaciones.",
+  "emptyUnread": "No tenés notificaciones sin leer.",
+  "onlyUnread": "Solo sin leer",
+  "loadMore": "Ver más",
+  "settings": "Configurar avisos",
+  "types": {
+    "assignment": {
+      "created": {
+        "title": "Te asignaron un turno",
+        "body": "{{role}} en {{event}} ({{ministry}}), {{date}}."
+      },
+      "declined": {
+        "title": "{{person}} no puede servir",
+        "body": "{{role}} en {{event}} ({{ministry}}), {{date}}."
+      }
+    },
+    "unknown": {
+      "title": "Aviso",
+      "body": ""
+    }
+  },
+  "reason": "Motivo: {{reason}}",
+  "prefs": {
+    "title": "Notificaciones",
+    "description": "Elegí qué avisos recibís en la app y por mail.",
+    "inApp": "En la app",
+    "email": "Por mail",
+    "saved": "Preferencias guardadas",
+    "types": {
+      "assignment": {
+        "created": {
+          "label": "Me asignan un turno",
+          "hint": "Cuando te asignan para servir en un ministerio."
+        },
+        "declined": {
+          "label": "Alguien no puede servir",
+          "hint": "En los turnos que asignaste o en los ministerios que liderás."
+        }
+      }
+    }
+  }
+}

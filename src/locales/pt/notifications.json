@@ -1,0 +1,50 @@
+{
+  "title": "Notificações",
+  "description": "Seus avisos: escalas e lembretes.",
+  "bell": "Notificações",
+  "unread_one": "{{count}} não lida",
+  "unread_other": "{{count}} não lidas",
+  "markAllRead": "Marcar todas como lidas",
+  "seeAll": "Ver todas",
+  "empty": "Você não tem notificações.",
+  "emptyUnread": "Você não tem notificações não lidas.",
+  "onlyUnread": "Só não lidas",
+  "loadMore": "Ver mais",
+  "settings": "Configurar avisos",
+  "types": {
+    "assignment": {
+      "created": {
+        "title": "Você foi escalado",
+        "body": "{{role}} em {{event}} ({{ministry}}), {{date}}."
+      },
+      "declined": {
+        "title": "{{person}} não pode servir",
+        "body": "{{role}} em {{event}} ({{ministry}}), {{date}}."
+      }
+    },
+    "unknown": {
+      "title": "Aviso",
+      "body": ""
+    }
+  },
+  "reason": "Motivo: {{reason}}",
+  "prefs": {
+    "title": "Notificações",
+    "description": "Escolha quais avisos você recebe no app e por e-mail.",
+    "inApp": "No app",
+    "email": "Por e-mail",
+    "saved": "Preferências salvas",
+    "types": {
+      "assignment": {
+        "created": {
+          "label": "Sou escalado",
+          "hint": "Quando você é escalado para servir em um ministério."
+        },
+        "declined": {
+          "label": "Alguém não pode servir",
+          "hint": "Nas escalas que você fez ou nos ministérios que lidera."
+        }
+      }
+    }
+  }
+}

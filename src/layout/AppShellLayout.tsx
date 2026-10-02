@@ -24,6 +24,7 @@ import { accountApi } from '../api/admin';
 import { authApi } from '../api/auth';
 import { useFileUrl } from '../components/use-file-url';
 import { leaveSupport } from '../features/platform/support';
+import { NotificationBell } from '../features/notifications/NotificationBell';
 import { GlobalSearch, SearchTrigger } from '../features/search/GlobalSearch';
 import type { Me } from '../api/types';
 import { logout } from '../auth/session';
@@ -206,6 +207,7 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
           </Group>
           <Group gap={4} wrap="nowrap">
             {searchable && <SearchTrigger />}
+            {searchable && <NotificationBell />}
             <LanguageMenu />
             <ColorSchemeToggle />
             <UserMenu me={me} />
