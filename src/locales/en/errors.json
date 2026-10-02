@@ -208,7 +208,13 @@
     "INVENTORY_ITEM_NOT_FOUND": "We could not find that item.",
     "INVENTORY_CODE_IN_USE": "Another item already has that code.",
     "INVENTORY_CATEGORY_INVALID": "Choose an inventory category.",
-    "INVENTORY_MAINTENANCE_NOT_FOUND": "We could not find that maintenance record."
+    "INVENTORY_MAINTENANCE_NOT_FOUND": "We could not find that maintenance record.",
+    "LOAN_NOT_FOUND": "We could not find that loan.",
+    "LOAN_DATE_INVALID": "The loan date can't be in the future.",
+    "LOAN_DUE_INVALID": "The due date can't be before the loan date.",
+    "LOAN_ALREADY_RETURNED": "That loan was already returned.",
+    "INVENTORY_ITEM_ON_LOAN": "The item is on loan: record the return first.",
+    "INVENTORY_ITEM_UNAVAILABLE": "The item is in repair or retired: it can't be lent."
   },
   "validation": {
     "required": "This field is required.",

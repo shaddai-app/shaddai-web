@@ -8,6 +8,7 @@ import {
   Chip,
   Group,
   Loader,
+  type GroupProps,
   Select,
   Stack,
   Text,
@@ -35,6 +36,7 @@ import { UnstyledLink } from '../../../../components/links';
 import { useFileUrl } from '../../../../components/use-file-url';
 import { canScan, STATUS_COLORS, useCategoryLabel } from '../../../../features/inventory/common';
 import { ItemFormModal } from '../../../../features/inventory/ItemFormModal';
+import { LoanBadge } from '../../../../features/inventory/LoanModals';
 import { ScanModal } from '../../../../features/inventory/ScanModal';
 import { campusesQuery, useCatalogOptions } from '../../../../features/people/catalog';
 import { errorMessage } from '../../../../i18n/errors';
@@ -45,7 +47,7 @@ export const Route = createFileRoute('/_shell/_church/inventario/')({
   component: InventoryPage,
 });
 
-type Tab = 'inUse' | ItemStatus;
+type Tab = 'inUse' | 'onLoan' | ItemStatus;
 
 function Thumb({ item }: { item: InventoryListItem }) {
   const url = useFileUrl(item.photoFileId);
@@ -53,6 +55,26 @@ function Thumb({ item }: { item: InventoryListItem }) {
     <Avatar src={url} radius="md" size={40} color="gray" variant="light">
       <IconBox size={20} />
     </Avatar>
+  );
+}
+
+/** Estado (si no funciona normal) y préstamo abierto. */
+function Badges({
+  item,
+  size,
+  ...props
+}: { item: InventoryListItem; size?: 'xs' | 'sm' } & Omit<GroupProps, 'children'>) {
+  const { t } = useTranslation('inventory');
+  if (item.status === 'ok' && !item.loan) return null;
+  return (
+    <Group gap={4} wrap="nowrap" {...props}>
+      {item.status !== 'ok' && (
+        <Badge size={size} color={STATUS_COLORS[item.status]} variant="light">
+          {t(`status.${item.status}`)}
+        </Badge>
+      )}
+      {item.loan && <LoanBadge loan={item.loan} size={size} />}
+    </Group>
   );
 }
 
@@ -82,7 +104,8 @@ function InventoryPage() {
         q: debounced || undefined,
         categoryId: categoryId ? Number(categoryId) : undefined,
         campusId: campusId ? Number(campusId) : undefined,
-        status: tab === 'inUse' ? undefined : tab,
+        status: tab === 'inUse' || tab === 'onLoan' ? undefined : tab,
+        onLoan: tab === 'onLoan' || undefined,
         pageSize: 200,
       }),
     placeholderData: keepPreviousData,
@@ -180,6 +203,10 @@ function InventoryPage() {
                 {counts ? ` · ${counts[s]}` : ''}
               </Chip>
             ))}
+            <Chip value="onLoan" size="sm" color="grape">
+              {t('onLoanChip')}
+              {counts ? ` · ${counts.onLoan}` : ''}
+            </Chip>
           </Group>
         </Chip.Group>
         {query.isPending ? (
@@ -275,29 +302,10 @@ function InventoryPage() {
                             .filter(Boolean)
                             .join(' · ')}
                         </Text>
-                        {item.status !== 'ok' && (
-                          <Badge
-                            hiddenFrom="xs"
-                            size="xs"
-                            mt={4}
-                            color={STATUS_COLORS[item.status]}
-                            variant="light"
-                          >
-                            {t(`status.${item.status}`)}
-                          </Badge>
-                        )}
+                        <Badges item={item} hiddenFrom="xs" size="xs" mt={4} />
                       </div>
                     </Group>
-                    {item.status !== 'ok' && (
-                      <Badge
-                        visibleFrom="xs"
-                        color={STATUS_COLORS[item.status]}
-                        variant="light"
-                        style={{ flexShrink: 0 }}
-                      >
-                        {t(`status.${item.status}`)}
-                      </Badge>
-                    )}
+                    <Badges item={item} visibleFrom="xs" style={{ flexShrink: 0 }} />
                   </Group>
                 </UnstyledLink>
               </Group>

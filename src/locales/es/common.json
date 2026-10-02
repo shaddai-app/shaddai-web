@@ -61,7 +61,8 @@
     "myAssignments": "Mis turnos",
     "songs": "Canciones",
     "setlists": "Listas",
-    "inventory": "Inventario"
+    "inventory": "Inventario",
+    "loans": "Préstamos"
   },
   "userMenu": {
     "label": "Menú de usuario",
