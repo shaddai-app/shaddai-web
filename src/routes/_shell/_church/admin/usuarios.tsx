@@ -20,6 +20,7 @@ import { notifications } from '@mantine/notifications';
 import {
   IconDots,
   IconKey,
+  IconShieldOff,
   IconLockOpen,
   IconPencil,
   IconPlus,
@@ -82,6 +83,11 @@ function StatusBadges({ user }: { user: AccountUser }) {
       {user.isActive && !user.locked && !user.mustChangePassword && (
         <Badge color="teal" variant="light">
           {t('users.badges.active')}
+        </Badge>
+      )}
+      {user.totpEnabled && (
+        <Badge color="indigo" variant="light" title={t('users.badges.twoFactorHint')}>
+          {t('users.badges.twoFactor')}
         </Badge>
       )}
     </Group>
@@ -169,6 +175,15 @@ function UsersPage() {
       },
     });
 
+  const resetTwoFactor = (u: AccountUser) =>
+    modals.openConfirmModal({
+      title: t('users.confirm.reset2faTitle', { name: fullName(u) }),
+      children: <Text size="sm">{t('users.confirm.reset2faBody')}</Text>,
+      labels: { confirm: t('users.actions.reset2faConfirm'), cancel: t('common:actions.cancel') },
+      confirmProps: { color: 'red' },
+      onConfirm: () => void act(() => usersApi.resetTwoFactor(u.id), t('users.reset2faDone')),
+    });
+
   const saveUser = async (values: UserInput) => {
     if (editing) {
       const { email: _e, sendAccessEmail: _s, ...rest } = values;
@@ -224,6 +239,11 @@ function UsersPage() {
           {canReset && u.isActive && u.id !== me.user.id && (
             <Menu.Item leftSection={<IconKey size={16} />} onClick={() => resetPassword(u)}>
               {t('users.actions.resetPassword')}
+            </Menu.Item>
+          )}
+          {canReset && u.totpEnabled && u.id !== me.user.id && (
+            <Menu.Item leftSection={<IconShieldOff size={16} />} onClick={() => resetTwoFactor(u)}>
+              {t('users.actions.reset2fa')}
             </Menu.Item>
           )}
           {canManage && u.id !== me.user.id && !u.isAccountOwner && (

@@ -26,7 +26,9 @@
       "inactive": "Inactivo",
       "locked": "Bloqueado",
       "pendingPassword": "Contraseña temporal",
-      "active": "Activo"
+      "active": "Activo",
+      "twoFactor": "2FA",
+      "twoFactorHint": "Tiene la verificación en dos pasos activa"
     },
     "never": "Nunca",
     "actions": {
@@ -35,7 +37,9 @@
       "deactivate": "Desactivar",
       "activate": "Reactivar",
       "unlock": "Desbloquear",
-      "resetPassword": "Nueva contraseña temporal"
+      "resetPassword": "Nueva contraseña temporal",
+      "reset2fa": "Restablecer verificación en dos pasos",
+      "reset2faConfirm": "Restablecer"
     },
     "form": {
       "createTitle": "Nuevo usuario",
@@ -63,12 +67,15 @@
       "deactivateTitle": "¿Desactivar a {{name}}?",
       "deactivateBody": "No va a poder ingresar y se cerrarán sus sesiones. Podés reactivarlo cuando quieras.",
       "resetTitle": "¿Generar una contraseña temporal para {{name}}?",
-      "resetBody": "Su contraseña actual deja de funcionar y se cierran sus sesiones."
+      "resetBody": "Su contraseña actual deja de funcionar y se cierran sus sesiones.",
+      "reset2faTitle": "Restablecer la verificación de {{name}}",
+      "reset2faBody": "Usalo si perdió el celular y los códigos de recuperación. Va a poder entrar solo con su contraseña, se cierran sus sesiones y le avisamos por mail."
     },
     "saved": "Usuario guardado",
     "deactivated": "Usuario desactivado",
     "activated": "Usuario reactivado",
-    "unlocked": "Usuario desbloqueado"
+    "unlocked": "Usuario desbloqueado",
+    "reset2faDone": "Verificación en dos pasos restablecida"
   },
   "roles": {
     "title": "Roles",

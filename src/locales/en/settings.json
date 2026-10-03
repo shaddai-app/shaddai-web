@@ -23,5 +23,39 @@
     "revoke": "Sign out",
     "revoked": "Session closed",
     "logoutAllConfirm": "You will be signed out on all your devices, including this one. Continue?"
+  },
+  "twoFactor": {
+    "title": "Two-step verification",
+    "on": "On",
+    "off": "Off",
+    "descriptionOff": "Besides your password, we ask for a code from a phone app (Google Authenticator, Microsoft Authenticator or similar) when you sign in. Even if someone gets your password, they cannot sign in.",
+    "descriptionOn": "When you sign in we ask for the code from your authenticator app.",
+    "codesLeft_one": "You have {{count}} recovery code left.",
+    "codesLeft_other": "You have {{count}} recovery codes left.",
+    "requiredForPlatform": "It is mandatory for the super administrator.",
+    "enable": "Turn on",
+    "enableTitle": "Turn on two-step verification",
+    "enableHelp": "Scan the code with your authenticator app and enter the 6-digit number it shows.",
+    "enabled": "Two-step verification turned on",
+    "regenerate": "Generate new codes",
+    "regenerateTitle": "Generate new recovery codes",
+    "regenerateHelp": "The previous codes stop working. Confirm with your password.",
+    "disable": "Turn off",
+    "disableTitle": "Turn off two-step verification",
+    "disableHelp": "Your account will be protected by your password only. Confirm with your password and a code from the app or a recovery code.",
+    "disabled": "Two-step verification turned off",
+    "password": "Password",
+    "code": "Code",
+    "codeHelp": "The 6 digits from the app or a recovery code.",
+    "cancel": "Cancel",
+    "codes": {
+      "title": "Your recovery codes",
+      "warning": "Keep them somewhere safe: they let you sign in if you lose your phone. Each one works once and we won't show them again.",
+      "download": "Download",
+      "fileName": "shaddai-recovery-codes.txt",
+      "fileHeader": "Shaddai: two-step verification recovery codes. Each one works once.",
+      "saved": "I've saved them somewhere safe",
+      "done": "Done"
+    }
   }
 }

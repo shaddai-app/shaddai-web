@@ -23,5 +23,39 @@
     "revoke": "Encerrar",
     "revoked": "Sessão encerrada",
     "logoutAllConfirm": "Você sairá de todos os seus dispositivos, incluindo este. Continuar?"
+  },
+  "twoFactor": {
+    "title": "Verificação em duas etapas",
+    "on": "Ativa",
+    "off": "Desativada",
+    "descriptionOff": "Além da senha, ao entrar pedimos um código de um app do celular (Google Authenticator, Microsoft Authenticator ou similar). Mesmo que alguém consiga sua senha, não consegue entrar.",
+    "descriptionOn": "Ao entrar pedimos o código do seu app autenticador.",
+    "codesLeft_one": "Resta {{count}} código de recuperação.",
+    "codesLeft_other": "Restam {{count}} códigos de recuperação.",
+    "requiredForPlatform": "Para o superadministrador é obrigatória.",
+    "enable": "Ativar",
+    "enableTitle": "Ativar a verificação em duas etapas",
+    "enableHelp": "Escaneie o código com seu app autenticador e digite o número de 6 dígitos que ele mostra.",
+    "enabled": "Verificação em duas etapas ativada",
+    "regenerate": "Gerar códigos novos",
+    "regenerateTitle": "Gerar novos códigos de recuperação",
+    "regenerateHelp": "Os códigos anteriores deixam de funcionar. Confirme com sua senha.",
+    "disable": "Desativar",
+    "disableTitle": "Desativar a verificação em duas etapas",
+    "disableHelp": "Sua conta ficará protegida só pela senha. Confirme com sua senha e um código do app ou de recuperação.",
+    "disabled": "Verificação em duas etapas desativada",
+    "password": "Senha",
+    "code": "Código",
+    "codeHelp": "Os 6 dígitos do app ou um código de recuperação.",
+    "cancel": "Cancelar",
+    "codes": {
+      "title": "Seus códigos de recuperação",
+      "warning": "Guarde-os em um lugar seguro: servem para entrar se você perder o celular. Cada um é usado uma vez e não vamos mostrá-los de novo.",
+      "download": "Baixar",
+      "fileName": "shaddai-codigos-de-recuperacao.txt",
+      "fileHeader": "Shaddai: códigos de recuperação da verificação em duas etapas. Cada um funciona uma vez.",
+      "saved": "Já guardei em um lugar seguro",
+      "done": "Pronto"
+    }
   }
 }

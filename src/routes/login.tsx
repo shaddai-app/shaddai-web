@@ -34,6 +34,8 @@ function LoginPage() {
   const queryClient = useQueryClient();
   const [challenge, setChallenge] = useState<string | null>(null);
   const [code, setCode] = useState('');
+  // Sin el celular: se entra con uno de los códigos de recuperación (formato abcd-2345).
+  const [useRecovery, setUseRecovery] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
 
@@ -88,16 +90,56 @@ function LoginPage() {
     return (
       <AuthLayout title={t('twoFactor.title')} description={t('twoFactor.description')}>
         <FormError error={error} />
-        <CodeInput
-          label={t('twoFactor.code')}
-          value={code}
-          onChange={setCode}
-          onComplete={onVerify}
-          disabled={busy}
-        />
-        <Button fullWidth loading={busy} disabled={code.length !== 6} onClick={() => void onVerify(code)}>
-          {t('twoFactor.submit')}
-        </Button>
+        {useRecovery ? (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (code.trim()) void onVerify(code.trim());
+            }}
+          >
+            <Stack gap="md">
+              <TextInput
+                label={t('twoFactor.recoveryCode')}
+                description={t('twoFactor.recoveryHelp')}
+                value={code}
+                onChange={(e) => setCode(e.currentTarget.value)}
+                autoComplete="one-time-code"
+                autoCapitalize="none"
+                spellCheck={false}
+                autoFocus
+              />
+              <Button type="submit" fullWidth loading={busy} disabled={!code.trim()}>
+                {t('twoFactor.submit')}
+              </Button>
+            </Stack>
+          </form>
+        ) : (
+          <>
+            <CodeInput
+              label={t('twoFactor.code')}
+              value={code}
+              onChange={setCode}
+              onComplete={onVerify}
+              disabled={busy}
+            />
+            <Button fullWidth loading={busy} disabled={code.length !== 6} onClick={() => void onVerify(code)}>
+              {t('twoFactor.submit')}
+            </Button>
+          </>
+        )}
+        <Anchor
+          component="button"
+          type="button"
+          size="sm"
+          ta="center"
+          onClick={() => {
+            setUseRecovery((v) => !v);
+            setCode('');
+            setError(null);
+          }}
+        >
+          {useRecovery ? t('twoFactor.useApp') : t('twoFactor.useRecovery')}
+        </Anchor>
         <Anchor
           component="button"
           type="button"
@@ -105,6 +147,7 @@ function LoginPage() {
           ta="center"
           onClick={() => {
             setChallenge(null);
+            setUseRecovery(false);
             setCode('');
             setError(null);
           }}

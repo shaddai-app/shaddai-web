@@ -26,7 +26,9 @@
       "inactive": "Inactive",
       "locked": "Locked",
       "pendingPassword": "Temporary password",
-      "active": "Active"
+      "active": "Active",
+      "twoFactor": "2FA",
+      "twoFactorHint": "Has two-step verification turned on"
     },
     "never": "Never",
     "actions": {
@@ -35,7 +37,9 @@
       "deactivate": "Deactivate",
       "activate": "Reactivate",
       "unlock": "Unlock",
-      "resetPassword": "New temporary password"
+      "resetPassword": "New temporary password",
+      "reset2fa": "Reset two-step verification",
+      "reset2faConfirm": "Reset"
     },
     "form": {
       "createTitle": "New user",
@@ -63,12 +67,15 @@
       "deactivateTitle": "Deactivate {{name}}?",
       "deactivateBody": "They won't be able to sign in and their sessions will be closed. You can reactivate them anytime.",
       "resetTitle": "Generate a temporary password for {{name}}?",
-      "resetBody": "Their current password stops working and their sessions are closed."
+      "resetBody": "Their current password stops working and their sessions are closed.",
+      "reset2faTitle": "Reset {{name}}'s verification",
+      "reset2faBody": "Use it if they lost their phone and recovery codes. They will sign in with their password only, their sessions are ended and we'll email them."
     },
     "saved": "User saved",
     "deactivated": "User deactivated",
     "activated": "User reactivated",
-    "unlocked": "User unlocked"
+    "unlocked": "User unlocked",
+    "reset2faDone": "Two-step verification reset"
   },
   "roles": {
     "title": "Roles",
