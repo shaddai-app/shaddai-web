@@ -19,6 +19,7 @@ import {
   IconHeartHandshake,
   IconHierarchy2,
   IconHistory,
+  IconDatabaseExport,
   IconHome,
   IconHomeHeart,
   IconPackage,
@@ -75,6 +76,7 @@ export interface NavItem {
     | 'users'
     | 'roles'
     | 'churchSettings'
+    | 'dataAndClosure'
     | 'audit'
     | 'plans'
     | 'platformAudit';
@@ -284,6 +286,12 @@ const churchNav: NavSection[] = [
         to: '/admin/cuenta',
         label: 'churchSettings',
         icon: IconSettings,
+        permissions: ['cuenta.configurar'],
+      },
+      {
+        to: '/admin/datos',
+        label: 'dataAndClosure',
+        icon: IconDatabaseExport,
         permissions: ['cuenta.configurar'],
       },
       { to: '/admin/auditoria', label: 'audit', icon: IconHistory, permissions: ['auditoria.ver'] },

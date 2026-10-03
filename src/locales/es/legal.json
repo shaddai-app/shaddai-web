@@ -1,0 +1,98 @@
+{
+  "draft": "Borrador pendiente de revisión legal. Todavía no es el texto definitivo.",
+  "updated": "Última actualización: {{date}}",
+  "contact": "Contacto: {{email}}",
+  "links": {
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "intro": "Shaddai es un sistema para administrar iglesias. Esta política explica qué datos tratamos, para qué y cómo podés ejercer tus derechos según la Ley 25.326 de Protección de Datos Personales.",
+    "sections": {
+      "roles": {
+        "title": "Quién es responsable de cada dato",
+        "body": "Cada iglesia es la responsable de los datos de sus miembros, visitantes y colaboradores que carga en Shaddai, y de contar con su consentimiento. Shaddai los trata solo por cuenta de la iglesia y para prestarle el servicio, como encargado del tratamiento. De los datos de los usuarios que entran al sistema (nombre, email y uso de la cuenta), el responsable es Shaddai."
+      },
+      "data": {
+        "title": "Qué datos tratamos",
+        "body": "De los usuarios: nombre, email, contraseña (guardada de forma irreversible), idioma, preferencias, dirección IP y registros de actividad por seguridad. De las personas que carga cada iglesia: datos de contacto, familia, participación en células y ministerios, seguimiento pastoral, asistencia, aportes y los archivos que la iglesia sube. La pertenencia a una iglesia es un dato sensible: se guarda solo con el consentimiento de la persona y con acceso limitado por permisos."
+      },
+      "purposes": {
+        "title": "Para qué los usamos",
+        "body": "Para prestar el servicio, mantenerlo seguro, dar soporte y enviar los mails propios del sistema (accesos, recuperación de contraseña, avisos que cada usuario puede configurar). No vendemos datos, no los usamos para publicidad y no los compartimos con otras iglesias."
+      },
+      "providers": {
+        "title": "Proveedores y transferencias",
+        "body": "Usamos proveedores que tratan datos por nuestra cuenta: Microsoft Azure (servidores y base de datos, en Brasil), Cloudflare (archivos y protección de formularios), Brevo (envío de mails) y Sentry (registro de errores técnicos, sin datos personales). Algunos están fuera de Argentina; exigimos que protejan los datos con un nivel equivalente al de la ley argentina."
+      },
+      "security": {
+        "title": "Seguridad",
+        "body": "Las conexiones van cifradas, cada iglesia solo ve sus propios datos, el acceso dentro de la iglesia depende de los permisos de cada usuario, las acciones sensibles quedan registradas y hacemos copias de seguridad automáticas."
+      },
+      "retention": {
+        "title": "Cuánto tiempo los guardamos",
+        "body": "Mientras la cuenta de la iglesia esté activa. Si la iglesia se da de baja, nadie puede entrar y todos sus datos y archivos se borran definitivamente a los 90 días. Las copias de seguridad pueden conservarlos hasta 35 días más, y después se borran solas."
+      },
+      "rights": {
+        "title": "Tus derechos",
+        "body": "Podés pedir acceso, rectificación, actualización o supresión de tus datos. Si sos miembro de una iglesia, pedíselo primero a tu iglesia, que es la responsable; si no te responde, o si sos usuario del sistema, escribinos a {{email}}. Respondemos dentro de los plazos de la ley: 10 días corridos para el acceso y 5 días hábiles para rectificar o suprimir."
+      },
+      "authority": {
+        "title": "Autoridad de control",
+        "body": "La Agencia de Acceso a la Información Pública, como órgano de control de la Ley 25.326, atiende las denuncias y reclamos de quienes vean afectados sus derechos sobre sus datos personales."
+      },
+      "cookies": {
+        "title": "Cookies y almacenamiento del navegador",
+        "body": "Solo usamos una cookie necesaria para mantener la sesión iniciada. El navegador también guarda tus preferencias (tema, idioma) y, si instalás la app, una copia para usarla sin señal. No usamos cookies de seguimiento ni de publicidad."
+      },
+      "changes": {
+        "title": "Cambios en esta política",
+        "body": "Si la cambiamos de forma importante, lo avisamos en el sistema antes de que entre en vigencia."
+      }
+    }
+  },
+  "terms": {
+    "title": "Términos y condiciones",
+    "intro": "Estos términos regulan el uso de Shaddai por parte de las iglesias y de sus usuarios. Al usar el sistema los aceptás.",
+    "sections": {
+      "service": {
+        "title": "El servicio",
+        "body": "Shaddai es un sistema en línea para administrar la iglesia: personas, células, consolidación, finanzas, calendario, ministerios, alabanza e inventario. Durante la beta puede cambiar y sumar funciones."
+      },
+      "accounts": {
+        "title": "Cuentas y usuarios",
+        "body": "Cada iglesia tiene un dueño de cuenta, que da acceso a otros usuarios y define sus permisos. Cada usuario cuida su contraseña y es responsable de lo que se haga con su acceso. Si sospechás que alguien entró con tu cuenta, cambiá la contraseña y avisanos."
+      },
+      "churchData": {
+        "title": "Los datos son de la iglesia",
+        "body": "La iglesia es dueña de los datos que carga y responsable de tener el consentimiento de las personas. Puede descargarlos completos en cualquier momento desde Administración → Datos y baja. No los usamos para nada distinto de prestar el servicio."
+      },
+      "use": {
+        "title": "Uso aceptable",
+        "body": "No se puede usar Shaddai para fines ilegales, para cargar datos sin consentimiento, para enviar mensajes no deseados, ni para intentar acceder a datos de otras iglesias o vulnerar la seguridad del sistema."
+      },
+      "plans": {
+        "title": "Planes y pagos",
+        "body": "Cada plan tiene límites de usuarios y de almacenamiento. Si un pago queda pendiente, la cuenta pasa a solo lectura: se puede consultar y exportar, pero no modificar, hasta regularizar."
+      },
+      "closure": {
+        "title": "Baja de la cuenta",
+        "body": "El dueño de la cuenta puede darla de baja cuando quiera. Desde ese momento nadie puede entrar, y a los 90 días se borran definitivamente todos los datos y archivos. Antes de esa fecha se puede pedir la reactivación escribiendo a soporte. También podemos suspender una cuenta que no cumpla estos términos, avisando antes salvo que haya un riesgo para otros."
+      },
+      "availability": {
+        "title": "Disponibilidad y soporte",
+        "body": "Hacemos lo posible para que el sistema esté disponible y sus datos protegidos, con copias de seguridad automáticas, pero no garantizamos que funcione sin interrupciones. El soporte es por mail, en días hábiles."
+      },
+      "liability": {
+        "title": "Responsabilidad",
+        "body": "Shaddai no responde por el contenido que cargan las iglesias ni por daños indirectos. En la medida que permita la ley, nuestra responsabilidad se limita a lo pagado por la iglesia en los últimos 12 meses."
+      },
+      "law": {
+        "title": "Ley aplicable y cambios",
+        "body": "Rigen las leyes de la República Argentina. Si cambiamos estos términos, lo avisamos en el sistema con anticipación."
+      }
+    }
+  },
+  "back": "Volver"
+}

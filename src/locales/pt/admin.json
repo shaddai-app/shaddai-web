@@ -5,12 +5,21 @@
     "usage": "{{active}} de {{limit}} usuários ativos",
     "limitReached": "Você atingiu o limite de usuários do seu plano. Desative alguém ou peça para ampliar o plano.",
     "search": "Buscar por nome ou e-mail",
-    "status": { "all": "Todos", "active": "Ativos", "inactive": "Inativos" },
+    "status": {
+      "all": "Todos",
+      "active": "Ativos",
+      "inactive": "Inativos"
+    },
     "role": "Função",
     "allRoles": "Todas as funções",
     "add": "Novo usuário",
     "empty": "Nenhum usuário com esses filtros.",
-    "columns": { "name": "Nome", "roles": "Funções", "status": "Status", "lastLogin": "Último acesso" },
+    "columns": {
+      "name": "Nome",
+      "roles": "Funções",
+      "status": "Status",
+      "lastLogin": "Último acesso"
+    },
     "badges": {
       "owner": "Dono",
       "admin": "Administrador",
@@ -163,8 +172,18 @@
   "audit": {
     "title": "Auditoria",
     "description": "Registro das ações importantes feitas na conta.",
-    "filters": { "action": "Tipo de ação", "allActions": "Todas", "from": "De", "to": "Até" },
-    "columns": { "date": "Data", "user": "Quem", "action": "Ação", "detail": "Detalhe" },
+    "filters": {
+      "action": "Tipo de ação",
+      "allActions": "Todas",
+      "from": "De",
+      "to": "Até"
+    },
+    "columns": {
+      "date": "Data",
+      "user": "Quem",
+      "action": "Ação",
+      "detail": "Detalhe"
+    },
     "support": "Suporte do Shaddai",
     "system": "Sistema",
     "empty": "Nenhum registro com esses filtros.",
@@ -182,5 +201,33 @@
   },
   "pagination": {
     "summary": "{{from}}–{{to}} de {{total}}"
+  },
+  "data": {
+    "title": "Dados e encerramento",
+    "description": "Baixe todos os dados da igreja ou encerre a conta.",
+    "export": {
+      "title": "Baixar todos os dados",
+      "body": "Um arquivo ZIP com tudo o que foi cadastrado: pessoas, células, consolidação, finanças, calendário, ministérios, músicas, inventário e os arquivos enviados. Cada tabela vai em um JSON e os arquivos em sua pasta.",
+      "excluded": "Não inclui senhas nem sessões. O download fica registrado na auditoria.",
+      "button": "Baixar ZIP",
+      "done": "Download pronto"
+    },
+    "closure": {
+      "title": "Encerrar a conta",
+      "body": "A partir daí ninguém da igreja pode entrar. Após {{days}} dias todos os dados e arquivos são apagados definitivamente; antes dessa data é possível reverter escrevendo para {{email}}.",
+      "advice": "Antes de encerrar, baixe os dados.",
+      "ownerOnly": "Apenas o dono da conta pode encerrá-la.",
+      "button": "Encerrar a conta",
+      "modalTitle": "Encerrar {{name}}",
+      "warning": "Ninguém poderá entrar e após {{days}} dias tudo será apagado. Esta ação encerra sua sessão.",
+      "confirm": "Digite o nome da igreja: {{name}}",
+      "password": "Sua senha",
+      "submit": "Encerrar",
+      "cancel": "Cancelar"
+    },
+    "legal": {
+      "title": "Privacidade e termos",
+      "body": "Como tratamos os dados da igreja e as condições do serviço."
+    }
   }
 }

@@ -215,7 +215,9 @@
     "LOAN_ALREADY_RETURNED": "Ese préstamo ya se devolvió.",
     "INVENTORY_ITEM_ON_LOAN": "El equipo está prestado: primero registrá la devolución.",
     "INVENTORY_ITEM_UNAVAILABLE": "El equipo está en reparación o de baja: no se puede prestar.",
-    "NOTIFICATION_NOT_FOUND": "No encontramos esa notificación."
+    "NOTIFICATION_NOT_FOUND": "No encontramos esa notificación.",
+    "ACCOUNT_OWNER_REQUIRED": "Solo el dueño de la cuenta puede darla de baja.",
+    "CLOSURE_CONFIRM_MISMATCH": "El nombre no coincide con el de la iglesia."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

@@ -5,12 +5,21 @@
     "usage": "{{active}} de {{limit}} usuarios activos",
     "limitReached": "Llegaste al límite de usuarios de tu plan. Desactivá alguno o pedí ampliar el plan.",
     "search": "Buscar por nombre o email",
-    "status": { "all": "Todos", "active": "Activos", "inactive": "Inactivos" },
+    "status": {
+      "all": "Todos",
+      "active": "Activos",
+      "inactive": "Inactivos"
+    },
     "role": "Rol",
     "allRoles": "Todos los roles",
     "add": "Nuevo usuario",
     "empty": "No hay usuarios con esos filtros.",
-    "columns": { "name": "Nombre", "roles": "Roles", "status": "Estado", "lastLogin": "Último ingreso" },
+    "columns": {
+      "name": "Nombre",
+      "roles": "Roles",
+      "status": "Estado",
+      "lastLogin": "Último ingreso"
+    },
     "badges": {
       "owner": "Dueño",
       "admin": "Administrador",
@@ -163,8 +172,18 @@
   "audit": {
     "title": "Auditoría",
     "description": "Registro de las acciones importantes hechas en la cuenta.",
-    "filters": { "action": "Tipo de acción", "allActions": "Todas", "from": "Desde", "to": "Hasta" },
-    "columns": { "date": "Fecha", "user": "Quién", "action": "Acción", "detail": "Detalle" },
+    "filters": {
+      "action": "Tipo de acción",
+      "allActions": "Todas",
+      "from": "Desde",
+      "to": "Hasta"
+    },
+    "columns": {
+      "date": "Fecha",
+      "user": "Quién",
+      "action": "Acción",
+      "detail": "Detalle"
+    },
     "support": "Soporte de Shaddai",
     "system": "Sistema",
     "empty": "No hay registros con esos filtros.",
@@ -182,5 +201,33 @@
   },
   "pagination": {
     "summary": "{{from}}–{{to}} de {{total}}"
+  },
+  "data": {
+    "title": "Datos y baja",
+    "description": "Descargá todos los datos de la iglesia o da de baja la cuenta.",
+    "export": {
+      "title": "Descargar todos los datos",
+      "body": "Un archivo ZIP con todo lo cargado: personas, células, consolidación, finanzas, calendario, ministerios, canciones, inventario y los archivos subidos. Cada tabla va en un JSON y los archivos en su carpeta.",
+      "excluded": "No incluye contraseñas ni sesiones. La descarga queda registrada en la auditoría.",
+      "button": "Descargar ZIP",
+      "done": "Descarga lista"
+    },
+    "closure": {
+      "title": "Dar de baja la cuenta",
+      "body": "Desde ese momento nadie de la iglesia puede entrar. A los {{days}} días se borran definitivamente todos los datos y archivos; antes de esa fecha se puede revertir escribiendo a {{email}}.",
+      "advice": "Antes de darla de baja, descargá los datos.",
+      "ownerOnly": "Solo el dueño de la cuenta puede darla de baja.",
+      "button": "Dar de baja la cuenta",
+      "modalTitle": "Dar de baja {{name}}",
+      "warning": "Nadie va a poder entrar y a los {{days}} días se borra todo. Esta acción corta tu sesión.",
+      "confirm": "Escribí el nombre de la iglesia: {{name}}",
+      "password": "Tu contraseña",
+      "submit": "Dar de baja",
+      "cancel": "Cancelar"
+    },
+    "legal": {
+      "title": "Privacidad y términos",
+      "body": "Cómo tratamos los datos de la iglesia y las condiciones del servicio."
+    }
   }
 }

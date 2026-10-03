@@ -7,6 +7,7 @@ import type ministries from '../locales/es/ministries.json';
 import type worship from '../locales/es/worship.json';
 import type inventory from '../locales/es/inventory.json';
 import type notifications from '../locales/es/notifications.json';
+import type legal from '../locales/es/legal.json';
 import type finance from '../locales/es/finance.json';
 import type consolidation from '../locales/es/consolidation.json';
 import type common from '../locales/es/common.json';
@@ -37,6 +38,7 @@ declare module 'i18next' {
       worship: typeof worship;
       inventory: typeof inventory;
       notifications: typeof notifications;
+      legal: typeof legal;
     };
   }
 }

@@ -5,12 +5,21 @@
     "usage": "{{active}} of {{limit}} active users",
     "limitReached": "You reached your plan's user limit. Deactivate someone or ask to upgrade the plan.",
     "search": "Search by name or email",
-    "status": { "all": "All", "active": "Active", "inactive": "Inactive" },
+    "status": {
+      "all": "All",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
     "role": "Role",
     "allRoles": "All roles",
     "add": "New user",
     "empty": "No users match those filters.",
-    "columns": { "name": "Name", "roles": "Roles", "status": "Status", "lastLogin": "Last sign-in" },
+    "columns": {
+      "name": "Name",
+      "roles": "Roles",
+      "status": "Status",
+      "lastLogin": "Last sign-in"
+    },
     "badges": {
       "owner": "Owner",
       "admin": "Administrator",
@@ -163,8 +172,18 @@
   "audit": {
     "title": "Audit log",
     "description": "Record of the important actions performed in the account.",
-    "filters": { "action": "Action type", "allActions": "All", "from": "From", "to": "To" },
-    "columns": { "date": "Date", "user": "Who", "action": "Action", "detail": "Detail" },
+    "filters": {
+      "action": "Action type",
+      "allActions": "All",
+      "from": "From",
+      "to": "To"
+    },
+    "columns": {
+      "date": "Date",
+      "user": "Who",
+      "action": "Action",
+      "detail": "Detail"
+    },
     "support": "Shaddai support",
     "system": "System",
     "empty": "No records match those filters.",
@@ -182,5 +201,33 @@
   },
   "pagination": {
     "summary": "{{from}}–{{to}} of {{total}}"
+  },
+  "data": {
+    "title": "Data and closure",
+    "description": "Download all of the church's data or close the account.",
+    "export": {
+      "title": "Download all data",
+      "body": "A ZIP file with everything entered: people, cells, follow-up, finances, calendar, ministries, songs, inventory and uploaded files. Each table is a JSON file and the files go in their own folder.",
+      "excluded": "Passwords and sessions are not included. The download is recorded in the audit log.",
+      "button": "Download ZIP",
+      "done": "Download ready"
+    },
+    "closure": {
+      "title": "Close the account",
+      "body": "From then on nobody from the church can sign in. After {{days}} days all data and files are permanently deleted; before that date it can be undone by writing to {{email}}.",
+      "advice": "Download the data before closing the account.",
+      "ownerOnly": "Only the account owner can close the account.",
+      "button": "Close the account",
+      "modalTitle": "Close {{name}}",
+      "warning": "Nobody will be able to sign in, and after {{days}} days everything is deleted. This signs you out.",
+      "confirm": "Type the church's name: {{name}}",
+      "password": "Your password",
+      "submit": "Close account",
+      "cancel": "Cancel"
+    },
+    "legal": {
+      "title": "Privacy and terms",
+      "body": "How we handle the church's data and the terms of the service."
+    }
   }
 }

@@ -1,0 +1,98 @@
+{
+  "draft": "Draft pending legal review. This is not the final text yet.",
+  "updated": "Last updated: {{date}}",
+  "contact": "Contact: {{email}}",
+  "links": {
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "intro": "Shaddai is a church management system. This policy explains which data we process, why, and how you can exercise your rights under Argentine Personal Data Protection Law 25,326.",
+    "sections": {
+      "roles": {
+        "title": "Who is responsible for each piece of data",
+        "body": "Each church is the controller of the data about its members, visitors and volunteers that it enters into Shaddai, and is responsible for having their consent. Shaddai processes that data only on behalf of the church and to provide the service, as a processor. For the data of the users who sign in (name, email and account usage), Shaddai is the controller."
+      },
+      "data": {
+        "title": "What data we process",
+        "body": "About users: name, email, password (stored irreversibly), language, preferences, IP address and activity logs for security. About the people each church enters: contact details, household, participation in cells and ministries, pastoral follow-up, attendance, contributions and the files the church uploads. Belonging to a church is sensitive data: it is stored only with the person's consent and with access limited by permissions."
+      },
+      "purposes": {
+        "title": "What we use it for",
+        "body": "To provide the service, keep it secure, give support and send the system's own emails (access, password recovery, notices each user can configure). We do not sell data, we do not use it for advertising and we do not share it with other churches."
+      },
+      "providers": {
+        "title": "Providers and transfers",
+        "body": "We use providers that process data on our behalf: Microsoft Azure (servers and database, in Brazil), Cloudflare (files and form protection), Brevo (email delivery) and Sentry (technical error logs, without personal data). Some are outside Argentina; we require them to protect data at a level equivalent to Argentine law."
+      },
+      "security": {
+        "title": "Security",
+        "body": "Connections are encrypted, each church only sees its own data, access within the church depends on each user's permissions, sensitive actions are logged and we make automatic backups."
+      },
+      "retention": {
+        "title": "How long we keep it",
+        "body": "While the church's account is active. If the church closes its account, nobody can sign in and all its data and files are permanently deleted after 90 days. Backups may keep them for up to 35 more days, after which they are deleted automatically."
+      },
+      "rights": {
+        "title": "Your rights",
+        "body": "You can request access, rectification, update or deletion of your data. If you are a church member, ask your church first, since it is the controller; if it does not answer, or if you are a system user, write to {{email}}. We answer within the legal deadlines: 10 calendar days for access and 5 business days to rectify or delete."
+      },
+      "authority": {
+        "title": "Supervisory authority",
+        "body": "The Agency for Access to Public Information, as the supervisory body of Law 25,326, handles complaints from anyone whose rights over their personal data are affected."
+      },
+      "cookies": {
+        "title": "Cookies and browser storage",
+        "body": "We only use one cookie, needed to keep you signed in. The browser also stores your preferences (theme, language) and, if you install the app, a copy to use it offline. We do not use tracking or advertising cookies."
+      },
+      "changes": {
+        "title": "Changes to this policy",
+        "body": "If we change it in an important way, we will announce it in the system before it takes effect."
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms and conditions",
+    "intro": "These terms govern the use of Shaddai by churches and their users. By using the system you accept them.",
+    "sections": {
+      "service": {
+        "title": "The service",
+        "body": "Shaddai is an online system to manage a church: people, cells, follow-up, finances, calendar, ministries, worship and inventory. During the beta it may change and gain features."
+      },
+      "accounts": {
+        "title": "Accounts and users",
+        "body": "Each church has an account owner, who gives access to other users and sets their permissions. Each user takes care of their password and is responsible for what is done with their access. If you suspect someone used your account, change your password and let us know."
+      },
+      "churchData": {
+        "title": "The data belongs to the church",
+        "body": "The church owns the data it enters and is responsible for having people's consent. It can download all of it at any time from Administration → Data and closure. We do not use it for anything other than providing the service."
+      },
+      "use": {
+        "title": "Acceptable use",
+        "body": "Shaddai may not be used for illegal purposes, to store data without consent, to send unsolicited messages, or to try to access other churches' data or break the system's security."
+      },
+      "plans": {
+        "title": "Plans and payments",
+        "body": "Each plan has user and storage limits. If a payment is overdue, the account becomes read-only: it can be viewed and exported, but not modified, until it is settled."
+      },
+      "closure": {
+        "title": "Closing the account",
+        "body": "The account owner can close it at any time. From then on nobody can sign in, and after 90 days all data and files are permanently deleted. Before that date, reactivation can be requested by writing to support. We may also suspend an account that does not comply with these terms, with prior notice unless there is a risk to others."
+      },
+      "availability": {
+        "title": "Availability and support",
+        "body": "We do our best to keep the system available and its data protected, with automatic backups, but we do not guarantee uninterrupted operation. Support is by email, on business days."
+      },
+      "liability": {
+        "title": "Liability",
+        "body": "Shaddai is not liable for the content churches enter or for indirect damages. To the extent permitted by law, our liability is limited to what the church paid in the last 12 months."
+      },
+      "law": {
+        "title": "Governing law and changes",
+        "body": "The laws of the Argentine Republic apply. If we change these terms, we will announce it in the system in advance."
+      }
+    }
+  },
+  "back": "Back"
+}

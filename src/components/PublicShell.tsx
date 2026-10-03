@@ -1,6 +1,7 @@
 import { Box, Center, Group, Image, Paper, Stack, Text, ThemeIcon } from '@mantine/core';
 import { IconCross } from '@tabler/icons-react';
 import type { ReactNode } from 'react';
+import { LegalLinks } from '../features/legal/LegalLinks';
 import { ColorSchemeToggle } from '../layout/ColorSchemeToggle';
 import { LanguageMenu } from '../layout/LanguageMenu';
 
@@ -39,6 +40,7 @@ export function PublicShell({
           <Paper withBorder radius="lg" p={{ base: 'lg', sm: 'xl' }} shadow="xs">
             {children}
           </Paper>
+          <LegalLinks />
         </Stack>
       </Center>
     </Box>

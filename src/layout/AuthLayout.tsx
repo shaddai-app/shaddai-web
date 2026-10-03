@@ -1,6 +1,7 @@
 import { Box, Center, Group, Paper, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { IconCross } from '@tabler/icons-react';
 import type { ReactNode } from 'react';
+import { LegalLinks } from '../features/legal/LegalLinks';
 import { useTranslation } from 'react-i18next';
 import { ColorSchemeToggle } from './ColorSchemeToggle';
 import { LanguageMenu } from './LanguageMenu';
@@ -47,6 +48,7 @@ export function AuthLayout({
               {children}
             </Stack>
           </Paper>
+          <LegalLinks />
         </Stack>
       </Center>
     </Box>

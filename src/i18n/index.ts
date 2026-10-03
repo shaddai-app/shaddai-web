@@ -40,6 +40,7 @@ void i18n
       'worship',
       'inventory',
       'notifications',
+      'legal',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },
