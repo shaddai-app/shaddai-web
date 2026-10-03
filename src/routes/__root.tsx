@@ -31,7 +31,7 @@ function SessionEvents() {
       queryClient.clear();
       const { pathname, href } = router.state.location;
       // Desde pantallas públicas (login, recuperación) no tiene sentido volver a ellas después.
-      const isPublic = ['/login', '/olvide-contrasena', '/restablecer'].includes(pathname);
+      const isPublic = ['/', '/login', '/olvide-contrasena', '/restablecer'].includes(pathname);
       void router.navigate({ to: '/login', search: isPublic ? {} : { redirect: href } });
     };
     const onSupportEnded = () => {

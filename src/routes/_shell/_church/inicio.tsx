@@ -10,7 +10,7 @@ import { MyTasksCard } from '../../../features/consolidation/MyTasksCard';
 import { AnnouncementsCard } from '../../../features/announcements/AnnouncementsCard';
 import { Dashboard } from '../../../features/dashboard/Dashboard';
 
-export const Route = createFileRoute('/_shell/_church/')({
+export const Route = createFileRoute('/_shell/_church/inicio')({
   validateSearch: z.object({ periodo: z.enum(DASHBOARD_PERIODS).optional() }),
   // Inicio según el rol: quien reporta solo su célula (líder) arranca en «Mi célula»; sin tablero,
   // quien solo usa un módulo arranca en él (tesorería en finanzas, etc.).

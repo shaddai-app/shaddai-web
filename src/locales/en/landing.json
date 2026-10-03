@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "login": "Sign in",
+    "menu": "Menu"
+  },
+  "demo": {
+    "cta": "Try the demo",
+    "menuTitle": "Which profile do you want to use?",
+    "roles": {
+      "admin": {
+        "title": "Administration",
+        "body": "Everything, including settings"
+      },
+      "pastor": {
+        "title": "Pastor",
+        "body": "The pastoral view of the church"
+      },
+      "treasurer": {
+        "title": "Treasury",
+        "body": "Full finances"
+      },
+      "cell_leader": {
+        "title": "Cell leader",
+        "body": "Their cell, designed for the phone"
+      }
+    },
+    "note": "A sample church with fictional data: feel free to explore everything."
+  },
+  "hero": {
+    "title": "Management for your church",
+    "subtitle": "People, cells, finances and ministries in one place. To better care for every person, from the computer or the phone.",
+    "seeHow": "See how it works"
+  },
+  "audience": {
+    "title": "Designed for those who serve",
+    "items": {
+      "pastors": {
+        "title": "Pastors",
+        "body": "A complete view of the church: attendance, cells and newcomers who need follow-up."
+      },
+      "leaders": {
+        "title": "Cell leaders",
+        "body": "The weekly report from the phone, even without signal, and their cell members at hand."
+      },
+      "treasury": {
+        "title": "Treasury",
+        "body": "Cash accounts, offering counts and monthly closings in order, with reports ready to present."
+      },
+      "office": {
+        "title": "Church office",
+        "body": "People and family records, events with registration, announcements and discipleship."
+      }
+    }
+  },
+  "modules": {
+    "title": "Everything your church needs",
+    "subtitle": "Every module is already in the app, on every plan.",
+    "items": {
+      "people": {
+        "title": "People and families",
+        "body": "A record for each member, households, newcomer registration and people import."
+      },
+      "consolidation": {
+        "title": "Follow-up",
+        "body": "Step-by-step follow-up of each newcomer, follow-up tasks and nearby cells."
+      },
+      "cells": {
+        "title": "Cells",
+        "body": "Map, weekly report (also offline), report tracker, genealogy and multiplication."
+      },
+      "discipleship": {
+        "title": "Discipleship",
+        "body": "Courses with levels, classes and attendance for each student."
+      },
+      "calendar": {
+        "title": "Calendar and events",
+        "body": "Events, registrations with a public form, and attendance."
+      },
+      "ministries": {
+        "title": "Ministries",
+        "body": "Teams, rotas and \"My shifts\" for each volunteer."
+      },
+      "worship": {
+        "title": "Worship",
+        "body": "Songbook with chords and setlists for each service."
+      },
+      "prayer": {
+        "title": "Prayer and announcements",
+        "body": "Prayer requests and announcements for the congregation, with notifications."
+      },
+      "finance": {
+        "title": "Finances",
+        "body": "Cash accounts, categories, transactions, offering counts, monthly closings and reports."
+      },
+      "inventory": {
+        "title": "Inventory",
+        "body": "Church assets, maintenance, loans and barcode scanning."
+      },
+      "admin": {
+        "title": "Administration and security",
+        "body": "Users, configurable roles and permissions, audit log, two-step verification and data export."
+      }
+    }
+  },
+  "cells": {
+    "eyebrow": "Cells",
+    "title": "Every cell, every week, in plain sight",
+    "body": "Cells are the heart of many churches. Shaddai supports each leader and shows pastors how all of them are doing.",
+    "points": {
+      "map": "Cell map to find the closest one for each person.",
+      "report": "Weekly report from the phone, even without signal: it is sent automatically when the connection is back.",
+      "tracker": "Report tracker: which cells have reported and which are missing.",
+      "growth": "Genealogy and multiplication: which cell each one was born from.",
+      "structure": "Structure by networks and zones, with their supervisors."
+    }
+  },
+  "finance": {
+    "eyebrow": "Finances",
+    "title": "Clear and transparent accounts",
+    "body": "Treasury in order month after month, with everything that came in and went out of each cash account.",
+    "points": {
+      "accounts": "Cash accounts in pesos or another currency, with your own categories.",
+      "offerings": "Offering counts and cell offerings pending confirmation.",
+      "closings": "Monthly closings that keep each period saved.",
+      "reports": "Reports, income statement and a giving statement for each person."
+    }
+  },
+  "security": {
+    "eyebrow": "Security",
+    "title": "Your church's data, protected",
+    "points": {
+      "roles": "Roles and permissions: everyone sees only what they should.",
+      "sensitive": "Pastoral notes and named tithes are visible only with permission.",
+      "audit": "Audit log of who did what and when.",
+      "twoFactor": "Two-step verification to sign in.",
+      "export": "Full data export whenever you need it."
+    }
+  },
+  "mobile": {
+    "eyebrow": "On the phone",
+    "title": "Works on the phone, even without signal",
+    "install": "It installs as an app from the browser, without any app store.",
+    "languages": "In Spanish, English and Portuguese, with light and dark themes."
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "A plan for every church",
+    "subtitle_one": "Try it free for {{count}} day. Then pay monthly by automatic debit with Mercado Pago, and cancel anytime.",
+    "subtitle_other": "Try it free for {{count}} days. Then pay monthly by automatic debit with Mercado Pago, and cancel anytime.",
+    "users_one": "Up to {{count}} user",
+    "users_other": "Up to {{count}} users",
+    "storage": "{{size}} for files and photos",
+    "perMonth": "per month",
+    "noPrice": "Price to be defined",
+    "allModules": "All modules",
+    "unlimitedPeople": "Unlimited people",
+    "note": "The plan only counts the users who sign in to manage; church members are unlimited.",
+    "empty": "Plans will be shown here soon.",
+    "error": "We couldn't load the plans. Please try again in a while."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": {
+      "install": {
+        "q": "Do I need to install anything?",
+        "a": "No. It runs in the browser, on the computer or the phone. If you like, you can install it on the phone as an app."
+      },
+      "offline": {
+        "q": "Does it work without internet?",
+        "a": "The weekly cell report can be submitted without signal and is sent automatically when the connection is back. The rest of the app needs a connection."
+      },
+      "people": {
+        "q": "Is there a limit on people?",
+        "a": "No. Each plan has a limit of users (those who sign in to manage) and file storage; church members are unlimited."
+      },
+      "payment": {
+        "q": "How do I pay?",
+        "a": "Monthly, by automatic debit with Mercado Pago. Before that you get a free trial to get to know it."
+      },
+      "cancel": {
+        "q": "Can I close the account?",
+        "a": "Yes, anytime. Before that you can export all the data; after closing, it is deleted after 90 days."
+      },
+      "languages": {
+        "q": "Which languages are available?",
+        "a": "Spanish, English and Portuguese. Each user picks their own."
+      },
+      "demo": {
+        "q": "Can I try it first?",
+        "a": "Yes. With \"Try the demo\" you enter a sample church with fictional data, as administration, pastor, treasury or cell leader."
+      }
+    }
+  },
+  "cta": {
+    "title": "See Shaddai from the inside",
+    "body": "Enter the demo and explore the app with sample data, without signing up."
+  },
+  "footer": {
+    "contact": "Contact",
+    "rights": "© {{year}} Shaddai"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "features": "Funcionalidades",
+    "pricing": "Preços",
+    "faq": "Perguntas",
+    "login": "Entrar",
+    "menu": "Menu"
+  },
+  "demo": {
+    "cta": "Experimentar a demo",
+    "menuTitle": "Com qual perfil você quer entrar?",
+    "roles": {
+      "admin": {
+        "title": "Administração",
+        "body": "Tudo, inclusive a configuração"
+      },
+      "pastor": {
+        "title": "Pastor",
+        "body": "A visão pastoral da igreja"
+      },
+      "treasurer": {
+        "title": "Tesouraria",
+        "body": "Finanças completas"
+      },
+      "cell_leader": {
+        "title": "Líder de célula",
+        "body": "A sua célula, pensada para o celular"
+      }
+    },
+    "note": "Uma igreja de exemplo com dados fictícios: você pode explorar tudo."
+  },
+  "hero": {
+    "title": "Administração para a sua igreja",
+    "subtitle": "Pessoas, células, finanças e ministérios em um só lugar. Para cuidar melhor de cada pessoa, no computador ou no celular.",
+    "seeHow": "Ver como funciona"
+  },
+  "audience": {
+    "title": "Pensada para quem serve",
+    "items": {
+      "pastors": {
+        "title": "Pastores",
+        "body": "Uma visão completa da igreja: frequência, células e pessoas novas que precisam de acompanhamento."
+      },
+      "leaders": {
+        "title": "Líderes de célula",
+        "body": "O relatório semanal pelo celular, mesmo sem sinal, e os membros da sua célula à mão."
+      },
+      "treasury": {
+        "title": "Tesouraria",
+        "body": "Caixas, contagens de ofertas e fechamentos do mês em ordem, com relatórios prontos para apresentar."
+      },
+      "office": {
+        "title": "Secretaria",
+        "body": "Fichas de pessoas e famílias, eventos com inscrição, avisos e discipulado."
+      }
+    }
+  },
+  "modules": {
+    "title": "Tudo o que a sua igreja precisa",
+    "subtitle": "Cada módulo já está no app, em todos os planos.",
+    "items": {
+      "people": {
+        "title": "Pessoas e famílias",
+        "body": "Ficha de cada membro, grupos familiares, registro de novos e importação de pessoas."
+      },
+      "consolidation": {
+        "title": "Consolidação",
+        "body": "Acompanhamento passo a passo de cada pessoa nova, tarefas de acompanhamento e células próximas."
+      },
+      "cells": {
+        "title": "Células",
+        "body": "Mapa, relatório semanal (também offline), semáforo de relatórios, genealogia e multiplicação."
+      },
+      "discipleship": {
+        "title": "Discipulado",
+        "body": "Cursos com níveis, aulas e frequência de cada aluno."
+      },
+      "calendar": {
+        "title": "Calendário e eventos",
+        "body": "Eventos, inscrições com formulário público e frequência."
+      },
+      "ministries": {
+        "title": "Ministérios",
+        "body": "Equipes, escalas e \"Meus turnos\" para cada voluntário."
+      },
+      "worship": {
+        "title": "Louvor",
+        "body": "Cancioneiro com cifras e repertórios para cada culto."
+      },
+      "prayer": {
+        "title": "Oração e avisos",
+        "body": "Pedidos de oração e avisos para a congregação, com notificações."
+      },
+      "finance": {
+        "title": "Finanças",
+        "body": "Caixas, categorias, movimentações, contagens de ofertas, fechamentos mensais e relatórios."
+      },
+      "inventory": {
+        "title": "Inventário",
+        "body": "Bens da igreja, manutenção, empréstimos e leitura de códigos."
+      },
+      "admin": {
+        "title": "Administração e segurança",
+        "body": "Usuários, papéis e permissões configuráveis, auditoria, verificação em duas etapas e exportação de dados."
+      }
+    }
+  },
+  "cells": {
+    "eyebrow": "Células",
+    "title": "Cada célula, cada semana, à vista",
+    "body": "As células são o coração de muitas igrejas. O Shaddai acompanha cada líder e mostra aos pastores como todas estão.",
+    "points": {
+      "map": "Mapa de células para encontrar a mais próxima de cada pessoa.",
+      "report": "Relatório semanal pelo celular, mesmo sem sinal: é enviado sozinho quando a conexão volta.",
+      "tracker": "Semáforo de relatórios: quais células enviaram e quais faltam.",
+      "growth": "Genealogia e multiplicação: de qual célula nasceu cada uma.",
+      "structure": "Estrutura por redes e zonas, com os seus supervisores."
+    }
+  },
+  "finance": {
+    "eyebrow": "Finanças",
+    "title": "Contas claras e transparentes",
+    "body": "A tesouraria organizada mês a mês, com tudo o que entrou e saiu de cada caixa.",
+    "points": {
+      "accounts": "Caixas em pesos ou em outra moeda, com categorias próprias.",
+      "offerings": "Contagens de ofertas e ofertas de células pendentes de confirmação.",
+      "closings": "Fechamentos mensais que deixam cada período guardado.",
+      "reports": "Relatórios, demonstração de resultados e comprovante de contribuições de cada pessoa."
+    }
+  },
+  "security": {
+    "eyebrow": "Segurança",
+    "title": "Os dados da sua igreja, protegidos",
+    "points": {
+      "roles": "Papéis e permissões: cada um vê só o que lhe corresponde.",
+      "sensitive": "As notas pastorais e os dízimos com nome só são vistos com permissão.",
+      "audit": "Auditoria de quem fez o quê e quando.",
+      "twoFactor": "Verificação em duas etapas para entrar.",
+      "export": "Exportação completa dos dados quando você precisar."
+    }
+  },
+  "mobile": {
+    "eyebrow": "No celular",
+    "title": "Funciona no celular, mesmo sem sinal",
+    "install": "É instalado como um app pelo navegador, sem passar por nenhuma loja.",
+    "languages": "Em espanhol, inglês e português, com tema claro e escuro."
+  },
+  "pricing": {
+    "eyebrow": "Preços",
+    "title": "Um plano para cada igreja",
+    "subtitle_one": "Experimente grátis por {{count}} dia. Depois, pague por mês com débito automático do Mercado Pago e cancele quando quiser.",
+    "subtitle_other": "Experimente grátis por {{count}} dias. Depois, pague por mês com débito automático do Mercado Pago e cancele quando quiser.",
+    "users_one": "Até {{count}} usuário",
+    "users_other": "Até {{count}} usuários",
+    "storage": "{{size}} para arquivos e fotos",
+    "perMonth": "por mês",
+    "noPrice": "Preço a definir",
+    "allModules": "Todos os módulos",
+    "unlimitedPeople": "Pessoas sem limite",
+    "note": "O plano conta só os usuários que entram para administrar; as pessoas da igreja não têm limite.",
+    "empty": "Em breve você verá os planos aqui.",
+    "error": "Não foi possível carregar os planos. Tente novamente daqui a pouco."
+  },
+  "faq": {
+    "title": "Perguntas frequentes",
+    "items": {
+      "install": {
+        "q": "É preciso instalar algo?",
+        "a": "Não. Funciona pelo navegador, no computador ou no celular. Se quiser, você instala no celular como um app."
+      },
+      "offline": {
+        "q": "Funciona sem internet?",
+        "a": "O relatório semanal da célula pode ser preenchido sem sinal e é enviado sozinho quando a conexão volta. O resto do app precisa de conexão."
+      },
+      "people": {
+        "q": "Existe um limite de pessoas?",
+        "a": "Não. Cada plano tem um limite de usuários (os que entram para administrar) e de espaço para arquivos; as pessoas da igreja são ilimitadas."
+      },
+      "payment": {
+        "q": "Como é o pagamento?",
+        "a": "Mensal, com débito automático do Mercado Pago. Antes, você tem um teste grátis para conhecer."
+      },
+      "cancel": {
+        "q": "Posso encerrar a conta?",
+        "a": "Sim, quando quiser. Antes você pode exportar todos os dados; depois do encerramento, eles são apagados em 90 dias."
+      },
+      "languages": {
+        "q": "Em quais idiomas está?",
+        "a": "Espanhol, inglês e português. Cada usuário escolhe o seu."
+      },
+      "demo": {
+        "q": "Posso experimentar antes?",
+        "a": "Sim. Com \"Experimentar a demo\" você entra em uma igreja de exemplo com dados fictícios, como administração, pastor, tesouraria ou líder de célula."
+      }
+    }
+  },
+  "cta": {
+    "title": "Conheça o Shaddai por dentro",
+    "body": "Entre na demo e explore o app com dados de exemplo, sem se cadastrar."
+  },
+  "footer": {
+    "contact": "Contato",
+    "rights": "© {{year}} Shaddai"
+  }
+}

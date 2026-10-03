@@ -1,0 +1,160 @@
+/*
+ * Landing de Shaddai (kit de marca v3, docs/marca): secciones blancas alternadas con bandas marfil
+ * (en oscuro, #12171F y #1A212C), portada y pie en Azul noche, dorado con moderación.
+ */
+.page {
+  background: var(--sh-bg);
+  color: var(--sh-texto);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Las anclas no quedan tapadas por el encabezado fijo. */
+.page :global([id]) {
+  scroll-margin-top: 80px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: var(--sh-estructura);
+  border-bottom: 1px solid var(--sh-linea-estructura);
+}
+
+.navLink {
+  color: var(--sh-texto-2);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--sh-texto);
+  }
+}
+
+.section {
+  padding: 64px 0;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    padding: 96px 0;
+  }
+}
+
+.band {
+  background: var(--sh-estructura);
+}
+
+/* Portada y pie: Azul noche en claro; en oscuro, la superficie grafito (sin azul medio). */
+.night {
+  background: var(--sh-azul-noche);
+  color: #ffffff;
+
+  @mixin dark {
+    background: var(--sh-estructura);
+    color: var(--sh-texto);
+  }
+}
+
+.nightMuted {
+  color: rgba(255, 255, 255, 0.78);
+
+  @mixin dark {
+    color: var(--sh-texto-2);
+  }
+}
+
+.display {
+  font-family: var(--sh-font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  font-size: 38px;
+  margin: 0;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    font-size: 60px;
+  }
+}
+
+.h2 {
+  font-family: var(--sh-font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 30px;
+  margin: 0;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    font-size: 40px;
+  }
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mantine-color-anchor);
+}
+
+/* El detalle dorado de la portada: una línea corta bajo el título. */
+.goldLine {
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--sh-dorado);
+}
+
+/* Bajo los títulos de sección: la línea suave de la marca. */
+.titleLine {
+  width: 36px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--sh-detalle-suave);
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--sh-texto-2);
+}
+
+.card {
+  height: 100%;
+  background: var(--sh-superficie);
+  border: 1px solid var(--sh-borde);
+  border-radius: var(--sh-radio-tarjeta);
+}
+
+.loginCard {
+  background: var(--sh-superficie);
+  color: var(--sh-texto);
+  border-radius: var(--sh-radio-tarjeta);
+
+  @mixin dark {
+    border: 1px solid var(--sh-borde);
+    border-top: 3px solid var(--sh-detalle-suave);
+    background: var(--sh-bg);
+  }
+}
+
+.price {
+  font-family: var(--sh-font-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+.check {
+  color: var(--sh-ok);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.footerLink {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+
+  @mixin dark {
+    color: var(--sh-texto-2);
+  }
+}

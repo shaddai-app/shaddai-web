@@ -12,6 +12,7 @@ import type announcements from '../locales/es/announcements.json';
 import type prayer from '../locales/es/prayer.json';
 import type courses from '../locales/es/courses.json';
 import type billing from '../locales/es/billing.json';
+import type landing from '../locales/es/landing.json';
 import type finance from '../locales/es/finance.json';
 import type consolidation from '../locales/es/consolidation.json';
 import type common from '../locales/es/common.json';
@@ -47,6 +48,7 @@ declare module 'i18next' {
       prayer: typeof prayer;
       courses: typeof courses;
       billing: typeof billing;
+      landing: typeof landing;
     };
   }
 }

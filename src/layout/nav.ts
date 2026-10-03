@@ -127,7 +127,7 @@ const churchSettingsSection: NavSection = {
 const churchNav: NavSection[] = [
   {
     items: [
-      { to: '/', label: 'home', icon: IconHome, mobile: true, exact: true },
+      { to: '/inicio', label: 'home', icon: IconHome, mobile: true, exact: true },
       { to: '/anuncios', label: 'announcements', icon: IconSpeakerphone },
       { to: '/oracion', label: 'prayer', icon: IconPray },
       { to: '/discipulado', label: 'courses', icon: IconSchool, permissions: ['discipulado.ver'] },

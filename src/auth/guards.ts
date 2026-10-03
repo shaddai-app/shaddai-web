@@ -21,8 +21,8 @@ export function pendingStepPath(me: Me): PendingStep | null {
 
 export const isPlatformSession = (me: Me) => me.user.isPlatformAdmin && !me.impersonation;
 
-export function homePath(me: Me): '/' | '/plataforma' {
-  return isPlatformSession(me) ? '/plataforma' : '/';
+export function homePath(me: Me): '/inicio' | '/plataforma' {
+  return isPlatformSession(me) ? '/plataforma' : '/inicio';
 }
 
 /** Solo acepta rutas internas como destino post-login (evita open redirect). */
@@ -48,7 +48,7 @@ export function requireChurch(me: Me) {
 
 /** Panel de plataforma: solo el superadmin en su propia sesión. */
 export function requirePlatform(me: Me) {
-  if (!isPlatformSession(me)) throw redirect({ to: '/' });
+  if (!isPlatformSession(me)) throw redirect({ to: '/inicio' });
 }
 
 /** Pantallas de paso obligatorio: requieren sesión; si ese paso ya no está pendiente, van al inicio. */
