@@ -138,7 +138,7 @@
     "warning": "All demo church data and the users created in it will be deleted, and open sessions will be signed out. This cannot be undone.",
     "email": "Demo admin email",
     "password": "Demo password",
-    "passwordHint": "The SEED_DEMO_PASSWORD value from the server configuration. These credentials confirm it is the demo account.",
+    "passwordHint": "The public demo password. These credentials confirm it is the demo account.",
     "confirm": "Reset",
     "done": "Done: the demo is as good as new ({{seconds}} s)."
   }
