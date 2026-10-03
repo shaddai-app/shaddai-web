@@ -30,7 +30,7 @@ function Home() {
   const { periodo = '30d' } = Route.useSearch();
   const navigate = useNavigate({ from: Route.fullPath });
   return (
-    <Stack gap="lg" maw={1100}>
+    <Stack gap="lg">
       <div>
         <Title order={1} size="h2">
           {t('home.greeting', { name: me.user.firstName })}

@@ -6,6 +6,14 @@
   border-color: var(--sh-linea-estructura);
 }
 
+.brandLink {
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-sm);
+  min-width: 0;
+  border-radius: var(--mantine-radius-md);
+}
+
 .banner {
   border-radius: 0;
 }

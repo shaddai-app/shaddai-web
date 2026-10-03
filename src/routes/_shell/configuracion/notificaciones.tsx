@@ -55,7 +55,7 @@ function NotificationPrefsPage() {
       ) : query.isError ? (
         <FormError error={query.error} />
       ) : (
-        <Card withBorder radius="lg" maw={720}>
+        <Card withBorder radius="lg">
           <Stack gap="sm">
             {query.data.items.map((p, i) => (
               <Fragment key={p.type}>

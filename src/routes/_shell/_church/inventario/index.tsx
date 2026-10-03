@@ -159,7 +159,7 @@ function InventoryPage() {
           </Group>
         }
       />
-      <Stack gap="md" maw={960}>
+      <Stack gap="md">
         <Group gap="sm" wrap="wrap">
           <TextInput
             style={{ flex: '1 1 240px' }}
@@ -203,7 +203,7 @@ function InventoryPage() {
                 {counts ? ` · ${counts[s]}` : ''}
               </Chip>
             ))}
-            <Chip value="onLoan" size="sm" color="grape">
+            <Chip value="onLoan" size="sm" color="marfil">
               {t('onLoanChip')}
               {counts ? ` · ${counts.onLoan}` : ''}
             </Chip>

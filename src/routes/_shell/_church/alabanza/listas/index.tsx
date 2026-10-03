@@ -52,7 +52,7 @@ function SetlistsPage() {
           )
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         <SegmentedControl
           value={range}
           onChange={(v) => setRange(v as Range)}

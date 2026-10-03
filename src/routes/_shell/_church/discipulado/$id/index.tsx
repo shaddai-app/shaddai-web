@@ -101,11 +101,9 @@ function CoursePage() {
   const c = course.data;
 
   return (
-    <Stack gap="md" maw={820}>
-      <AnchorLink to="/discipulado" size="sm">
-        ← {t('backToList')}
-      </AnchorLink>
+    <Stack gap="md">
       <PageHeader
+        back={{ to: '/discipulado' }}
         title={c.name}
         description={c.description ?? undefined}
         actions={

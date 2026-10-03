@@ -81,11 +81,11 @@ function ProfilePage() {
   return (
     <>
       <PageHeader title={t('profile.title')} />
-      <Card withBorder radius="lg" padding="lg" maw={640}>
+      <Card withBorder radius="lg" padding="lg">
         <form onSubmit={onSubmit} noValidate>
           <Stack gap="md">
             <FormError error={error} />
-            <SimpleGrid cols={{ base: 1, sm: 2 }}>
+            <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }}>
               <TextInput
                 label={t('profile.firstName')}
                 autoComplete="given-name"
@@ -98,54 +98,54 @@ function ProfilePage() {
                 error={fieldError('lastName')}
                 {...form.register('lastName')}
               />
-            </SimpleGrid>
-            <TextInput
-              label={t('profile.email')}
-              value={me.user.email}
-              readOnly
-              description={t('profile.emailHint')}
-            />
-            <Controller
-              control={form.control}
-              name="locale"
-              render={({ field }) => (
-                <Select
-                  label={t('profile.language')}
-                  allowDeselect={false}
-                  data={[
-                    ...(me.account
-                      ? [
-                          {
-                            value: 'default',
-                            label: t('profile.languageDefault', { language: churchLanguage }),
-                          },
-                        ]
-                      : []),
-                    ...LANGUAGES.map((l) => ({ value: l, label: t(`common:language.${l}`) })),
-                  ]}
-                  value={field.value}
-                  onChange={(v) => field.onChange(v ?? 'default')}
-                />
-              )}
-            />
-            <Controller
-              control={form.control}
-              name="theme"
-              render={({ field }) => (
-                <Input.Wrapper label={t('profile.theme')}>
-                  <SegmentedControl
-                    mt={6}
-                    fullWidth
+              <TextInput
+                label={t('profile.email')}
+                value={me.user.email}
+                readOnly
+                description={t('profile.emailHint')}
+              />
+              <Controller
+                control={form.control}
+                name="locale"
+                render={({ field }) => (
+                  <Select
+                    label={t('profile.language')}
+                    allowDeselect={false}
+                    data={[
+                      ...(me.account
+                        ? [
+                            {
+                              value: 'default',
+                              label: t('profile.languageDefault', { language: churchLanguage }),
+                            },
+                          ]
+                        : []),
+                      ...LANGUAGES.map((l) => ({ value: l, label: t(`common:language.${l}`) })),
+                    ]}
                     value={field.value}
-                    onChange={field.onChange}
-                    data={(['light', 'dark', 'auto'] as const).map((v) => ({
-                      value: v,
-                      label: t(`common:theme.${v}`),
-                    }))}
+                    onChange={(v) => field.onChange(v ?? 'default')}
                   />
-                </Input.Wrapper>
-              )}
-            />
+                )}
+              />
+              <Controller
+                control={form.control}
+                name="theme"
+                render={({ field }) => (
+                  <Input.Wrapper label={t('profile.theme')}>
+                    <SegmentedControl
+                      mt={6}
+                      fullWidth
+                      value={field.value}
+                      onChange={field.onChange}
+                      data={(['light', 'dark', 'auto'] as const).map((v) => ({
+                        value: v,
+                        label: t(`common:theme.${v}`),
+                      }))}
+                    />
+                  </Input.Wrapper>
+                )}
+              />
+            </SimpleGrid>
             <Group justify="flex-end">
               <Button
                 type="submit"

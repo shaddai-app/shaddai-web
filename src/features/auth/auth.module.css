@@ -1,0 +1,22 @@
+/* Cambio de vista en la tarjeta de ingreso: entra con un fundido y un leve deslizamiento. */
+.enter {
+  animation: authEnter 240ms ease-out;
+}
+
+@keyframes authEnter {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter {
+    animation: none;
+  }
+}

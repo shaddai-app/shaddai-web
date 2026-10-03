@@ -158,6 +158,7 @@ function EventPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/calendario' }}
         title={e.title}
         badge={
           <Badge color={TYPE_COLORS[e.type]} variant="light">
@@ -186,7 +187,7 @@ function EventPage() {
           )
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         {selected && (
           <Card withBorder radius="lg">
             <Text size="xs" c="dimmed" fw={600} tt="uppercase">

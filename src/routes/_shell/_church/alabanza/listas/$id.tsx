@@ -179,6 +179,7 @@ function SetlistPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/alabanza/listas' }}
         title={title}
         description={`${dayjs(s.startsAt).format('dddd L · LT')}${s.event?.location ? ` · ${s.event.location}` : ''}`}
         badge={
@@ -222,7 +223,7 @@ function SetlistPage() {
           )
         }
       />
-      <Grid gap="md" maw={1100}>
+      <Grid gap="md">
         <Grid.Col span={{ base: 12, md: 8 }}>
           <Card withBorder radius="lg">
             <Title order={3} size="h5" mb="sm">

@@ -9,6 +9,7 @@ import {
   Text,
   TextInput,
   Title,
+  SimpleGrid,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications';
@@ -70,57 +71,59 @@ function DataPage() {
   });
 
   return (
-    <Stack gap="lg" maw={760}>
+    <Stack gap="lg">
       <PageHeader title={t('data.title')} description={t('data.description')} />
       <FormError error={error} />
 
-      <Section title={t('data.export.title')}>
-        <Text>{t('data.export.body')}</Text>
-        <Text size="sm" c="dimmed">
-          {t('data.export.excluded')}
-        </Text>
-        {account.isDemo ? (
-          <DemoBlocked what="export" />
-        ) : (
-          <Group>
-            <Button
-              leftSection={<IconDownload size={18} />}
-              loading={download.isPending}
-              onClick={() => download.mutate()}
-            >
-              {t('data.export.button')}
-            </Button>
-          </Group>
-        )}
-      </Section>
-
-      <Section title={t('data.legal.title')}>
-        <Text>{t('data.legal.body')}</Text>
-        <Group gap="lg">
-          <AnchorLink to="/privacidad">{t('legal:privacy.title')}</AnchorLink>
-          <AnchorLink to="/terminos">{t('legal:terms.title')}</AnchorLink>
-        </Group>
-      </Section>
-
-      <Section title={t('data.closure.title')} danger>
-        <Text>{t('data.closure.body', { days: PURGE_DAYS, email: SUPPORT_EMAIL })}</Text>
-        <Text size="sm" fw={500}>
-          {t('data.closure.advice')}
-        </Text>
-        {account.isDemo ? (
-          <DemoBlocked what="closure" />
-        ) : me.user.isAccountOwner ? (
-          <Group>
-            <Button color="red" variant="outline" onClick={closeModal.open}>
-              {t('data.closure.button')}
-            </Button>
-          </Group>
-        ) : (
+      <SimpleGrid cols={{ base: 1, md: 2, xl: 3 }} spacing="lg" style={{ alignItems: 'start' }}>
+        <Section title={t('data.export.title')}>
+          <Text>{t('data.export.body')}</Text>
           <Text size="sm" c="dimmed">
-            {t('data.closure.ownerOnly')}
+            {t('data.export.excluded')}
           </Text>
-        )}
-      </Section>
+          {account.isDemo ? (
+            <DemoBlocked what="export" />
+          ) : (
+            <Group>
+              <Button
+                leftSection={<IconDownload size={18} />}
+                loading={download.isPending}
+                onClick={() => download.mutate()}
+              >
+                {t('data.export.button')}
+              </Button>
+            </Group>
+          )}
+        </Section>
+
+        <Section title={t('data.legal.title')}>
+          <Text>{t('data.legal.body')}</Text>
+          <Group gap="lg">
+            <AnchorLink to="/privacidad">{t('legal:privacy.title')}</AnchorLink>
+            <AnchorLink to="/terminos">{t('legal:terms.title')}</AnchorLink>
+          </Group>
+        </Section>
+
+        <Section title={t('data.closure.title')} danger>
+          <Text>{t('data.closure.body', { days: PURGE_DAYS, email: SUPPORT_EMAIL })}</Text>
+          <Text size="sm" fw={500}>
+            {t('data.closure.advice')}
+          </Text>
+          {account.isDemo ? (
+            <DemoBlocked what="closure" />
+          ) : me.user.isAccountOwner ? (
+            <Group>
+              <Button color="red" variant="outline" onClick={closeModal.open}>
+                {t('data.closure.button')}
+              </Button>
+            </Group>
+          ) : (
+            <Text size="sm" c="dimmed">
+              {t('data.closure.ownerOnly')}
+            </Text>
+          )}
+        </Section>
+      </SimpleGrid>
 
       <ClosureModal opened={closing} onClose={closeModal.close} churchName={account.name} />
     </Stack>

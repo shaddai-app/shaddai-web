@@ -311,7 +311,7 @@ function AgendaView({
   const withItems = days.filter((d) => map.get(d)!.length > 0);
   if (!withItems.length) return <Text c="dimmed">{t('empty')}</Text>;
   return (
-    <Stack gap="md" maw={720}>
+    <Stack gap="md">
       {withItems.map((day) => (
         <div key={day}>
           <Text size="sm" fw={700} c={day === today ? 'blue' : undefined} mb={6}>

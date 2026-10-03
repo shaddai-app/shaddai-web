@@ -39,7 +39,6 @@ import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-quer
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import dayjs from 'dayjs';
 import { useState, type ReactNode } from 'react';
-import { AnchorLink } from '../../../../components/links';
 import { useTranslation } from 'react-i18next';
 import { peopleApi, type PersonDetail, type TimelineItem } from '../../../../api/people';
 import { requirePermission } from '../../../../auth/guards';
@@ -56,6 +55,7 @@ import { meQuery } from '../../../../auth/session';
 import { PersonFollowUpTab } from '../../../../features/consolidation/PersonFollowUpTab';
 import { PersonCoursesTab } from '../../../../features/courses/PersonCoursesTab';
 import { errorMessage } from '../../../../i18n/errors';
+import { BackButton } from '../../../../components/BackButton';
 
 export const Route = createFileRoute('/_shell/_church/personas/$id')({
   // ?tab= abre una pestaña directo (ej. "contributions" desde el reporte de aportes).
@@ -493,12 +493,7 @@ function PersonPage() {
 
   return (
     <>
-      <AnchorLink to="/personas" size="sm" c="dimmed">
-        <Group gap={4}>
-          <IconArrowLeft size={14} />
-          {t('detail.back')}
-        </Group>
-      </AnchorLink>
+      <BackButton to={{ to: '/personas' }} />
 
       <Card withBorder radius="lg" mt="sm" mb="md">
         <Group justify="space-between" align="flex-start" gap="md">

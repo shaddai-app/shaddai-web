@@ -15,6 +15,7 @@ import {
   Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { useNavigate } from '@tanstack/react-router';
 import {
   IconBook,
   IconBuildingChurch,
@@ -43,7 +44,7 @@ import { AnchorLink } from '../../components/links';
 import { ColorSchemeToggle } from '../../layout/ColorSchemeToggle';
 import { LanguageLinks } from '../../layout/LanguageLinks';
 import { LanguageMenu } from '../../layout/LanguageMenu';
-import { LoginForm } from '../auth/LoginForm';
+import { AuthCard } from '../auth/AuthCard';
 import { DemoMenu } from './DemoMenu';
 import { PlansSection } from './PlansSection';
 import classes from './landing.module.css';
@@ -81,11 +82,15 @@ const FINANCE_POINTS = ['accounts', 'offerings', 'closings', 'reports'] as const
 const SECURITY_POINTS = ['roles', 'sensitive', 'audit', 'twoFactor', 'export'] as const;
 const FAQ = ['install', 'offline', 'people', 'payment', 'cancel', 'languages', 'demo'] as const;
 
-/** Lleva al formulario de ingreso de la portada y le da el foco (sin saltar en el celular). */
-function goToLogin() {
-  const card = document.getElementById('ingresar');
-  card?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  card?.querySelector<HTMLInputElement>('input[type="email"]')?.focus({ preventScroll: true });
+/** "Ingresar": la tarjeta de la portada vuelve al login (si estaba en otra vista) y toma el foco. */
+function useGoToLogin() {
+  const navigate = useNavigate({ from: '/' });
+  return async () => {
+    await navigate({ search: (s) => ({ redirect: s.redirect }), resetScroll: false });
+    const card = document.getElementById('ingresar');
+    card?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card?.querySelector<HTMLInputElement>('input[type="email"]')?.focus({ preventScroll: true });
+  };
 }
 
 function SectionTitle({ eyebrow, title, lead }: { eyebrow?: string; title: string; lead?: string }) {
@@ -123,6 +128,7 @@ function Section({ id, band, children }: { id?: string; band?: boolean; children
 function LandingHeader() {
   const { t } = useTranslation('landing');
   const [opened, { toggle, close }] = useDisclosure();
+  const goToLogin = useGoToLogin();
   const links = [
     { href: '#funciones', label: t('nav.features') },
     { href: '#precios', label: t('nav.pricing') },
@@ -145,7 +151,7 @@ function LandingHeader() {
               <LanguageMenu />
               <ColorSchemeToggle />
             </Group>
-            <Button variant="default" onClick={goToLogin} size="sm" h={40}>
+            <Button variant="default" onClick={() => void goToLogin()} size="sm" h={40}>
               {t('nav.login')}
             </Button>
             <DemoMenu size="sm" h={40} visibleFrom="sm" />
@@ -186,7 +192,7 @@ function Hero() {
               {t('hero.subtitle')}
             </Text>
             <Group gap="sm">
-              <DemoMenu color="white" c="var(--sh-azul-noche)" />
+              <DemoMenu className={classes.lightButton} />
               <Button component="a" href="#funciones" variant="outline" color="gray.0">
                 {t('hero.seeHow')}
               </Button>
@@ -203,7 +209,7 @@ function Hero() {
             w="100%"
             mx="auto"
           >
-            <LoginForm autoFocus={false} titleOrder={2} />
+            <AuthCard />
           </Box>
         </SimpleGrid>
       </Container>
@@ -239,7 +245,7 @@ function Footer() {
             <h2 className={classes.h2}>{t('cta.title')}</h2>
             <div className={classes.goldLine} aria-hidden />
             <Text className={classes.nightMuted}>{t('cta.body')}</Text>
-            <DemoMenu color="white" c="var(--sh-azul-noche)" />
+            <DemoMenu className={classes.lightButton} />
           </Stack>
           <Divider color="rgba(255,255,255,0.15)" />
           <Group justify="space-between" align="flex-start" gap="lg">

@@ -3,19 +3,21 @@ import { redirect } from '@tanstack/react-router';
 import type { Me } from '../api/types';
 import { can, type PermissionKey } from './permissions';
 import { loadMe } from './session';
+import type { AuthView, PendingStep } from './views';
 
 interface GuardArgs {
   context: { queryClient: QueryClient };
   location: { href: string };
 }
 
-export type PendingStep = '/cambiar-contrasena' | '/configurar-2fa';
-
-/** Paso pendiente de la sesión → pantalla obligatoria (no se puede navegar a otra ruta). */
-export function pendingStepPath(me: Me): PendingStep | null {
+/**
+ * Paso obligatorio pendiente de la sesión: se completa en la tarjeta del home (`/?vista=…`) y no se
+ * puede navegar a otra pantalla hasta terminarlo.
+ */
+export function pendingStep(me: Me): PendingStep | null {
   if (me.impersonation) return null; // en soporte no se completan pasos del usuario
-  if (me.restriction === 'password_change') return '/cambiar-contrasena';
-  if (me.restriction === 'totp_enroll') return '/configurar-2fa';
+  if (me.restriction === 'password_change') return 'cambiar-contrasena';
+  if (me.restriction === 'totp_enroll') return 'configurar-2fa';
   return null;
 }
 
@@ -35,9 +37,9 @@ export function safeRedirect(target: unknown): string | undefined {
 /** Layout principal: sesión completa (sin pasos pendientes). */
 export async function requireShell({ context, location }: GuardArgs): Promise<{ me: Me }> {
   const me = await loadMe(context.queryClient);
-  if (!me) throw redirect({ to: '/login', search: { redirect: location.href } });
-  const pending = pendingStepPath(me);
-  if (pending) throw redirect({ to: pending });
+  if (!me) throw redirect({ to: '/', search: { redirect: location.href } });
+  const pending = pendingStep(me);
+  if (pending) throw redirect({ to: '/', search: { vista: pending } });
   return { me };
 }
 
@@ -51,27 +53,26 @@ export function requirePlatform(me: Me) {
   if (!isPlatformSession(me)) throw redirect({ to: '/inicio' });
 }
 
-/** Pantallas de paso obligatorio: requieren sesión; si ese paso ya no está pendiente, van al inicio. */
-export async function requirePendingStep(
-  { context, location }: GuardArgs,
-  step: PendingStep,
-  { allowVoluntary = false } = {},
-): Promise<{ me: Me; forced: boolean }> {
+/**
+ * Home público (landing con la tarjeta de ingreso). Con sesión no se muestra, salvo para completar el
+ * paso obligatorio pendiente; sin sesión, los pasos obligatorios vuelven al login.
+ */
+export async function guardHome(
+  { context }: Pick<GuardArgs, 'context'>,
+  search: { vista?: AuthView; redirect?: string },
+): Promise<void> {
   const me = await loadMe(context.queryClient);
-  if (!me) throw redirect({ to: '/login', search: { redirect: location.href } });
-  const pending = pendingStepPath(me);
-  if (pending && pending !== step) throw redirect({ to: pending });
-  if (!pending && !allowVoluntary) throw redirect({ to: homePath(me) });
-  return { me, forced: pending === step };
-}
-
-/** Login y recuperación: si ya hay una sesión válida, no tiene sentido mostrarlos. */
-export async function redirectIfLoggedIn({ context }: GuardArgs, target?: string): Promise<void> {
-  const me = await loadMe(context.queryClient);
-  if (!me) return;
-  const pending = pendingStepPath(me);
-  if (pending) throw redirect({ to: pending });
-  throw redirect({ to: safeRedirect(target) ?? homePath(me) });
+  const forcedView = search.vista === 'cambiar-contrasena' || search.vista === 'configurar-2fa';
+  if (!me) {
+    if (forcedView) throw redirect({ to: '/', search: { redirect: search.redirect } });
+    return;
+  }
+  const pending = pendingStep(me);
+  if (pending) {
+    if (search.vista !== pending) throw redirect({ to: '/', search: { vista: pending } });
+    return;
+  }
+  throw redirect({ to: safeRedirect(search.redirect) ?? homePath(me) });
 }
 
 /** Permiso por pantalla. La API igual valida cada endpoint: esto evita mostrar lo que no corresponde. */

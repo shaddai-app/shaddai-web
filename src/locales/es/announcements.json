@@ -17,7 +17,6 @@
   "deleted": "Anuncio borrado",
   "saved": "Anuncio guardado",
   "published": "Anuncio guardado",
-  "backToList": "Todos los anuncios",
   "seeAll": "Ver los {{count}}",
   "status": {
     "current": "Publicados",

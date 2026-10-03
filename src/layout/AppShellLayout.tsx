@@ -29,6 +29,7 @@ import { leaveSupport } from '../features/platform/support';
 import { NotificationBell } from '../features/notifications/NotificationBell';
 import { GlobalSearch, SearchTrigger } from '../features/search/GlobalSearch';
 import type { Me } from '../api/types';
+import { homePath } from '../auth/guards';
 import { can } from '../auth/permissions';
 import { logout } from '../auth/session';
 import { useSession } from '../auth/session-store';
@@ -153,7 +154,7 @@ function UserMenu({ me }: { me: Me }) {
           leftSection={<IconLogout size={16} />}
           onClick={async () => {
             await logout(queryClient);
-            void navigate({ to: '/login' });
+            void navigate({ to: '/' });
           }}
         >
           {t('userMenu.logout')}
@@ -206,10 +207,18 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
               size="sm"
               aria-label={opened ? t('nav.closeMenu') : t('nav.openMenu')}
             />
-            <BrandMark me={me} />
-            <Text fw={600} truncate>
-              {title}
-            </Text>
+            {/* Logo y nombre: llevan al inicio. */}
+            <UnstyledButton
+              component={Link}
+              to={homePath(me)}
+              className={classes.brandLink}
+              aria-label={t('nav.home')}
+            >
+              <BrandMark me={me} />
+              <Text fw={600} truncate>
+                {title}
+              </Text>
+            </UnstyledButton>
           </Group>
           <Group gap={4} wrap="nowrap">
             {searchable && <SearchTrigger />}

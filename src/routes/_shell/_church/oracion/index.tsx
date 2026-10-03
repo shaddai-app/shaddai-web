@@ -61,7 +61,7 @@ function PrayerPage() {
   );
 
   return (
-    <Stack gap="lg" maw={820}>
+    <Stack gap="lg">
       <PageHeader
         title={t('title')}
         description={context.data?.pastoral ? t('descriptionPastoral') : t('description')}

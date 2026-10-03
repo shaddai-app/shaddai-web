@@ -56,7 +56,7 @@ function MinistriesPage() {
       ) : query.data.items.length === 0 ? (
         <Text c="dimmed">{t('empty')}</Text>
       ) : (
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md" maw={1100}>
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3, xl: 4 }} spacing="md">
           {query.data.items.map((m) => {
             const Icon = KIND_ICONS[m.kind];
             const color = m.color ?? 'blue';

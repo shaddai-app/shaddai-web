@@ -1,8 +1,12 @@
-import { describe, expect, it } from 'vitest';
+import type { QueryClient } from '@tanstack/react-query';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Me } from '../api/types';
 import { navFor } from '../layout/nav';
-import { homePath, pendingStepPath, safeRedirect } from './guards';
+import { guardHome, homePath, pendingStep, safeRedirect } from './guards';
+import { loadMe } from './session';
 import { can } from './permissions';
+
+vi.mock('./session', () => ({ loadMe: vi.fn() }));
 
 function me(overrides: Omit<Partial<Me>, 'user'> & { user?: Partial<Me['user']> } = {}): Me {
   return {
@@ -30,12 +34,12 @@ function me(overrides: Omit<Partial<Me>, 'user'> & { user?: Partial<Me['user']> 
 
 describe('guards', () => {
   it('manda al paso pendiente obligatorio', () => {
-    expect(pendingStepPath(me({ restriction: 'password_change' }))).toBe('/cambiar-contrasena');
-    expect(pendingStepPath(me({ restriction: 'totp_enroll' }))).toBe('/configurar-2fa');
-    expect(pendingStepPath(me())).toBeNull();
+    expect(pendingStep(me({ restriction: 'password_change' }))).toBe('cambiar-contrasena');
+    expect(pendingStep(me({ restriction: 'totp_enroll' }))).toBe('configurar-2fa');
+    expect(pendingStep(me())).toBeNull();
     // En soporte no se completan pasos del usuario impersonado.
     expect(
-      pendingStepPath(me({ restriction: 'password_change', impersonation: { impersonatorId: 1 } })),
+      pendingStep(me({ restriction: 'password_change', impersonation: { impersonatorId: 1 } })),
     ).toBeNull();
   });
 
@@ -81,5 +85,47 @@ describe('permisos y menú', () => {
     expect(leader).toContain('/celulas');
     expect(leader).not.toContain('/estructura/redes');
     expect(paths(me({ permissions: { 'estructura.gestionar': 'all' } }))).toContain('/estructura/redes');
+  });
+});
+
+describe('home (landing con la tarjeta de ingreso)', () => {
+  const context = { queryClient: {} as QueryClient };
+  /** El destino del redirect que tira el guard, o null si deja ver el home. */
+  async function outcome(session: Me | null, search: Parameters<typeof guardHome>[1] = {}) {
+    vi.mocked(loadMe).mockResolvedValue(session);
+    try {
+      await guardHome({ context }, search);
+      return null;
+    } catch (err) {
+      const { options } = err as { options: { to?: string; search?: unknown } };
+      return { to: options.to, search: options.search };
+    }
+  }
+
+  beforeEach(() => vi.mocked(loadMe).mockReset());
+
+  it('sin sesión muestra el home; un paso obligatorio sin sesión vuelve al login', async () => {
+    expect(await outcome(null)).toBeNull();
+    expect(await outcome(null, { vista: 'olvide' })).toBeNull();
+    expect(await outcome(null, { vista: 'cambiar-contrasena', redirect: '/personas' })).toEqual({
+      to: '/',
+      search: { redirect: '/personas' },
+    });
+  });
+
+  it('con sesión va al inicio o adonde iba', async () => {
+    expect(await outcome(me())).toEqual({ to: '/inicio', search: undefined });
+    expect((await outcome(me(), { redirect: '/anuncios' }))?.to).toBe('/anuncios');
+    expect((await outcome(me(), { redirect: '//evil.example' }))?.to).toBe('/inicio');
+  });
+
+  it('con un paso pendiente se queda en esa vista (y no en otra)', async () => {
+    const pending = me({ restriction: 'password_change' });
+    expect(await outcome(pending, { vista: 'cambiar-contrasena' })).toBeNull();
+    expect(await outcome(pending)).toEqual({ to: '/', search: { vista: 'cambiar-contrasena' } });
+    expect(await outcome(pending, { vista: 'olvide' })).toEqual({
+      to: '/',
+      search: { vista: 'cambiar-contrasena' },
+    });
   });
 });

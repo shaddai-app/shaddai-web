@@ -303,6 +303,7 @@ function CountEditor({
   return (
     <>
       <PageHeader
+        back={{ to: '/finanzas/arqueos' }}
         title={count.title ?? t('counts.untitled', { date: formatDate(count.date) })}
         badge={
           <Badge color={COUNT_STATUS_COLORS.draft} variant="light">
@@ -315,7 +316,7 @@ function CountEditor({
           </Button>
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         <HeaderCard count={count} onEdit={() => setEditingHeader(true)} />
         <FormError error={error} />
 
@@ -664,6 +665,7 @@ function CountView({
   return (
     <>
       <PageHeader
+        back={{ to: '/finanzas/arqueos' }}
         title={count.title ?? t('counts.untitled', { date: formatDate(count.date) })}
         badge={
           <Badge color={COUNT_STATUS_COLORS[count.status]} variant="light">
@@ -685,7 +687,7 @@ function CountView({
           )
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         {voided && (
           <Alert color="gray" variant="light" title={t('counts.voidedTitle')}>
             {count.voidReason}

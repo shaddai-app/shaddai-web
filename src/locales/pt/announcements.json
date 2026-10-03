@@ -17,7 +17,6 @@
   "deleted": "Anúncio excluído",
   "saved": "Anúncio salvo",
   "published": "Anúncio salvo",
-  "backToList": "Todos os anúncios",
   "seeAll": "Ver os {{count}}",
   "status": {
     "current": "Publicados",

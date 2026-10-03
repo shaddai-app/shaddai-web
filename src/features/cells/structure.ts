@@ -51,7 +51,7 @@ export const CELL_STATUS_COLORS: Record<CellStatus, string> = {
   active: 'teal',
   paused: 'yellow',
   closed: 'gray',
-  multiplied: 'grape',
+  multiplied: 'marfil',
 };
 
 /** Colores de Mantine para identificar redes (mismo formato que acepta la API). */

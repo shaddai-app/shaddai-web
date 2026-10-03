@@ -56,7 +56,7 @@ function NotificationsPage() {
           </Group>
         }
       />
-      <Stack gap="md" maw={720}>
+      <Stack gap="md">
         <Switch
           label={t('onlyUnread')}
           checked={onlyUnread}

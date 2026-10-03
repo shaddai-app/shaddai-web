@@ -184,7 +184,7 @@ function AuditPage() {
       ) : (
         list.data && (
           <>
-            <Stack gap="xs" maw={1100}>
+            <Stack gap="xs">
               {list.data.items.map((e) => (
                 <AuditRow key={e.id} entry={e} />
               ))}

@@ -43,6 +43,10 @@
   --sh-error: #a32626;
   --sh-neutro-bg: #eef0f3;
   --sh-neutro: #4b5563;
+  /* Marfil: lo importante y los avisos informativos (rol Administrador, demo, listo para multiplicar). */
+  --sh-marfil-bg: #f7f3ea;
+  --sh-marfil-texto: #6b4e1a;
+  --sh-marfil-borde: #e6d9bb;
 
   --sh-font-display: 'Frank Ruhl Libre', Georgia, serif;
   --sh-radio-tarjeta: 12px;
@@ -76,6 +80,10 @@
   --sh-error: #f19a9a;
   --sh-neutro-bg: #262d38;
   --sh-neutro: #aab4c3;
+  /* En oscuro el texto sigue frío: el marfil va solo en el borde. */
+  --sh-marfil-bg: #35322b;
+  --sh-marfil-texto: #e6eaf0;
+  --sh-marfil-borde: #d9d2c3;
 }
 
 /* Tarjetas y diálogos: blancos en claro, #1A212C sobre el fondo grafito en oscuro. */

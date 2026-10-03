@@ -181,7 +181,7 @@ function PlatformAuditPage() {
       ) : (
         list.data && (
           <>
-            <Stack gap="xs" maw={1100}>
+            <Stack gap="xs">
               {list.data.items.map((e) => (
                 <Row key={e.id} entry={e} accountName={e.accountId ? names.get(e.accountId) : undefined} />
               ))}

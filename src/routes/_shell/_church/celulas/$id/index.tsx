@@ -153,7 +153,7 @@ function GrowthCard({ cell, showLastReport }: { cell: CellDetail; showLastReport
             {t('detail.growth')}
           </Title>
           {m.ready && (
-            <Badge color="grape" variant="light">
+            <Badge color="marfil" variant="light">
               {t('detail.ready')}
             </Badge>
           )}
@@ -162,7 +162,7 @@ function GrowthCard({ cell, showLastReport }: { cell: CellDetail; showLastReport
           <ButtonLink
             to="/celulas/$id/multiplicar"
             params={{ id: String(cell.id) }}
-            color="grape"
+            color="marfil"
             variant="light"
             leftSection={<IconArrowsSplit size={16} />}
           >
@@ -171,7 +171,7 @@ function GrowthCard({ cell, showLastReport }: { cell: CellDetail; showLastReport
         )}
         <Progress
           value={m.progress}
-          color={m.ready ? 'grape' : 'teal'}
+          color={m.ready ? 'marfil' : 'teal'}
           size="lg"
           radius="xl"
           aria-label={t('detail.growth')}
@@ -464,6 +464,7 @@ function CellPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/celulas' }}
         title={cell.code ? `${cell.code} · ${cell.name}` : cell.name}
         badge={<CellStatusBadge status={cell.status} />}
         actions={

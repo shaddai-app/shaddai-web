@@ -244,6 +244,7 @@ function ItemPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/inventario' }}
         title={item.name}
         badge={
           <Badge color={STATUS_COLORS[item.status]} variant="light">
@@ -273,7 +274,7 @@ function ItemPage() {
           )
         }
       />
-      <Grid gap="md" maw={1100}>
+      <Grid gap="md">
         <Grid.Col span={{ base: 12, md: 8 }}>
           <Stack gap="md">
             <LoanCard item={item} canLend={canLend} />

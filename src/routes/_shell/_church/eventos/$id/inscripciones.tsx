@@ -124,6 +124,7 @@ function RegistrationsPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/eventos/$id', params: { id: String(id) } }}
         title={t('registrations.title')}
         description={e.title}
         actions={
@@ -153,7 +154,7 @@ function RegistrationsPage() {
           )
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         <Group justify="space-between" align="flex-end" wrap="wrap" gap="sm">
           {e.recurrence ? (
             <Select

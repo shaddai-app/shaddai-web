@@ -121,7 +121,7 @@ export function PrayerItem({
             </Badge>
           )}
           {p.visibility !== 'public' && (
-            <Badge size="sm" variant="light" color="grape">
+            <Badge size="sm" variant="light" color="marfil">
               {t(`badge.${p.visibility}`)}
             </Badge>
           )}

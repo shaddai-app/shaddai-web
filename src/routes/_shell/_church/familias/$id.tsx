@@ -1,7 +1,6 @@
 import {
   ActionIcon,
   Alert,
-  Anchor,
   Button,
   Card,
   Group,
@@ -15,7 +14,7 @@ import {
 } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
-import { IconArrowLeft, IconLock, IconPencil, IconTrash, IconUserMinus } from '@tabler/icons-react';
+import { IconLock, IconPencil, IconTrash, IconUserMinus } from '@tabler/icons-react';
 import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
@@ -28,6 +27,7 @@ import { FormError } from '../../../../components/FormError';
 import { MemberRow } from '../../../../features/people/FamilyPanel';
 import { fullName } from '../../../../features/people/format';
 import { errorMessage } from '../../../../i18n/errors';
+import { BackButton } from '../../../../components/BackButton';
 
 export const Route = createFileRoute('/_shell/_church/familias/$id')({
   beforeLoad: ({ context }) => requirePermission(context.me, 'personas.ver'),
@@ -172,12 +172,7 @@ function HouseholdPage() {
 
   return (
     <>
-      <Anchor size="sm" c="dimmed" onClick={() => window.history.back()} component="button">
-        <Group gap={4}>
-          <IconArrowLeft size={14} />
-          {t('family.back')}
-        </Group>
-      </Anchor>
+      <BackButton to={{ to: '/personas' }} />
 
       <Card withBorder radius="lg" mt="sm" mb="md">
         {editing ? (

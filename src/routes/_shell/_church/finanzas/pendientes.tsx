@@ -111,7 +111,7 @@ function PendingPage() {
   return (
     <>
       <PageHeader title={t('pending.title')} description={t('pending.description')} />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         <SegmentedControl
           value={status}
           onChange={(v) =>

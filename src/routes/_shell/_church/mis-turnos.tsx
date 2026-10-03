@@ -339,7 +339,7 @@ function MyAssignmentsPage() {
           {t('mine.notLinked')}
         </Alert>
       ) : (
-        <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md" maw={1100} style={{ alignItems: 'start' }}>
+        <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md" style={{ alignItems: 'start' }}>
           <Stack gap="sm">
             {pending > 0 && (
               <Alert color="yellow" variant="light" p="sm">

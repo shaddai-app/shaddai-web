@@ -9,11 +9,11 @@ import { announcementsApi } from '../../../../api/announcements';
 import { can } from '../../../../auth/permissions';
 import { meQuery } from '../../../../auth/session';
 import { FormError } from '../../../../components/FormError';
-import { AnchorLink } from '../../../../components/links';
 import { AnnouncementFormModal } from '../../../../features/announcements/AnnouncementFormModal';
 import { AnnouncementItem } from '../../../../features/announcements/AnnouncementItem';
 import { useAudienceLabel } from '../../../../features/announcements/queries';
 import { errorMessage } from '../../../../i18n/errors';
+import { BackButton } from '../../../../components/BackButton';
 
 export const Route = createFileRoute('/_shell/_church/anuncios/$id')({
   component: AnnouncementPage,
@@ -55,10 +55,8 @@ function AnnouncementPage() {
     });
 
   return (
-    <Stack gap="md" maw={820}>
-      <AnchorLink to="/anuncios" size="sm">
-        ← {t('backToList')}
-      </AnchorLink>
+    <Stack gap="md">
+      <BackButton to={{ to: '/anuncios' }} />
       <FormError error={announcement.error} />
       {announcement.isPending && announcement.fetchStatus !== 'idle' ? (
         <Center py="xl">

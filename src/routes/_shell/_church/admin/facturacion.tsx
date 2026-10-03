@@ -1,4 +1,4 @@
-import { Alert, Badge, Button, Card, Group, Loader, Stack, Text, Title } from '@mantine/core';
+import { Alert, Badge, Button, Card, Group, Loader, Stack, Text, Title, SimpleGrid } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
 import { IconCreditCard, IconFlask } from '@tabler/icons-react';
@@ -107,7 +107,7 @@ function SubscriptionCard({ billing }: { billing: BillingOverview }) {
             {t('auto.title')}
           </Title>
           {fake && (
-            <Badge variant="light" color="grape" leftSection={<IconFlask size={12} />}>
+            <Badge variant="light" color="marfil" leftSection={<IconFlask size={12} />}>
               {t('fake.badge')}
             </Badge>
           )}
@@ -166,7 +166,7 @@ function SubscriptionCard({ billing }: { billing: BillingOverview }) {
           </>
         )}
         {fake && open && (
-          <Alert color="grape" variant="light" icon={<IconFlask size={18} />} title={t('fake.title')}>
+          <Alert color="marfil" variant="light" icon={<IconFlask size={18} />} title={t('fake.title')}>
             <Stack gap="xs">
               <Text size="sm">{t('fake.body')}</Text>
               <Group gap="xs">
@@ -202,10 +202,10 @@ function BillingPage() {
   const billing = useQuery({ queryKey: billingKey, queryFn: billingApi.overview });
 
   return (
-    <Stack gap="md" maw={720}>
+    <Stack gap="md">
       <PageHeader title={t('title')} description={t('description')} />
       {simular && billing.data?.subscription?.status === 'pending' && (
-        <Alert color="grape" variant="light" icon={<IconFlask size={18} />}>
+        <Alert color="marfil" variant="light" icon={<IconFlask size={18} />}>
           {t('fake.returned')}
         </Alert>
       )}
@@ -217,8 +217,10 @@ function BillingPage() {
         <FormError error={billing.error} />
       ) : (
         <>
-          <PlanSummary billing={billing.data} />
-          <SubscriptionCard billing={billing.data} />
+          <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="md" style={{ alignItems: 'start' }}>
+            <PlanSummary billing={billing.data} />
+            <SubscriptionCard billing={billing.data} />
+          </SimpleGrid>
           <InvoiceList billing={billing.data} />
         </>
       )}

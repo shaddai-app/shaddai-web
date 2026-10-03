@@ -1,6 +1,5 @@
 import {
   Alert,
-  Anchor,
   Badge,
   Button,
   Card,
@@ -22,7 +21,7 @@ import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
 import { IconAlertTriangle, IconHeadset, IconKey } from '@tabler/icons-react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import dayjs from 'dayjs';
 import { useState, type ReactNode } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -444,13 +443,11 @@ function AccountDetail() {
   return (
     <>
       <PageHeader
+        back={{ to: '/plataforma' }}
         title={a.name}
         description={a.slug}
         actions={
           <Group gap="sm">
-            <Anchor component={Link} to="/plataforma" size="sm">
-              {t('detail.back')}
-            </Anchor>
             <Button variant="light" onClick={() => setStatusOpen(true)}>
               {t('detail.changeStatus')}
             </Button>

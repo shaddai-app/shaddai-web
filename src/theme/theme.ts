@@ -28,6 +28,23 @@ const graphite: MantineColorsTuple = [
   '#0a0d12',
 ];
 
+/**
+ * Marfil de la marca como color de Mantine (`color="marfil"`) para lo importante: en las variantes
+ * suaves usa los tokens --sh-marfil-* (ver variantColorResolver); relleno, un dorado oscuro (AA).
+ */
+const marfil: MantineColorsTuple = [
+  '#fbf9f4',
+  '#f7f3ea',
+  '#efe6d2',
+  '#e6d9bb',
+  '#d9c49a',
+  '#c9a96d',
+  '#8a6a38',
+  '#7a5d31',
+  '#664d28',
+  '#523d20',
+];
+
 /** Colores de la marca que no dependen de la paleta de Mantine (ver brand.css). */
 export const cssVariablesResolver: CSSVariablesResolver = () => ({
   variables: {},
@@ -45,12 +62,15 @@ export const cssVariablesResolver: CSSVariablesResolver = () => ({
 });
 
 /** Estados del kit (correcto, aviso, error, neutro) para las variantes suaves: badges, alertas, íconos. */
-const STATUS_TOKENS: Record<string, 'ok' | 'aviso' | 'error' | 'neutro'> = {
+const STATUS_TOKENS: Record<string, 'ok' | 'aviso' | 'error' | 'neutro' | 'marfil'> = {
   teal: 'ok',
   green: 'ok',
   yellow: 'aviso',
   red: 'error',
   gray: 'neutro',
+  marfil: 'marfil',
+  // Los avisos informativos que eran violeta también van en marfil (pedido del dueño).
+  grape: 'marfil',
 };
 
 const variantColorResolver: VariantColorsResolver = (input) => {
@@ -60,6 +80,14 @@ const variantColorResolver: VariantColorsResolver = (input) => {
   const token =
     input.color && input.color !== input.theme.primaryColor ? STATUS_TOKENS[input.color] : undefined;
   if (input.variant !== 'light' || !token) return resolved;
+  if (token === 'marfil') {
+    return {
+      background: 'var(--sh-marfil-bg)',
+      hover: 'color-mix(in srgb, var(--sh-marfil-bg), var(--sh-marfil-borde) 40%)',
+      color: 'var(--sh-marfil-texto)',
+      border: '1px solid var(--sh-marfil-borde)',
+    };
+  }
   return {
     background: `var(--sh-${token}-bg)`,
     hover: `color-mix(in srgb, var(--sh-${token}-bg), var(--sh-${token}) 10%)`,
@@ -73,7 +101,7 @@ export function buildTheme(primaryColor: PrimaryPreset = DEFAULT_PRIMARY) {
     primaryColor,
     // Botón primario del kit: #3B5F94 en claro y #4A71A9 en oscuro (slate 7 y 6).
     primaryShade: { light: 7, dark: 6 },
-    colors: { ...customColors, dark: graphite },
+    colors: { ...customColors, dark: graphite, marfil },
     fontFamily: "'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
     headings: { fontWeight: '600' },
     defaultRadius: 'md',

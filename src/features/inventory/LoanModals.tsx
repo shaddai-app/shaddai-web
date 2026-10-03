@@ -35,7 +35,7 @@ const orNull = (v: string) => (v.trim() === '' ? null : v.trim());
 export function LoanBadge({ loan, ...props }: { loan: { overdue: boolean } } & BadgeProps) {
   const { t } = useTranslation('inventory');
   return (
-    <Badge color={loan.overdue ? 'red' : 'grape'} variant="light" {...props}>
+    <Badge color={loan.overdue ? 'red' : 'marfil'} variant="light" {...props}>
       {loan.overdue ? t('loans.overdueBadge') : t('loans.onLoan')}
     </Badge>
   );

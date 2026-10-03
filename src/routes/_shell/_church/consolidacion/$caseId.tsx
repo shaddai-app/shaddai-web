@@ -224,6 +224,7 @@ function CasePage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/consolidacion' }}
         title={fullName(p)}
         badge={<CaseStatusBadge status={c.status} />}
         description={t('case.openedFrom', { date: formatDate(c.openedAt), source: t(`sources.${c.source}`) })}
