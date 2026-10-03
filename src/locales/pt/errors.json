@@ -221,7 +221,10 @@
     "TOTP_NOT_ENABLED": "A verificação em duas etapas não está ativa.",
     "TOTP_REQUIRED_FOR_PLATFORM_ADMIN": "Para o superadministrador a verificação em duas etapas é obrigatória.",
     "USE_SECURITY_SETTINGS": "Para o seu próprio usuário, use a seção Segurança.",
-    "TOTP_ENROLLMENT_NOT_STARTED": "Comece a ativação de novo."
+    "TOTP_ENROLLMENT_NOT_STARTED": "Comece a ativação de novo.",
+    "ANNOUNCEMENT_NOT_FOUND": "O anúncio não existe ou não é para você.",
+    "ANNOUNCEMENT_AUDIENCE_INVALID": "Algum dos destinatários não existe mais. Revise a lista.",
+    "ANNOUNCEMENT_EXPIRES_BEFORE_PUBLISH": "O vencimento tem que ser depois da publicação."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

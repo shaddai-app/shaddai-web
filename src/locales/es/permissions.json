@@ -15,10 +15,13 @@
     "usuarios": "Usuarios",
     "roles": "Roles",
     "cuenta": "Cuenta",
-    "auditoria": "Auditoría"
+    "auditoria": "Auditoría",
+    "anuncios": "Anuncios"
   },
   "actions": {
-    "dashboard": { "ver": "Ver estadísticas" },
+    "dashboard": {
+      "ver": "Ver estadísticas"
+    },
     "personas": {
       "ver": "Ver personas",
       "crear": "Dar de alta",
@@ -45,8 +48,12 @@
       "multiplicar": "Multiplicar",
       "ver_reportes": "Ver reportes"
     },
-    "estructura": { "gestionar": "Sedes, redes y zonas" },
-    "catalogos": { "gestionar": "Estados, hitos, cargos y etiquetas" },
+    "estructura": {
+      "gestionar": "Sedes, redes y zonas"
+    },
+    "catalogos": {
+      "gestionar": "Estados, hitos, cargos y etiquetas"
+    },
     "ministerios": {
       "ver": "Ver ministerios",
       "gestionar": "Gestionar ministerios",
@@ -62,7 +69,10 @@
       "gestionar": "Gestionar eventos",
       "inscripciones": "Gestionar inscripciones"
     },
-    "asistencia": { "ver": "Ver asistencia", "registrar": "Registrar asistencia" },
+    "asistencia": {
+      "ver": "Ver asistencia",
+      "registrar": "Registrar asistencia"
+    },
     "finanzas": {
       "ver": "Ver finanzas",
       "registrar": "Registrar movimientos",
@@ -76,15 +86,29 @@
       "categorias": "Gestionar categorías",
       "reportes": "Reportes"
     },
-    "inventario": { "ver": "Ver inventario", "gestionar": "Gestionar equipos", "prestamos": "Préstamos" },
+    "inventario": {
+      "ver": "Ver inventario",
+      "gestionar": "Gestionar equipos",
+      "prestamos": "Préstamos"
+    },
     "usuarios": {
       "ver": "Ver usuarios",
       "gestionar": "Gestionar usuarios",
       "resetear": "Resetear contraseñas"
     },
-    "roles": { "ver": "Ver roles", "gestionar": "Gestionar roles y permisos" },
-    "cuenta": { "configurar": "Configurar la iglesia" },
-    "auditoria": { "ver": "Ver auditoría" }
+    "roles": {
+      "ver": "Ver roles",
+      "gestionar": "Gestionar roles y permisos"
+    },
+    "cuenta": {
+      "configurar": "Configurar la iglesia"
+    },
+    "auditoria": {
+      "ver": "Ver auditoría"
+    },
+    "anuncios": {
+      "gestionar": "Publicar y editar anuncios"
+    }
   },
   "scope": {
     "none": "Sin acceso",

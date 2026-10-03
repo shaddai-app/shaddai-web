@@ -41,6 +41,7 @@ void i18n
       'inventory',
       'notifications',
       'legal',
+      'announcements',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },

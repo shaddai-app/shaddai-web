@@ -44,6 +44,12 @@
     "unknown": {
       "title": "Aviso",
       "body": ""
+    },
+    "announcement": {
+      "published": {
+        "title": "Anuncio: {{title}}",
+        "body": "Publicado por {{author}}."
+      }
     }
   },
   "reason": "Motivo: {{reason}}",
@@ -80,6 +86,12 @@
         "report_missing": {
           "label": "Falta el reporte de mi célula",
           "hint": "Si pasaron dos días de la reunión sin reporte."
+        }
+      },
+      "announcement": {
+        "published": {
+          "label": "Anuncios de la iglesia",
+          "hint": "Cuando se publica un anuncio para vos."
         }
       }
     },

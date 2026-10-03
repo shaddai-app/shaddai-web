@@ -44,6 +44,12 @@
     "unknown": {
       "title": "Notice",
       "body": ""
+    },
+    "announcement": {
+      "published": {
+        "title": "Announcement: {{title}}",
+        "body": "Posted by {{author}}."
+      }
     }
   },
   "reason": "Reason: {{reason}}",
@@ -80,6 +86,12 @@
         "report_missing": {
           "label": "My cell’s report is missing",
           "hint": "When two days pass after the meeting without a report."
+        }
+      },
+      "announcement": {
+        "published": {
+          "label": "Church announcements",
+          "hint": "When an announcement is posted for you."
         }
       }
     },
