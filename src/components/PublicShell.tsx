@@ -1,9 +1,9 @@
-import { Box, Center, Group, Image, Paper, Stack, Text, ThemeIcon } from '@mantine/core';
-import { IconCross } from '@tabler/icons-react';
+import { Box, Center, Group, Image, Paper, Stack, Text } from '@mantine/core';
 import type { ReactNode } from 'react';
 import { LegalLinks } from '../features/legal/LegalLinks';
 import { ColorSchemeToggle } from '../layout/ColorSchemeToggle';
 import { LanguageMenu } from '../layout/LanguageMenu';
+import { ShaddaiIcon } from './BrandLogo';
 
 /** Marco de las páginas públicas (sin sesión): logo y nombre de la iglesia, idioma y tema. */
 export function PublicShell({
@@ -16,7 +16,7 @@ export function PublicShell({
   children: ReactNode;
 }) {
   return (
-    <Box mih="100dvh" bg="var(--mantine-color-body)">
+    <Box mih="100dvh" bg="var(--sh-fondo-marco)">
       <Group justify="flex-end" p="sm" gap={4}>
         <LanguageMenu />
         <ColorSchemeToggle />
@@ -27,9 +27,7 @@ export function PublicShell({
             {logo ? (
               <Image src={logo} alt="" w={64} h={64} radius="md" fit="contain" />
             ) : (
-              <ThemeIcon size={56} radius="lg" aria-hidden>
-                <IconCross size={30} />
-              </ThemeIcon>
+              <ShaddaiIcon size={56} />
             )}
             {name && (
               <Text fw={600} size="lg" ta="center">
@@ -37,7 +35,7 @@ export function PublicShell({
               </Text>
             )}
           </Stack>
-          <Paper withBorder radius="lg" p={{ base: 'lg', sm: 'xl' }} shadow="xs">
+          <Paper withBorder radius="var(--sh-radio-tarjeta)" p={{ base: 'lg', sm: 'xl' }}>
             {children}
           </Paper>
           <LegalLinks />

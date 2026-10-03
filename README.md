@@ -64,6 +64,8 @@ src/features/   módulos de negocio
 
 - Idiomas: español (por defecto), inglés, portugués. Claves tipadas desde `es`; `npm run i18n:check` en CI.
 - Tema claro / oscuro / según el sistema (toggle en el header), sin parpadeo al cargar. El color primario lo elige cada cuenta entre 6 presets sobrios.
+- **Marca**: kit en [docs/marca](docs/marca/LEEME.md). Los colores van por los tokens `--sh-*` de `src/theme/brand.css` (claro: contenido blanco y estructura marfil; oscuro: grafito con el marfil solo en detalles), nunca sueltos. Logos SVG del kit en `src/assets/brand` (`BrandLogo.tsx`), Frank Ruhl Libre solo en la marca (landing y login), Inter en la app.
+- `/` es la landing pública (planes, demo e ingreso); con sesión redirige al inicio, que está en `/inicio`.
 
 Ver [CONTRIBUTING.md](CONTRIBUTING.md) para ramas y commits.
 

@@ -1,3 +1,11 @@
+/* Estructura de la marca: encabezado, menú y barra inferior en marfil (claro) o #1A212C (oscuro). */
+.header,
+.navbar,
+.footer {
+  background-color: var(--sh-estructura);
+  border-color: var(--sh-linea-estructura);
+}
+
 .banner {
   border-radius: 0;
 }
@@ -13,14 +21,40 @@
   }
 }
 
+/* Avatar con anillo marfil (detalle de la marca). */
 .userButton {
   border-radius: 999px;
   padding: 2px;
+  box-shadow: 0 0 0 2px var(--sh-detalle-suave);
 }
 
 .navLink {
+  position: relative;
   border-radius: var(--mantine-radius-md);
   min-height: 44px;
+  color: var(--sh-texto-2);
+
+  /* Ítem activo: pastilla (blanca en claro, gris cálido en oscuro) con un puntito de detalle. */
+  &[data-active] {
+    --nl-bg: var(--sh-activo-bg);
+    --nl-hover: var(--sh-activo-bg);
+    --nl-color: var(--sh-activo-texto);
+    box-shadow: var(--sh-activo-sombra);
+    font-weight: 600;
+    padding-right: 28px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      margin-top: -3px;
+      border-radius: 50%;
+      background: var(--sh-detalle);
+    }
+  }
 }
 
 .footer {
@@ -37,6 +71,7 @@
 }
 
 .bottomItem {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -53,8 +88,18 @@
   font-family: inherit;
 
   &[data-active] {
-    color: var(--mantine-primary-color-filled);
+    color: var(--sh-activo-texto);
     font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--sh-detalle);
+    }
   }
 
   &:focus-visible {

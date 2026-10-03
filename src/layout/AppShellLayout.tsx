@@ -11,17 +11,17 @@ import {
   ScrollArea,
   Stack,
   Text,
-  ThemeIcon,
   UnstyledButton,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconAlertTriangle, IconCross, IconDots, IconHeadset, IconLogout } from '@tabler/icons-react';
+import { IconAlertTriangle, IconDots, IconHeadset, IconLogout } from '@tabler/icons-react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link, useNavigate, useRouterState } from '@tanstack/react-router';
 import dayjs from 'dayjs';
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { accountApi } from '../api/admin';
+import { ShaddaiIcon } from '../components/BrandLogo';
 import { authApi } from '../api/auth';
 import { useFileUrl } from '../components/use-file-url';
 import { DemoBanner } from '../features/demo/DemoNotice';
@@ -163,16 +163,12 @@ function UserMenu({ me }: { me: Me }) {
   );
 }
 
-/** Logo de la iglesia (si subió uno) o el ícono de Shaddai. */
+/** Logo de la iglesia (si subió uno) o el hexágono de Shaddai. */
 function BrandMark({ me }: { me: Me }) {
   const account = useQuery({ queryKey: ['account'], queryFn: accountApi.get, enabled: Boolean(me.account) });
   const url = useFileUrl(account.data?.logoFileId);
   if (url) return <Avatar src={url} radius="md" size={34} alt="" />;
-  return (
-    <ThemeIcon radius="md" size="lg" aria-hidden>
-      <IconCross size={18} />
-    </ThemeIcon>
-  );
+  return <ShaddaiIcon size={34} />;
 }
 
 /** Shell de la app: sidebar en escritorio, drawer + barra inferior en el celular. */
@@ -197,7 +193,7 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
       navbar={{ width: 264, breakpoint: 'sm', collapsed: { mobile: !opened } }}
       footer={{ height: { base: 64, sm: 0 } }}
       padding="md"
-      classNames={{ footer: classes.footer }}
+      classNames={{ header: classes.header, navbar: classes.navbar, footer: classes.footer }}
     >
       <AppShell.Header>
         <SupportBanner me={me} />

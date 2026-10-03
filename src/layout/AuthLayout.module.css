@@ -1,0 +1,77 @@
+/* Login y pantallas sin sesión completa: panel de marca a la izquierda y tarjeta sobre la estructura. */
+.root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sh-fondo-marco);
+
+  @media (min-width: $mantine-breakpoint-md) {
+    flex-direction: row;
+  }
+}
+
+/* Azul noche en claro; en oscuro, el mismo grafito del fondo (el kit no usa azul medio en oscuro). */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-md);
+  padding: var(--mantine-spacing-lg) var(--mantine-spacing-md);
+  background: var(--sh-azul-noche);
+  color: #ffffff;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    width: 46%;
+    max-width: 640px;
+    padding: 48px;
+    justify-content: space-between;
+  }
+
+  @mixin dark {
+    background: var(--sh-bg);
+    color: var(--sh-texto);
+  }
+}
+
+.headline {
+  font-family: var(--sh-font-display);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    font-size: 40px;
+  }
+}
+
+/* Un solo detalle dorado por bloque: la línea bajo el lema. */
+.goldLine {
+  width: 36px;
+  height: 3px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background: var(--sh-dorado);
+}
+
+.languages {
+  display: none;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    display: block;
+  }
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: var(--sh-superficie);
+  border-color: var(--sh-borde);
+
+  @mixin dark {
+    border-top: 3px solid var(--sh-detalle-suave);
+  }
+}

@@ -9,13 +9,17 @@ export function DemoBanner({ me }: { me: Me }) {
   if (!me.account?.isDemo) return null;
   return (
     <Alert
-      color="grape"
       variant="light"
-      radius={0}
+      radius="md"
       py={4}
       mb="md"
       icon={<IconFlask size={16} />}
       role="status"
+      styles={{
+        root: { background: 'var(--sh-superficie-sutil)', border: '1px solid var(--sh-borde)' },
+        message: { color: 'var(--sh-texto-2)' },
+        icon: { color: 'var(--sh-detalle)' },
+      }}
     >
       <Text size="xs" lineClamp={2}>
         {t('demo.banner')}
