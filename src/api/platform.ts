@@ -66,6 +66,9 @@ export interface PlatformAccount {
   createdAt: string;
   usage: { activeUsers: number; userLimit: number; storageUsedMb: number };
   admins: AccountAdmin[];
+  /** La iglesia demo (cuenta 1): se restablece en vez de suspenderse o cerrarse. */
+  isDemo: boolean;
+  lastDemoResetAt: string | null;
 }
 
 export interface CreateAccountInput {
@@ -146,6 +149,8 @@ export const platformApi = {
       `/platform/accounts/${accountId}/admins/${userId}/reset-password`,
       { sendAccessEmail },
     ),
+  resetDemo: (body: { accountId: number; email: string; password: string }) =>
+    api.post<{ deletedRows: number; durationMs: number }>('/platform/demo/reset', body),
   plans: () => api.get<{ items: Plan[] }>('/platform/plans'),
   createPlan: (
     body: Omit<Plan, 'id' | 'priceUsd' | 'priceArs'> & { priceUsd: number; priceArs: number | null },

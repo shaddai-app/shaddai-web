@@ -247,7 +247,13 @@
     "BILLING_NO_SUBSCRIPTION": "There is no automatic payment to cancel.",
     "BILLING_PROVIDER_ERROR": "Mercado Pago did not respond. Try again in a few minutes.",
     "BILLING_PROVIDER_NOT_FOUND": "Mercado Pago could not find the operation.",
-    "BILLING_WEBHOOK_SIGNATURE": "Invalid signature."
+    "BILLING_WEBHOOK_SIGNATURE": "Invalid signature.",
+    "DEMO_CREDENTIALS_INVALID": "The email or password are not the demo church ones.",
+    "DEMO_CONFIRMATION_MISMATCH": "This account is not the demo church: nothing was reset.",
+    "DEMO_ACCOUNT_INVALID": "Account 1 is not the demo church: nothing was reset.",
+    "DEMO_RESET_IN_PROGRESS": "A demo reset is already running. Try again in a few minutes.",
+    "DEMO_PASSWORD_MISSING": "SEED_DEMO_PASSWORD is not configured on the server.",
+    "DEMO_ACCOUNT_PROTECTED": "The demo church cannot be suspended or closed."
   },
   "validation": {
     "required": "This field is required.",
