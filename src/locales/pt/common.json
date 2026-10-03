@@ -67,7 +67,8 @@
     "dataAndClosure": "Dados e encerramento",
     "announcements": "Anúncios",
     "prayer": "Oração",
-    "courses": "Discipulado"
+    "courses": "Discipulado",
+    "billing": "Faturamento"
   },
   "userMenu": {
     "label": "Menu do usuário",
@@ -81,7 +82,9 @@
   "account": {
     "trialDaysLeft_one": "Teste gratuito: resta {{count}} dia",
     "trialDaysLeft_other": "Teste gratuito: restam {{count}} dias",
-    "readOnly": "A conta está em modo somente leitura. Fale com o Shaddai para regularizá-la."
+    "readOnly": "A conta está somente leitura: o teste grátis ou o pagamento venceu.",
+    "goToBilling": "Ir para faturamento",
+    "readOnlyAsk": "Avise quem administra a igreja."
   },
   "home": {
     "greeting": "Olá, {{name}}!",

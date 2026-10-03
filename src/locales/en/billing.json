@@ -1,0 +1,88 @@
+{
+  "title": "Billing",
+  "description": "Your plan, automatic payments and Shaddai payments.",
+  "plan": "Plan",
+  "perMonth": "{{price}} per month",
+  "noPrice": "Price to be defined",
+  "accountStatus": {
+    "trial": "Trial",
+    "active": "Active",
+    "past_due": "Payment overdue",
+    "suspended": "Suspended",
+    "closed": "Closed"
+  },
+  "subscriptionStatus": {
+    "pending": "pending",
+    "authorized": "active",
+    "paused": "paused",
+    "cancelled": "cancelled"
+  },
+  "trialUntil": "The free trial ends on {{date}}.",
+  "trialEnded": "The free trial ended on {{date}}.",
+  "paidUntil": "Paid until {{date}}.",
+  "paidUntilPast": "It was paid until {{date}}.",
+  "neverPaid": "No payments yet.",
+  "platformSub": "Automatic payment {{status}} ({{provider}}).",
+  "readOnly": "The account is read-only: everything can be viewed but not added or edited. It works again as soon as you pay.",
+  "auto": {
+    "title": "Automatic payment",
+    "none": "Pay every month with Mercado Pago (card or account balance). It is charged automatically and you can cancel anytime.",
+    "cancelled": "Automatic payment is cancelled. You can turn it back on anytime.",
+    "subscribe": "Subscribe with Mercado Pago",
+    "noPrice": "Your plan has no price in pesos yet. Write to us at {{email}}.",
+    "pending": "You started the subscription but the payment in Mercado Pago is not complete.",
+    "continue": "Continue payment",
+    "restart": "Start over",
+    "authorized": "Active: {{amount}} is charged every month.",
+    "paused": "The automatic payment is paused in Mercado Pago.",
+    "next": "Next charge: {{date}}.",
+    "cancel": "Cancel automatic payment",
+    "disabled": "Online payment is not enabled yet. To pay, write to us at {{email}}."
+  },
+  "cancel": {
+    "title": "Cancel automatic payment",
+    "body": "No more charges will be made. What you already paid is valid until {{date}}; after that the account becomes read-only until you pay again.",
+    "confirm": "Cancel payment",
+    "done": "Automatic payment cancelled",
+    "keep": "Keep it"
+  },
+  "fake": {
+    "badge": "Test mode",
+    "title": "Test mode (no real money)",
+    "body": "This environment uses a test provider. Simulate the charge result:",
+    "approve": "Simulate approved payment",
+    "reject": "Simulate rejected payment",
+    "approved": "Test payment approved",
+    "rejected": "Test payment rejected",
+    "returned": "You are back from the test checkout. Simulate the charge with the buttons below."
+  },
+  "invoices": {
+    "title": "Payments",
+    "empty": "No payments recorded yet.",
+    "period": "covers {{from}} to {{to}}",
+    "provider": {
+      "mercadopago": "Mercado Pago",
+      "fake": "Test",
+      "manual": "Recorded manually"
+    },
+    "status": {
+      "approved": "Approved",
+      "pending": "Pending",
+      "rejected": "Rejected",
+      "refunded": "Refunded"
+    }
+  },
+  "manual": {
+    "button": "Record payment",
+    "title": "Record a manual payment",
+    "hint": "Bank transfer, cash or other. It extends the paid period and, if the account was on trial or overdue, activates it.",
+    "amount": "Amount",
+    "currency": "Currency",
+    "months": "Months covered",
+    "paidAt": "Payment date",
+    "note": "Note",
+    "notePlaceholder": "E.g. transfer on Oct 3",
+    "save": "Record",
+    "saved": "Payment recorded"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "title": "Facturación",
+  "description": "Tu plan, el débito automático y los pagos de Shaddai.",
+  "plan": "Plan",
+  "perMonth": "{{price}} por mes",
+  "noPrice": "Precio a definir",
+  "accountStatus": {
+    "trial": "En prueba",
+    "active": "Activa",
+    "past_due": "Pago vencido",
+    "suspended": "Suspendida",
+    "closed": "Cerrada"
+  },
+  "subscriptionStatus": {
+    "pending": "pendiente",
+    "authorized": "activo",
+    "paused": "pausado",
+    "cancelled": "cancelado"
+  },
+  "trialUntil": "La prueba gratis termina el {{date}}.",
+  "trialEnded": "La prueba gratis terminó el {{date}}.",
+  "paidUntil": "Pagado hasta el {{date}}.",
+  "paidUntilPast": "Estaba pagado hasta el {{date}}.",
+  "neverPaid": "Todavía no hay pagos.",
+  "platformSub": "Débito automático {{status}} ({{provider}}).",
+  "readOnly": "La cuenta está en solo lectura: se puede consultar todo, pero no cargar ni editar. Al pagar vuelve a funcionar enseguida.",
+  "auto": {
+    "title": "Débito automático",
+    "none": "Pagá todos los meses con Mercado Pago (tarjeta o dinero en cuenta). Se debita solo y podés cancelarlo cuando quieras.",
+    "cancelled": "El débito automático está cancelado. Podés volver a activarlo cuando quieras.",
+    "subscribe": "Suscribirme con Mercado Pago",
+    "noPrice": "Tu plan todavía no tiene precio en pesos. Escribinos a {{email}}.",
+    "pending": "Empezaste la suscripción pero falta completar el pago en Mercado Pago.",
+    "continue": "Continuar el pago",
+    "restart": "Empezar de nuevo",
+    "authorized": "Activo: se debitan {{amount}} por mes.",
+    "paused": "El débito está pausado en Mercado Pago.",
+    "next": "Próximo cobro: {{date}}.",
+    "cancel": "Cancelar el débito automático",
+    "disabled": "El pago en línea todavía no está habilitado. Para pagar escribinos a {{email}}."
+  },
+  "cancel": {
+    "title": "Cancelar el débito automático",
+    "body": "No se van a hacer más cobros. Lo ya pagado sigue vigente hasta el {{date}}; después la cuenta queda en solo lectura hasta que vuelvas a pagar.",
+    "confirm": "Cancelar el débito",
+    "done": "Débito automático cancelado",
+    "keep": "Mantener el débito"
+  },
+  "fake": {
+    "badge": "Modo prueba",
+    "title": "Modo prueba (sin dinero real)",
+    "body": "Este entorno usa un proveedor de prueba. Simulá el resultado del cobro:",
+    "approve": "Simular pago aprobado",
+    "reject": "Simular pago rechazado",
+    "approved": "Pago de prueba aprobado",
+    "rejected": "Pago de prueba rechazado",
+    "returned": "Volviste del checkout de prueba. Simulá el cobro con los botones de abajo."
+  },
+  "invoices": {
+    "title": "Pagos",
+    "empty": "Todavía no hay pagos registrados.",
+    "period": "cubre del {{from}} al {{to}}",
+    "provider": {
+      "mercadopago": "Mercado Pago",
+      "fake": "Prueba",
+      "manual": "Registrado a mano"
+    },
+    "status": {
+      "approved": "Aprobado",
+      "pending": "Pendiente",
+      "rejected": "Rechazado",
+      "refunded": "Devuelto"
+    }
+  },
+  "manual": {
+    "button": "Registrar pago",
+    "title": "Registrar un pago a mano",
+    "hint": "Transferencia, efectivo u otro medio. Extiende el período pagado y, si la cuenta estaba en prueba o con el pago vencido, la activa.",
+    "amount": "Importe",
+    "currency": "Moneda",
+    "months": "Meses que cubre",
+    "paidAt": "Fecha del pago",
+    "note": "Nota",
+    "notePlaceholder": "Ej. transferencia del 3/10",
+    "save": "Registrar",
+    "saved": "Pago registrado"
+  }
+}

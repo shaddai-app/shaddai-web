@@ -112,7 +112,11 @@
     "edit": "Edit",
     "createTitle": "New plan",
     "editTitle": "Edit plan",
-    "saved": "Plan saved"
+    "saved": "Plan saved",
+    "priceArs": "Price in pesos (automatic)",
+    "priceArsHint": "Charged monthly with Mercado Pago. Empty: subscribing is not possible.",
+    "noPriceArs": "No price in pesos",
+    "priceArsValue": "{{price}} per month, automatic"
   },
   "audit": {
     "title": "Platform audit log",

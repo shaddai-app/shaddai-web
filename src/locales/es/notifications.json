@@ -61,6 +61,12 @@
         "title": "{{person}} está orando por vos",
         "body": "Por tu petición de oración."
       }
+    },
+    "billing": {
+      "past_due": {
+        "title": "Venció el pago de Shaddai",
+        "body": "Estaba pagado hasta el {{date}}. La cuenta quedó en solo lectura hasta que se pague."
+      }
     }
   },
   "reason": "Motivo: {{reason}}",
@@ -113,6 +119,12 @@
         "praying": {
           "label": "Oran por mi petición",
           "hint": "La primera vez que alguien marca «Estoy orando» en tu petición."
+        }
+      },
+      "billing": {
+        "past_due": {
+          "label": "Pago vencido",
+          "hint": "Cuando vence el pago del servicio y la cuenta queda en solo lectura."
         }
       }
     },

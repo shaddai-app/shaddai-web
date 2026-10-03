@@ -112,7 +112,11 @@
     "edit": "Editar",
     "createTitle": "Nuevo plan",
     "editTitle": "Editar plan",
-    "saved": "Plan guardado"
+    "saved": "Plan guardado",
+    "priceArs": "Precio en pesos (débito)",
+    "priceArsHint": "Lo que se debita por mes con Mercado Pago. Vacío: no se puede suscribir.",
+    "noPriceArs": "Sin precio en pesos",
+    "priceArsValue": "{{price}} por mes con débito"
   },
   "audit": {
     "title": "Auditoría de la plataforma",

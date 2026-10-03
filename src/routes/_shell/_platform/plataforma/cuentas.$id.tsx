@@ -38,6 +38,7 @@ import {
 import { FormError } from '../../../../components/FormError';
 import { ResponsiveModal } from '../../../../components/ResponsiveModal';
 import { showTemporaryAccess } from '../../../../components/TemporaryAccess';
+import { PlatformBilling } from '../../../../features/billing/PlatformBilling';
 import { ImpersonateModal } from '../../../../features/platform/ImpersonateModal';
 import { StatusBadge } from '../../../../features/platform/StatusBadge';
 import { LANGUAGES } from '../../../../i18n';
@@ -504,7 +505,10 @@ function AccountDetail() {
         </Grid.Col>
         <Grid.Col span={{ base: 12, lg: 8 }} order={{ base: 2, lg: 1 }}>
           {/* key: al guardar o cambiar de cuenta, el formulario arranca de los datos nuevos. */}
-          <EditForm key={`${a.id}-${account.dataUpdatedAt}`} account={a} />
+          <Stack gap="lg">
+            <EditForm key={`${a.id}-${account.dataUpdatedAt}`} account={a} />
+            <PlatformBilling accountId={a.id} />
+          </Stack>
         </Grid.Col>
       </Grid>
 

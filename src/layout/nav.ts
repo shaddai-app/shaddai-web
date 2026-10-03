@@ -9,6 +9,7 @@ import {
   IconCategory,
   IconClipboardText,
   IconCoin,
+  IconCreditCard,
   IconCoins,
   IconHourglass,
   IconArrowsExchange,
@@ -83,6 +84,7 @@ export interface NavItem {
     | 'prayer'
     | 'courses'
     | 'dataAndClosure'
+    | 'billing'
     | 'audit'
     | 'plans'
     | 'platformAudit';
@@ -295,6 +297,12 @@ const churchNav: NavSection[] = [
         to: '/admin/cuenta',
         label: 'churchSettings',
         icon: IconSettings,
+        permissions: ['cuenta.configurar'],
+      },
+      {
+        to: '/admin/facturacion',
+        label: 'billing',
+        icon: IconCreditCard,
         permissions: ['cuenta.configurar'],
       },
       {

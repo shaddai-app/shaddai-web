@@ -1,5 +1,6 @@
 import {
   Alert,
+  Anchor,
   AppShell,
   Avatar,
   Burger,
@@ -27,6 +28,7 @@ import { leaveSupport } from '../features/platform/support';
 import { NotificationBell } from '../features/notifications/NotificationBell';
 import { GlobalSearch, SearchTrigger } from '../features/search/GlobalSearch';
 import type { Me } from '../api/types';
+import { can } from '../auth/permissions';
 import { logout } from '../auth/session';
 import { useSession } from '../auth/session-store';
 import { ColorSchemeToggle } from './ColorSchemeToggle';
@@ -89,7 +91,14 @@ function AccountStatusBanner({ me }: { me: Me }) {
   if (account.status === 'past_due' || expiredTrial) {
     return (
       <Alert color="yellow" radius={0} icon={<IconAlertTriangle size={18} />} className={classes.banner}>
-        {t('account.readOnly')}
+        {t('account.readOnly')}{' '}
+        {can(me, 'cuenta.configurar') ? (
+          <Anchor component={Link} to="/admin/facturacion" size="sm" fw={600}>
+            {t('account.goToBilling')}
+          </Anchor>
+        ) : (
+          t('account.readOnlyAsk')
+        )}
       </Alert>
     );
   }

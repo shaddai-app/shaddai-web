@@ -38,6 +38,7 @@ const schema = z.object({
   userLimit: z.number().int().min(1),
   storageLimitMb: z.number().int().min(0),
   priceUsd: z.number().min(0),
+  priceArs: z.number().min(0).nullable(),
   isActive: z.boolean(),
 });
 type Values = z.infer<typeof schema>;
@@ -49,8 +50,20 @@ function PlanForm({ plan, onDone }: { plan: Plan | null; onDone: () => void }) {
   const form = useForm<Values>({
     resolver: zodResolver(schema),
     defaultValues: plan
-      ? { ...plan, priceUsd: Number(plan.priceUsd) }
-      : { code: '', name: '', userLimit: 10, storageLimitMb: 1024, priceUsd: 0, isActive: true },
+      ? {
+          ...plan,
+          priceUsd: Number(plan.priceUsd),
+          priceArs: plan.priceArs === null ? null : Number(plan.priceArs),
+        }
+      : {
+          code: '',
+          name: '',
+          userLimit: 10,
+          storageLimitMb: 1024,
+          priceUsd: 0,
+          priceArs: null,
+          isActive: true,
+        },
   });
 
   const submit = form.handleSubmit(async (v) => {
@@ -105,6 +118,23 @@ function PlanForm({ plan, onDone }: { plan: Plan | null; onDone: () => void }) {
           {num('userLimit', t('plans.userLimit'), { min: 1 })}
           {num('storageLimitMb', t('plans.storageLimitMb'))}
           {num('priceUsd', t('plans.priceUsd'), { decimalScale: 2, prefix: 'US$ ' })}
+          <Controller
+            control={form.control}
+            name="priceArs"
+            render={({ field }) => (
+              <NumberInput
+                label={t('plans.priceArs')}
+                description={t('plans.priceArsHint')}
+                min={0}
+                decimalScale={2}
+                prefix="$ "
+                thousandSeparator="."
+                decimalSeparator=","
+                value={field.value ?? ''}
+                onChange={(v) => field.onChange(typeof v === 'number' ? v : null)}
+              />
+            )}
+          />
         </SimpleGrid>
         <Switch label={t('plans.active')} {...form.register('isActive')} />
         <Group justify="flex-end">
@@ -161,6 +191,15 @@ function PlansPage() {
               </Group>
               <Text fz={26} fw={700} mt="sm">
                 US$ {Number(p.priceUsd).toFixed(2)}
+              </Text>
+              <Text size="sm" c="dimmed">
+                {p.priceArs === null
+                  ? t('plans.noPriceArs')
+                  : t('plans.priceArsValue', {
+                      price: new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(
+                        Number(p.priceArs),
+                      ),
+                    })}
               </Text>
               <Group gap="xs" mt="sm">
                 <Badge variant="light">
