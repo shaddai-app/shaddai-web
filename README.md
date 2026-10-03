@@ -71,3 +71,21 @@ Ver [CONTRIBUTING.md](CONTRIBUTING.md) para ramas y commits.
 - Sentry se activa con `VITE_SENTRY_DSN` y no envía datos personales (`src/app/sentry.ts`).
 - Decisiones de infraestructura y revisión de seguridad: `docs/produccion.md` y `docs/seguridad.md` en shaddai-api.
 - Política de privacidad (`/privacidad`) y términos (`/terminos`): textos en `src/locales/*/legal.json`. Son un **borrador** hasta que los revise un abogado; después de la revisión, poner `LEGAL_DRAFT = false` y actualizar `LEGAL_UPDATED` en `src/features/legal/constants.ts`. El contacto sale de `VITE_SUPPORT_EMAIL`.
+
+## Deploy
+
+La web se publica en **Azure Static Web Apps** con `.github/workflows/deploy.yml`: staging después de cada merge a `main` y producción a mano (_Actions → Deploy → Run workflow_, con el sha probado en staging). Publicar primero la API (que corre las migraciones) y después la web. La guía completa del entorno (Azure, dominios, identidad de GitHub) está en `docs/deploy.md` de shaddai-api.
+
+En _Settings → Environments_ de este repo, para `staging` y `production` (en `production`, con _Required reviewers_):
+
+| Tipo     | Nombre                 | Valor                                                                                                         |
+| -------- | ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Secreto  | `SWA_DEPLOYMENT_TOKEN` | `az staticwebapp secrets list -g shaddai-<entorno> -n shaddai-<entorno>-web --query properties.apiKey -o tsv` |
+| Variable | `VITE_API_BASE`        | `https://api-staging.TU-DOMINIO.com/api/v1` / `https://api.TU-DOMINIO.com/api/v1`                             |
+| Variable | `APP_URL`              | `https://app-staging.TU-DOMINIO.com` / `https://app.TU-DOMINIO.com`                                           |
+| Variable | `VITE_SENTRY_DSN`      | DSN del proyecto shaddai-web en Sentry                                                                        |
+| Variable | `VITE_SUPPORT_EMAIL`   | `soporte@TU-DOMINIO.com`                                                                                      |
+
+Variable del repositorio: `DEPLOY_ENABLED` = `true` para encender la publicación.
+
+El workflow verifica que la CSP del build permita la API del entorno y que la web publicada responda con sus headers de seguridad.

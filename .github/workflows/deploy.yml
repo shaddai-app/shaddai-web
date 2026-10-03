@@ -1,0 +1,75 @@
+name: Deploy
+
+# Publica la web en Azure Static Web Apps:
+# - staging: automático después de cada merge a main;
+# - producción: a mano (Actions → Deploy → Run workflow), con el sha probado en staging y la
+#   aprobación del entorno. Publicar primero la API (sus migraciones) y después la web.
+# Apagado hasta que la variable de repositorio DEPLOY_ENABLED sea 'true' (ver README → Deploy).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Entorno
+        type: choice
+        options: [staging, production]
+        default: staging
+      ref:
+        description: Commit (sha completo) a publicar; vacío = el último de main
+        required: false
+
+concurrency:
+  group: deploy-${{ inputs.environment || 'staging' }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'staging' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+
+      # La API, Sentry y el contacto quedan fijos en el build (y en la CSP que se genera con él).
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_BASE: ${{ vars.VITE_API_BASE }}
+          VITE_SENTRY_DSN: ${{ vars.VITE_SENTRY_DSN }}
+          VITE_SENTRY_ENVIRONMENT: ${{ inputs.environment || 'staging' }}
+          VITE_SENTRY_RELEASE: ${{ inputs.ref || github.sha }}
+          VITE_SUPPORT_EMAIL: ${{ vars.VITE_SUPPORT_EMAIL }}
+
+      - name: La CSP permite la API del entorno
+        run: |
+          api_origin=$(node -e "console.log(new URL(process.argv[1]).origin)" "${{ vars.VITE_API_BASE }}")
+          grep -q "connect-src[^;]*$api_origin" dist/staticwebapp.config.json \
+            || { echo "::error::La CSP no incluye $api_origin"; exit 1; }
+
+      - uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.SWA_DEPLOYMENT_TOKEN }}
+          action: upload
+          app_location: dist
+          skip_app_build: true
+          skip_api_build: true
+
+      - name: La web nueva responde con sus headers de seguridad
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsSI "${{ vars.APP_URL }}" | grep -qi '^content-security-policy:'; then exit 0; fi
+            sleep 10
+          done
+          echo "::error::${{ vars.APP_URL }} no respondió con la CSP"; exit 1
