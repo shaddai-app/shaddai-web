@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react';
+import { renderHook, type RenderHookResult } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import type { ReactNode } from 'react';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -6,9 +6,13 @@ import type { AppNotification } from '../../api/notifications';
 import i18n from '../../i18n';
 import { useNotificationText } from './text';
 
+// El hook se arma recién con el idioma cargado: si se renderiza antes, useTranslation suspende y
+// result.current queda vacío (pasaba o no según lo rápido que cargaran las traducciones).
+let result: RenderHookResult<ReturnType<typeof useNotificationText>, unknown>['result'];
 beforeAll(async () => {
   await i18n.changeLanguage('es');
   await i18n.loadNamespaces('notifications');
+  ({ result } = renderHook(() => useNotificationText(), { wrapper }));
 });
 
 const wrapper = ({ children }: { children: ReactNode }) => (
@@ -24,8 +28,6 @@ const n = (type: string, params: AppNotification['params']): AppNotification => 
 });
 
 describe('texto de los avisos', () => {
-  const { result } = renderHook(() => useNotificationText(), { wrapper });
-
   it('préstamo vencido: fecha del día', () => {
     expect(
       result.current(
