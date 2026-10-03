@@ -63,7 +63,8 @@
     "songs": "Músicas",
     "setlists": "Repertórios",
     "inventory": "Inventário",
-    "loans": "Empréstimos"
+    "loans": "Empréstimos",
+    "dataAndClosure": "Dados e encerramento"
   },
   "userMenu": {
     "label": "Menu do usuário",

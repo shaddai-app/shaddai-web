@@ -63,7 +63,8 @@
     "songs": "Songs",
     "setlists": "Setlists",
     "inventory": "Inventory",
-    "loans": "Loans"
+    "loans": "Loans",
+    "dataAndClosure": "Data and closure"
   },
   "userMenu": {
     "label": "User menu",

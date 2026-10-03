@@ -1,4 +1,4 @@
-import { Anchor, Button, Checkbox, PasswordInput, Stack, TextInput } from '@mantine/core';
+import { Alert, Anchor, Button, Checkbox, PasswordInput, Stack, TextInput } from '@mantine/core';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
@@ -14,7 +14,8 @@ import { FormError } from '../components/FormError';
 import { AuthLayout } from '../layout/AuthLayout';
 
 export const Route = createFileRoute('/login')({
-  validateSearch: z.object({ redirect: z.string().optional() }),
+  // closed: se llega acá después de dar de baja la cuenta de la iglesia.
+  validateSearch: z.object({ redirect: z.string().optional(), closed: z.literal(1).optional() }),
   beforeLoad: (args) => redirectIfLoggedIn(args, args.search.redirect),
   component: LoginPage,
 });
@@ -28,7 +29,7 @@ type FormValues = z.infer<typeof schema>;
 
 function LoginPage() {
   const { t } = useTranslation(['auth', 'errors']);
-  const { redirect } = Route.useSearch();
+  const { redirect, closed } = Route.useSearch();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [challenge, setChallenge] = useState<string | null>(null);
@@ -123,6 +124,7 @@ function LoginPage() {
     <AuthLayout title={t('login.title')}>
       <form onSubmit={onLogin} noValidate>
         <Stack gap="md">
+          {closed && <Alert color="gray">{t('login.closed')}</Alert>}
           <FormError error={error} />
           <TextInput
             label={t('login.email')}

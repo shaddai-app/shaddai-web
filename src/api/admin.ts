@@ -152,6 +152,11 @@ export const accountApi = {
   },
   removeLogo: () => api.delete('/account/logo'),
   file: (id: number) => apiRequest<Blob>(`/files/${id}`, { blob: true }),
+  /** ZIP con todos los datos y archivos de la iglesia. */
+  exportData: () => apiRequest<Blob>('/account/export', { blob: true }),
+  /** Baja de la cuenta (solo el dueño). Corta todas las sesiones. */
+  close: (body: { password: string; confirm: string }) =>
+    api.post<{ status: 'closed'; purgeAfter: string }>('/account/closure', body),
 };
 
 // ── Auditoría ───────────────────────────────────────────────────────────────

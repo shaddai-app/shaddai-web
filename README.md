@@ -70,3 +70,4 @@ Ver [CONTRIBUTING.md](CONTRIBUTING.md) para ramas y commits.
 - La CSP solo deja conectarse a la API y a Sentry configurados **al compilar** (`VITE_API_BASE`, `VITE_SENTRY_DSN`): si cambian, hay que recompilar.
 - Sentry se activa con `VITE_SENTRY_DSN` y no envía datos personales (`src/app/sentry.ts`).
 - Decisiones de infraestructura y revisión de seguridad: `docs/produccion.md` y `docs/seguridad.md` en shaddai-api.
+- Política de privacidad (`/privacidad`) y términos (`/terminos`): textos en `src/locales/*/legal.json`. Son un **borrador** hasta que los revise un abogado; después de la revisión, poner `LEGAL_DRAFT = false` y actualizar `LEGAL_UPDATED` en `src/features/legal/constants.ts`. El contacto sale de `VITE_SUPPORT_EMAIL`.

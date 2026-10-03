@@ -215,7 +215,9 @@
     "LOAN_ALREADY_RETURNED": "Esse empréstimo já foi devolvido.",
     "INVENTORY_ITEM_ON_LOAN": "O equipamento está emprestado: registre a devolução primeiro.",
     "INVENTORY_ITEM_UNAVAILABLE": "O equipamento está em conserto ou baixado: não pode ser emprestado.",
-    "NOTIFICATION_NOT_FOUND": "Não encontramos essa notificação."
+    "NOTIFICATION_NOT_FOUND": "Não encontramos essa notificação.",
+    "ACCOUNT_OWNER_REQUIRED": "Apenas o dono da conta pode encerrá-la.",
+    "CLOSURE_CONFIRM_MISMATCH": "O nome não coincide com o da igreja."
   },
   "validation": {
     "required": "Este campo é obrigatório.",
