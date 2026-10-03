@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:lan": "vite --host",
     "build": "vite build && tsc -b",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",

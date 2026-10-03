@@ -17,6 +17,8 @@ npm run dev               # http://localhost:5173
 
 En desarrollo, Vite hace proxy de `/api` → `http://localhost:3000`, así front y API comparten origen (necesario para la cookie httpOnly `SameSite=Strict` del refresh token).
 
+**Desde otros dispositivos de la misma red** (celulares en una presentación): `npm run dev:lan` y agregar `http://<IP de la PC>:5173` a `CORS_ORIGINS` en el `.env` de la API. Detalle y limitaciones en `docs/uso-local.md` de shaddai-api.
+
 ## PWA y modo sin señal
 
 La app se instala en el celular y abre sin conexión (`vite-plugin-pwa`). El service worker solo existe en el build, así que para probarlo:
@@ -39,6 +41,7 @@ La API rechaza el refresh desde orígenes que no están en `CORS_ORIGINS` (defen
 | Script                                | Descripción                                        |
 | ------------------------------------- | -------------------------------------------------- |
 | `dev`                                 | Servidor de desarrollo                             |
+| `dev:lan`                             | Igual, abierto a la red local (celulares por WiFi) |
 | `build`                               | Typecheck + build de producción en `dist/`         |
 | `preview`                             | Sirve el build                                     |
 | `lint`, `typecheck`, `format`, `test` | Calidad                                            |
