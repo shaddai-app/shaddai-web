@@ -11,6 +11,7 @@ import {
   Text,
   ThemeIcon,
   Title,
+  SimpleGrid,
 } from '@mantine/core';
 import { useNetwork } from '@mantine/hooks';
 import { IconCircleCheck, IconClipboardText, IconCloudOff, IconPhone } from '@tabler/icons-react';
@@ -196,74 +197,84 @@ function MyCell({ cellId }: { cellId: number }) {
   const m = c.multiplication;
 
   return (
-    <Stack gap="md">
-      <div>
-        <AnchorLink
-          to="/celulas/$id"
-          params={{ id: String(c.id) }}
-          fw={600}
-          size="lg"
-          c="var(--mantine-color-text)"
-        >
-          {c.name}
-        </AnchorLink>
-        <Text size="sm" c="dimmed">
-          {meetingLabel(c.meetingDay, c.meetingTime)}
-          {c.neighborhood ? ` · ${c.neighborhood}` : ''}
-        </Text>
-        <ZoneLabel zone={c.zone} size="xs" />
-      </div>
-      {draft && <DraftNotice draft={draft} cellId={c.id} />}
-      <WeekCard cell={c} hasDraft={Boolean(draft)} />
-
-      <Card withBorder radius="lg">
-        <Group justify="space-between" mb={6}>
-          <Text size="sm" fw={500}>
-            {t('detail.growth')}
-          </Text>
-          <Text size="xs" c="dimmed">
-            {t('detail.progress', { members: m.members, target: m.target })}
-          </Text>
-        </Group>
-        <Progress
-          value={m.progress}
-          color={m.ready ? 'grape' : 'teal'}
-          radius="xl"
-          aria-label={t('detail.growth')}
-        />
-      </Card>
-
-      {can(me, 'consolidacion.ver', 'consolidacion.gestionar') && <MyTasksCard />}
-      <RecentReports cellId={c.id} />
-
-      <Card withBorder radius="lg" p={0}>
-        <Title order={3} size="h5" p="md" pb="xs">
-          {t('members.title', { count: c.members.length })}
-        </Title>
-        {c.members.map((p) => (
-          <Group
-            key={p.id}
-            justify="space-between"
-            wrap="nowrap"
-            px="md"
-            py="xs"
-            style={{ borderTop: '1px solid var(--mantine-color-default-border)' }}
+    // En pantallas grandes: la semana, el crecimiento y las tareas a la izquierda; reportes e
+    // integrantes a la derecha.
+    <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="md" style={{ alignItems: 'start' }}>
+      <Stack gap="md">
+        <div>
+          <AnchorLink
+            to="/celulas/$id"
+            params={{ id: String(c.id) }}
+            fw={600}
+            size="lg"
+            c="var(--mantine-color-text)"
           >
-            <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
-              <PersonAvatar person={p} size={32} />
-              <Text size="sm" truncate>
-                {fullName(p)}
-              </Text>
-            </Group>
-            {p.phone && (
-              <Anchor href={`tel:${p.phone}`} size="sm" aria-label={t('myCell.call', { name: fullName(p) })}>
-                <IconPhone size={18} />
-              </Anchor>
-            )}
+            {c.name}
+          </AnchorLink>
+          <Text size="sm" c="dimmed">
+            {meetingLabel(c.meetingDay, c.meetingTime)}
+            {c.neighborhood ? ` · ${c.neighborhood}` : ''}
+          </Text>
+          <ZoneLabel zone={c.zone} size="xs" />
+        </div>
+        {draft && <DraftNotice draft={draft} cellId={c.id} />}
+        <WeekCard cell={c} hasDraft={Boolean(draft)} />
+
+        <Card withBorder radius="lg">
+          <Group justify="space-between" mb={6}>
+            <Text size="sm" fw={500}>
+              {t('detail.growth')}
+            </Text>
+            <Text size="xs" c="dimmed">
+              {t('detail.progress', { members: m.members, target: m.target })}
+            </Text>
           </Group>
-        ))}
-      </Card>
-    </Stack>
+          <Progress
+            value={m.progress}
+            color={m.ready ? 'marfil' : 'teal'}
+            radius="xl"
+            aria-label={t('detail.growth')}
+          />
+        </Card>
+
+        {can(me, 'consolidacion.ver', 'consolidacion.gestionar') && <MyTasksCard />}
+      </Stack>
+      <Stack gap="md">
+        <RecentReports cellId={c.id} />
+
+        <Card withBorder radius="lg" p={0}>
+          <Title order={3} size="h5" p="md" pb="xs">
+            {t('members.title', { count: c.members.length })}
+          </Title>
+          {c.members.map((p) => (
+            <Group
+              key={p.id}
+              justify="space-between"
+              wrap="nowrap"
+              px="md"
+              py="xs"
+              style={{ borderTop: '1px solid var(--mantine-color-default-border)' }}
+            >
+              <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
+                <PersonAvatar person={p} size={32} />
+                <Text size="sm" truncate>
+                  {fullName(p)}
+                </Text>
+              </Group>
+              {p.phone && (
+                <Anchor
+                  href={`tel:${p.phone}`}
+                  size="sm"
+                  aria-label={t('myCell.call', { name: fullName(p) })}
+                >
+                  <IconPhone size={18} />
+                </Anchor>
+              )}
+            </Group>
+          ))}
+        </Card>
+      </Stack>
+    </SimpleGrid>
   );
 }
 
@@ -277,7 +288,7 @@ function MyCellPage() {
   const selected = cells.data?.find((c) => c.id === cellId) ?? cells.data?.[0];
 
   return (
-    <Stack gap="md" maw={640}>
+    <Stack gap="md">
       <PageHeader title={t('myCell.title')} />
       {!network.online && (
         <Alert color="yellow" variant="light" icon={<IconCloudOff size={18} />}>

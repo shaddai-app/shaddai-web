@@ -33,7 +33,7 @@ export function ContributionsTab({
     .replace(/[^a-z0-9]+/g, '-');
 
   return (
-    <Stack gap="md" maw={820}>
+    <Stack gap="md">
       <Group justify="space-between" align="flex-end" wrap="wrap" gap="sm">
         <Select
           label={t('reports.year')}

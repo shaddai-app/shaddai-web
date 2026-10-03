@@ -105,6 +105,7 @@ function SongPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/alabanza/canciones' }}
         title={s.title}
         badge={
           !s.isActive && (
@@ -148,7 +149,7 @@ function SongPage() {
           </Group>
         }
       />
-      <Grid gap="md" maw={1200}>
+      <Grid gap="md">
         <Grid.Col span={{ base: 12, md: 8 }} order={{ base: 2, md: 1 }}>
           <Card withBorder radius="lg">
             <Group justify="space-between" wrap="wrap" gap="sm" mb="md">

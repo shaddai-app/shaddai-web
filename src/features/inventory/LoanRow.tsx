@@ -78,7 +78,7 @@ export function LoanRow({
           </Text>
         )}
         {open && (
-          <Badge mt={4} size="sm" variant="light" color={loan.overdue ? 'red' : 'grape'}>
+          <Badge mt={4} size="sm" variant="light" color={loan.overdue ? 'red' : 'marfil'}>
             {dueLabel(loan)}
           </Badge>
         )}

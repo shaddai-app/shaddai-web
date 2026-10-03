@@ -46,7 +46,7 @@ function LoansPage() {
           </Button>
         }
       />
-      <Stack gap="md" maw={900}>
+      <Stack gap="md">
         <TextInput
           leftSection={<IconSearch size={16} />}
           placeholder={t('loans.search')}

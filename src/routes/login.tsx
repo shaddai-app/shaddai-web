@@ -1,21 +1,10 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 import { z } from 'zod';
-import { redirectIfLoggedIn } from '../auth/guards';
-import { LoginForm } from '../features/auth/LoginForm';
-import { AuthLayout } from '../layout/AuthLayout';
 
+// El ingreso vive en el home. Se conserva la ruta para enlaces viejos (mails de acceso, favoritos).
 export const Route = createFileRoute('/login')({
-  // closed: se llega acá después de dar de baja la cuenta de la iglesia.
   validateSearch: z.object({ redirect: z.string().optional(), closed: z.literal(1).optional() }),
-  beforeLoad: (args) => redirectIfLoggedIn(args, args.search.redirect),
-  component: LoginPage,
+  beforeLoad: ({ search }) => {
+    throw redirect({ to: '/', search, replace: true });
+  },
 });
-
-function LoginPage() {
-  const { redirect, closed } = Route.useSearch();
-  return (
-    <AuthLayout>
-      <LoginForm redirect={redirect} closed={Boolean(closed)} />
-    </AuthLayout>
-  );
-}

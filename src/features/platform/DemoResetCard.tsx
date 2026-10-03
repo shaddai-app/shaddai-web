@@ -101,7 +101,7 @@ export function DemoResetCard({ account }: { account: PlatformAccount }) {
           <Title order={2} size="h4">
             {t('demo.title')}
           </Title>
-          <Badge color="grape" variant="light">
+          <Badge color="marfil" variant="light">
             {t('demo.badge')}
           </Badge>
         </Group>

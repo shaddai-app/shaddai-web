@@ -250,6 +250,7 @@ function MinistryPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/ministerios' }}
         title={m.name}
         badge={
           <Group gap={6}>
@@ -295,7 +296,7 @@ function MinistryPage() {
           </Group>
         }
       />
-      <Stack gap="md" maw={1000}>
+      <Stack gap="md">
         {(m.description || m.campus) && (
           <Card withBorder radius="lg">
             {m.description && (

@@ -105,7 +105,7 @@ function AnnouncementsPage() {
   );
 
   return (
-    <Stack gap="lg" maw={820}>
+    <Stack gap="lg">
       <PageHeader
         title={t('title')}
         description={manager ? t('descriptionManager') : t('description')}

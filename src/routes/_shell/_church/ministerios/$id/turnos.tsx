@@ -278,6 +278,7 @@ function SchedulePage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/ministerios/$id', params: { id: String(id) } }}
         title={query.data ? t('schedule.titleOf', { name: query.data.ministry.name }) : t('schedule.title')}
         description={t('schedule.description')}
         actions={
@@ -286,7 +287,7 @@ function SchedulePage() {
           </ButtonLink>
         }
       />
-      <Stack gap="md" maw={900}>
+      <Stack gap="md">
         <Group justify="space-between" wrap="wrap" gap="sm">
           <Group gap={4} wrap="nowrap">
             <ActionIcon

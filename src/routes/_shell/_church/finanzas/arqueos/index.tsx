@@ -57,7 +57,7 @@ function CountsPage() {
           )
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         <SegmentedControl
           value={params.status ?? 'all'}
           onChange={(v) =>

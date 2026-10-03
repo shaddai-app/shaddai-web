@@ -222,7 +222,7 @@ function AttendancePage() {
           </Button>
         }
       />
-      <Stack gap="md" maw={960}>
+      <Stack gap="md">
         <SegmentedControl
           value={periodo}
           onChange={(v) =>

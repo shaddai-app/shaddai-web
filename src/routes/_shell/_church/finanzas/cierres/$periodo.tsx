@@ -188,6 +188,7 @@ function PeriodPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/finanzas/cierres' }}
         title={monthLabel(p.year, p.month)}
         badge={
           <Badge color={closed ? 'teal' : 'gray'} variant="light">
@@ -213,7 +214,7 @@ function PeriodPage() {
           </Group>
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         {closed ? (
           <Alert color="teal" variant="light" icon={<IconLock size={18} />}>
             {t('periods.closedOn', {

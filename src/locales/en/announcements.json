@@ -17,7 +17,6 @@
   "deleted": "Announcement deleted",
   "saved": "Announcement saved",
   "published": "Announcement saved",
-  "backToList": "All announcements",
   "seeAll": "See all {{count}}",
   "status": {
     "current": "Published",

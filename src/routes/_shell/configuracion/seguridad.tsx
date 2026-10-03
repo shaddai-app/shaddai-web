@@ -1,15 +1,18 @@
-import { Badge, Button, Card, Group, Loader, Stack, Text, Title } from '@mantine/core';
+import { Badge, Button, Card, Group, Loader, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
 import { IconDeviceDesktop, IconDeviceMobile, IconHeadset } from '@tabler/icons-react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
 import { authApi, meApi } from '../../../api/auth';
 import type { ActiveSession } from '../../../api/types';
 import { meQuery } from '../../../auth/session';
 import { useSession } from '../../../auth/session-store';
+import { ResponsiveModal } from '../../../components/ResponsiveModal';
+import { ChangePasswordForm } from '../../../features/auth/ChangePasswordForm';
 import { DemoBlocked } from '../../../features/demo/DemoNotice';
 import { TwoFactorCard } from '../../../features/security/TwoFactorCard';
 import { FormError } from '../../../components/FormError';
@@ -92,6 +95,8 @@ function SecurityPage() {
   const inSupport = useSession((s) => Boolean(s.support));
   const sessions = useQuery({ queryKey: ['me', 'sessions'], queryFn: meApi.sessions, enabled: !inSupport });
   const me = useQuery(meQuery());
+  // Cambio voluntario de contraseña: en un modal, sin salir de la pantalla.
+  const [changing, changePassword] = useDisclosure();
 
   const revoke = useMutation({
     mutationFn: meApi.revokeSession,
@@ -112,7 +117,7 @@ function SecurityPage() {
         await authApi.logoutAll();
         useSession.getState().clear();
         queryClient.clear();
-        void navigate({ to: '/login' });
+        void navigate({ to: '/' });
       },
     });
 
@@ -120,9 +125,7 @@ function SecurityPage() {
     return (
       <>
         <PageHeader title={t('security.title')} />
-        <Stack gap="lg" maw={720}>
-          <DemoBlocked what="security" />
-        </Stack>
+        <DemoBlocked what="security" />
       </>
     );
   }
@@ -130,24 +133,27 @@ function SecurityPage() {
   return (
     <>
       <PageHeader title={t('security.title')} />
-      <Stack gap="lg" maw={720}>
-        <Card withBorder radius="lg" padding="lg">
-          <Group justify="space-between" align="flex-start" gap="sm">
-            <div>
-              <Title order={2} size="h4">
-                {t('security.password')}
-              </Title>
-              <Text size="sm" c="dimmed">
-                {t('security.passwordDescription')}
-              </Text>
-            </div>
-            <Button component={Link} to="/cambiar-contrasena" variant="light" disabled={inSupport}>
-              {t('security.changePassword')}
-            </Button>
-          </Group>
-        </Card>
+      {/* En pantallas grandes: contraseña y 2FA a la izquierda, sesiones a la derecha. */}
+      <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg" style={{ alignItems: 'start' }}>
+        <Stack gap="lg">
+          <Card withBorder radius="lg" padding="lg">
+            <Group justify="space-between" align="flex-start" gap="sm">
+              <div>
+                <Title order={2} size="h4">
+                  {t('security.password')}
+                </Title>
+                <Text size="sm" c="dimmed">
+                  {t('security.passwordDescription')}
+                </Text>
+              </div>
+              <Button variant="light" onClick={changePassword.open} disabled={inSupport}>
+                {t('security.changePassword')}
+              </Button>
+            </Group>
+          </Card>
 
-        {me.data && <TwoFactorCard me={me.data} disabled={inSupport} />}
+          {me.data && <TwoFactorCard me={me.data} disabled={inSupport} />}
+        </Stack>
 
         {!inSupport && (
           <Card withBorder radius="lg" padding="lg">
@@ -179,7 +185,24 @@ function SecurityPage() {
             </Group>
           </Card>
         )}
-      </Stack>
+      </SimpleGrid>
+
+      <ResponsiveModal
+        opened={changing}
+        onClose={changePassword.close}
+        title={t('auth:changePassword.title')}
+      >
+        {changing && (
+          <ChangePasswordForm
+            forced={false}
+            onDone={() => {
+              changePassword.close();
+              void queryClient.invalidateQueries({ queryKey: ['me', 'sessions'] });
+            }}
+            onCancel={changePassword.close}
+          />
+        )}
+      </ResponsiveModal>
     </>
   );
 }

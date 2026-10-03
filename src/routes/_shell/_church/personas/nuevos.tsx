@@ -90,7 +90,7 @@ function Details({ s }: { s: NewcomerSubmission }) {
         </Group>
       )}
       {s.wantsVisit && (
-        <Badge variant="light" color="grape" leftSection={<IconHomeHeart size={12} />} w="fit-content">
+        <Badge variant="light" color="marfil" leftSection={<IconHomeHeart size={12} />} w="fit-content">
           {t('newcomers.wantsVisit')}
         </Badge>
       )}

@@ -72,7 +72,7 @@ export function AnnouncementItem({
       {(scheduled || audienceLabel) && (
         <Group gap={6}>
           {scheduled && (
-            <Badge size="sm" variant="light" color="grape">
+            <Badge size="sm" variant="light" color="marfil">
               {t('scheduledFor', { date: dayjs(a.publishAt).format('L LT') })}
             </Badge>
           )}

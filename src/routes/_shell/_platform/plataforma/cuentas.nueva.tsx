@@ -1,5 +1,4 @@
 import {
-  Anchor,
   Button,
   Card,
   Checkbox,
@@ -16,7 +15,7 @@ import {
 } from '@mantine/core';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useMemo, useState, type ReactNode } from 'react';
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -158,19 +157,12 @@ function NewAccountPage() {
 
   return (
     <>
-      <PageHeader
-        title={t('create.title')}
-        actions={
-          <Anchor component={Link} to="/plataforma" size="sm">
-            {t('detail.back')}
-          </Anchor>
-        }
-      />
+      <PageHeader title={t('create.title')} back={{ to: '/plataforma' }} />
       <form onSubmit={submit} noValidate>
-        <Stack gap="lg" maw={860}>
+        <Stack gap="lg">
           <FormError error={error} />
           <Section title={t('create.church')}>
-            <SimpleGrid cols={{ base: 1, sm: 2 }}>
+            <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }}>
               <TextInput
                 label={t('create.name')}
                 data-autofocus
@@ -185,7 +177,7 @@ function NewAccountPage() {
                 {...form.register('slug')}
               />
             </SimpleGrid>
-            <SimpleGrid cols={{ base: 1, sm: 3 }}>
+            <SimpleGrid cols={{ base: 1, sm: 3, lg: 4 }}>
               <Controller
                 control={form.control}
                 name="planId"
@@ -232,7 +224,7 @@ function NewAccountPage() {
           </Section>
 
           <Section title={t('create.region')}>
-            <SimpleGrid cols={{ base: 1, sm: 3 }}>
+            <SimpleGrid cols={{ base: 1, sm: 3, lg: 4 }}>
               <Controller
                 control={form.control}
                 name="defaultLocale"
@@ -278,7 +270,7 @@ function NewAccountPage() {
           </Section>
 
           <Section title={t('create.start')}>
-            <SimpleGrid cols={{ base: 1, sm: 2 }}>
+            <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }}>
               <Controller
                 control={form.control}
                 name="status"
@@ -324,7 +316,7 @@ function NewAccountPage() {
               error={msg('adminEmail')}
               {...form.register('adminEmail')}
             />
-            <SimpleGrid cols={{ base: 1, sm: 2 }}>
+            <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }}>
               <TextInput
                 label={t('create.firstName')}
                 error={msg('adminFirstName')}

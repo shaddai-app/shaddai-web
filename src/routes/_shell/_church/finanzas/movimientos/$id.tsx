@@ -193,6 +193,7 @@ function MovementPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/finanzas/movimientos' }}
         title={transfer ? t(`kinds.${m.kind}`) : categoryLabel(m.category)}
         badge={
           m.status !== 'confirmed' ? (
@@ -243,7 +244,7 @@ function MovementPage() {
           )
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         {locked && !voided && (
           <Alert color="gray" variant="light" icon={<IconLock size={18} />}>
             {t('periods.lockedMovement')}

@@ -50,7 +50,7 @@ function SongsPage() {
           )
         }
       />
-      <Stack gap="md" maw={900}>
+      <Stack gap="md">
         <Group gap="sm" wrap="wrap">
           <TextInput
             style={{ flex: 1, minWidth: 220 }}

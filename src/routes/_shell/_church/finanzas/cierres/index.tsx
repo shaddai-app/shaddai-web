@@ -25,7 +25,7 @@ function PeriodsPage() {
   return (
     <>
       <PageHeader title={t('periods.title')} description={t('periods.description')} />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         <FormError error={list.error} />
         {list.isPending ? (
           <Loader />

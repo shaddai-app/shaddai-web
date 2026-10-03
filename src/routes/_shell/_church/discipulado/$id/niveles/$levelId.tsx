@@ -206,11 +206,9 @@ function LevelPage() {
 
   const items = enrollments.data?.items ?? [];
   return (
-    <Stack gap="md" maw={820}>
-      <AnchorLink to="/discipulado/$id" params={{ id: String(courseId) }} size="sm">
-        ← {course.data.name}
-      </AnchorLink>
+    <Stack gap="md">
       <PageHeader
+        back={{ to: '/discipulado/$id', params: { id: String(courseId) } }}
         title={level.name}
         description={level.teacher ? t('teacher', { name: level.teacher.name }) : undefined}
         actions={

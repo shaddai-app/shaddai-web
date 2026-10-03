@@ -150,6 +150,22 @@
   margin-top: 4px;
 }
 
+/*
+ * Botón blanco sobre el Azul noche (portada y cierre). El hover de Mantine para "white" lo oscurecía
+ * casi a negro: acá pasa a marfil, con el texto siempre en Azul noche.
+ */
+.lightButton {
+  /* Mantine pone estas variables en el style del botón: sin !important no se pisan. */
+  --button-bg: #ffffff !important;
+  --button-hover: var(--sh-marfil) !important;
+  --button-color: var(--sh-azul-noche) !important;
+  --button-bd: 1px solid transparent !important;
+
+  &[data-expanded] {
+    --button-bg: var(--sh-marfil) !important;
+  }
+}
+
 .footerLink {
   color: rgba(255, 255, 255, 0.78);
   font-size: 14px;

@@ -1,4 +1,4 @@
-import { Alert, Text } from '@mantine/core';
+import { Alert, Group, Text } from '@mantine/core';
 import { IconFlask, IconLock } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import type { Me } from '../../api/types';
@@ -8,23 +8,24 @@ export function DemoBanner({ me }: { me: Me }) {
   const { t } = useTranslation();
   if (!me.account?.isDemo) return null;
   return (
-    <Alert
-      variant="light"
-      radius="md"
-      py={4}
+    // Ícono y texto centrados en la misma línea (el Alert de Mantine alinea el ícono arriba).
+    <Group
+      gap="xs"
+      wrap="nowrap"
+      align="center"
       mb="md"
-      icon={<IconFlask size={16} />}
+      px="sm"
+      py={6}
       role="status"
-      styles={{
-        root: { background: 'var(--sh-superficie-sutil)', border: '1px solid var(--sh-borde)' },
-        message: { color: 'var(--sh-texto-2)' },
-        icon: { color: 'var(--sh-detalle)' },
-      }}
+      bg="var(--sh-marfil-bg)"
+      c="var(--sh-marfil-texto)"
+      style={{ border: '1px solid var(--sh-marfil-borde)', borderRadius: 'var(--mantine-radius-md)' }}
     >
+      <IconFlask size={16} style={{ flexShrink: 0 }} aria-hidden />
       <Text size="xs" lineClamp={2}>
         {t('demo.banner')}
       </Text>
-    </Alert>
+    </Group>
   );
 }
 
@@ -32,7 +33,7 @@ export function DemoBanner({ me }: { me: Me }) {
 export function DemoBlocked({ what }: { what: 'security' | 'billing' | 'export' | 'closure' }) {
   const { t } = useTranslation();
   return (
-    <Alert color="grape" variant="light" icon={<IconLock size={18} />}>
+    <Alert color="marfil" variant="light" icon={<IconLock size={18} />}>
       {t(`demo.blocked.${what}`)}
     </Alert>
   );

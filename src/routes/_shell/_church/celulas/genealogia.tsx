@@ -135,7 +135,7 @@ function GenealogyPage() {
   return (
     <>
       <PageHeader title={t('genealogy.title')} description={t('genealogy.description')} />
-      <Stack gap="md" maw={860}>
+      <Stack gap="md">
         <FormError error={query.error} />
         {query.isPending ? (
           <Loader />

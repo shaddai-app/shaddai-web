@@ -1,16 +1,17 @@
 import { Alert, Anchor, Button, Checkbox, PasswordInput, Stack, Text, TextInput, Title } from '@mantine/core';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
-import { Link, useNavigate } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import { authApi } from '../../api/auth';
-import { homePath, pendingStepPath, safeRedirect } from '../../auth/guards';
+import { homePath, pendingStep, safeRedirect } from '../../auth/guards';
 import { applyNewToken } from '../../auth/session';
 import { CodeInput } from '../../components/CodeInput';
 import { FormError } from '../../components/FormError';
+import classes from './auth.module.css';
 
 const schema = z.object({
   email: z.string().trim().min(1, 'required').pipe(z.email('email')),
@@ -20,21 +21,23 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 /**
- * Ingreso con email y contraseña, con el paso de verificación en dos pasos. Lo usan /login y la
- * portada de la landing; incluye su título porque cambia en el paso de 2FA.
+ * Ingreso con email y contraseña, con el paso de verificación en dos pasos. Vive en la tarjeta del
+ * home; incluye su título porque cambia en el paso de 2FA.
  */
 export function LoginForm({
   redirect,
   closed,
-  autoFocus = true,
-  titleOrder = 1,
+  autoFocus = false,
+  titleOrder = 2,
+  onForgot,
 }: {
   redirect?: string;
   /** Se llega después de dar de baja la cuenta de la iglesia. */
   closed?: boolean;
   autoFocus?: boolean;
-  /** h1 en /login; h2 en la landing (que ya tiene su h1 en la portada). */
   titleOrder?: 1 | 2;
+  /** "¿Olvidaste tu contraseña?": cambia la vista de la tarjeta. */
+  onForgot: () => void;
 }) {
   const { t } = useTranslation(['auth', 'errors']);
   const navigate = useNavigate();
@@ -45,6 +48,8 @@ export function LoginForm({
   const [useRecovery, setUseRecovery] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
+  // Al volver del paso de 2FA, el formulario entra con la misma animación.
+  const [challengeLeft, setChallengeLeft] = useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -53,8 +58,9 @@ export function LoginForm({
 
   const finish = async (accessToken: string) => {
     const me = await applyNewToken(queryClient, accessToken);
-    const pending = pendingStepPath(me);
-    if (pending) return navigate({ to: pending });
+    // Paso obligatorio (contraseña temporal, 2FA del superadmin): sigue en la misma tarjeta.
+    const pending = pendingStep(me);
+    if (pending) return navigate({ to: '/', search: { vista: pending, redirect }, resetScroll: false });
     const target = safeRedirect(redirect);
     return target ? navigate({ href: target }) : navigate({ to: homePath(me) });
   };
@@ -95,7 +101,7 @@ export function LoginForm({
 
   if (challenge) {
     return (
-      <Stack gap="md">
+      <Stack gap="md" className={classes.enter}>
         <div>
           <Title order={titleOrder} size="h3">
             {t('twoFactor.title')}
@@ -162,6 +168,7 @@ export function LoginForm({
           ta="center"
           onClick={() => {
             setChallenge(null);
+            setChallengeLeft(true);
             setUseRecovery(false);
             setCode('');
             setError(null);
@@ -179,7 +186,7 @@ export function LoginForm({
   };
 
   return (
-    <form onSubmit={onLogin} noValidate>
+    <form onSubmit={onLogin} noValidate className={challengeLeft ? classes.enter : undefined}>
       <Stack gap="md">
         <Title order={titleOrder} size="h3">
           {t('login.title')}
@@ -205,7 +212,7 @@ export function LoginForm({
         <Button type="submit" fullWidth loading={busy}>
           {t('login.submit')}
         </Button>
-        <Anchor component={Link} to="/olvide-contrasena" size="sm" ta="center">
+        <Anchor component="button" type="button" size="sm" ta="center" onClick={onForgot}>
           {t('login.forgot')}
         </Anchor>
       </Stack>

@@ -108,6 +108,7 @@ function ReportPage() {
     return (
       <>
         <PageHeader
+          back={{ to: '/celulas/$id', params: { id: params.id } }}
           title={t('report.editTitle')}
           description={`${r.cell.name} · ${formatDate(r.meetingDate)}`}
         />
@@ -138,6 +139,7 @@ function ReportPage() {
   return (
     <>
       <PageHeader
+        back={{ to: '/celulas/$id', params: { id: params.id } }}
         title={t('report.title', { date: formatDate(r.meetingDate) })}
         badge={
           <Badge variant="light" color={r.held ? 'teal' : 'gray'}>
@@ -163,7 +165,7 @@ function ReportPage() {
           )
         }
       />
-      <Stack gap="md" maw={820}>
+      <Stack gap="md">
         {r.held ? (
           <>
             <SimpleGrid cols={{ base: 2, sm: 4 }} spacing="sm">

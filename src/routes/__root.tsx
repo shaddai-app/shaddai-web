@@ -30,9 +30,8 @@ function SessionEvents() {
     const onLoggedOut = () => {
       queryClient.clear();
       const { pathname, href } = router.state.location;
-      // Desde pantallas públicas (login, recuperación) no tiene sentido volver a ellas después.
-      const isPublic = ['/', '/login', '/olvide-contrasena', '/restablecer'].includes(pathname);
-      void router.navigate({ to: '/login', search: isPublic ? {} : { redirect: href } });
+      // Desde el home (ingreso y recuperación) no tiene sentido volver a él después.
+      void router.navigate({ to: '/', search: pathname === '/' ? {} : { redirect: href } });
     };
     const onSupportEnded = () => {
       // El token de soporte ya se descartó en el cliente HTTP; se limpian los datos de la iglesia.

@@ -345,7 +345,7 @@ function Wizard({ mother }: { mother: CellDetail }) {
             {t('common:actions.continue')}
           </Button>
         ) : (
-          <Button onClick={() => void submit()} loading={busy} disabled={!canNext} color="grape">
+          <Button onClick={() => void submit()} loading={busy} disabled={!canNext}>
             {t('multiply.submit')}
           </Button>
         )}
@@ -364,8 +364,12 @@ function MultiplyPage() {
   if (cell.isError) return <FormError error={cell.error} />;
   const c = cell.data;
   return (
-    <Stack maw={760}>
-      <PageHeader title={t('multiply.title', { name: c.name })} description={t('multiply.description')} />
+    <Stack>
+      <PageHeader
+        back={{ to: '/celulas/$id', params: { id: String(id) } }}
+        title={t('multiply.title', { name: c.name })}
+        description={t('multiply.description')}
+      />
       {!c.access.multiply || c.status !== 'active' ? (
         <Alert color="yellow" variant="light">
           {c.status !== 'active' ? t('multiply.notActive') : t('multiply.forbidden')}

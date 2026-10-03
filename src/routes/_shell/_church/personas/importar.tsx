@@ -301,7 +301,7 @@ function ImportPage() {
       <PageHeader title={t('import.title')} description={t('import.description')} />
 
       {result ? (
-        <Card withBorder radius="lg" maw={560}>
+        <Card withBorder radius="lg">
           <Stack align="flex-start">
             <Group gap="xs">
               <IconCircleCheck color="var(--mantine-color-teal-6)" />
@@ -338,7 +338,7 @@ function ImportPage() {
           />
         </Card>
       ) : (
-        <Stack maw={720}>
+        <Stack>
           <Card withBorder radius="lg">
             <Title order={2} size="h5">
               {t('import.step1')}

@@ -134,7 +134,7 @@ function CoursesPage() {
       ) : list.data.items.length === 0 ? (
         <Text c="dimmed">{manager ? t('emptyManager') : t('empty')}</Text>
       ) : (
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md" maw={1100}>
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3, xl: 4 }} spacing="md">
           {list.data.items.map((c) => (
             <CourseCard key={c.id} course={c} />
           ))}

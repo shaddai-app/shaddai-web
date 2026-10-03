@@ -99,13 +99,17 @@ function RoleBadges({ user }: { user: AccountUser }) {
   return (
     <Group gap={4}>
       {user.isDemoUser && (
-        <Badge color="grape" variant="light">
+        <Badge color="marfil" variant="light">
           {t('users.badges.demo')}
         </Badge>
       )}
-      {user.isAccountOwner && <Badge variant="filled">{t('users.badges.owner')}</Badge>}
+      {user.isAccountOwner && (
+        <Badge variant="light" color="marfil">
+          {t('users.badges.owner')}
+        </Badge>
+      )}
       {user.roles.map((r) => (
-        <Badge key={r.id} variant="outline" color={r.isLocked ? undefined : 'gray'}>
+        <Badge key={r.id} variant={r.isLocked ? 'light' : 'outline'} color={r.isLocked ? 'marfil' : 'gray'}>
           {r.name}
         </Badge>
       ))}
