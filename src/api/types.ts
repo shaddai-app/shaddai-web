@@ -17,6 +17,8 @@ export interface Me {
     isPlatformAdmin: boolean;
     isAccountOwner: boolean;
     totpEnabled: boolean;
+    /** Códigos de recuperación sin usar (0 si no tiene la verificación en dos pasos). */
+    totpRecoveryCodesLeft: number;
   };
   account: {
     id: number;

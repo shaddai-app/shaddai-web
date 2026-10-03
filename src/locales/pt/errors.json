@@ -217,7 +217,11 @@
     "INVENTORY_ITEM_UNAVAILABLE": "O equipamento está em conserto ou baixado: não pode ser emprestado.",
     "NOTIFICATION_NOT_FOUND": "Não encontramos essa notificação.",
     "ACCOUNT_OWNER_REQUIRED": "Apenas o dono da conta pode encerrá-la.",
-    "CLOSURE_CONFIRM_MISMATCH": "O nome não coincide com o da igreja."
+    "CLOSURE_CONFIRM_MISMATCH": "O nome não coincide com o da igreja.",
+    "TOTP_NOT_ENABLED": "A verificação em duas etapas não está ativa.",
+    "TOTP_REQUIRED_FOR_PLATFORM_ADMIN": "Para o superadministrador a verificação em duas etapas é obrigatória.",
+    "USE_SECURITY_SETTINGS": "Para o seu próprio usuário, use a seção Segurança.",
+    "TOTP_ENROLLMENT_NOT_STARTED": "Comece a ativação de novo."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

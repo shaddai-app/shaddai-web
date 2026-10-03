@@ -26,6 +26,7 @@ export interface AccountUser {
   isAccountOwner: boolean;
   isAdmin: boolean;
   mustChangePassword: boolean;
+  totpEnabled: boolean;
   locked: boolean;
   lockedUntil: string | null;
   lastLoginAt: string | null;
@@ -76,6 +77,7 @@ export const usersApi = {
   unlock: (id: number) => api.post<AccountUser>(`/users/${id}/unlock`),
   resetPassword: (id: number, sendAccessEmail: boolean) =>
     api.post<TemporaryAccess>(`/users/${id}/reset-password`, { sendAccessEmail }),
+  resetTwoFactor: (id: number) => api.post<AccountUser>(`/users/${id}/reset-2fa`),
 };
 
 // ── Roles y permisos ───────────────────────────────────────────────────────

@@ -8,7 +8,9 @@ import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
 import { authApi, meApi } from '../../../api/auth';
 import type { ActiveSession } from '../../../api/types';
+import { meQuery } from '../../../auth/session';
 import { useSession } from '../../../auth/session-store';
+import { TwoFactorCard } from '../../../features/security/TwoFactorCard';
 import { FormError } from '../../../components/FormError';
 import { errorMessage } from '../../../i18n/errors';
 import { PageHeader } from '../../../layout/PageHeader';
@@ -88,6 +90,7 @@ function SecurityPage() {
   const navigate = useNavigate();
   const inSupport = useSession((s) => Boolean(s.support));
   const sessions = useQuery({ queryKey: ['me', 'sessions'], queryFn: meApi.sessions, enabled: !inSupport });
+  const me = useQuery(meQuery());
 
   const revoke = useMutation({
     mutationFn: meApi.revokeSession,
@@ -131,6 +134,8 @@ function SecurityPage() {
             </Button>
           </Group>
         </Card>
+
+        {me.data && <TwoFactorCard me={me.data} disabled={inSupport} />}
 
         {!inSupport && (
           <Card withBorder radius="lg" padding="lg">

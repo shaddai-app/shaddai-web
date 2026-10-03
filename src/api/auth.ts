@@ -19,7 +19,12 @@ export const authApi = {
   reset: (body: { token: string; newPassword: string }) =>
     api.post<void>('/auth/reset', body, { auth: false }),
   enrollTotp: () => api.post<{ secret: string; otpauthUri: string }>('/auth/2fa/enroll'),
-  confirmTotp: (code: string) => api.post<SessionTokenResponse>('/auth/2fa/confirm', { code }),
+  /** Activa la verificación en dos pasos; devuelve los códigos de recuperación (se muestran una vez). */
+  confirmTotp: (code: string) =>
+    api.post<SessionTokenResponse & { recoveryCodes: string[] }>('/auth/2fa/confirm', { code }),
+  disableTotp: (body: { password: string; code: string }) => api.post<void>('/auth/2fa/disable', body),
+  regenerateRecoveryCodes: (password: string) =>
+    api.post<{ recoveryCodes: string[] }>('/auth/2fa/recovery-codes', { password }),
   logout: () => api.post<void>('/auth/logout', undefined, { auth: false }),
   logoutAll: () => api.post<void>('/auth/logout-all'),
   stopSupport: () => api.post<void>('/auth/impersonation/stop'),

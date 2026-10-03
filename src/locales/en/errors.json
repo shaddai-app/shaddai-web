@@ -217,7 +217,11 @@
     "INVENTORY_ITEM_UNAVAILABLE": "The item is in repair or retired: it can't be lent.",
     "NOTIFICATION_NOT_FOUND": "We could not find that notification.",
     "ACCOUNT_OWNER_REQUIRED": "Only the account owner can close the account.",
-    "CLOSURE_CONFIRM_MISMATCH": "The name doesn't match the church's name."
+    "CLOSURE_CONFIRM_MISMATCH": "The name doesn't match the church's name.",
+    "TOTP_NOT_ENABLED": "Two-step verification is not turned on.",
+    "TOTP_REQUIRED_FOR_PLATFORM_ADMIN": "Two-step verification is mandatory for the super administrator.",
+    "USE_SECURITY_SETTINGS": "For your own user, use the Security section.",
+    "TOTP_ENROLLMENT_NOT_STARTED": "Start the setup again."
   },
   "validation": {
     "required": "This field is required.",

@@ -23,5 +23,39 @@
     "revoke": "Cerrar",
     "revoked": "Sesión cerrada",
     "logoutAllConfirm": "Vas a cerrar la sesión en todos tus dispositivos, incluido este. ¿Continuar?"
+  },
+  "twoFactor": {
+    "title": "Verificación en dos pasos",
+    "on": "Activa",
+    "off": "Desactivada",
+    "descriptionOff": "Además de la contraseña, al entrar te pedimos un código de una app del celular (Google Authenticator, Microsoft Authenticator o similar). Si alguien consigue tu contraseña, igual no puede entrar.",
+    "descriptionOn": "Al entrar te pedimos el código de tu app autenticadora.",
+    "codesLeft_one": "Te queda {{count}} código de recuperación.",
+    "codesLeft_other": "Te quedan {{count}} códigos de recuperación.",
+    "requiredForPlatform": "Para el superadministrador es obligatoria.",
+    "enable": "Activar",
+    "enableTitle": "Activar la verificación en dos pasos",
+    "enableHelp": "Escaneá el código con tu app autenticadora e ingresá el número de 6 dígitos que te muestra.",
+    "enabled": "Verificación en dos pasos activada",
+    "regenerate": "Generar códigos nuevos",
+    "regenerateTitle": "Generar códigos de recuperación nuevos",
+    "regenerateHelp": "Los códigos anteriores dejan de servir. Confirmá con tu contraseña.",
+    "disable": "Desactivar",
+    "disableTitle": "Desactivar la verificación en dos pasos",
+    "disableHelp": "Tu cuenta va a quedar protegida solo por la contraseña. Confirmá con tu contraseña y un código de la app o de recuperación.",
+    "disabled": "Verificación en dos pasos desactivada",
+    "password": "Contraseña",
+    "code": "Código",
+    "codeHelp": "Los 6 dígitos de la app o un código de recuperación.",
+    "cancel": "Cancelar",
+    "codes": {
+      "title": "Tus códigos de recuperación",
+      "warning": "Guardalos en un lugar seguro: sirven para entrar si perdés el celular. Cada uno se usa una sola vez y no los vamos a volver a mostrar.",
+      "download": "Descargar",
+      "fileName": "shaddai-codigos-de-recuperacion.txt",
+      "fileHeader": "Shaddai: códigos de recuperación de la verificación en dos pasos. Cada uno sirve una vez.",
+      "saved": "Ya los guardé en un lugar seguro",
+      "done": "Listo"
+    }
   }
 }
