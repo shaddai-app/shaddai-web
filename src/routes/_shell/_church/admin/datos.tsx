@@ -24,6 +24,7 @@ import { requirePermission } from '../../../../auth/guards';
 import { logout } from '../../../../auth/session';
 import { FormError } from '../../../../components/FormError';
 import { AnchorLink } from '../../../../components/links';
+import { DemoBlocked } from '../../../../features/demo/DemoNotice';
 import { SUPPORT_EMAIL } from '../../../../features/legal/constants';
 import { PageHeader } from '../../../../layout/PageHeader';
 
@@ -78,15 +79,19 @@ function DataPage() {
         <Text size="sm" c="dimmed">
           {t('data.export.excluded')}
         </Text>
-        <Group>
-          <Button
-            leftSection={<IconDownload size={18} />}
-            loading={download.isPending}
-            onClick={() => download.mutate()}
-          >
-            {t('data.export.button')}
-          </Button>
-        </Group>
+        {account.isDemo ? (
+          <DemoBlocked what="export" />
+        ) : (
+          <Group>
+            <Button
+              leftSection={<IconDownload size={18} />}
+              loading={download.isPending}
+              onClick={() => download.mutate()}
+            >
+              {t('data.export.button')}
+            </Button>
+          </Group>
+        )}
       </Section>
 
       <Section title={t('data.legal.title')}>
@@ -102,7 +107,9 @@ function DataPage() {
         <Text size="sm" fw={500}>
           {t('data.closure.advice')}
         </Text>
-        {me.user.isAccountOwner ? (
+        {account.isDemo ? (
+          <DemoBlocked what="closure" />
+        ) : me.user.isAccountOwner ? (
           <Group>
             <Button color="red" variant="outline" onClick={closeModal.open}>
               {t('data.closure.button')}

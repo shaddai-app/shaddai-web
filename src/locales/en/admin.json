@@ -28,7 +28,8 @@
       "pendingPassword": "Temporary password",
       "active": "Active",
       "twoFactor": "2FA",
-      "twoFactorHint": "Has two-step verification turned on"
+      "twoFactorHint": "Has two-step verification turned on",
+      "demo": "Demo"
     },
     "never": "Never",
     "actions": {

@@ -12,6 +12,7 @@ import { billingApi, type BillingOverview } from '../../../../api/billing';
 import { requirePermission } from '../../../../auth/guards';
 import { FormError } from '../../../../components/FormError';
 import { InvoiceList, PlanSummary } from '../../../../features/billing/BillingParts';
+import { DemoBlocked } from '../../../../features/demo/DemoNotice';
 import { useMoney } from '../../../../features/finance/common';
 import { SUPPORT_EMAIL } from '../../../../features/legal/constants';
 import { errorMessage } from '../../../../i18n/errors';
@@ -197,6 +198,7 @@ function SubscriptionCard({ billing }: { billing: BillingOverview }) {
 function BillingPage() {
   const { t } = useTranslation('billing');
   const { simular } = Route.useSearch();
+  const { me } = Route.useRouteContext();
   const billing = useQuery({ queryKey: billingKey, queryFn: billingApi.overview });
 
   return (
@@ -207,7 +209,9 @@ function BillingPage() {
           {t('fake.returned')}
         </Alert>
       )}
-      {billing.isPending ? (
+      {me.account?.isDemo ? (
+        <DemoBlocked what="billing" />
+      ) : billing.isPending ? (
         <Loader />
       ) : billing.isError ? (
         <FormError error={billing.error} />

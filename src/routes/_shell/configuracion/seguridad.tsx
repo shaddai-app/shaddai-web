@@ -10,6 +10,7 @@ import { authApi, meApi } from '../../../api/auth';
 import type { ActiveSession } from '../../../api/types';
 import { meQuery } from '../../../auth/session';
 import { useSession } from '../../../auth/session-store';
+import { DemoBlocked } from '../../../features/demo/DemoNotice';
 import { TwoFactorCard } from '../../../features/security/TwoFactorCard';
 import { FormError } from '../../../components/FormError';
 import { errorMessage } from '../../../i18n/errors';
@@ -114,6 +115,17 @@ function SecurityPage() {
         void navigate({ to: '/login' });
       },
     });
+
+  if (me.data?.user.isDemoUser) {
+    return (
+      <>
+        <PageHeader title={t('security.title')} />
+        <Stack gap="lg" maw={720}>
+          <DemoBlocked what="security" />
+        </Stack>
+      </>
+    );
+  }
 
   return (
     <>

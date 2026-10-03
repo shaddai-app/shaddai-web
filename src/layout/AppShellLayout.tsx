@@ -24,6 +24,7 @@ import { useTranslation } from 'react-i18next';
 import { accountApi } from '../api/admin';
 import { authApi } from '../api/auth';
 import { useFileUrl } from '../components/use-file-url';
+import { DemoBanner } from '../features/demo/DemoNotice';
 import { leaveSupport } from '../features/platform/support';
 import { NotificationBell } from '../features/notifications/NotificationBell';
 import { GlobalSearch, SearchTrigger } from '../features/search/GlobalSearch';
@@ -257,6 +258,7 @@ export function AppShellLayout({ me, children }: { me: Me; children: ReactNode }
 
       {searchable && <GlobalSearch />}
       <AppShell.Main>
+        <DemoBanner me={me} />
         <AccountStatusBanner me={me} />
         {children}
       </AppShell.Main>

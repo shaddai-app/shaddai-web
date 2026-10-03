@@ -22,6 +22,7 @@ function me(overrides: Omit<Partial<Me>, 'user'> & { user?: Partial<Me['user']> 
       isAccountOwner: false,
       totpEnabled: false,
       totpRecoveryCodesLeft: 0,
+      isDemoUser: false,
       ...overrides.user,
     },
   };
