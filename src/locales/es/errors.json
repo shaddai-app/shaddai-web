@@ -252,7 +252,6 @@
     "DEMO_CONFIRMATION_MISMATCH": "Esta cuenta no es la iglesia demo: no se restableció nada.",
     "DEMO_ACCOUNT_INVALID": "La cuenta 1 no es la iglesia demo: no se restableció nada.",
     "DEMO_RESET_IN_PROGRESS": "Ya hay un restablecimiento de la demo en curso. Probá de nuevo en unos minutos.",
-    "DEMO_PASSWORD_MISSING": "Falta configurar SEED_DEMO_PASSWORD en el servidor.",
     "DEMO_ACCOUNT_PROTECTED": "La iglesia demo no se puede suspender ni dar de baja."
   },
   "validation": {

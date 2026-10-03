@@ -138,7 +138,7 @@
     "warning": "Todos os dados da igreja demo e os usuários criados nela serão apagados, e as sessões abertas serão encerradas. Não é possível desfazer.",
     "email": "E-mail do admin da demo",
     "password": "Senha da demo",
-    "passwordHint": "O valor de SEED_DEMO_PASSWORD na configuração do servidor. Essas credenciais confirmam que é a conta demo.",
+    "passwordHint": "A senha pública da demo. Essas credenciais confirmam que é a conta demo.",
     "confirm": "Restaurar",
     "done": "Pronto: a demo ficou como nova ({{seconds}} s)."
   }

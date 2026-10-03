@@ -252,7 +252,6 @@
     "DEMO_CONFIRMATION_MISMATCH": "This account is not the demo church: nothing was reset.",
     "DEMO_ACCOUNT_INVALID": "Account 1 is not the demo church: nothing was reset.",
     "DEMO_RESET_IN_PROGRESS": "A demo reset is already running. Try again in a few minutes.",
-    "DEMO_PASSWORD_MISSING": "SEED_DEMO_PASSWORD is not configured on the server.",
     "DEMO_ACCOUNT_PROTECTED": "The demo church cannot be suspended or closed."
   },
   "validation": {
