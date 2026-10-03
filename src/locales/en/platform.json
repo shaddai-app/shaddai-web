@@ -126,5 +126,20 @@
     "platformOnly": "Platform only",
     "support": "Support",
     "system": "System"
+  },
+  "demo": {
+    "badge": "Demo",
+    "title": "Demo church",
+    "hint": "Prospective customers use it to try Shaddai. Resetting it deletes everything they entered and leaves it as new, with sample data up to today.",
+    "lastReset": "Last reset: {{date}}",
+    "never": "never",
+    "reset": "Reset demo",
+    "modalTitle": "Reset the demo church",
+    "warning": "All demo church data and the users created in it will be deleted, and open sessions will be signed out. This cannot be undone.",
+    "email": "Demo admin email",
+    "password": "Demo password",
+    "passwordHint": "The SEED_DEMO_PASSWORD value from the server configuration. These credentials confirm it is the demo account.",
+    "confirm": "Reset",
+    "done": "Done: the demo is as good as new ({{seconds}} s)."
   }
 }

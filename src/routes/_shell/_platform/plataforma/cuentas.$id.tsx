@@ -39,6 +39,7 @@ import { FormError } from '../../../../components/FormError';
 import { ResponsiveModal } from '../../../../components/ResponsiveModal';
 import { showTemporaryAccess } from '../../../../components/TemporaryAccess';
 import { PlatformBilling } from '../../../../features/billing/PlatformBilling';
+import { DemoResetCard } from '../../../../features/platform/DemoResetCard';
 import { ImpersonateModal } from '../../../../features/platform/ImpersonateModal';
 import { StatusBadge } from '../../../../features/platform/StatusBadge';
 import { LANGUAGES } from '../../../../i18n';
@@ -296,7 +297,10 @@ function StatusForm({ account, onClose }: { account: PlatformAccount; onClose: (
       <FormError error={error} />
       <Select
         label={t('detail.newStatus')}
-        data={ACCOUNT_STATUSES.map((s) => ({ value: s, label: t(`status.${s}`) }))}
+        // La demo existe siempre: no se suspende ni se cierra (se restablece).
+        data={ACCOUNT_STATUSES.filter((s) => !account.isDemo || (s !== 'suspended' && s !== 'closed')).map(
+          (s) => ({ value: s, label: t(`status.${s}`) }),
+        )}
         value={status}
         onChange={(v) => v && setStatus(v as AccountStatus)}
         allowDeselect={false}
@@ -456,6 +460,7 @@ function AccountDetail() {
       <Grid gap="lg">
         <Grid.Col span={{ base: 12, lg: 4 }} order={{ base: 1, lg: 2 }}>
           <Stack gap="lg">
+            {a.isDemo && <DemoResetCard account={a} />}
             <Section title={t('detail.usage')} extra={<StatusBadge status={a.status} size="md" />}>
               <Text size="sm">
                 {t('detail.plan')}: <b>{a.plan.name}</b>

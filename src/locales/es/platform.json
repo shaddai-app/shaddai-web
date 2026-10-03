@@ -126,5 +126,20 @@
     "platformOnly": "Solo plataforma",
     "support": "Soporte",
     "system": "Sistema"
+  },
+  "demo": {
+    "badge": "Demo",
+    "title": "Iglesia demo",
+    "hint": "La usan los clientes para probar Shaddai. Restablecerla borra todo lo que cargaron y la deja como recién creada, con los datos de ejemplo al día de hoy.",
+    "lastReset": "Último restablecimiento: {{date}}",
+    "never": "nunca",
+    "reset": "Restablecer demo",
+    "modalTitle": "Restablecer la iglesia demo",
+    "warning": "Se borran todos los datos de la iglesia demo, los usuarios que se crearon en ella y se cierran las sesiones abiertas. No se puede deshacer.",
+    "email": "Mail del admin de la demo",
+    "password": "Contraseña de la demo",
+    "passwordHint": "La de SEED_DEMO_PASSWORD en la configuración del servidor. Con estas credenciales se confirma que es la cuenta demo.",
+    "confirm": "Restablecer",
+    "done": "Listo: la demo quedó como nueva ({{seconds}} s)."
   }
 }
