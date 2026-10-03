@@ -1,8 +1,9 @@
 import type { MantineColorsTuple } from '@mantine/core';
 
 /**
- * Colores primarios que puede elegir una cuenta (sobrios, contraste AA verificado en claro y oscuro).
- * indigo, teal y violet son los de Mantine; el resto son tuplas propias.
+ * Colores primarios que puede elegir una cuenta. slate es el azul de la marca (#3B5F94); el resto
+ * comparte su perfil de saturación y luz (otro tono) para convivir con el marfil y el grafito, con el
+ * mismo contraste del texto blanco: AA en shade 7 (claro) y 6 (oscuro). Ver presets.test.ts.
  */
 export const customColors = {
   slate: [
@@ -17,29 +18,65 @@ export const customColors = {
     '#325485',
     '#254877',
   ],
+  indigo: [
+    '#eef0f8',
+    '#dcdfee',
+    '#b6bcda',
+    '#8e97c7',
+    '#808abf',
+    '#6b77b5',
+    '#5c6bb4',
+    '#4656a7',
+    '#3d4c98',
+    '#2f3e8b',
+  ],
+  teal: [
+    '#eff7f7',
+    '#ddeced',
+    '#b8d6d8',
+    '#91c0c3',
+    '#529297',
+    '#477f83',
+    '#3e787d',
+    '#306367',
+    '#275558',
+    '#1c4548',
+  ],
   burgundy: [
-    '#fbeef1',
-    '#f0dbe0',
-    '#e1b3bf',
-    '#d3889c',
-    '#c7647e',
-    '#c04d6b',
-    '#bd4061',
-    '#a63251',
-    '#942a48',
-    '#82203d',
+    '#f8eef1',
+    '#eedce1',
+    '#dab6bf',
+    '#c78e9c',
+    '#ba7586',
+    '#af6174',
+    '#af5169',
+    '#9c4158',
+    '#8d384d',
+    '#7f2b40',
   ],
   graphite: [
-    '#f3f4f6',
-    '#e6e7ea',
-    '#c9ccd3',
-    '#aab0bb',
-    '#8f97a6',
-    '#7e8799',
-    '#757f93',
-    '#636c80',
-    '#575f73',
-    '#495267',
+    '#f2f3f4',
+    '#e3e4e7',
+    '#c4c7cc',
+    '#a3a8b1',
+    '#818893',
+    '#717884',
+    '#69707d',
+    '#585f6a',
+    '#4d535e',
+    '#3f4550',
+  ],
+  violet: [
+    '#f2eef8',
+    '#e4dded',
+    '#c6b7d9',
+    '#a68fc5',
+    '#9b81bd',
+    '#8b6db3',
+    '#835eb2',
+    '#7049a4',
+    '#643f96',
+    '#573189',
   ],
 } satisfies Record<string, MantineColorsTuple>;
 

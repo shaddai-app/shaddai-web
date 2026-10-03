@@ -25,7 +25,7 @@ function ImpersonateForm({ userId, onClose }: { userId: number; onClose: () => v
       const imp = await platformApi.impersonate(userId, reason.trim());
       enterSupport(queryClient, imp);
       onClose();
-      await navigate({ to: '/' });
+      await navigate({ to: '/inicio' });
     } catch (err) {
       setError(err);
       setBusy(false);

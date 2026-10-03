@@ -1,0 +1,127 @@
+/* Shaddai — tokens de tema (v3)
+ * Claro "B": contenido blanco, estructura (encabezado y menú) en marfil.
+ * Oscuro: grafito; el marfil solo en detalles (ítem activo, líneas, anillos), nunca en textos.
+ * Uso: <html data-theme="light|dark">, o automático según el sistema.
+ */
+:root,
+[data-theme='light'] {
+  /* Marca (iguales en ambos modos) */
+  --sh-azul: #3b5f94;
+  --sh-azul-noche: #1f3456;
+  --sh-dorado: #e0b85e;
+  --sh-dorado-profundo: #c99a3e;
+  --sh-marfil: #f7f3ea;
+
+  /* Superficies */
+  --sh-bg: #ffffff; /* fondo del contenido */
+  --sh-estructura: #f7f3ea; /* encabezado, menú lateral, barra inferior móvil, bandas de la landing */
+  --sh-superficie: #ffffff; /* tarjetas, diálogos */
+  --sh-superficie-sutil: #fbf8f1; /* encabezados de tabla, avisos suaves */
+  --sh-input: #ffffff;
+  --sh-borde: #ebe5d8;
+  --sh-linea-estructura: #e8e1d1;
+
+  /* Texto */
+  --sh-texto: #1a2232;
+  --sh-texto-2: #3d4757;
+  --sh-texto-3: #5b6472;
+
+  /* Interacción */
+  --sh-primario: #3b5f94;
+  --sh-primario-texto: #ffffff;
+  --sh-primario-suave: #eef3f8;
+  --sh-primario-suave-texto: #2f4f7d;
+  --sh-enlace: #3b5f94;
+  --sh-activo-bg: #ffffff; /* ítem activo del menú (sobre marfil) */
+  --sh-activo-texto: #1f3456;
+  --sh-activo-sombra: 0 1px 2px rgba(31, 52, 86, 0.1);
+  --sh-detalle: #c99a3e; /* puntito del ítem activo, línea bajo títulos */
+  --sh-detalle-suave: #e6d9bb; /* anillos, subrayados decorativos */
+
+  /* Estados (fondo / texto) */
+  --sh-ok-bg: #e6f4ea;
+  --sh-ok: #1e6b3a;
+  --sh-aviso-bg: #fdf3dc;
+  --sh-aviso: #7a4f00;
+  --sh-error-bg: #fde8e8;
+  --sh-error: #a32626;
+  --sh-neutro-bg: #eef0f3;
+  --sh-neutro: #4b5563;
+  --sh-ingreso: #1e6b3a;
+  --sh-egreso: #a32626;
+
+  --sh-font-display: 'Frank Ruhl Libre', Georgia, serif;
+  --sh-font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sh-radio: 8px;
+  --sh-radio-tarjeta: 12px;
+}
+
+[data-theme='dark'] {
+  --sh-bg: #12171f;
+  --sh-estructura: #1a212c;
+  --sh-superficie: #1a212c;
+  --sh-superficie-sutil: #1e2530;
+  --sh-input: #12171f;
+  --sh-borde: #2a3342;
+  --sh-linea-estructura: #3a3934; /* línea cálida (marfil apagado) */
+
+  --sh-texto: #e6eaf0;
+  --sh-texto-2: #aab4c3;
+  --sh-texto-3: #8f9aac;
+
+  --sh-primario: #4a71a9;
+  --sh-primario-texto: #ffffff;
+  --sh-primario-suave: #22324a;
+  --sh-primario-suave-texto: #c3d2e6;
+  --sh-enlace: #8ca6c8;
+  --sh-activo-bg: #2a2c2f; /* gris cálido */
+  --sh-activo-texto: #e6eaf0;
+  --sh-activo-sombra: none;
+  --sh-detalle: #f7f3ea; /* marfil: puntito activo */
+  --sh-detalle-suave: #d9d2c3; /* marfil apagado: anillos, línea bajo títulos */
+
+  --sh-ok-bg: #173a26;
+  --sh-ok: #7fd49b;
+  --sh-aviso-bg: #3d3014;
+  --sh-aviso: #f0c96a;
+  --sh-error-bg: #44201f;
+  --sh-error: #f19a9a;
+  --sh-neutro-bg: #262d38;
+  --sh-neutro: #aab4c3;
+  --sh-ingreso: #7fd49b;
+  --sh-egreso: #f19a9a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --sh-bg: #12171f;
+    --sh-estructura: #1a212c;
+    --sh-superficie: #1a212c;
+    --sh-superficie-sutil: #1e2530;
+    --sh-input: #12171f;
+    --sh-borde: #2a3342;
+    --sh-linea-estructura: #3a3934;
+    --sh-texto: #e6eaf0;
+    --sh-texto-2: #aab4c3;
+    --sh-texto-3: #8f9aac;
+    --sh-primario: #4a71a9;
+    --sh-primario-suave: #22324a;
+    --sh-primario-suave-texto: #c3d2e6;
+    --sh-enlace: #8ca6c8;
+    --sh-activo-bg: #2a2c2f;
+    --sh-activo-texto: #e6eaf0;
+    --sh-activo-sombra: none;
+    --sh-detalle: #f7f3ea;
+    --sh-detalle-suave: #d9d2c3;
+    --sh-ok-bg: #173a26;
+    --sh-ok: #7fd49b;
+    --sh-aviso-bg: #3d3014;
+    --sh-aviso: #f0c96a;
+    --sh-error-bg: #44201f;
+    --sh-error: #f19a9a;
+    --sh-neutro-bg: #262d38;
+    --sh-neutro: #aab4c3;
+    --sh-ingreso: #7fd49b;
+    --sh-egreso: #f19a9a;
+  }
+}

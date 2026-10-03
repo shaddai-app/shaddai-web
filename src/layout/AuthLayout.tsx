@@ -1,56 +1,80 @@
-import { Box, Center, Group, Paper, Stack, Text, ThemeIcon, Title } from '@mantine/core';
-import { IconCross } from '@tabler/icons-react';
+import { Box, Center, Group, Paper, Stack, Text, Title } from '@mantine/core';
 import type { ReactNode } from 'react';
-import { LegalLinks } from '../features/legal/LegalLinks';
 import { useTranslation } from 'react-i18next';
+import { ShaddaiLogo } from '../components/BrandLogo';
+import { LegalLinks } from '../features/legal/LegalLinks';
+import { AnchorLink } from '../components/links';
 import { ColorSchemeToggle } from './ColorSchemeToggle';
+import { LanguageLinks } from './LanguageLinks';
 import { LanguageMenu } from './LanguageMenu';
+import classes from './AuthLayout.module.css';
 
-/** Pantallas sin sesión completa (login, recuperación, pasos obligatorios): tarjeta centrada. */
+/** Panel de marca: logo, lema con la línea dorada e idiomas (en el celular, una banda arriba). */
+export function BrandPanel() {
+  const { t } = useTranslation();
+  return (
+    <Box className={classes.brand}>
+      <AnchorLink to="/" aria-label={t('appName')} w="fit-content">
+        <ShaddaiLogo tone="dark" height={36} />
+      </AnchorLink>
+      <div>
+        <p className={classes.headline}>{t('tagline')}</p>
+        <div className={classes.goldLine} aria-hidden />
+      </div>
+      <div className={classes.languages}>
+        <LanguageLinks c="rgba(255, 255, 255, 0.75)" />
+      </div>
+    </Box>
+  );
+}
+
+/** Pantallas sin sesión completa (login, recuperación, pasos obligatorios): marca + tarjeta. */
 export function AuthLayout({
   title,
   description,
   children,
 }: {
-  title: string;
+  /** Sin título: lo pone el contenido (el login lo cambia en el paso de 2FA). */
+  title?: string;
   description?: string;
   children: ReactNode;
 }) {
-  const { t } = useTranslation();
   return (
-    <Box mih="100dvh" bg="var(--mantine-color-body)">
-      <Group justify="flex-end" p="sm" gap={4}>
-        <LanguageMenu />
-        <ColorSchemeToggle />
-      </Group>
-      <Center px="md" pb="xl">
-        <Stack w="100%" maw={420} gap="lg">
-          <Stack align="center" gap={6}>
-            <ThemeIcon size={52} radius="lg" aria-hidden>
-              <IconCross size={28} />
-            </ThemeIcon>
-            <Text fw={600} size="lg">
-              {t('appName')}
-            </Text>
-          </Stack>
-          <Paper withBorder radius="lg" p={{ base: 'lg', sm: 'xl' }} shadow="xs">
-            <Stack gap="md">
-              <div>
-                <Title order={2} size="h3">
-                  {title}
-                </Title>
-                {description && (
-                  <Text c="dimmed" size="sm" mt={6}>
-                    {description}
-                  </Text>
+    <div className={classes.root}>
+      <BrandPanel />
+      <main className={classes.main}>
+        <Group justify="flex-end" p="sm" gap={4}>
+          <LanguageMenu />
+          <ColorSchemeToggle />
+        </Group>
+        <Center px="md" pb="xl" style={{ flex: 1 }}>
+          <Stack w="100%" maw={420} gap="lg">
+            <Paper
+              withBorder
+              radius="var(--sh-radio-tarjeta)"
+              p={{ base: 'lg', sm: 'xl' }}
+              className={classes.card}
+            >
+              <Stack gap="md">
+                {title && (
+                  <div>
+                    <Title order={1} size="h3">
+                      {title}
+                    </Title>
+                    {description && (
+                      <Text c="dimmed" size="sm" mt={6}>
+                        {description}
+                      </Text>
+                    )}
+                  </div>
                 )}
-              </div>
-              {children}
-            </Stack>
-          </Paper>
-          <LegalLinks />
-        </Stack>
-      </Center>
-    </Box>
+                {children}
+              </Stack>
+            </Paper>
+            <LegalLinks />
+          </Stack>
+        </Center>
+      </main>
+    </div>
   );
 }

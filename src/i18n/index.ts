@@ -45,6 +45,7 @@ void i18n
       'prayer',
       'courses',
       'billing',
+      'landing',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },

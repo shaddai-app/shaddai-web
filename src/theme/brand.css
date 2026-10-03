@@ -1,0 +1,109 @@
+/*
+ * Tokens de la marca Shaddai (kit v3, docs/marca). Claro: contenido blanco y estructura (encabezado,
+ * menú, barra inferior) en marfil. Oscuro: grafito; el marfil solo en detalles, nunca en textos.
+ * Mantine pone data-mantine-color-scheme en <html> (también antes del primer render, ver index.html).
+ */
+:root {
+  /* Marca (iguales en los dos modos) */
+  --sh-azul: #3b5f94;
+  --sh-azul-noche: #1f3456;
+  --sh-dorado: #e0b85e;
+  --sh-dorado-profundo: #c99a3e;
+  --sh-marfil: #f7f3ea;
+
+  /* Superficies */
+  --sh-bg: #ffffff;
+  --sh-estructura: #f7f3ea;
+  --sh-superficie: #ffffff;
+  --sh-superficie-sutil: #fbf8f1;
+  --sh-input: #ffffff;
+  --sh-borde: #ebe5d8;
+  --sh-linea-estructura: #e8e1d1;
+  /* Fondo de las pantallas sin menú (login, públicas, legales): marfil en claro, grafito en oscuro. */
+  --sh-fondo-marco: #f7f3ea;
+
+  /* Texto */
+  --sh-texto: #1a2232;
+  --sh-texto-2: #3d4757;
+  --sh-texto-3: #5b6472;
+
+  /* Interacción */
+  --sh-activo-bg: #ffffff;
+  --sh-activo-texto: #1f3456;
+  --sh-activo-sombra: 0 1px 2px rgba(31, 52, 86, 0.1);
+  --sh-detalle: #c99a3e;
+  --sh-detalle-suave: #e6d9bb;
+
+  /* Estados (fondo / texto) */
+  --sh-ok-bg: #e6f4ea;
+  --sh-ok: #1e6b3a;
+  --sh-aviso-bg: #fdf3dc;
+  --sh-aviso: #7a4f00;
+  --sh-error-bg: #fde8e8;
+  --sh-error: #a32626;
+  --sh-neutro-bg: #eef0f3;
+  --sh-neutro: #4b5563;
+
+  --sh-font-display: 'Frank Ruhl Libre', Georgia, serif;
+  --sh-radio-tarjeta: 12px;
+}
+
+:root[data-mantine-color-scheme='dark'] {
+  --sh-bg: #12171f;
+  --sh-estructura: #1a212c;
+  --sh-superficie: #1a212c;
+  --sh-superficie-sutil: #1e2530;
+  --sh-input: #12171f;
+  --sh-borde: #2a3342;
+  --sh-linea-estructura: #3a3934;
+  --sh-fondo-marco: #12171f;
+
+  --sh-texto: #e6eaf0;
+  --sh-texto-2: #aab4c3;
+  --sh-texto-3: #8f9aac;
+
+  --sh-activo-bg: #2a2c2f;
+  --sh-activo-texto: #e6eaf0;
+  --sh-activo-sombra: none;
+  --sh-detalle: #f7f3ea;
+  --sh-detalle-suave: #d9d2c3;
+
+  --sh-ok-bg: #173a26;
+  --sh-ok: #7fd49b;
+  --sh-aviso-bg: #3d3014;
+  --sh-aviso: #f0c96a;
+  --sh-error-bg: #44201f;
+  --sh-error: #f19a9a;
+  --sh-neutro-bg: #262d38;
+  --sh-neutro: #aab4c3;
+}
+
+/* Tarjetas y diálogos: blancos en claro, #1A212C sobre el fondo grafito en oscuro. */
+.mantine-Paper-root,
+.mantine-Card-root,
+.mantine-Modal-content,
+.mantine-Drawer-content,
+.mantine-Popover-dropdown,
+.mantine-Menu-dropdown,
+.mantine-Combobox-dropdown,
+.mantine-Spotlight-content {
+  background-color: var(--sh-superficie);
+}
+
+.mantine-Paper-root[data-with-border],
+.mantine-Card-root[data-with-border] {
+  border-color: var(--sh-borde);
+}
+
+/* Encabezado de tabla suave, en mayúsculas chicas (como las capturas del kit). */
+.mantine-Table-thead {
+  background-color: var(--sh-superficie-sutil);
+}
+
+.mantine-Table-th {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sh-texto-3);
+}

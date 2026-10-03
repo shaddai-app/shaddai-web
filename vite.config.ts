@@ -13,14 +13,14 @@ export default defineConfig(({ mode }) => ({
     // PWA: se instala en el celular y abre sin señal (la app queda en caché; los datos no).
     VitePWA({
       registerType: 'prompt', // una versión nueva se aplica cuando el usuario acepta (no en medio de un formulario)
-      includeAssets: ['favicon.svg', 'apple-touch-icon-180x180.png'],
+      includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon-180x180.png'],
       manifest: {
         name: 'Shaddai',
         short_name: 'Shaddai',
-        description: 'Administración de la iglesia',
+        description: 'Administración para tu iglesia',
         lang: 'es',
-        theme_color: '#3b5f94',
-        background_color: '#ffffff',
+        theme_color: '#1f3456',
+        background_color: '#f7f3ea',
         display: 'standalone',
         start_url: '/',
         scope: '/',

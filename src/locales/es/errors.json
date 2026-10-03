@@ -253,7 +253,8 @@
     "DEMO_ACCOUNT_INVALID": "La cuenta 1 no es la iglesia demo: no se restableció nada.",
     "DEMO_RESET_IN_PROGRESS": "Ya hay un restablecimiento de la demo en curso. Probá de nuevo en unos minutos.",
     "DEMO_ACCOUNT_PROTECTED": "La iglesia demo no se puede suspender ni dar de baja.",
-    "DEMO_ACTION_BLOCKED": "En la demo no se puede hacer esto: los usuarios y la cuenta los comparten todos los que la prueban."
+    "DEMO_ACTION_BLOCKED": "En la demo no se puede hacer esto: los usuarios y la cuenta los comparten todos los que la prueban.",
+    "DEMO_UNAVAILABLE": "La demo no está disponible en este momento. Probá de nuevo en un rato."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

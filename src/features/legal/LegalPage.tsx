@@ -12,9 +12,9 @@ export function LegalPage({ doc }: { doc: keyof typeof LEGAL_SECTIONS }) {
   const { t } = useTranslation('legal');
   const vars = { email: SUPPORT_EMAIL };
   return (
-    <Box mih="100dvh" bg="var(--mantine-color-body)">
+    <Box mih="100dvh" bg="var(--sh-fondo-marco)">
       <Group justify="space-between" p="sm" gap={4}>
-        {/* A la app: con sesión abre el inicio; sin sesión, el login. */}
+        {/* A la app: con sesión abre el inicio; sin sesión, la página de presentación. */}
         <AnchorLink to="/" size="sm">
           <Group gap={4}>
             <IconArrowLeft size={16} />
@@ -28,7 +28,7 @@ export function LegalPage({ doc }: { doc: keyof typeof LEGAL_SECTIONS }) {
       </Group>
       <Center px="md" pb="xl">
         <Stack w="100%" maw={760} gap="lg">
-          <Paper withBorder radius="lg" p={{ base: 'lg', sm: 'xl' }} shadow="xs">
+          <Paper withBorder radius="var(--sh-radio-tarjeta)" p={{ base: 'lg', sm: 'xl' }}>
             <Stack gap="lg">
               <div>
                 <Title order={1} size="h2">

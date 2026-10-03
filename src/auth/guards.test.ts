@@ -41,8 +41,10 @@ describe('guards', () => {
 
   it('el superadmin va a la plataforma salvo que esté impersonando', () => {
     expect(homePath(me({ user: { isPlatformAdmin: true } }))).toBe('/plataforma');
-    expect(homePath(me({ user: { isPlatformAdmin: true }, impersonation: { impersonatorId: 1 } }))).toBe('/');
-    expect(homePath(me())).toBe('/');
+    expect(homePath(me({ user: { isPlatformAdmin: true }, impersonation: { impersonatorId: 1 } }))).toBe(
+      '/inicio',
+    );
+    expect(homePath(me())).toBe('/inicio');
   });
 
   it('solo acepta redirecciones internas', () => {
@@ -64,11 +66,11 @@ describe('permisos y menú', () => {
 
   it('el menú depende del tipo de sesión', () => {
     const church = navFor(me()).flatMap((s) => s.items.map((i) => i.to));
-    expect(church).toContain('/');
+    expect(church).toContain('/inicio');
     expect(church).not.toContain('/plataforma');
     const platform = navFor(me({ user: { isPlatformAdmin: true } })).flatMap((s) => s.items.map((i) => i.to));
     expect(platform).toContain('/plataforma');
-    expect(platform).not.toContain('/');
+    expect(platform).not.toContain('/inicio');
   });
 
   it('células y estructura aparecen solo con su permiso', () => {
