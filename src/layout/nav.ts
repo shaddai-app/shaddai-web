@@ -16,6 +16,7 @@ import {
   IconMusic,
   IconPlaylist,
   IconReportMoney,
+  IconSchool,
   IconHeartHandshake,
   IconHierarchy2,
   IconHistory,
@@ -80,6 +81,7 @@ export interface NavItem {
     | 'churchSettings'
     | 'announcements'
     | 'prayer'
+    | 'courses'
     | 'dataAndClosure'
     | 'audit'
     | 'plans'
@@ -126,6 +128,7 @@ const churchNav: NavSection[] = [
       { to: '/', label: 'home', icon: IconHome, mobile: true, exact: true },
       { to: '/anuncios', label: 'announcements', icon: IconSpeakerphone },
       { to: '/oracion', label: 'prayer', icon: IconPray },
+      { to: '/discipulado', label: 'courses', icon: IconSchool, permissions: ['discipulado.ver'] },
       {
         to: '/mi-celula',
         label: 'myCell',
