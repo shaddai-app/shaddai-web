@@ -236,7 +236,11 @@
     "COURSE_LEVEL_INACTIVE": "The level or course is inactive: it takes no enrollments.",
     "COURSE_ENROLLMENT_NOT_FOUND": "The enrollment doesn't exist.",
     "COURSE_ALREADY_ENROLLED": "The person is already enrolled in this level.",
-    "COURSE_DATE_BEFORE_ENROLLMENT": "The date can't be before the enrollment."
+    "COURSE_DATE_BEFORE_ENROLLMENT": "The date can't be before the enrollment.",
+    "COURSE_SESSION_NOT_FOUND": "The class doesn't exist or you can't see it.",
+    "COURSE_SESSION_EXISTS": "There is already a class on that day for this level.",
+    "COURSE_SESSION_FUTURE": "A class can't have a future date.",
+    "COURSE_ATTENDANCE_INVALID": "The attendance list changed. Close and reopen the class."
   },
   "validation": {
     "required": "This field is required.",

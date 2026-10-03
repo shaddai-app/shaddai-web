@@ -236,7 +236,11 @@
     "COURSE_LEVEL_INACTIVE": "El nivel o el curso está inactivo: no admite inscripciones.",
     "COURSE_ENROLLMENT_NOT_FOUND": "La inscripción no existe.",
     "COURSE_ALREADY_ENROLLED": "La persona ya está cursando este nivel.",
-    "COURSE_DATE_BEFORE_ENROLLMENT": "La fecha no puede ser anterior a la inscripción."
+    "COURSE_DATE_BEFORE_ENROLLMENT": "La fecha no puede ser anterior a la inscripción.",
+    "COURSE_SESSION_NOT_FOUND": "La clase no existe o no la podés ver.",
+    "COURSE_SESSION_EXISTS": "Ya hay una clase cargada ese día en este nivel.",
+    "COURSE_SESSION_FUTURE": "No se puede cargar una clase con fecha futura.",
+    "COURSE_ATTENDANCE_INVALID": "La lista de asistencia cambió. Cerrá y volvé a abrir la clase."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

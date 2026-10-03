@@ -31,6 +31,7 @@ import { meQuery } from '../../../../../../auth/session';
 import { FormError } from '../../../../../../components/FormError';
 import { AnchorLink } from '../../../../../../components/links';
 import { EnrollModal } from '../../../../../../features/courses/CourseModals';
+import { SessionsPanel } from '../../../../../../features/courses/SessionsPanel';
 import { coursesKey, useCourse } from '../../../../../../features/courses/common';
 import { formatDate, fullName } from '../../../../../../features/people/format';
 import { errorMessage } from '../../../../../../i18n/errors';
@@ -38,7 +39,7 @@ import { PageHeader } from '../../../../../../layout/PageHeader';
 
 export const Route = createFileRoute('/_shell/_church/discipulado/$id/niveles/$levelId')({
   beforeLoad: ({ context }) => requirePermission(context.me, 'discipulado.ver'),
-  validateSearch: z.object({ estado: z.enum(ENROLLMENT_STATUSES).optional() }),
+  validateSearch: z.object({ estado: z.enum([...ENROLLMENT_STATUSES, 'clases']).optional() }),
   component: LevelPage,
 });
 
@@ -80,6 +81,16 @@ function EnrollmentRow({
           {detail}
           {e.notes ? ` · ${e.notes}` : ''}
         </Text>
+        {e.progress.sessions > 0 && (
+          <Text size="xs" c={e.progress.meetsMinimum === false ? 'red' : 'dimmed'}>
+            {t('progress.attendance', {
+              attended: e.progress.attended,
+              sessions: e.progress.sessions,
+              pct: e.progress.pct,
+            })}
+            {e.progress.meetsMinimum === false ? ` · ${t('progress.belowMinimum')}` : ''}
+          </Text>
+        )}
       </div>
       {canEnroll && (
         <Group gap={4} wrap="nowrap">
@@ -129,7 +140,8 @@ function LevelPage() {
   const [enrolling, setEnrolling] = useState<number | null>(null);
   const enrollments = useQuery({
     queryKey: [...coursesKey, 'enrollments', levelId, estado],
-    queryFn: () => coursesApi.enrollments(levelId, estado),
+    queryFn: () => coursesApi.enrollments(levelId, estado as EnrollmentStatus),
+    enabled: estado !== 'clases',
     retry: false,
   });
   const refresh = () => queryClient.invalidateQueries({ queryKey: coursesKey });
@@ -214,7 +226,7 @@ function LevelPage() {
       <Tabs
         value={estado}
         onChange={(v) =>
-          void navigate({ search: { estado: (v ?? 'active') as EnrollmentStatus }, replace: true })
+          void navigate({ search: { estado: (v ?? 'active') as EnrollmentStatus | 'clases' }, replace: true })
         }
       >
         <Tabs.List style={{ overflowX: 'auto', flexWrap: 'nowrap' }}>
@@ -224,16 +236,19 @@ function LevelPage() {
               {level.counts ? ` (${level.counts[s]})` : ''}
             </Tabs.Tab>
           ))}
+          <Tabs.Tab value="clases">{t('sessions.tab')}</Tabs.Tab>
         </Tabs.List>
       </Tabs>
       <FormError error={enrollments.error} />
-      {enrollments.isPending ? (
+      {estado === 'clases' ? (
+        <SessionsPanel levelId={levelId} canEdit={level.canEnroll} />
+      ) : enrollments.isPending ? (
         <Center py="xl">
           <Loader />
         </Center>
       ) : items.length === 0 ? (
         <Text c="dimmed" ta="center" py="xl">
-          {t(`enrollments.empty.${estado}`)}
+          {t(`enrollments.empty.${estado as EnrollmentStatus}`)}
         </Text>
       ) : (
         <Card withBorder radius="lg">

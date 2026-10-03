@@ -59,7 +59,10 @@
     "teacherHint": "Com permissão de discipulado \"próprio\", vê e matricula só nos níveis que ensina.",
     "teacherPlaceholder": "Buscar pessoa",
     "active": "Ativo",
-    "activeHint": "Um nível inativo não aceita novas matrículas."
+    "activeHint": "Um nível inativo não aceita novas matrículas.",
+    "minAttendance": "Presença mínima",
+    "minAttendanceHint": "Para aprovar o nível. Só avisa: não impede marcá-lo como concluído.",
+    "noMinimum": "Sem mínimo"
   },
   "enroll": {
     "button": "Matricular",
@@ -114,5 +117,31 @@
       "completed": "Concluiu",
       "dropped": "Desistiu"
     }
+  },
+  "sessions": {
+    "tab": "Aulas",
+    "new": "Nova aula",
+    "newTitle": "Nova aula",
+    "editTitle": "Aula",
+    "empty": "Ainda não há aulas registradas neste nível.",
+    "date": "Data",
+    "topic": "Tema (opcional)",
+    "notes": "Observações (opcional)",
+    "attendance": "Presença: {{present}} de {{total}}",
+    "allPresent": "Todos presentes",
+    "noneAbsent": "Desmarcar todos",
+    "emptyRoster": "Ninguém estava matriculado nessa data.",
+    "presentOf": "{{present}}/{{total}} presentes",
+    "saved": "Aula salva",
+    "delete": "Excluir aula",
+    "deleteTitle": "Excluir aula",
+    "deleteBody": "Excluir a aula e sua presença?",
+    "deleted": "Aula excluída",
+    "close": "Fechar"
+  },
+  "progress": {
+    "attendance": "Presença {{attended}}/{{sessions}} ({{pct}}%)",
+    "belowMinimum": "abaixo do mínimo",
+    "short": "presença {{pct}}%"
   }
 }

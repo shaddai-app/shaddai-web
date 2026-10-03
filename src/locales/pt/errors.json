@@ -236,7 +236,11 @@
     "COURSE_LEVEL_INACTIVE": "O nível ou o curso está inativo: não aceita matrículas.",
     "COURSE_ENROLLMENT_NOT_FOUND": "A matrícula não existe.",
     "COURSE_ALREADY_ENROLLED": "A pessoa já está cursando este nível.",
-    "COURSE_DATE_BEFORE_ENROLLMENT": "A data não pode ser anterior à matrícula."
+    "COURSE_DATE_BEFORE_ENROLLMENT": "A data não pode ser anterior à matrícula.",
+    "COURSE_SESSION_NOT_FOUND": "A aula não existe ou você não pode vê-la.",
+    "COURSE_SESSION_EXISTS": "Já existe uma aula nesse dia neste nível.",
+    "COURSE_SESSION_FUTURE": "Não é possível registrar uma aula com data futura.",
+    "COURSE_ATTENDANCE_INVALID": "A lista de presença mudou. Feche e abra a aula de novo."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

@@ -4,6 +4,7 @@ import {
   Button,
   CloseButton,
   Group,
+  NumberInput,
   Select,
   Stack,
   Switch,
@@ -215,6 +216,7 @@ function LevelForm({
     : null;
   const [teacher, setTeacher] = useState<PersonOption | null>(initialTeacher);
   const [isActive, setIsActive] = useState(level?.isActive ?? true);
+  const [minAttendance, setMinAttendance] = useState<number | null>(level?.minAttendancePct ?? null);
   const { busy, error, submit } = useSubmit(onSaved);
 
   return (
@@ -226,6 +228,7 @@ function LevelForm({
           name: name.trim(),
           description: description.trim() || null,
           teacherPersonId: teacher?.id ?? null,
+          minAttendancePct: minAttendance,
         };
         void submit(() =>
           level
@@ -258,6 +261,17 @@ function LevelForm({
           placeholder={t('levelForm.teacherPlaceholder')}
           value={teacher}
           onChange={(p: PersonListItem | null) => setTeacher(p)}
+        />
+        <NumberInput
+          label={t('levelForm.minAttendance')}
+          description={t('levelForm.minAttendanceHint')}
+          placeholder={t('levelForm.noMinimum')}
+          value={minAttendance ?? ''}
+          onChange={(v) => setMinAttendance(typeof v === 'number' ? v : null)}
+          min={1}
+          max={100}
+          suffix="%"
+          allowDecimal={false}
         />
         {level && (
           <Switch
