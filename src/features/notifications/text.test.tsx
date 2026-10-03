@@ -68,4 +68,15 @@ describe('texto de los avisos', () => {
       body: 'Publicado por Pastor Demo.',
     });
   });
+
+  it('petición de oración: distinto texto para el líder y para los pastores', () => {
+    const forLeader = result.current(n('prayer.request', { author: 'Ana Gómez', visibility: 'leader' }));
+    expect(forLeader).toEqual({
+      title: 'Petición de oración de Ana Gómez',
+      body: 'Ana Gómez, de tu célula, te compartió una petición.',
+    });
+    expect(result.current(n('prayer.request', { author: 'Ana Gómez', visibility: 'pastors' })).body).toBe(
+      'La compartió con los pastores.',
+    );
+  });
 });

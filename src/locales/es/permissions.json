@@ -16,7 +16,8 @@
     "roles": "Roles",
     "cuenta": "Cuenta",
     "auditoria": "Auditoría",
-    "anuncios": "Anuncios"
+    "anuncios": "Anuncios",
+    "oracion": "Oración"
   },
   "actions": {
     "dashboard": {
@@ -108,6 +109,9 @@
     },
     "anuncios": {
       "gestionar": "Publicar y editar anuncios"
+    },
+    "oracion": {
+      "pastoral": "Ver todas las peticiones y moderar el muro"
     }
   },
   "scope": {

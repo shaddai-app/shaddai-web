@@ -16,7 +16,8 @@
     "roles": "Roles",
     "cuenta": "Account",
     "auditoria": "Audit",
-    "anuncios": "Announcements"
+    "anuncios": "Announcements",
+    "oracion": "Prayer"
   },
   "actions": {
     "dashboard": {
@@ -108,6 +109,9 @@
     },
     "anuncios": {
       "gestionar": "Post and edit announcements"
+    },
+    "oracion": {
+      "pastoral": "See every request and moderate the wall"
     }
   },
   "scope": {

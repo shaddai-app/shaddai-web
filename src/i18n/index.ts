@@ -42,6 +42,7 @@ void i18n
       'notifications',
       'legal',
       'announcements',
+      'prayer',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },

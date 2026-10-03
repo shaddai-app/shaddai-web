@@ -50,6 +50,17 @@
         "title": "Anuncio: {{title}}",
         "body": "Publicado por {{author}}."
       }
+    },
+    "prayer": {
+      "request": {
+        "title": "Petición de oración de {{author}}",
+        "body": "{{author}}, de tu célula, te compartió una petición.",
+        "bodyPastors": "La compartió con los pastores."
+      },
+      "praying": {
+        "title": "{{person}} está orando por vos",
+        "body": "Por tu petición de oración."
+      }
     }
   },
   "reason": "Motivo: {{reason}}",
@@ -92,6 +103,16 @@
         "published": {
           "label": "Anuncios de la iglesia",
           "hint": "Cuando se publica un anuncio para vos."
+        }
+      },
+      "prayer": {
+        "request": {
+          "label": "Peticiones de oración para mí",
+          "hint": "Cuando alguien de tu célula (o de la iglesia, si sos pastor) te comparte una petición."
+        },
+        "praying": {
+          "label": "Oran por mi petición",
+          "hint": "La primera vez que alguien marca «Estoy orando» en tu petición."
         }
       }
     },

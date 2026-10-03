@@ -50,6 +50,17 @@
         "title": "Anúncio: {{title}}",
         "body": "Publicado por {{author}}."
       }
+    },
+    "prayer": {
+      "request": {
+        "title": "Pedido de oração de {{author}}",
+        "body": "{{author}}, da sua célula, compartilhou um pedido com você.",
+        "bodyPastors": "Compartilhou com os pastores."
+      },
+      "praying": {
+        "title": "{{person}} está orando por você",
+        "body": "Pelo seu pedido de oração."
+      }
     }
   },
   "reason": "Motivo: {{reason}}",
@@ -92,6 +103,16 @@
         "published": {
           "label": "Anúncios da igreja",
           "hint": "Quando um anúncio é publicado para você."
+        }
+      },
+      "prayer": {
+        "request": {
+          "label": "Pedidos de oração para mim",
+          "hint": "Quando alguém da sua célula (ou da igreja, se você é pastor) compartilha um pedido com você."
+        },
+        "praying": {
+          "label": "Oram pelo meu pedido",
+          "hint": "A primeira vez que alguém toca em «Estou orando» no seu pedido."
         }
       }
     },

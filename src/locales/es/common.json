@@ -65,7 +65,8 @@
     "inventory": "Inventario",
     "loans": "Préstamos",
     "dataAndClosure": "Datos y baja",
-    "announcements": "Anuncios"
+    "announcements": "Anuncios",
+    "prayer": "Oración"
   },
   "userMenu": {
     "label": "Menú de usuario",

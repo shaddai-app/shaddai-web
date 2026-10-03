@@ -26,7 +26,9 @@ export function useNotificationText() {
             : '';
       const values = { ...p, date };
       const body = [
-        t(`types.${n.type}.body`, values),
+        n.type === 'prayer.request' && p.visibility === 'pastors'
+          ? t('types.prayer.request.bodyPastors', values)
+          : t(`types.${n.type}.body`, values),
         ...(n.type === 'assignment.declined' && p.reason ? [t('reason', { reason: p.reason })] : []),
         ...(n.type === 'consolidation.overdue' && p.unassigned
           ? [t('types.consolidation.overdue.unassigned')]
