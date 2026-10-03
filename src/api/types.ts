@@ -19,6 +19,8 @@ export interface Me {
     totpEnabled: boolean;
     /** Códigos de recuperación sin usar (0 si no tiene la verificación en dos pasos). */
     totpRecoveryCodesLeft: number;
+    /** Uno de los 4 usuarios compartidos de la demo: sin cambiar contraseña, 2FA ni sesiones. */
+    isDemoUser: boolean;
   };
   account: {
     id: number;
@@ -31,6 +33,8 @@ export interface Me {
     weekStartsOn: number;
     primaryColor: string;
     trialEndsAt: string | null;
+    /** La iglesia demo pública: aviso fijo y acciones bloqueadas. */
+    isDemo: boolean;
   } | null;
   permissions: PermissionMap;
   restriction: Restriction;

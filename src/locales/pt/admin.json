@@ -28,7 +28,8 @@
       "pendingPassword": "Senha temporária",
       "active": "Ativo",
       "twoFactor": "2FA",
-      "twoFactorHint": "Tem a verificação em duas etapas ativa"
+      "twoFactorHint": "Tem a verificação em duas etapas ativa",
+      "demo": "Demo"
     },
     "never": "Nunca",
     "actions": {

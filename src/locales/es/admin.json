@@ -28,7 +28,8 @@
       "pendingPassword": "Contraseña temporal",
       "active": "Activo",
       "twoFactor": "2FA",
-      "twoFactorHint": "Tiene la verificación en dos pasos activa"
+      "twoFactorHint": "Tiene la verificación en dos pasos activa",
+      "demo": "Demo"
     },
     "never": "Nunca",
     "actions": {

@@ -25,6 +25,8 @@ export interface AccountUser {
   isActive: boolean;
   isAccountOwner: boolean;
   isAdmin: boolean;
+  /** Usuario compartido de la demo: no se edita, desactiva ni resetea. */
+  isDemoUser: boolean;
   mustChangePassword: boolean;
   totpEnabled: boolean;
   locked: boolean;

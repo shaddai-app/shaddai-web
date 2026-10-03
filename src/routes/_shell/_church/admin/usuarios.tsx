@@ -98,6 +98,11 @@ function RoleBadges({ user }: { user: AccountUser }) {
   const { t } = useTranslation('admin');
   return (
     <Group gap={4}>
+      {user.isDemoUser && (
+        <Badge color="grape" variant="light">
+          {t('users.badges.demo')}
+        </Badge>
+      )}
       {user.isAccountOwner && <Badge variant="filled">{t('users.badges.owner')}</Badge>}
       {user.roles.map((r) => (
         <Badge key={r.id} variant="outline" color={r.isLocked ? undefined : 'gray'}>
@@ -208,7 +213,8 @@ function UsersPage() {
   const full = usage ? usage.activeUsers >= usage.userLimit : false;
 
   const actionsMenu = (u: AccountUser) => {
-    if (!canManage && !canReset) return null;
+    // Los usuarios compartidos de la demo no se tocan (la API también lo rechaza).
+    if ((!canManage && !canReset) || u.isDemoUser) return null;
     return (
       <Menu position="bottom-end" withinPortal>
         <Menu.Target>

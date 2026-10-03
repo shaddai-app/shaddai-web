@@ -174,5 +174,14 @@
     "body": "An unexpected error happened while showing this screen. Try again; if it keeps happening, tell your church administrator.",
     "retry": "Try again",
     "home": "Go to home"
+  },
+  "demo": {
+    "banner": "You are in the Shaddai demo: data is sample data and is reset every day.",
+    "blocked": {
+      "security": "In the demo you cannot change the password, turn on two-step verification or sign out sessions: everyone trying it shares this user.",
+      "billing": "The demo has no subscription or payments.",
+      "export": "Data export is not available in the demo.",
+      "closure": "The demo church cannot be closed."
+    }
   }
 }

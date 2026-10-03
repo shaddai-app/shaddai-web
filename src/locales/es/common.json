@@ -174,5 +174,14 @@
     "body": "Hubo un error inesperado al mostrar esta pantalla. Probá de nuevo; si se repite, avisale al administrador de tu iglesia.",
     "retry": "Reintentar",
     "home": "Ir al inicio"
+  },
+  "demo": {
+    "banner": "Estás en la demo de Shaddai: los datos son de ejemplo y se restablecen todos los días.",
+    "blocked": {
+      "security": "En la demo no se puede cambiar la contraseña, activar la verificación en dos pasos ni cerrar sesiones: este usuario lo comparten todos los que la prueban.",
+      "billing": "En la demo no hay suscripción ni pagos.",
+      "export": "En la demo no se pueden exportar los datos.",
+      "closure": "La iglesia demo no se puede dar de baja."
+    }
   }
 }
