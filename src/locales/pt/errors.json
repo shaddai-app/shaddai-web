@@ -224,7 +224,10 @@
     "TOTP_ENROLLMENT_NOT_STARTED": "Comece a ativação de novo.",
     "ANNOUNCEMENT_NOT_FOUND": "O anúncio não existe ou não é para você.",
     "ANNOUNCEMENT_AUDIENCE_INVALID": "Algum dos destinatários não existe mais. Revise a lista.",
-    "ANNOUNCEMENT_EXPIRES_BEFORE_PUBLISH": "O vencimento tem que ser depois da publicação."
+    "ANNOUNCEMENT_EXPIRES_BEFORE_PUBLISH": "O vencimento tem que ser depois da publicação.",
+    "PRAYER_NOT_FOUND": "O pedido não existe ou você não pode vê-lo.",
+    "PRAYER_NOT_AUTHOR": "Só quem o escreveu pode fazer isso.",
+    "PRAYER_NO_LEADER": "Você não está em uma célula com líder: escolha outra opção."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

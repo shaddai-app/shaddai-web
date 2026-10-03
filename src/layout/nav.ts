@@ -23,6 +23,7 @@ import {
   IconHome,
   IconHomeHeart,
   IconPackage,
+  IconPray,
   IconSpeakerphone,
   IconSettings,
   IconShieldCheck,
@@ -78,6 +79,7 @@ export interface NavItem {
     | 'roles'
     | 'churchSettings'
     | 'announcements'
+    | 'prayer'
     | 'dataAndClosure'
     | 'audit'
     | 'plans'
@@ -123,6 +125,7 @@ const churchNav: NavSection[] = [
     items: [
       { to: '/', label: 'home', icon: IconHome, mobile: true, exact: true },
       { to: '/anuncios', label: 'announcements', icon: IconSpeakerphone },
+      { to: '/oracion', label: 'prayer', icon: IconPray },
       {
         to: '/mi-celula',
         label: 'myCell',

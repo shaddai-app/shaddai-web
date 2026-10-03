@@ -1,0 +1,72 @@
+{
+  "title": "Oração",
+  "description": "Compartilhe seus pedidos de oração e ore pelos dos outros.",
+  "descriptionPastoral": "Você vê todos os pedidos, inclusive os que são só para pastores ou líderes.",
+  "new": "Novo pedido",
+  "anonymous": "Anônimo",
+  "actions": "Ações",
+  "edit": "Editar",
+  "delete": "Excluir",
+  "markAnswered": "Marcar como respondido",
+  "reopen": "Reabrir",
+  "answered": "Respondido",
+  "testimony": "Testemunho",
+  "more": "Ver mais",
+  "less": "Ver menos",
+  "pray": "Estou orando",
+  "praying": "Orando",
+  "prayingCount_one": "{{count}} pessoa orando",
+  "prayingCount_other": "{{count}} pessoas orando",
+  "prayedCount_one": "{{count}} pessoa orou",
+  "prayedCount_other": "{{count}} pessoas oraram",
+  "badge": {
+    "leader": "Para o líder de célula",
+    "pastors": "Só pastores",
+    "anonymous": "Anônimo para os outros"
+  },
+  "visibility": {
+    "public": "Toda a igreja",
+    "leader": "Meu líder de célula",
+    "pastors": "Só os pastores"
+  },
+  "tabs": {
+    "open": "Abertos",
+    "answered": "Respondidos",
+    "mine": "Meus"
+  },
+  "empty": {
+    "open": "Não há pedidos abertos. Quer compartilhar o seu?",
+    "answered": "Ainda não há pedidos respondidos.",
+    "mine": "Você ainda não compartilhou pedidos."
+  },
+  "deleteTitle": "Excluir pedido",
+  "deleteBodyMine": "O pedido deixa de ser visto por todos.",
+  "deleteBodyModerate": "O pedido deixa de ser visto por todos. Quem o escreveu não é avisado.",
+  "deleted": "Pedido excluído",
+  "saved": "Pedido salvo",
+  "shared": "Pedido compartilhado",
+  "reopened": "Pedido reaberto",
+  "answeredSaved": "Glória a Deus! Foi marcado como respondido.",
+  "backToList": "Todos os pedidos",
+  "form": {
+    "newTitle": "Novo pedido de oração",
+    "editTitle": "Editar pedido",
+    "body": "Pelo que você quer que oremos?",
+    "bodyPlaceholder": "Conte com suas palavras.",
+    "visibility": "Quem vê?",
+    "publicHint": "Aparece no mural de oração da igreja.",
+    "leaderHint": "Chega para {{names}}. Os pastores também veem.",
+    "noLeader": "Você não está em uma célula com líder.",
+    "pastorsHint": "Só os pastores veem.",
+    "anonymous": "Publicar sem meu nome",
+    "anonymousHint": "Os outros não veem quem pediu; os pastores sim.",
+    "share": "Compartilhar"
+  },
+  "answer": {
+    "title": "Pedido respondido",
+    "intro": "Que bom! Se quiser, conte como Deus respondeu para animar os outros.",
+    "testimony": "Testemunho (opcional)",
+    "testimonyPlaceholder": "Veem quem vê o seu pedido.",
+    "confirm": "Confirmar"
+  }
+}

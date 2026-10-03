@@ -1,0 +1,72 @@
+{
+  "title": "Prayer",
+  "description": "Share your prayer requests and pray for others.",
+  "descriptionPastoral": "You see every request, including those only for pastors or leaders.",
+  "new": "New request",
+  "anonymous": "Anonymous",
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "markAnswered": "Mark as answered",
+  "reopen": "Reopen",
+  "answered": "Answered",
+  "testimony": "Testimony",
+  "more": "Show more",
+  "less": "Show less",
+  "pray": "I'm praying",
+  "praying": "Praying",
+  "prayingCount_one": "{{count}} person praying",
+  "prayingCount_other": "{{count}} people praying",
+  "prayedCount_one": "{{count}} person prayed",
+  "prayedCount_other": "{{count}} people prayed",
+  "badge": {
+    "leader": "For the cell leader",
+    "pastors": "Pastors only",
+    "anonymous": "Anonymous to others"
+  },
+  "visibility": {
+    "public": "The whole church",
+    "leader": "My cell leader",
+    "pastors": "Pastors only"
+  },
+  "tabs": {
+    "open": "Open",
+    "answered": "Answered",
+    "mine": "Mine"
+  },
+  "empty": {
+    "open": "No open requests. Would you like to share yours?",
+    "answered": "No answered requests yet.",
+    "mine": "You haven't shared any requests yet."
+  },
+  "deleteTitle": "Delete request",
+  "deleteBodyMine": "The request will no longer be visible to anyone.",
+  "deleteBodyModerate": "The request will no longer be visible to anyone. The author is not notified.",
+  "deleted": "Request deleted",
+  "saved": "Request saved",
+  "shared": "Request shared",
+  "reopened": "Request reopened",
+  "answeredSaved": "Praise God! It was marked as answered.",
+  "backToList": "All requests",
+  "form": {
+    "newTitle": "New prayer request",
+    "editTitle": "Edit request",
+    "body": "What would you like us to pray for?",
+    "bodyPlaceholder": "Tell it in your own words.",
+    "visibility": "Who can see it?",
+    "publicHint": "It shows on the church's prayer wall.",
+    "leaderHint": "It goes to {{names}}. Pastors can see it too.",
+    "noLeader": "You're not in a cell with a leader.",
+    "pastorsHint": "Only pastors can see it.",
+    "anonymous": "Post it without my name",
+    "anonymousHint": "Others won't see who asked; pastors will.",
+    "share": "Share"
+  },
+  "answer": {
+    "title": "Answered request",
+    "intro": "Wonderful! If you like, share how God answered to encourage others.",
+    "testimony": "Testimony (optional)",
+    "testimonyPlaceholder": "Visible to those who can see your request.",
+    "confirm": "Confirm"
+  }
+}

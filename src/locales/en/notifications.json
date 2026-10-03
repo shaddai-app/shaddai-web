@@ -50,6 +50,17 @@
         "title": "Announcement: {{title}}",
         "body": "Posted by {{author}}."
       }
+    },
+    "prayer": {
+      "request": {
+        "title": "Prayer request from {{author}}",
+        "body": "{{author}}, from your cell, shared a request with you.",
+        "bodyPastors": "Shared with the pastors."
+      },
+      "praying": {
+        "title": "{{person}} is praying for you",
+        "body": "For your prayer request."
+      }
     }
   },
   "reason": "Reason: {{reason}}",
@@ -92,6 +103,16 @@
         "published": {
           "label": "Church announcements",
           "hint": "When an announcement is posted for you."
+        }
+      },
+      "prayer": {
+        "request": {
+          "label": "Prayer requests for me",
+          "hint": "When someone in your cell (or the church, if you are a pastor) shares a request with you."
+        },
+        "praying": {
+          "label": "Someone prays for my request",
+          "hint": "The first time someone taps “I’m praying” on your request."
         }
       }
     },
