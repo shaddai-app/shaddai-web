@@ -43,6 +43,7 @@ void i18n
       'legal',
       'announcements',
       'prayer',
+      'courses',
     ],
     defaultNS: 'common',
     interpolation: { escapeValue: false },

@@ -10,6 +10,7 @@ import type notifications from '../locales/es/notifications.json';
 import type legal from '../locales/es/legal.json';
 import type announcements from '../locales/es/announcements.json';
 import type prayer from '../locales/es/prayer.json';
+import type courses from '../locales/es/courses.json';
 import type finance from '../locales/es/finance.json';
 import type consolidation from '../locales/es/consolidation.json';
 import type common from '../locales/es/common.json';
@@ -43,6 +44,7 @@ declare module 'i18next' {
       legal: typeof legal;
       announcements: typeof announcements;
       prayer: typeof prayer;
+      courses: typeof courses;
     };
   }
 }

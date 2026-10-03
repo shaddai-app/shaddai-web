@@ -227,7 +227,16 @@
     "ANNOUNCEMENT_EXPIRES_BEFORE_PUBLISH": "The expiry must be after the publish date.",
     "PRAYER_NOT_FOUND": "The request doesn't exist or you can't see it.",
     "PRAYER_NOT_AUTHOR": "Only the author can do that.",
-    "PRAYER_NO_LEADER": "You're not in a cell with a leader: choose another option."
+    "PRAYER_NO_LEADER": "You're not in a cell with a leader: choose another option.",
+    "COURSE_NOT_FOUND": "The course doesn't exist or you can't see it.",
+    "COURSE_LEVEL_NOT_FOUND": "The level doesn't exist or you can't see it.",
+    "COURSE_LEVEL_FORBIDDEN": "You can't enroll people in this level.",
+    "COURSE_LEVEL_IN_USE": "The level has enrollments: deactivate it instead of deleting it.",
+    "COURSE_LEVELS_MISMATCH": "The list of levels changed. Reload the page.",
+    "COURSE_LEVEL_INACTIVE": "The level or course is inactive: it takes no enrollments.",
+    "COURSE_ENROLLMENT_NOT_FOUND": "The enrollment doesn't exist.",
+    "COURSE_ALREADY_ENROLLED": "The person is already enrolled in this level.",
+    "COURSE_DATE_BEFORE_ENROLLMENT": "The date can't be before the enrollment."
   },
   "validation": {
     "required": "This field is required.",

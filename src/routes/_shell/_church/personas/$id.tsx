@@ -54,6 +54,7 @@ import { PersonActionModal, type PersonModal } from '../../../../features/people
 import { can } from '../../../../auth/permissions';
 import { meQuery } from '../../../../auth/session';
 import { PersonFollowUpTab } from '../../../../features/consolidation/PersonFollowUpTab';
+import { PersonCoursesTab } from '../../../../features/courses/PersonCoursesTab';
 import { errorMessage } from '../../../../i18n/errors';
 
 export const Route = createFileRoute('/_shell/_church/personas/$id')({
@@ -413,6 +414,7 @@ function PersonPage() {
   const { data: me } = useSuspenseQuery(meQuery());
   const showFollowUp = can(me, 'consolidacion.ver');
   const showContributions = can(me, 'finanzas.diezmos_nominales');
+  const showCourses = can(me, 'discipulado.ver');
   const ageLabel = useAgeLabel();
 
   if (query.isPending) return <Loader />;
@@ -607,6 +609,7 @@ function PersonPage() {
           <Tabs.Tab value="family">{t('detail.tabs.family')}</Tabs.Tab>
           <Tabs.Tab value="milestones">{t('detail.tabs.milestones')}</Tabs.Tab>
           {showFollowUp && <Tabs.Tab value="followup">{t('detail.tabs.followUp')}</Tabs.Tab>}
+          {showCourses && <Tabs.Tab value="courses">{t('detail.tabs.courses')}</Tabs.Tab>}
           {showContributions && <Tabs.Tab value="contributions">{t('detail.tabs.contributions')}</Tabs.Tab>}
           <Tabs.Tab value="history">{t('detail.tabs.history')}</Tabs.Tab>
         </Tabs.List>
@@ -622,6 +625,11 @@ function PersonPage() {
         {showFollowUp && (
           <Tabs.Panel value="followup">
             <PersonFollowUpTab person={person} />
+          </Tabs.Panel>
+        )}
+        {showCourses && (
+          <Tabs.Panel value="courses">
+            <PersonCoursesTab personId={person.id} />
           </Tabs.Panel>
         )}
         <Tabs.Panel value="history">

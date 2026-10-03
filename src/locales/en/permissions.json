@@ -17,7 +17,8 @@
     "cuenta": "Account",
     "auditoria": "Audit",
     "anuncios": "Announcements",
-    "oracion": "Prayer"
+    "oracion": "Prayer",
+    "discipulado": "Discipleship"
   },
   "actions": {
     "dashboard": {
@@ -112,6 +113,11 @@
     },
     "oracion": {
       "pastoral": "See every request and moderate the wall"
+    },
+    "discipulado": {
+      "ver": "See courses and enrollments",
+      "gestionar": "Create and edit courses and levels",
+      "inscribir": "Enroll people and record progress"
     }
   },
   "scope": {

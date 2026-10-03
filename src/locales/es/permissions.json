@@ -17,7 +17,8 @@
     "cuenta": "Cuenta",
     "auditoria": "Auditoría",
     "anuncios": "Anuncios",
-    "oracion": "Oración"
+    "oracion": "Oración",
+    "discipulado": "Discipulado"
   },
   "actions": {
     "dashboard": {
@@ -112,6 +113,11 @@
     },
     "oracion": {
       "pastoral": "Ver todas las peticiones y moderar el muro"
+    },
+    "discipulado": {
+      "ver": "Ver cursos e inscripciones",
+      "gestionar": "Crear y editar cursos y niveles",
+      "inscribir": "Inscribir y registrar avances"
     }
   },
   "scope": {

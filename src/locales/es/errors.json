@@ -227,7 +227,16 @@
     "ANNOUNCEMENT_EXPIRES_BEFORE_PUBLISH": "El vencimiento tiene que ser después de la publicación.",
     "PRAYER_NOT_FOUND": "La petición no existe o no la podés ver.",
     "PRAYER_NOT_AUTHOR": "Solo quien la escribió puede hacer eso.",
-    "PRAYER_NO_LEADER": "No estás en una célula con líder: elegí otra opción."
+    "PRAYER_NO_LEADER": "No estás en una célula con líder: elegí otra opción.",
+    "COURSE_NOT_FOUND": "El curso no existe o no lo podés ver.",
+    "COURSE_LEVEL_NOT_FOUND": "El nivel no existe o no lo podés ver.",
+    "COURSE_LEVEL_FORBIDDEN": "No podés inscribir en este nivel.",
+    "COURSE_LEVEL_IN_USE": "El nivel tiene inscripciones: desactivalo en lugar de borrarlo.",
+    "COURSE_LEVELS_MISMATCH": "La lista de niveles cambió. Recargá la página.",
+    "COURSE_LEVEL_INACTIVE": "El nivel o el curso está inactivo: no admite inscripciones.",
+    "COURSE_ENROLLMENT_NOT_FOUND": "La inscripción no existe.",
+    "COURSE_ALREADY_ENROLLED": "La persona ya está cursando este nivel.",
+    "COURSE_DATE_BEFORE_ENROLLMENT": "La fecha no puede ser anterior a la inscripción."
   },
   "validation": {
     "required": "Este campo es obligatorio.",
