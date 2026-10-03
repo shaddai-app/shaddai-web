@@ -61,6 +61,12 @@
         "title": "{{person}} is praying for you",
         "body": "For your prayer request."
       }
+    },
+    "billing": {
+      "past_due": {
+        "title": "Shaddai payment overdue",
+        "body": "It was paid until {{date}}. The account is read-only until it is paid."
+      }
     }
   },
   "reason": "Reason: {{reason}}",
@@ -113,6 +119,12 @@
         "praying": {
           "label": "Someone prays for my request",
           "hint": "The first time someone taps “I’m praying” on your request."
+        }
+      },
+      "billing": {
+        "past_due": {
+          "label": "Payment overdue",
+          "hint": "When the service payment is overdue and the account becomes read-only."
         }
       }
     },

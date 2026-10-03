@@ -67,7 +67,8 @@
     "dataAndClosure": "Data and closure",
     "announcements": "Announcements",
     "prayer": "Prayer",
-    "courses": "Discipleship"
+    "courses": "Discipleship",
+    "billing": "Billing"
   },
   "userMenu": {
     "label": "User menu",
@@ -81,7 +82,9 @@
   "account": {
     "trialDaysLeft_one": "Free trial: {{count}} day left",
     "trialDaysLeft_other": "Free trial: {{count}} days left",
-    "readOnly": "The account is in read-only mode. Contact Shaddai to reactivate it."
+    "readOnly": "The account is read-only: the free trial or the payment has expired.",
+    "goToBilling": "Go to billing",
+    "readOnlyAsk": "Let your church administrator know."
   },
   "home": {
     "greeting": "Hi, {{name}}!",

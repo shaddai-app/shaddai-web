@@ -12,6 +12,8 @@ export interface Plan {
   userLimit: number;
   storageLimitMb: number;
   priceUsd: string;
+  /** Precio mensual en pesos del débito automático (null: sin precio, no se puede suscribir). */
+  priceArs: string | null;
   isActive: boolean;
 }
 
@@ -145,10 +147,13 @@ export const platformApi = {
       { sendAccessEmail },
     ),
   plans: () => api.get<{ items: Plan[] }>('/platform/plans'),
-  createPlan: (body: Omit<Plan, 'id' | 'priceUsd'> & { priceUsd: number }) =>
-    api.post<Plan>('/platform/plans', body),
-  updatePlan: (id: number, body: Partial<Omit<Plan, 'id' | 'priceUsd'> & { priceUsd: number }>) =>
-    api.patch<Plan>(`/platform/plans/${id}`, body),
+  createPlan: (
+    body: Omit<Plan, 'id' | 'priceUsd' | 'priceArs'> & { priceUsd: number; priceArs: number | null },
+  ) => api.post<Plan>('/platform/plans', body),
+  updatePlan: (
+    id: number,
+    body: Partial<Omit<Plan, 'id' | 'priceUsd' | 'priceArs'> & { priceUsd: number; priceArs: number | null }>,
+  ) => api.patch<Plan>(`/platform/plans/${id}`, body),
   audit: (q: {
     page?: number;
     pageSize?: number;

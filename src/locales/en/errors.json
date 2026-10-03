@@ -240,7 +240,14 @@
     "COURSE_SESSION_NOT_FOUND": "The class doesn't exist or you can't see it.",
     "COURSE_SESSION_EXISTS": "There is already a class on that day for this level.",
     "COURSE_SESSION_FUTURE": "A class can't have a future date.",
-    "COURSE_ATTENDANCE_INVALID": "The attendance list changed. Close and reopen the class."
+    "COURSE_ATTENDANCE_INVALID": "The attendance list changed. Close and reopen the class.",
+    "BILLING_DISABLED": "Online payment is not enabled.",
+    "BILLING_PLAN_NO_PRICE": "The plan has no price in pesos yet.",
+    "BILLING_ALREADY_SUBSCRIBED": "You already have an active automatic payment.",
+    "BILLING_NO_SUBSCRIPTION": "There is no automatic payment to cancel.",
+    "BILLING_PROVIDER_ERROR": "Mercado Pago did not respond. Try again in a few minutes.",
+    "BILLING_PROVIDER_NOT_FOUND": "Mercado Pago could not find the operation.",
+    "BILLING_WEBHOOK_SIGNATURE": "Invalid signature."
   },
   "validation": {
     "required": "This field is required.",

@@ -240,7 +240,14 @@
     "COURSE_SESSION_NOT_FOUND": "La clase no existe o no la podés ver.",
     "COURSE_SESSION_EXISTS": "Ya hay una clase cargada ese día en este nivel.",
     "COURSE_SESSION_FUTURE": "No se puede cargar una clase con fecha futura.",
-    "COURSE_ATTENDANCE_INVALID": "La lista de asistencia cambió. Cerrá y volvé a abrir la clase."
+    "COURSE_ATTENDANCE_INVALID": "La lista de asistencia cambió. Cerrá y volvé a abrir la clase.",
+    "BILLING_DISABLED": "El pago en línea no está habilitado.",
+    "BILLING_PLAN_NO_PRICE": "El plan todavía no tiene precio en pesos.",
+    "BILLING_ALREADY_SUBSCRIBED": "Ya tenés un débito automático activo.",
+    "BILLING_NO_SUBSCRIPTION": "No hay un débito automático para cancelar.",
+    "BILLING_PROVIDER_ERROR": "Mercado Pago no respondió. Probá de nuevo en unos minutos.",
+    "BILLING_PROVIDER_NOT_FOUND": "Mercado Pago no encontró la operación.",
+    "BILLING_WEBHOOK_SIGNATURE": "Firma inválida."
   },
   "validation": {
     "required": "Este campo es obligatorio.",
