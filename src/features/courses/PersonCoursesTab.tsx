@@ -46,6 +46,7 @@ export function PersonCoursesTab({ personId }: { personId: number }) {
                     : e.status === 'dropped'
                       ? t('enrollments.droppedOn', { date: formatDate(e.droppedAt) })
                       : t('enrollments.since', { date: formatDate(e.enrolledAt) })}
+                  {e.progress.pct !== null ? ` · ${t('progress.short', { pct: e.progress.pct })}` : ''}
                 </Text>
               </div>
               <Badge variant="light" color={STATUS_COLORS[e.status]} style={{ flexShrink: 0 }}>

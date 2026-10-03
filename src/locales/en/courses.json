@@ -59,7 +59,10 @@
     "teacherHint": "With \"own\" discipleship permissions, they see and enroll only in the levels they teach.",
     "teacherPlaceholder": "Search person",
     "active": "Active",
-    "activeHint": "An inactive level takes no new enrollments."
+    "activeHint": "An inactive level takes no new enrollments.",
+    "minAttendance": "Minimum attendance",
+    "minAttendanceHint": "To pass the level. It only warns: it doesn’t prevent marking it completed.",
+    "noMinimum": "No minimum"
   },
   "enroll": {
     "button": "Enroll",
@@ -114,5 +117,31 @@
       "completed": "Completed",
       "dropped": "Dropped"
     }
+  },
+  "sessions": {
+    "tab": "Classes",
+    "new": "New class",
+    "newTitle": "New class",
+    "editTitle": "Class",
+    "empty": "No classes recorded for this level yet.",
+    "date": "Date",
+    "topic": "Topic (optional)",
+    "notes": "Notes (optional)",
+    "attendance": "Attendance: {{present}} of {{total}}",
+    "allPresent": "All present",
+    "noneAbsent": "Uncheck all",
+    "emptyRoster": "Nobody was enrolled on that date.",
+    "presentOf": "{{present}}/{{total}} present",
+    "saved": "Class saved",
+    "delete": "Delete class",
+    "deleteTitle": "Delete class",
+    "deleteBody": "Delete the class and its attendance?",
+    "deleted": "Class deleted",
+    "close": "Close"
+  },
+  "progress": {
+    "attendance": "Attendance {{attended}}/{{sessions}} ({{pct}}%)",
+    "belowMinimum": "below the minimum",
+    "short": "attendance {{pct}}%"
   }
 }

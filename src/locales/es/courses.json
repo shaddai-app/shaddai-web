@@ -59,7 +59,10 @@
     "teacherHint": "Con permiso de discipulado \"propio\", ve e inscribe solo en los niveles que da.",
     "teacherPlaceholder": "Buscar persona",
     "active": "Activo",
-    "activeHint": "Un nivel inactivo no admite inscripciones nuevas."
+    "activeHint": "Un nivel inactivo no admite inscripciones nuevas.",
+    "minAttendance": "Asistencia mínima",
+    "minAttendanceHint": "Para aprobar el nivel. Solo avisa: no impide marcarlo como completado.",
+    "noMinimum": "Sin mínimo"
   },
   "enroll": {
     "button": "Inscribir",
@@ -114,5 +117,31 @@
       "completed": "Completó",
       "dropped": "Baja"
     }
+  },
+  "sessions": {
+    "tab": "Clases",
+    "new": "Nueva clase",
+    "newTitle": "Nueva clase",
+    "editTitle": "Clase",
+    "empty": "Todavía no se cargaron clases de este nivel.",
+    "date": "Fecha",
+    "topic": "Tema (opcional)",
+    "notes": "Notas (opcional)",
+    "attendance": "Asistencia: {{present}} de {{total}}",
+    "allPresent": "Todos presentes",
+    "noneAbsent": "Desmarcar todos",
+    "emptyRoster": "Nadie estaba inscripto en esa fecha.",
+    "presentOf": "{{present}}/{{total}} presentes",
+    "saved": "Clase guardada",
+    "delete": "Borrar clase",
+    "deleteTitle": "Borrar clase",
+    "deleteBody": "¿Borrar la clase y su asistencia?",
+    "deleted": "Clase borrada",
+    "close": "Cerrar"
+  },
+  "progress": {
+    "attendance": "Asistencia {{attended}}/{{sessions}} ({{pct}}%)",
+    "belowMinimum": "debajo del mínimo",
+    "short": "asistencia {{pct}}%"
   }
 }
