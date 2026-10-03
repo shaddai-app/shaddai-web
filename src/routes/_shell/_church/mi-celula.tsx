@@ -36,6 +36,7 @@ import { PersonAvatar } from '../../../features/people/PersonBits';
 import { errorMessage } from '../../../i18n/errors';
 import { ApiError } from '../../../api/http';
 import { draftEvents, reportDrafts, type ReportDraft } from '../../../pwa/report-drafts';
+import { AnnouncementsCard } from '../../../features/announcements/AnnouncementsCard';
 import { PageHeader } from '../../../layout/PageHeader';
 
 export const Route = createFileRoute('/_shell/_church/mi-celula')({
@@ -307,6 +308,7 @@ function MyCellPage() {
           <MyCell cellId={selected.id} />
         </>
       )}
+      <AnnouncementsCard />
     </Stack>
   );
 }

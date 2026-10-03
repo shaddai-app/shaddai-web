@@ -7,6 +7,7 @@ import { DASHBOARD_PERIODS } from '../../../api/dashboard';
 import { can, scopeOf } from '../../../auth/permissions';
 import { meQuery } from '../../../auth/session';
 import { MyTasksCard } from '../../../features/consolidation/MyTasksCard';
+import { AnnouncementsCard } from '../../../features/announcements/AnnouncementsCard';
 import { Dashboard } from '../../../features/dashboard/Dashboard';
 
 export const Route = createFileRoute('/_shell/_church/')({
@@ -36,6 +37,7 @@ function Home() {
         </Title>
         <Text c="dimmed">{t('home.subtitle', { church: me.account?.name ?? '' })}</Text>
       </div>
+      <AnnouncementsCard />
       {can(me, 'consolidacion.ver', 'consolidacion.gestionar') && <MyTasksCard />}
       {can(me, 'dashboard.ver') && (
         <Dashboard

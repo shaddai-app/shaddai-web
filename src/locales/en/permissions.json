@@ -15,10 +15,13 @@
     "usuarios": "Users",
     "roles": "Roles",
     "cuenta": "Account",
-    "auditoria": "Audit"
+    "auditoria": "Audit",
+    "anuncios": "Announcements"
   },
   "actions": {
-    "dashboard": { "ver": "View statistics" },
+    "dashboard": {
+      "ver": "View statistics"
+    },
     "personas": {
       "ver": "View people",
       "crear": "Add people",
@@ -45,20 +48,31 @@
       "multiplicar": "Multiply",
       "ver_reportes": "View reports"
     },
-    "estructura": { "gestionar": "Campuses, networks and zones" },
-    "catalogos": { "gestionar": "Statuses, milestones, positions and tags" },
+    "estructura": {
+      "gestionar": "Campuses, networks and zones"
+    },
+    "catalogos": {
+      "gestionar": "Statuses, milestones, positions and tags"
+    },
     "ministerios": {
       "ver": "View ministries",
       "gestionar": "Manage ministries",
       "turnos": "Assign schedules"
     },
-    "alabanza": { "ver": "View songs and setlists", "canciones": "Edit songs", "listas": "Build setlists" },
+    "alabanza": {
+      "ver": "View songs and setlists",
+      "canciones": "Edit songs",
+      "listas": "Build setlists"
+    },
     "eventos": {
       "ver": "View calendar",
       "gestionar": "Manage events",
       "inscripciones": "Manage registrations"
     },
-    "asistencia": { "ver": "View attendance", "registrar": "Record attendance" },
+    "asistencia": {
+      "ver": "View attendance",
+      "registrar": "Record attendance"
+    },
     "finanzas": {
       "ver": "View finances",
       "registrar": "Record transactions",
@@ -72,11 +86,29 @@
       "categorias": "Manage categories",
       "reportes": "Reports"
     },
-    "inventario": { "ver": "View inventory", "gestionar": "Manage equipment", "prestamos": "Loans" },
-    "usuarios": { "ver": "View users", "gestionar": "Manage users", "resetear": "Reset passwords" },
-    "roles": { "ver": "View roles", "gestionar": "Manage roles and permissions" },
-    "cuenta": { "configurar": "Configure the church" },
-    "auditoria": { "ver": "View audit log" }
+    "inventario": {
+      "ver": "View inventory",
+      "gestionar": "Manage equipment",
+      "prestamos": "Loans"
+    },
+    "usuarios": {
+      "ver": "View users",
+      "gestionar": "Manage users",
+      "resetear": "Reset passwords"
+    },
+    "roles": {
+      "ver": "View roles",
+      "gestionar": "Manage roles and permissions"
+    },
+    "cuenta": {
+      "configurar": "Configure the church"
+    },
+    "auditoria": {
+      "ver": "View audit log"
+    },
+    "anuncios": {
+      "gestionar": "Post and edit announcements"
+    }
   },
   "scope": {
     "none": "No access",

@@ -221,7 +221,10 @@
     "TOTP_NOT_ENABLED": "Two-step verification is not turned on.",
     "TOTP_REQUIRED_FOR_PLATFORM_ADMIN": "Two-step verification is mandatory for the super administrator.",
     "USE_SECURITY_SETTINGS": "For your own user, use the Security section.",
-    "TOTP_ENROLLMENT_NOT_STARTED": "Start the setup again."
+    "TOTP_ENROLLMENT_NOT_STARTED": "Start the setup again.",
+    "ANNOUNCEMENT_NOT_FOUND": "The announcement doesn't exist or isn't for you.",
+    "ANNOUNCEMENT_AUDIENCE_INVALID": "One of the recipients no longer exists. Check the list.",
+    "ANNOUNCEMENT_EXPIRES_BEFORE_PUBLISH": "The expiry must be after the publish date."
   },
   "validation": {
     "required": "This field is required.",

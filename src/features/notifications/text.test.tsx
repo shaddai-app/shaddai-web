@@ -61,4 +61,11 @@ describe('texto de los avisos', () => {
     expect(declined.body).toMatch(/^Voz en Culto \(Alabanza\), .*04\/10\/2026 10:00\. Motivo: Viaje$/);
     expect(result.current(n('algo.nuevo', {}))).toEqual({ title: 'Aviso', body: '' });
   });
+
+  it('anuncio publicado: título y autor', () => {
+    expect(result.current(n('announcement.published', { title: 'Retiro', author: 'Pastor Demo' }))).toEqual({
+      title: 'Anuncio: Retiro',
+      body: 'Publicado por Pastor Demo.',
+    });
+  });
 });

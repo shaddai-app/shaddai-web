@@ -15,10 +15,13 @@
     "usuarios": "Usuários",
     "roles": "Funções",
     "cuenta": "Conta",
-    "auditoria": "Auditoria"
+    "auditoria": "Auditoria",
+    "anuncios": "Anúncios"
   },
   "actions": {
-    "dashboard": { "ver": "Ver estatísticas" },
+    "dashboard": {
+      "ver": "Ver estatísticas"
+    },
     "personas": {
       "ver": "Ver pessoas",
       "crear": "Cadastrar",
@@ -45,8 +48,12 @@
       "multiplicar": "Multiplicar",
       "ver_reportes": "Ver relatórios"
     },
-    "estructura": { "gestionar": "Sedes, redes e zonas" },
-    "catalogos": { "gestionar": "Status, marcos, cargos e etiquetas" },
+    "estructura": {
+      "gestionar": "Sedes, redes e zonas"
+    },
+    "catalogos": {
+      "gestionar": "Status, marcos, cargos e etiquetas"
+    },
     "ministerios": {
       "ver": "Ver ministérios",
       "gestionar": "Gerenciar ministérios",
@@ -62,7 +69,10 @@
       "gestionar": "Gerenciar eventos",
       "inscripciones": "Gerenciar inscrições"
     },
-    "asistencia": { "ver": "Ver presença", "registrar": "Registrar presença" },
+    "asistencia": {
+      "ver": "Ver presença",
+      "registrar": "Registrar presença"
+    },
     "finanzas": {
       "ver": "Ver finanças",
       "registrar": "Registrar movimentos",
@@ -81,10 +91,24 @@
       "gestionar": "Gerenciar equipamentos",
       "prestamos": "Empréstimos"
     },
-    "usuarios": { "ver": "Ver usuários", "gestionar": "Gerenciar usuários", "resetear": "Redefinir senhas" },
-    "roles": { "ver": "Ver funções", "gestionar": "Gerenciar funções e permissões" },
-    "cuenta": { "configurar": "Configurar a igreja" },
-    "auditoria": { "ver": "Ver auditoria" }
+    "usuarios": {
+      "ver": "Ver usuários",
+      "gestionar": "Gerenciar usuários",
+      "resetear": "Redefinir senhas"
+    },
+    "roles": {
+      "ver": "Ver funções",
+      "gestionar": "Gerenciar funções e permissões"
+    },
+    "cuenta": {
+      "configurar": "Configurar a igreja"
+    },
+    "auditoria": {
+      "ver": "Ver auditoria"
+    },
+    "anuncios": {
+      "gestionar": "Publicar e editar anúncios"
+    }
   },
   "scope": {
     "none": "Sem acesso",

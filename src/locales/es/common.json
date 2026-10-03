@@ -64,7 +64,8 @@
     "setlists": "Listas",
     "inventory": "Inventario",
     "loans": "Préstamos",
-    "dataAndClosure": "Datos y baja"
+    "dataAndClosure": "Datos y baja",
+    "announcements": "Anuncios"
   },
   "userMenu": {
     "label": "Menú de usuario",
