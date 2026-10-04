@@ -257,7 +257,9 @@
     "DEMO_UNAVAILABLE": "La demo no está disponible en este momento. Probá de nuevo en un rato.",
     "PRAYER_LINK_NOT_FOUND": "Este pedido ya no está disponible.",
     "PRAYER_REPLY_FORBIDDEN": "Solo quien la pidió y quienes la atienden pueden ver y escribir respuestas.",
-    "PRAYER_NOT_FORM": "Solo las peticiones del formulario se marcan como contactadas."
+    "PRAYER_NOT_FORM": "Solo las peticiones del formulario se marcan como contactadas.",
+    "PRAYER_WALL_NOT_ALLOWED": "Quien la pidió no permitió compartirla en el muro.",
+    "PRAYER_ALREADY_LINKED": "La petición ya está vinculada a una ficha."
   },
   "validation": {
     "required": "Este campo es obligatorio.",

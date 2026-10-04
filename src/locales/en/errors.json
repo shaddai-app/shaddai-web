@@ -257,7 +257,9 @@
     "DEMO_UNAVAILABLE": "The demo is not available right now. Please try again in a while.",
     "PRAYER_LINK_NOT_FOUND": "This request is no longer available.",
     "PRAYER_REPLY_FORBIDDEN": "Only the requester and those looking after it can see and write replies.",
-    "PRAYER_NOT_FORM": "Only requests from the form can be marked as contacted."
+    "PRAYER_NOT_FORM": "Only requests from the form can be marked as contacted.",
+    "PRAYER_WALL_NOT_ALLOWED": "The requester did not allow sharing it on the wall.",
+    "PRAYER_ALREADY_LINKED": "The request is already linked to a person."
   },
   "validation": {
     "required": "This field is required.",

@@ -160,5 +160,31 @@
     "notFoundTitle": "Este pedido ya no está disponible",
     "notFoundBody": "Puede que se haya retirado o que el enlace esté incompleto.",
     "privacy": "Quien tenga este enlace puede ver tu pedido: no lo compartas con quien no quieras que lo lea."
+  },
+  "links": {
+    "personTitle": "Ficha de la persona",
+    "personHint": "Vinculala con su ficha para conocer su historia y poder compartirla con su líder de célula.",
+    "linkedTo": "Vinculada con",
+    "unlink": "Desvincular",
+    "link": "Vincular",
+    "linked": "Petición vinculada con la ficha",
+    "search": "Buscar a la persona…",
+    "create": "Crear ficha nueva",
+    "createTitle": "Crear ficha",
+    "createHint": "Se crea con el teléfono y el mail que dejó, y entra a consolidación para su seguimiento.",
+    "createConfirm": "Crear ficha",
+    "created": "Ficha creada y vinculada",
+    "duplicateHint": "Hay una ficha con los mismos datos. Si es la misma persona, cerrá y vinculala desde las sugerencias.",
+    "shareTitle": "¿Con quién se comparte?",
+    "shared": "Listo, se actualizó con quién se comparte",
+    "leader": "Su líder de célula",
+    "leaderTo": "Le llega a {{names}}.",
+    "leaderMissing": "Vinculá la ficha de alguien que esté en una célula con líder.",
+    "wall": "El muro de la iglesia",
+    "wallShare": {
+      "no": "No permitió compartirla en el muro.",
+      "anonymous": "Sale sin su nombre, como pidió.",
+      "named": "Sale con su nombre, como pidió."
+    }
   }
 }
