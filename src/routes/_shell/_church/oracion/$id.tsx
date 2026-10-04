@@ -1,13 +1,16 @@
 import { Card, Center, Loader, SimpleGrid, Stack, Text } from '@mantine/core';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { prayerApi } from '../../../../api/prayer';
+import { can } from '../../../../auth/permissions';
+import { meQuery } from '../../../../auth/session';
 import { FormError } from '../../../../components/FormError';
 import { PrayerItem } from '../../../../features/prayer/PrayerItem';
 import { prayerContextQuery } from '../../../../features/prayer/queries';
 import { ReplyThread } from '../../../../features/prayer/ReplyThread';
 import { RequesterCard } from '../../../../features/prayer/RequesterCard';
+import { RequesterLinks } from '../../../../features/prayer/RequesterLinks';
 import { usePrayerActions } from '../../../../features/prayer/usePrayerActions';
 import { BackButton } from '../../../../components/BackButton';
 
@@ -21,6 +24,7 @@ function PrayerRequestPage() {
   const { t } = useTranslation('prayer');
   const id = Number(Route.useParams().id);
   const navigate = useNavigate();
+  const { data: me } = useSuspenseQuery(meQuery());
   const queryClient = useQueryClient();
   const context = useQuery(prayerContextQuery());
   const request = useQuery({
@@ -59,6 +63,13 @@ function PrayerRequestPage() {
             </Card>
             {request.data.requester && (
               <RequesterCard p={request.data} requester={request.data.requester} canMark={pastoral} />
+            )}
+            {pastoral && request.data.requester && (
+              <RequesterLinks
+                p={request.data}
+                requester={request.data.requester}
+                canCreatePerson={can(me, 'personas.crear')}
+              />
             )}
           </Stack>
           {canReply && (

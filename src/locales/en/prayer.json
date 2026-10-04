@@ -160,5 +160,31 @@
     "notFoundTitle": "This request is no longer available",
     "notFoundBody": "It may have been withdrawn or the link may be incomplete.",
     "privacy": "Anyone with this link can see your request: don’t share it with anyone you don’t want to read it."
+  },
+  "links": {
+    "personTitle": "Person record",
+    "personHint": "Link it to their record to know their story and be able to share it with their cell leader.",
+    "linkedTo": "Linked to",
+    "unlink": "Unlink",
+    "link": "Link",
+    "linked": "Request linked to the record",
+    "search": "Search for the person…",
+    "create": "Create new record",
+    "createTitle": "Create record",
+    "createHint": "It’s created with the phone and email they left, and goes into follow-up.",
+    "createConfirm": "Create record",
+    "created": "Record created and linked",
+    "duplicateHint": "There is a record with the same details. If it’s the same person, close this and link it from the suggestions.",
+    "shareTitle": "Who is it shared with?",
+    "shared": "Done, sharing updated",
+    "leader": "Their cell leader",
+    "leaderTo": "It goes to {{names}}.",
+    "leaderMissing": "Link the record of someone in a cell with a leader.",
+    "wall": "The church’s wall",
+    "wallShare": {
+      "no": "They didn’t allow sharing it on the wall.",
+      "anonymous": "It shows without their name, as they asked.",
+      "named": "It shows with their name, as they asked."
+    }
   }
 }

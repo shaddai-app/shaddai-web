@@ -159,7 +159,7 @@ export function PrayerItem({
         </Paper>
       )}
 
-      <Group gap="sm" wrap="nowrap">
+      <Group gap="sm" wrap="wrap">
         {!answered && (
           <Button
             size="xs"

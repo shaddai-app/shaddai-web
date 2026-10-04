@@ -1,4 +1,5 @@
 import type { Paged } from './admin';
+import type { DuplicateResult } from './people';
 import { api } from './http';
 
 export const PRAYER_VISIBILITIES = ['public', 'leader', 'pastors'] as const;
@@ -39,6 +40,15 @@ export interface PrayerRequester {
   wallShare: 'anonymous' | 'named' | null;
   contactedAt: string | null;
   contactedBy: string | null;
+  /** La ficha vinculada por un pastor (con ella puede llegar a su líder). */
+  person: { id: number; name: string } | null;
+}
+
+/** Para vincular una del formulario: fichas sugeridas y a qué líderes llegaría. */
+export interface PrayerLinkOptions {
+  name: { firstName: string; lastName: string };
+  suggestions: DuplicateResult['items'];
+  leaders: string[];
 }
 
 export interface PrayerReply {
@@ -85,6 +95,14 @@ export const prayerApi = {
   reply: (id: number, body: string) => api.post<PrayerReply>(`/prayer-requests/${id}/replies`, { body }),
   contacted: (id: number) => api.put<PrayerRequest>(`/prayer-requests/${id}/contacted`),
   uncontacted: (id: number) => api.delete<PrayerRequest>(`/prayer-requests/${id}/contacted`),
+  linkOptions: (id: number) => api.get<PrayerLinkOptions>(`/prayer-requests/${id}/link-options`),
+  linkPerson: (id: number, personId: number) =>
+    api.put<PrayerRequest>(`/prayer-requests/${id}/person`, { personId }),
+  unlinkPerson: (id: number) => api.delete<PrayerRequest>(`/prayer-requests/${id}/person`),
+  createPerson: (id: number, body: { firstName: string; lastName: string; allowDuplicate?: boolean }) =>
+    api.post<PrayerRequest>(`/prayer-requests/${id}/person`, body),
+  share: (id: number, visibility: PrayerVisibility) =>
+    api.put<PrayerRequest>(`/prayer-requests/${id}/share`, { visibility }),
 };
 
 // ── Formulario público y enlace privado (sin sesión) ───────────────────────
