@@ -5,10 +5,25 @@ import QRCode from 'qrcode';
 import { useTranslation } from 'react-i18next';
 import { saveBlob } from '../../api/people';
 
-/** Enlace y QR del formulario público «Soy nuevo» de la iglesia. */
-export function ShareFormCard({ slug }: { slug: string }) {
+/**
+ * Enlace y QR de un formulario público de la iglesia: por defecto el «Soy nuevo»; con `path`, otro
+ * (por ejemplo, el de oración), con su propio título y explicación.
+ */
+export function ShareFormCard({
+  slug,
+  path = 'nuevo',
+  title,
+  body,
+  openLabel,
+}: {
+  slug: string;
+  path?: string;
+  title?: string;
+  body?: string;
+  openLabel?: string;
+}) {
   const { t } = useTranslation('people');
-  const url = `${window.location.origin}/nuevo/${slug}`;
+  const url = `${window.location.origin}/${path}/${slug}`;
   const qr = useQuery({
     queryKey: ['qr', url],
     queryFn: () => QRCode.toDataURL(url, { width: 640, margin: 2, errorCorrectionLevel: 'M' }),
@@ -17,7 +32,10 @@ export function ShareFormCard({ slug }: { slug: string }) {
 
   const download = async () => {
     if (!qr.data) return;
-    saveBlob(await (await fetch(qr.data)).blob(), `qr-${slug}.png`);
+    saveBlob(
+      await (await fetch(qr.data)).blob(),
+      path === 'nuevo' ? `qr-${slug}.png` : `qr-${path}-${slug}.png`,
+    );
   };
 
   return (
@@ -26,7 +44,7 @@ export function ShareFormCard({ slug }: { slug: string }) {
         {qr.data && (
           <Image
             src={qr.data}
-            alt={t('newcomers.share.title')}
+            alt={title ?? t('newcomers.share.title')}
             w={148}
             h={148}
             radius="md"
@@ -36,15 +54,15 @@ export function ShareFormCard({ slug }: { slug: string }) {
         )}
         <Stack gap="xs" style={{ flex: '1 1 260px' }}>
           <Title order={2} size="h5">
-            {t('newcomers.share.title')}
+            {title ?? t('newcomers.share.title')}
           </Title>
           <Text size="sm" c="dimmed">
-            {t('newcomers.share.body')}
+            {body ?? t('newcomers.share.body')}
           </Text>
           <TextInput
             value={url}
             readOnly
-            aria-label={t('newcomers.share.title')}
+            aria-label={title ?? t('newcomers.share.title')}
             onFocus={(e) => e.currentTarget.select()}
           />
           <Group gap="xs">
@@ -78,7 +96,7 @@ export function ShareFormCard({ slug }: { slug: string }) {
               rel="noopener noreferrer"
               leftSection={<IconExternalLink size={14} />}
             >
-              {t('newcomers.share.open')}
+              {openLabel ?? t('newcomers.share.open')}
             </Button>
           </Group>
         </Stack>

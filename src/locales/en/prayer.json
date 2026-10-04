@@ -22,7 +22,10 @@
   "badge": {
     "leader": "For the cell leader",
     "pastors": "Pastors only",
-    "anonymous": "Anonymous to others"
+    "anonymous": "Anonymous to others",
+    "form": "Form",
+    "wantsContact": "Wants contact",
+    "contacted": "Contacted"
   },
   "visibility": {
     "public": "The whole church",
@@ -32,12 +35,14 @@
   "tabs": {
     "open": "Open",
     "answered": "Answered",
-    "mine": "Mine"
+    "mine": "Mine",
+    "received": "Received"
   },
   "empty": {
     "open": "No open requests. Would you like to share yours?",
     "answered": "No answered requests yet.",
-    "mine": "You haven't shared any requests yet."
+    "mine": "You haven't shared any requests yet.",
+    "received": "No requests from the form yet. Share the QR code so anyone can ask for prayer, without an account."
   },
   "deleteTitle": "Delete request",
   "deleteBodyMine": "The request will no longer be visible to anyone.",
@@ -67,5 +72,93 @@
     "testimony": "Testimony (optional)",
     "testimonyPlaceholder": "Visible to those who can see your request.",
     "confirm": "Confirm"
+  },
+  "share": {
+    "title": "Prayer form",
+    "body": "Anyone can ask for prayer by scanning this QR code, without an account. Requests arrive here, for the pastors only.",
+    "open": "Open form"
+  },
+  "requester": {
+    "title": "Request from the form",
+    "noName": "No name",
+    "noContact": "No phone or email left.",
+    "greeting": "Hi {{name}}! I’m writing from the church about your prayer request.",
+    "markContacted": "Mark as contacted",
+    "undo": "Undo contacted",
+    "contactedBy": "Contacted by {{name}} on {{date}}.",
+    "wall": {
+      "no": "Doesn’t want it shared on the wall.",
+      "anonymous": "Allows sharing it on the wall, without their name.",
+      "named": "Allows sharing it on the wall, with their name."
+    }
+  },
+  "replies": {
+    "title": "Conversation",
+    "hint": "Only the requester and the team looking after it can see it.",
+    "hintMine": "Only you and those looking after your request can see it.",
+    "empty": "No replies yet. Write a few words of encouragement.",
+    "emptyRequester": "No replies yet. When someone from the church writes to you, you’ll see it here.",
+    "write": "Write a reply",
+    "placeholder": "Words of encouragement, a verse, when you’ll call…",
+    "placeholderRequester": "Write to the church…",
+    "send": "Send",
+    "you": "You",
+    "requester": "The requester",
+    "church": "The church",
+    "count_one": "{{count}} reply",
+    "count_other": "{{count}} replies"
+  },
+  "publicForm": {
+    "title": "Ask for prayer",
+    "subtitle": "Tell us what you’d like us to pray for. At {{church}} we will pray for you.",
+    "body": "What would you like us to pray for?",
+    "name": "Your name (optional)",
+    "nameHint": "If you leave it blank, your request arrives without a name.",
+    "phone": "Mobile / WhatsApp (optional)",
+    "email": "Email (optional)",
+    "wantsContact": "I’d like someone to contact me",
+    "wantsContactHint": "Leave a phone or an email so we can reach you.",
+    "contactRequired": "To contact you, leave a phone or an email.",
+    "wallShare": "Can we share it with the church?",
+    "wallShareHint": "The pastors always read it first; they only share it if you allow it.",
+    "wall": {
+      "no": "No, only for the pastors",
+      "anonymous": "Yes, without my name",
+      "named": "Yes, with my name"
+    },
+    "consent": "I agree that {{church}} keeps my request and my details to pray for me and reply to me. You can ask us to delete them at any time.",
+    "captcha": "Anti-spam check",
+    "submit": "Send request",
+    "notFound": "This form is not available.",
+    "thanksTitle": "We received your request!",
+    "thanksBody": "At {{church}} we will pray for you.",
+    "keepTitle": "Save this link",
+    "keepBody": "It’s the only way back to your request: there you’ll see the church’s replies and be able to answer.",
+    "keepBodyEmail": "It’s how you get back to your request to see the replies and answer. We also emailed it to you.",
+    "linkLabel": "Link to your request",
+    "copy": "Copy link",
+    "copied": "Link copied",
+    "share": "Share",
+    "openLink": "See my request"
+  },
+  "link": {
+    "title": "Your prayer request",
+    "titleNamed": "Your prayer request, {{name}}",
+    "sentOn": "Sent on {{date}}",
+    "onWall": "On the church’s wall",
+    "noPrayersYet": "It has reached the church.",
+    "contacted": "They have already contacted you.",
+    "contactPending": "You asked to be contacted: someone from the church will reach out soon.",
+    "repliesHint": "Only you and those looking after your request at {{church}} can see it.",
+    "markAnswered": "God answered",
+    "withdraw": "Withdraw my request",
+    "keep": "Keep it",
+    "withdrawTitle": "Withdraw your request",
+    "withdrawBody": "Your request and the conversation will no longer be visible and this link will stop working.",
+    "withdrawnTitle": "You withdrew your request",
+    "withdrawnBody": "It’s no longer visible to the church. If you need to, you can ask for prayer again from the form.",
+    "notFoundTitle": "This request is no longer available",
+    "notFoundBody": "It may have been withdrawn or the link may be incomplete.",
+    "privacy": "Anyone with this link can see your request: don’t share it with anyone you don’t want to read it."
   }
 }

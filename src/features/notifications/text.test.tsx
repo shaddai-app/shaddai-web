@@ -79,4 +79,26 @@ describe('texto de los avisos', () => {
       'La compartió con los pastores.',
     );
   });
+
+  it('pedido desde el formulario: con o sin nombre, y si pide contacto', () => {
+    expect(result.current(n('prayer.public', { name: 'Ana Gómez', wantsContact: 1 }))).toEqual({
+      title: 'Petición de oración de Ana Gómez',
+      body: 'Llegó desde el formulario de la iglesia. Pide que lo contacten.',
+    });
+    expect(result.current(n('prayer.public', { name: null, wantsContact: 0 }))).toEqual({
+      title: 'Nueva petición de oración',
+      body: 'Llegó desde el formulario de la iglesia.',
+    });
+  });
+
+  it('respuesta en una petición: al autor, al equipo y de quien pidió sin nombre', () => {
+    expect(result.current(n('prayer.reply', { person: 'Pastor Demo', mine: 1 }))).toEqual({
+      title: 'Pastor Demo respondió',
+      body: 'En tu petición de oración.',
+    });
+    expect(result.current(n('prayer.reply', { person: null, mine: 0 }))).toEqual({
+      title: 'Quien la pidió respondió',
+      body: 'En una petición de oración que atendés.',
+    });
+  });
 });

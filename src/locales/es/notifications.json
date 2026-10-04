@@ -60,6 +60,18 @@
       "praying": {
         "title": "{{person}} está orando por vos",
         "body": "Por tu petición de oración."
+      },
+      "public": {
+        "title": "Petición de oración de {{name}}",
+        "titleNoName": "Nueva petición de oración",
+        "body": "Llegó desde el formulario de la iglesia.",
+        "wantsContact": "Pide que lo contacten."
+      },
+      "reply": {
+        "title": "{{person}} respondió",
+        "body": "En una petición de oración que atendés.",
+        "bodyMine": "En tu petición de oración.",
+        "requester": "Quien la pidió"
       }
     },
     "billing": {
@@ -119,6 +131,14 @@
         "praying": {
           "label": "Oran por mi petición",
           "hint": "La primera vez que alguien marca «Estoy orando» en tu petición."
+        },
+        "public": {
+          "label": "Pedidos desde el formulario",
+          "hint": "Si sos pastor: cuando alguien sin usuario pide oración desde el QR."
+        },
+        "reply": {
+          "label": "Respuestas en peticiones",
+          "hint": "Cuando te responden en tu petición o en una que atendés."
         }
       },
       "billing": {

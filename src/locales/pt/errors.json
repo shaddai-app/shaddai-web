@@ -254,7 +254,10 @@
     "DEMO_RESET_IN_PROGRESS": "Já há uma restauração da demo em andamento. Tente novamente em alguns minutos.",
     "DEMO_ACCOUNT_PROTECTED": "A igreja demo não pode ser suspensa nem encerrada.",
     "DEMO_ACTION_BLOCKED": "Isso não está disponível na demo: todos que a experimentam compartilham os usuários e a conta.",
-    "DEMO_UNAVAILABLE": "A demo não está disponível no momento. Tente novamente daqui a pouco."
+    "DEMO_UNAVAILABLE": "A demo não está disponível no momento. Tente novamente daqui a pouco.",
+    "PRAYER_LINK_NOT_FOUND": "Este pedido não está mais disponível.",
+    "PRAYER_REPLY_FORBIDDEN": "Só quem pediu e quem acompanha podem ver e escrever respostas.",
+    "PRAYER_NOT_FORM": "Só os pedidos do formulário são marcados como contatados."
   },
   "validation": {
     "required": "Este campo é obrigatório.",

@@ -24,17 +24,26 @@ export function useNotificationText() {
           : typeof day === 'string'
             ? dayjs(day).format('L')
             : '';
-      const values = { ...p, date };
+      // prayer.public y prayer.reply sin nombre: alguien del formulario que no lo dejó.
+      const person = n.type === 'prayer.reply' && !p.person ? t('types.prayer.reply.requester') : p.person;
+      const values = { ...p, person, date };
+      const title =
+        n.type === 'prayer.public' && !p.name
+          ? t('types.prayer.public.titleNoName')
+          : t(`types.${n.type}.title`, values);
       const body = [
         n.type === 'prayer.request' && p.visibility === 'pastors'
           ? t('types.prayer.request.bodyPastors', values)
-          : t(`types.${n.type}.body`, values),
+          : n.type === 'prayer.reply' && p.mine
+            ? t('types.prayer.reply.bodyMine', values)
+            : t(`types.${n.type}.body`, values),
+        ...(n.type === 'prayer.public' && p.wantsContact ? [t('types.prayer.public.wantsContact')] : []),
         ...(n.type === 'assignment.declined' && p.reason ? [t('reason', { reason: p.reason })] : []),
         ...(n.type === 'consolidation.overdue' && p.unassigned
           ? [t('types.consolidation.overdue.unassigned')]
           : []),
       ];
-      return { title: t(`types.${n.type}.title`, values), body: body.join(' ') };
+      return { title, body: body.join(' ') };
     },
     [t],
   );
