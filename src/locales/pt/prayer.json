@@ -22,7 +22,10 @@
   "badge": {
     "leader": "Para o líder de célula",
     "pastors": "Só pastores",
-    "anonymous": "Anônimo para os outros"
+    "anonymous": "Anônimo para os outros",
+    "form": "Formulário",
+    "wantsContact": "Pede contato",
+    "contacted": "Contatado"
   },
   "visibility": {
     "public": "Toda a igreja",
@@ -32,12 +35,14 @@
   "tabs": {
     "open": "Abertos",
     "answered": "Respondidos",
-    "mine": "Meus"
+    "mine": "Meus",
+    "received": "Recebidos"
   },
   "empty": {
     "open": "Não há pedidos abertos. Quer compartilhar o seu?",
     "answered": "Ainda não há pedidos respondidos.",
-    "mine": "Você ainda não compartilhou pedidos."
+    "mine": "Você ainda não compartilhou pedidos.",
+    "received": "Ainda não chegaram pedidos pelo formulário. Compartilhe o QR para que qualquer pessoa possa pedir oração, sem usuário."
   },
   "deleteTitle": "Excluir pedido",
   "deleteBodyMine": "O pedido deixa de ser visto por todos.",
@@ -67,5 +72,93 @@
     "testimony": "Testemunho (opcional)",
     "testimonyPlaceholder": "Veem quem vê o seu pedido.",
     "confirm": "Confirmar"
+  },
+  "share": {
+    "title": "Formulário de oração",
+    "body": "Qualquer pessoa pode pedir oração escaneando este QR, sem usuário. Os pedidos chegam aqui, só para os pastores.",
+    "open": "Abrir formulário"
+  },
+  "requester": {
+    "title": "Pedido pelo formulário",
+    "noName": "Sem nome",
+    "noContact": "Não deixou telefone nem e-mail.",
+    "greeting": "Olá {{name}}! Escrevo da igreja sobre o seu pedido de oração.",
+    "markContacted": "Marcar como contatado",
+    "undo": "Desfazer contatado",
+    "contactedBy": "Contatado por {{name}} em {{date}}.",
+    "wall": {
+      "no": "Não quer que seja compartilhado no mural.",
+      "anonymous": "Permite compartilhar no mural, sem o nome.",
+      "named": "Permite compartilhar no mural, com o nome."
+    }
+  },
+  "replies": {
+    "title": "Conversa",
+    "hint": "Só quem pediu e a equipe que acompanha podem ver.",
+    "hintMine": "Só você e quem acompanha o seu pedido podem ver.",
+    "empty": "Ainda não há respostas. Escreva algumas palavras de ânimo.",
+    "emptyRequester": "Ainda não há respostas. Quando alguém da igreja escrever para você, vai aparecer aqui.",
+    "write": "Escrever uma resposta",
+    "placeholder": "Palavras de ânimo, um versículo, quando vai ligar…",
+    "placeholderRequester": "Escreva para a igreja…",
+    "send": "Enviar",
+    "you": "Você",
+    "requester": "Quem pediu",
+    "church": "A igreja",
+    "count_one": "{{count}} resposta",
+    "count_other": "{{count}} respostas"
+  },
+  "publicForm": {
+    "title": "Peça oração",
+    "subtitle": "Conte pelo que você quer que oremos. Na {{church}} vamos orar por você.",
+    "body": "Pelo que você quer que oremos?",
+    "name": "Seu nome (opcional)",
+    "nameHint": "Se não deixar, seu pedido chega sem nome.",
+    "phone": "Celular / WhatsApp (opcional)",
+    "email": "E-mail (opcional)",
+    "wantsContact": "Quero que alguém entre em contato",
+    "wantsContactHint": "Deixe um telefone ou um e-mail para falarmos com você.",
+    "contactRequired": "Para entrarmos em contato, deixe um telefone ou um e-mail.",
+    "wallShare": "Podemos compartilhar com a igreja?",
+    "wallShareHint": "Os pastores sempre leem primeiro; só compartilham se você permitir.",
+    "wall": {
+      "no": "Não, só para os pastores",
+      "anonymous": "Sim, sem meu nome",
+      "named": "Sim, com meu nome"
+    },
+    "consent": "Aceito que a {{church}} guarde meu pedido e meus dados para orar por mim e me responder. Você pode pedir que os apaguemos quando quiser.",
+    "captcha": "Verificação anti-spam",
+    "submit": "Enviar pedido",
+    "notFound": "Este formulário não está disponível.",
+    "thanksTitle": "Recebemos o seu pedido!",
+    "thanksBody": "Na {{church}} vamos orar por você.",
+    "keepTitle": "Guarde este link",
+    "keepBody": "É a única forma de voltar ao seu pedido: lá você vê as respostas da igreja e pode responder.",
+    "keepBodyEmail": "É a sua forma de voltar ao pedido para ver as respostas e responder. Também enviamos por e-mail.",
+    "linkLabel": "Link do seu pedido",
+    "copy": "Copiar link",
+    "copied": "Link copiado",
+    "share": "Compartilhar",
+    "openLink": "Ver meu pedido"
+  },
+  "link": {
+    "title": "Seu pedido de oração",
+    "titleNamed": "Seu pedido de oração, {{name}}",
+    "sentOn": "Enviado em {{date}}",
+    "onWall": "No mural da igreja",
+    "noPrayersYet": "Já chegou à igreja.",
+    "contacted": "Já entraram em contato com você.",
+    "contactPending": "Você pediu contato: logo alguém da igreja vai falar com você.",
+    "repliesHint": "Só você e quem acompanha o seu pedido na {{church}} podem ver.",
+    "markAnswered": "Deus respondeu",
+    "withdraw": "Retirar meu pedido",
+    "keep": "Manter",
+    "withdrawTitle": "Retirar seu pedido",
+    "withdrawBody": "Seu pedido e a conversa deixam de aparecer e este link deixa de funcionar.",
+    "withdrawnTitle": "Você retirou seu pedido",
+    "withdrawnBody": "Ele não aparece mais na igreja. Se precisar, pode pedir oração de novo pelo formulário.",
+    "notFoundTitle": "Este pedido não está mais disponível",
+    "notFoundBody": "Pode ter sido retirado ou o link pode estar incompleto.",
+    "privacy": "Quem tiver este link pode ver seu pedido: não o compartilhe com quem você não quer que o leia."
   }
 }

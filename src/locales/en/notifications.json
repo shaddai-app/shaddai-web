@@ -60,6 +60,18 @@
       "praying": {
         "title": "{{person}} is praying for you",
         "body": "For your prayer request."
+      },
+      "public": {
+        "title": "Prayer request from {{name}}",
+        "titleNoName": "New prayer request",
+        "body": "It came from the church’s form.",
+        "wantsContact": "They ask to be contacted."
+      },
+      "reply": {
+        "title": "{{person}} replied",
+        "body": "On a prayer request you look after.",
+        "bodyMine": "On your prayer request.",
+        "requester": "The requester"
       }
     },
     "billing": {
@@ -119,6 +131,14 @@
         "praying": {
           "label": "Someone prays for my request",
           "hint": "The first time someone taps “I’m praying” on your request."
+        },
+        "public": {
+          "label": "Requests from the form",
+          "hint": "If you are a pastor: when someone without an account asks for prayer from the QR code."
+        },
+        "reply": {
+          "label": "Replies on requests",
+          "hint": "When someone replies on your request or on one you look after."
         }
       },
       "billing": {

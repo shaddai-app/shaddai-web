@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { prayerApi, type PrayerRequest } from '../../api/prayer';
 import { AnchorLink } from '../../components/links';
 import { errorMessage } from '../../i18n/errors';
+import { ContactBadge } from './RequesterCard';
 
 const textStyle = { whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' } as const;
 
@@ -70,7 +71,7 @@ export function PrayerItem({
       <Group justify="space-between" wrap="nowrap" align="flex-start" gap="xs">
         <div style={{ minWidth: 0 }}>
           <Text fw={600} fs={p.author ? undefined : 'italic'}>
-            {p.author ? p.author.name : t('anonymous')}
+            {p.author ? p.author.name : p.requester ? t('requester.noName') : t('anonymous')}
           </Text>
           <Text size="xs" c="dimmed">
             {full ? (
@@ -113,8 +114,14 @@ export function PrayerItem({
         )}
       </Group>
 
-      {(answered || p.visibility !== 'public' || (p.mine && p.anonymous)) && (
+      {(answered || p.visibility !== 'public' || (p.mine && p.anonymous) || p.source === 'form') && (
         <Group gap={6}>
+          {p.source === 'form' && (
+            <Badge size="sm" variant="light" color="gray">
+              {t('badge.form')}
+            </Badge>
+          )}
+          {p.requester && <ContactBadge requester={p.requester} />}
           {answered && (
             <Badge size="sm" variant="light" color="teal">
               {t('answered')}
@@ -171,6 +178,11 @@ export function PrayerItem({
               ? t('prayedCount', { count: p.prayerCount })
               : t('prayingCount', { count: p.prayerCount })}
           </Text>
+        )}
+        {!full && p.replyCount > 0 && (
+          <AnchorLink to="/oracion/$id" params={{ id: String(p.id) }} size="xs">
+            {t('replies.count', { count: p.replyCount })}
+          </AnchorLink>
         )}
       </Group>
     </Stack>

@@ -254,7 +254,10 @@
     "DEMO_RESET_IN_PROGRESS": "A demo reset is already running. Try again in a few minutes.",
     "DEMO_ACCOUNT_PROTECTED": "The demo church cannot be suspended or closed.",
     "DEMO_ACTION_BLOCKED": "This is not available in the demo: everyone trying it shares the users and the account.",
-    "DEMO_UNAVAILABLE": "The demo is not available right now. Please try again in a while."
+    "DEMO_UNAVAILABLE": "The demo is not available right now. Please try again in a while.",
+    "PRAYER_LINK_NOT_FOUND": "This request is no longer available.",
+    "PRAYER_REPLY_FORBIDDEN": "Only the requester and those looking after it can see and write replies.",
+    "PRAYER_NOT_FORM": "Only requests from the form can be marked as contacted."
   },
   "validation": {
     "required": "This field is required.",
